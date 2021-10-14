@@ -4,14 +4,14 @@ import Jumbles from "./components/jumbles";
 function App() {
   return (
     <main className="px-3">
-      <div className="navbar"> Hallllooo</div>
+      <div className="navbar"> Navigation</div>
       <h1> Erste Schritte </h1>
       <p className="lead">Make it your own.</p>
       <Jumbles />
       <p className="lead">
         <a
           href="http://localhost:3000/"
-          class="btn btn-lg btn-secondary fw-bold border-black bg-black"
+          className="btn btn-lg btn-secondary fw-bold border-black bg-black"
         >
           Learn more
         </a>
