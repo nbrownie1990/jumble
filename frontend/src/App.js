@@ -12,7 +12,7 @@ function App() {
     <main className="px-3">
       <h1> Erste Schritte </h1>
       <p className="lead">Make it your own.</p>
-      <Jumbles />
+
       <p className="lead">
         <a
           href="http://localhost:3000/"
@@ -26,7 +26,7 @@ function App() {
         role="alert"
         data-aos="fade-up"
       >
-        A simple primary alert- From bottom!
+        <Jumbles />- From bottom!
       </div>
     </main>
   );
