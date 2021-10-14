@@ -1,4 +1,4 @@
-import "./App.css";
+import "./App.scss";
 import Jumbles from "./components/jumbles";
 
 function App() {
@@ -9,7 +9,7 @@ function App() {
       <Jumbles />
       <p className="lead">
         <a
-          href="#"
+          href="http://localhost:3000/"
           class="btn btn-lg btn-secondary fw-bold border-black bg-black"
         >
           Learn more
