@@ -1,9 +1,10 @@
-import "./App.scss";
+import "./styles/App.scss";
 import Jumbles from "./components/jumbles";
 
 function App() {
   return (
     <main className="px-3">
+      <div className="navbar"> Hallllooo</div>
       <h1> Erste Schritte </h1>
       <p className="lead">Make it your own.</p>
       <Jumbles />
