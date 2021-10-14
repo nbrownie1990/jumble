@@ -1,3 +1,61 @@
+# Jumble - the right place for your stuff
+
+![MIT](https://img.shields.io/badge/license-MIT-blue.svg)
+![CI](https://github.com/nbrownie1990/jumble/workflows/Build%20and%20deploy/badge.svg)
+[![](https://img.shields.io/docker/image-size/nbrownie/jumble)](https://hub.docker.com/r/nbrownie/jumble)
+
+<table border="0" >
+ <tr>
+<h2>Über das Projekt</h2>
+
+Das Jumble-Projekt erarbeite ich, um Erfahrungen in den Bereichen CI-CD-Pipelines, Container, CRUD-Operations und Arbeiten mit einer Datenbank zu sammeln. Gestartet habe ich am 08.10.2021 und diese Idee entwickelt, das Konzept erarbeitet, ein Mock-Up mit dem Tool "Figma" erstellt und anschließend programmiert. Es kamen die Technologien zum Einsatz, die ich mir die letzten Monaten autodidaktisch angeigenet habe bzw. weiterhin aneigne.
+
+### Learning Path / Skills for this Project
+
+- [ ] In diesem Projekt wurden ein Idee entwickelt, ein entsprechendes Mock-Up und Use-Cases erstellt.
+- [ ] Das Projekt wird mit Git und den folgenden Branches versioniert.
+  - [ ] main — Eine Darstellung der Codebasis, die derzeit in Produktion ist, deren Commits den gesamten Flow durchlaufen und nach der Überprüfung nach der  
+         Veröffentlichung zusammengeführt wurden.
+  - [ ] develop — Alle Feature-Branches werden in dieser Branch zusammengeführt. Hier laufen automatisierte Tests und Releases für
+        Entwicklungsressourcen über CI/CD-Pipelines.
+  - [ ] features — Jede Änderung, die in die nächste Version aufgenommen werden soll.
+- [ ] Das Projekt nutzt ein Docker-Image und läuft über eine CI-CD-Pipeline via Github-Actions. https://www.youtube.com/watch?v=R8_veQiYBjI
+- [ ] Das TDD-Projekt enthält automatisierte Unit-Tests und Integration-Test, die vor dem Code geschrieben werden.
+- [ ] Das Projekt beinhaltet Security-Features .
+
+### Tech Stack
+
+Es handelt sich um ein xxxxxx- Backend mit Anbindung an eine MongoDB-Datenbank und einem XXXX-Frontend.
+Es gibt eine Anbindung zur xxxx-API für die Ermittlung der Addresskoordinaten und zur Darstellung im Frontend.
+
+## Die App- "Jumble"
+
+Du willst wieder Platz in der eigenen Wohnung und dabei etwas Gutes tun?
+Mit Jumble kannst du Informationen darüber erhalten, wo du dein Ausrangiertes in deiner Nähe abgeben kannst.
+
+Auf der Startseite bekommst du den Überblick mithilfe einer Map, die die verschiedenen Orte ("Jumbles") in deiner Nähe anzeigt.
+Darunter z.B. Flohmärkte, Second-Hand-Shops, Kleider-Tausch-Partys, FoodSharing/Fairteiler, Kleiderspenden (DRK-Container & Online-Angebote).
+Du kannst dich bei Jumble einloggen und die Jumbles mit Sternen bewerten, um anderen Nutzern zu helfen.
+(Zielgruppe, Segment: junge Menschen denen Nachhaltigkeit am Herzen liegt. z.B. Studierende)
+
+### User Stories
+
+- [ ] User kann sich ein Profil erstellen (Learnings: Password-Validation, Authentication & Authorization)
+- [ ] User kann Jumbles auf der Cluster-Map finden
+- [ ] User kann Jumbles bewerten und kommentieren
+- [ ] User kann Jumbles für die Community erstellen und bearbeiten
+
+## Ausblick
+
+Die App wird stetig weiterentwickelt und ich lerne jeden Tag dazu :)
+
+</td>
+   <td><img src="public/appOverview.gif" alt="animated app overview"> <br> <br>
+  <a href="https://www.figma.com/file/fFAz3ql0dams5Xqsq6an8L/Jumble-Mockup?node-id=33%3A444">Figma-Link</a>
+  </td>
+ </tr>
+</table>
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
