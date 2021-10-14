@@ -1,10 +1,15 @@
+import { useEffect } from "react";
 import "./styles/App.scss";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import Jumbles from "./components/jumbles";
 
 function App() {
+  useEffect(() => {
+    AOS.init();
+  });
   return (
     <main className="px-3">
-      <div className="navbar"> Navigation</div>
       <h1> Erste Schritte </h1>
       <p className="lead">Make it your own.</p>
       <Jumbles />
@@ -16,6 +21,13 @@ function App() {
           Learn more
         </a>
       </p>
+      <div
+        className="alert alert-primary shadow-lg"
+        role="alert"
+        data-aos="fade-up"
+      >
+        A simple primary alert- From bottom!
+      </div>
     </main>
   );
 }
