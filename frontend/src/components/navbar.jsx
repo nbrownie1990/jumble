@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-
+import { Link } from 'react-router-dom'
 class NavBar extends React.Component {
   render() {
     return (
@@ -25,34 +25,30 @@ class NavBar extends React.Component {
           >
             <ul className="navbar-nav ms-auto pt-2 pt-lg-0 font-base">
               <li className="nav-item px-2" data-anchor="data-anchor">
-                <a
-                  className="nav-link fw-medium active"
-                  aria-current="page"
-                  href="#home"
-                >
+                <Link className="nav-link" to="/">
                   Home
-                </a>
+                </Link>
               </li>
               <li className="nav-item px-2" data-anchor="data-anchor">
-                <a className="nav-link" href="#categories">
+                <Link className="nav-link" to="/categories">
                   Categories
-                </a>
+                </Link>
               </li>
               <li className="nav-item px-2" data-anchor="data-anchor">
-                <a className="nav-link" href="#addJumble">
+                <Link className="nav-link" to="/jumble:id">
                   Add Jumble
-                </a>
+                </Link>
               </li>
               <li className="nav-item px-2" data-anchor="data-anchor">
-                <a className="nav-link" href="#profile">
+                <Link className="nav-link" to="/profile">
                   Profile
-                </a>
+                </Link>
               </li>
             </ul>
             <form className="ps-lg-5">
-              <a className="btn btn-primary order-1 order-lg-0" href="#Logout">
+              <Link className="nav-link" to="/logout">
                 Logout
-              </a>
+              </Link>
             </form>
           </div>
         </div>
