@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component } from 'react'
 
 class NavBar extends React.Component {
   render() {
@@ -8,9 +8,6 @@ class NavBar extends React.Component {
         data-navbar-on-scroll="data-navbar-on-scroll"
       >
         <div className="container">
-          <a className="navbar-brand" href="index.html">
-            <img src="./logo.svg" height="24" alt="Logo" />
-          </a>
           <button
             className="navbar-toggler"
             type="button"
@@ -60,8 +57,8 @@ class NavBar extends React.Component {
           </div>
         </div>
       </nav>
-    );
+    )
   }
 }
 
-export default NavBar;
+export default NavBar
