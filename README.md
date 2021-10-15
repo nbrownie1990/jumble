@@ -12,16 +12,16 @@ Das Jumble-Projekt erarbeite ich, um Erfahrungen in den Bereichen CI-CD-Pipeline
 
 ### Learning Path / Skills for this Project
 
-- [ ] In diesem Projekt wurden ein Idee entwickelt, ein entsprechendes Mock-Up und Use-Cases erstellt.
-- [ ] Das Projekt wird mit Git und den folgenden Branches versioniert.
-  - [ ] main — Eine Darstellung der Codebasis, die derzeit in Produktion ist, deren Commits den gesamten Flow durchlaufen und nach der Überprüfung nach der  
-         Veröffentlichung zusammengeführt wurden.
-  - [ ] develop — Alle Feature-Branches werden in dieser Branch zusammengeführt. Hier laufen automatisierte Tests und Releases für
-        Entwicklungsressourcen über CI/CD-Pipelines.
-  - [ ] features — Jede Änderung, die in die nächste Version aufgenommen werden soll.
-- [ ] Das Projekt nutzt ein Docker-Image und läuft über eine CI-CD-Pipeline via Github-Actions. https://www.youtube.com/watch?v=R8_veQiYBjI
-- [ ] Das TDD-Projekt enthält automatisierte Unit-Tests und Integration-Test, die vor dem Code geschrieben werden.
-- [ ] Das Projekt beinhaltet Security-Features .
+- [x] In diesem Projekt wurden ein Idee entwickelt, ein entsprechendes Mock-Up und Use-Cases erstellt.
+- [x] Das Projekt wird mit Git und den folgenden Branches versioniert.
+  - main — Eine Darstellung der Codebasis, die derzeit in Produktion ist, deren Commits den gesamten Flow durchlaufen und nach der Überprüfung nach der  
+     Veröffentlichung zusammengeführt wurden.
+  - develop — Alle Feature-Branches werden in dieser Branch zusammengeführt. Hier laufen automatisierte Tests und Releases für
+    Entwicklungsressourcen über CI/CD-Pipelines.
+  - features — Jede Änderung, die in die nächste Version aufgenommen werden soll.
+- [x] Das Projekt nutzt ein Docker-Image und läuft über eine CI-CD-Pipeline via Github-Actions. https://www.youtube.com/watch?v=R8_veQiYBjI
+- [x] Das TDD-Projekt enthält automatisierte Unit-Tests und Integration-Test, die vor dem Code geschrieben werden.
+- [x] Das Projekt beinhaltet Security-Features .
 
 ### Tech Stack
 
@@ -40,14 +40,17 @@ Du kannst dich bei Jumble einloggen und die Jumbles mit Sternen bewerten, um and
 
 ### User Stories
 
-- [ ] User kann sich ein Profil erstellen (Learnings: Password-Validation, Authentication & Authorization)
-- [ ] User kann Jumbles auf der Cluster-Map finden
-- [ ] User kann Jumbles bewerten und kommentieren
-- [ ] User kann Jumbles für die Community erstellen und bearbeiten
+- [x] User kann sich ein Profil erstellen (Learnings: Password-Validation, Authentication & Authorization)
+- [x] User kann Jumbles auf der Cluster-Map finden
+- [x] User kann Jumbles bewerten und kommentieren
+- [x] User kann Jumbles für die Community erstellen und bearbeiten
 
 ## Ausblick
 
 Die App wird stetig weiterentwickelt und ich lerne jeden Tag dazu :)
+
+Comments:
+ESLint implementieren?
 
 </td>
    <td><img src="public/appOverview.gif" alt="animated app overview"> <br> <br>
