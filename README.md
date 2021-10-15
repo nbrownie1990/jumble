@@ -50,7 +50,7 @@ Du kannst dich bei Jumble einloggen und die Jumbles mit Sternen bewerten, um and
 Die App wird stetig weiterentwickelt und ich lerne jeden Tag dazu :)
 
 Comments:
-ESLint implementieren?
+ESLint implementieren? https://www.youtube.com/watch?v=St1YSNoB36Y
 
 </td>
    <td><img src="public/appOverview.gif" alt="animated app overview"> <br> <br>
