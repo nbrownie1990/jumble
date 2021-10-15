@@ -34,24 +34,24 @@ class NavBar extends React.Component {
                 </a>
               </li>
               <li className="nav-item px-2" data-anchor="data-anchor">
-                <a class="nav-link" href="#aboutUs">
-                  About us
+                <a className="nav-link" href="#categories">
+                  Categories
                 </a>
               </li>
               <li className="nav-item px-2" data-anchor="data-anchor">
-                <a className="nav-link" href="#clients">
-                  Clients
+                <a className="nav-link" href="#addJumble">
+                  Add Jumble
                 </a>
               </li>
               <li className="nav-item px-2" data-anchor="data-anchor">
-                <a className="nav-link" href="#faq">
-                  Faq
+                <a className="nav-link" href="#profile">
+                  Profile
                 </a>
               </li>
             </ul>
             <form className="ps-lg-5">
-              <a className="btn btn-primary order-1 order-lg-0" href="#!">
-                CONTACT US
+              <a className="btn btn-primary order-1 order-lg-0" href="#Logout">
+                Logout
               </a>
             </form>
           </div>

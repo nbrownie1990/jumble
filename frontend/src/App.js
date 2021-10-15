@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import './styles/App.scss'
+import './custom.scss'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 import Jumbles from './components/jumbles'
@@ -16,11 +16,12 @@ function App() {
         <p className="lead">
           <a
             href="http://localhost:3000/"
-            className="btn btn-lg btn-secondary fw-bold border-black bg-black"
+            className="btn btn-lg btn-secondary fw-bold"
           >
             Learn more
           </a>
         </p>
+        <button className="btn btn-danger"> Test </button>
         <div
           className="alert alert-primary shadow-lg"
           role="alert"
