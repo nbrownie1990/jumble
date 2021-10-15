@@ -15,7 +15,7 @@ function App() {
       <main className="px-3 m-5">
         <p className="lead">
           <a
-            href="http://localhost:3000/"
+            href="https://google.com"
             className="btn btn-lg btn-secondary fw-bold"
           >
             Learn more
