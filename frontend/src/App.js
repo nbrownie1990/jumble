@@ -1,37 +1,41 @@
-import React, { useEffect } from 'react'
 import './custom.scss'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
-import Jumbles from './components/jumbles'
+import { Route, Switch, useHistory } from 'react-router-dom'
+import { useState, useEffect } from 'react'
+
+import Header from './components/header'
+import Home from './components/home'
+import NewPost from './components/newpost'
 import NavBar from './components/navbar'
+import Footer from './components/footer'
+import Jumbles from './components/jumbles'
+import Missing from './components/missing'
+import About from './components/about'
 
 function App() {
   useEffect(() => {
     AOS.init()
   })
   return (
-    <React.Fragment>
+    <div className="App">
+      <Header />
       <NavBar />
-      <main className="px-3 m-5">
-        <p className="lead">
-          <a
-            href="https://google.com"
-            className="btn btn-lg btn-secondary fw-bold"
-          >
-            Learn more
-          </a>
-        </p>
-        <button className="btn btn-danger"> Test </button>
-        <div
-          className="alert alert-primary shadow-lg"
-          role="alert"
-          data-aos="fade-up"
-        >
+      <Switch>
+        <Route exact path="/">
+          <Home />{' '}
+        </Route>
+        <Route path="/jumbles">
           <Jumbles />
-        </div>
-        <p className="lead ">Make it your own.</p>
-      </main>
-    </React.Fragment>
+        </Route>
+        <Route path="/post">
+          <NewPost />
+        </Route>
+        <Route path="/about" component={About} />
+        <Missing path="*" component={Missing} />
+      </Switch>
+      <Footer />
+    </div>
   )
 }
 
