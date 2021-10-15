@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import Star from './common/rating'
+import Star from '../../components/common/rating'
 
-class Jumbles extends React.Component {
+class Category extends React.Component {
   handleRating = () => {
     console.log('Click rated')
   }
@@ -16,4 +16,4 @@ class Jumbles extends React.Component {
   }
 }
 
-export default Jumbles
+export default Category

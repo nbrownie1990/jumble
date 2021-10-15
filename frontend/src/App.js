@@ -5,13 +5,18 @@ import { Route, Switch, useHistory } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 
 import Header from './components/header'
-import Home from './components/home'
-import NewPost from './components/newpost'
+import Home from './pages/Home/home'
 import NavBar from './components/navbar'
 import Footer from './components/footer'
-import Jumbles from './components/jumbles'
-import Missing from './components/missing'
-import About from './components/about'
+import Jumble from './pages/Jumble/jumble'
+import Category from './pages/Category/category'
+import Categories from './pages/Categories/categories'
+import Login from './pages/Login/login'
+import Profile from './pages/Profile/profile'
+import Logout from './pages/Logout/logout'
+import SignUp from './pages/SignUp/sign-up'
+import Missing from './pages/Missing/missing'
+import About from './pages/About/about'
 
 function App() {
   useEffect(() => {
@@ -25,11 +30,26 @@ function App() {
         <Route exact path="/">
           <Home />{' '}
         </Route>
-        <Route path="/jumbles">
-          <Jumbles />
+        <Route path="/jumble">
+          <Jumble />
         </Route>
-        <Route path="/post">
-          <NewPost />
+        <Route path="/category">
+          <Category />
+        </Route>
+        <Route path="/categories">
+          <Categories />
+        </Route>
+        <Route path="/signup">
+          <SignUp />
+        </Route>
+        <Route path="/login">
+          <Login />
+        </Route>
+        <Route path="/logout">
+          <Logout />
+        </Route>
+        <Route path="/profile">
+          <Profile />
         </Route>
         <Route path="/about" component={About} />
         <Missing path="*" component={Missing} />
