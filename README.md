@@ -26,7 +26,7 @@ Das Jumble-Projekt erarbeite ich, um Erfahrungen in den Bereichen CI-CD-Pipeline
 ### Tech Stack
 
 Es handelt sich um ein xxxxxx- Backend mit Anbindung an eine MongoDB-Datenbank und einem XXXX-Frontend.
-Es gibt eine Anbindung zur xxxx-API für die Ermittlung der Addresskoordinaten und zur Darstellung im Frontend.
+Es gibt eine Anbindung zur MapBox-API für die Ermittlung der Addresskoordinaten und zur Darstellung der Map im Frontend.
 
 ## Die App- "Jumble"
 
