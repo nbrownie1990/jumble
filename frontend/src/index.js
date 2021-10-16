@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import App from './App'
 import reportWebVitals from './reportWebVitals'
 import 'font-awesome/css/font-awesome.css'
-import './custom.scss'
+import './assets/css/style.css'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 ReactDOM.render(

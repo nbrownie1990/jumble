@@ -1,0 +1,10 @@
+$theme-colors: (
+  'primary': green,
+  'danger': blue,
+);
+
+$body-bg: orange;
+$btn-danger: yellow;
+// Required
+
+@import '../../node_modules/bootstrap/scss/bootstrap.scss';
