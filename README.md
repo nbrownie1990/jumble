@@ -25,8 +25,20 @@ Das Jumble-Projekt erarbeite ich, um Erfahrungen in den Bereichen CI-CD-Pipeline
 
 ### Tech Stack
 
-Es handelt sich um ein xxxxxx- Backend mit Anbindung an eine MongoDB-Datenbank und einem XXXX-Frontend.
-Es gibt eine Anbindung zur MapBox-API für die Ermittlung der Addresskoordinaten und zur Darstellung der Map im Frontend.
+Built with:
+
+- Node.js
+- React v16
+- Axios
+- Sass
+- Express
+- RESTful API
+- MapBox-API
+- Babel
+- MongoDB
+- Mongoose
+- JTW
+- Heroku
 
 ## Die App- "Jumble"
 
@@ -37,6 +49,34 @@ Auf der Startseite bekommst du den Überblick mithilfe einer Map, die die versch
 Darunter z.B. Flohmärkte, Second-Hand-Shops, Kleider-Tausch-Partys, FoodSharing/Fairteiler, Kleiderspenden (DRK-Container & Online-Angebote).
 Du kannst dich bei Jumble einloggen und die Jumbles mit Sternen bewerten, um anderen Nutzern zu helfen.
 (Zielgruppe, Segment: junge Menschen denen Nachhaltigkeit am Herzen liegt. z.B. Studierende)
+
+## Application Structure
+
+```
+.
+├── config                   # Project and build configurations
+├── dist                     # Distribution folder
+├── locales                  # Text files
+├── logs                     # Log files
+├── public                   # Static public assets and uploads
+│   ├── admin                # Dashboard index.html
+│   ├── admin-assets         # Dashboard assets
+│   └── content              # Store root folder
+|
+├── scripts                  # Shell scripts for theme install/export
+├── src                      # Application source code
+│   ├── admin                # Dashboard application
+│   │   └── client           # Client side code
+│   ├── api                  # REST API
+│   │   └── server           # Server side code
+│   ├── store                # Store application
+│   |   ├── client             # Client side code
+│   |   ├── server             # Server side code
+│   |   └── shared             # Universal code
+│   └── index.js             # Server application start point
+├── theme                    # Theme as a local package
+└── process.json             # pm2 process file
+```
 
 ### User Stories
 
