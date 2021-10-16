@@ -1,8 +1,7 @@
 @use '../custom' as *;
 
-body {
-  text-align: center;
-  background-image: url(./assets/images/jumble-bg.webp);
+$body {
+  background-image: url(../../assets/images/jumble-bg.webp);
   position: fixed;
   min-width: 100%;
   min-height: 100%;
