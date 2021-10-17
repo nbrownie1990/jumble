@@ -11132,13 +11132,14 @@ body,
   height: 100%;
 }
 
-.navbar-toggler {
-  border: none;
-}
-
-.ml-auto .dropdown-menu {
-  left: auto !important;
-  right: 0px;
+.navbar-toggler,
+.navbar-toggler:focus,
+.navbar-toggler:active,
+.navbar-toggler-icon:focus {
+  outline: none;
+  outline: none -webkit-focus-ring-color;
+  box-shadow: none;
+  border: 0px;
 }
 
 /*# sourceMappingURL=style.css.map */
