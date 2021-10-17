@@ -17,6 +17,8 @@ import Jumble from './pages/Jumble/jumble'
 import Category from './pages/Category/category'
 import Categories from './pages/Categories/categories'
 import Login from './pages/Login/login'
+import Forgot from './pages/Login/forgot'
+import Reset from './pages/Login/reset'
 import Profile from './pages/Profile/profile'
 import Logout from './pages/Logout/logout'
 import SignUp from './pages/SignUp/sign-up'
@@ -55,6 +57,12 @@ function App() {
         </Route>
         <Route path="/login">
           <Login />
+        </Route>
+        <Route path="/forgot">
+          <Forgot />
+        </Route>
+        <Route path="/reset">
+          <Reset />
         </Route>
         <Route path="/logout">
           <Logout />

@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Login = () => {
   return (
@@ -15,7 +16,7 @@ const Login = () => {
                   novalidate=""
                 >
                   <div className="form-group">
-                    <label for="email">E-Mail Addresse</label>
+                    <label for="email">E-Mail Adresse</label>
                     <input
                       id="email"
                       type="email"
@@ -31,9 +32,9 @@ const Login = () => {
                   <div className="form-group">
                     <label for="password">
                       Passwort
-                      <a href="forgot.html" className="float-right">
+                      <Link className="nav-link" to="/forgot">
                         Passwort vergessen?
-                      </a>
+                      </Link>
                     </label>
                     <input
                       id="password"
@@ -69,14 +70,14 @@ const Login = () => {
                   </div>
                   <div className="mt-4 text-center">
                     Noch keinen Account?
-                    <a href="register.html">Create One</a>
+                    <Link className="nav-link" to="/signup">
+                      Sign up
+                    </Link>
                   </div>
                 </form>
               </div>
             </div>
-            <div className="footer">
-              Copyright &copy; 2021 &mdash; Nina Braunger
-            </div>
+            <div className="footer">Copyright &copy; 2021 &mdash; Jumble</div>
           </div>
         </div>
       </div>
