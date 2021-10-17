@@ -1,1 +1,18 @@
-@use '../custom' as *;
+.navbar-toggler {
+  border: none;
+}
+
+.ml-auto .dropdown-menu {
+  left: auto !important;
+  right: 0px;
+}
+
+// .navbar-toggler-icon {
+//   display: inline-block;
+//   width: 1.5em;
+//   height: 1.5em;
+//   vertical-align: middle;
+//   background-repeat: no-repeat;
+//   background-position: center;
+//   background-size: 100%;
+// }

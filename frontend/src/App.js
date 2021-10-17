@@ -1,9 +1,13 @@
-import './assets/css/style.css'
-import AOS from 'aos'
-import 'aos/dist/aos.css'
+// -- React and related libs
 import { Route, Switch, useHistory } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 
+// -- Third Party Libs
+import AOS from 'aos'
+import 'aos/dist/aos.css'
+import PropTypes from 'prop-types'
+
+// -- Custom Components
 import Header from './components/header'
 import Home from './pages/Home/home'
 import NavBar from './components/navbar'
@@ -17,6 +21,9 @@ import Logout from './pages/Logout/logout'
 import SignUp from './pages/SignUp/sign-up'
 import Missing from './pages/Missing/missing'
 import About from './pages/About/about'
+
+// -- Component Styles
+import './assets/css/style.css'
 
 function App() {
   useEffect(() => {
@@ -58,5 +65,18 @@ function App() {
     </div>
   )
 }
+
+//https://github.com/flatlogic/sofia-react-template/blob/master/src/components/Layout/Layout.js
+// App.propTypes = {
+//   navbarOpened: PropTypes.bool,
+//   dispatch: PropTypes.func.isRequired,
+// }
+// function mapStateToProps(store) {
+//   return {
+//     sidebarOpened: store.navigation.sidebarOpened,
+//   };
+// }
+
+// export default withRouter(connect(mapStateToProps)(Layout));
 
 export default App

@@ -7,7 +7,7 @@ class NavBar extends React.Component {
         className="navbar navbar-expand-lg navbar-dark fixed-top py-4 d-block m-3"
         data-navbar-on-scroll="data-navbar-on-scroll"
       >
-        <div className="container">
+        <div className="container-fluid">
           <button
             className="navbar-toggler"
             type="button"
@@ -19,8 +19,9 @@ class NavBar extends React.Component {
           >
             <span className="navbar-toggler-icon"> </span>
           </button>
+
           <div
-            className="collapse navbar-collapse border-top border-lg-0 mt-4 mt-lg-0"
+            className="collapse navbar-collapse mt-4 mt-lg-0"
             id="navbarSupportedContent"
           >
             <ul className="navbar-nav ms-auto pt-2 pt-lg-0 font-base">
