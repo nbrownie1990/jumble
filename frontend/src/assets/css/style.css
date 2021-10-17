@@ -22754,18 +22754,22 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+* {
+  box-sizing: border-box;
+}
+
+#root {
+  margin-top: 15rem;
+}
+
 body {
+  position: relative;
   overflow-x: hidden;
   background: url(../../assets/images/jumble-bg.webp);
   background-attachment: fixed;
   background-size: cover;
   background-repeat: no-repeat;
   font-family: "Josefin Sans", sans-serif;
-}
-
-html,
-body,
-.App {
   height: 100%;
 }
 
@@ -22782,6 +22786,7 @@ body,
 footer {
   background-image: url(../../assets/images/wave.svg);
   background-repeat: no-repeat;
+  background-size: cover;
 }
 
 /*# sourceMappingURL=style.css.map */

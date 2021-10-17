@@ -7,9 +7,6 @@ const SignUp = () => {
       <div className="container h-100">
         <div className="row justify-content-md-center h-100">
           <div className="card-wrapper">
-            <div className="brand">
-              <img src="img/logo.jpg" alt="bootstrap 4 login page" />
-            </div>
             <div className="card fat">
               <div className="card-body">
                 <h4 className="card-title">Sign Up</h4>

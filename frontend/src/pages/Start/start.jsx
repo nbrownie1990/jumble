@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 const Start = () => {
   return (
     <main class="d-flex h-100 text-center text-white">
-      <div className="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+      <div className="cover-container d-flex w-100 h-100 p-3 flex-column">
         <div className="px-3">
           <h1>Jumble - the right place for your stuff</h1>
           <p className="lead">

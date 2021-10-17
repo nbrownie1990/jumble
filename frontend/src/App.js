@@ -1,6 +1,6 @@
 // -- React and related libs
 import { Route, Switch, useHistory } from 'react-router-dom'
-import { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 
 // -- Third Party Libs
 import AOS from 'aos'
@@ -8,7 +8,6 @@ import 'aos/dist/aos.css'
 import PropTypes from 'prop-types'
 
 // -- Custom Components
-import Header from './components/header'
 import Start from './pages/Start/start'
 import Home from './pages/Home/home'
 import NavBar from './components/navbar'
@@ -33,8 +32,7 @@ function App() {
     AOS.init()
   })
   return (
-    <div className="App">
-      <Header />
+    <React.Fragment className="App">
       <NavBar />
       <Switch>
         <Route exact path="/">
@@ -74,7 +72,7 @@ function App() {
         <Missing path="*" component={Missing} />
       </Switch>
       <Footer />
-    </div>
+    </React.Fragment>
   )
 }
 

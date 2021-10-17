@@ -1,16 +1,20 @@
 @import './components/typography';
 
+* {
+  box-sizing: border-box;
+}
+
+#root {
+  margin-top: 15rem;
+}
+
 body {
+  position: relative;
   overflow-x: hidden;
   background: url(../../assets/images/jumble-bg.webp);
   background-attachment: fixed;
   background-size: cover;
   background-repeat: no-repeat;
   font-family: $main-font;
-}
-
-html,
-body,
-.App {
   height: 100%;
 }
