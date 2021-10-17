@@ -1,9 +1,12 @@
+@import './components/typography';
+
 body {
   overflow-x: hidden;
   background: url(../../assets/images/jumble-bg.webp);
   background-attachment: fixed;
   background-size: cover;
   background-repeat: no-repeat;
+  font-family: $main-font;
 }
 
 html,

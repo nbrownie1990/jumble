@@ -9,6 +9,7 @@ import PropTypes from 'prop-types'
 
 // -- Custom Components
 import Header from './components/header'
+import Start from './pages/Start/start'
 import Home from './pages/Home/home'
 import NavBar from './components/navbar'
 import Footer from './components/footer'
@@ -35,7 +36,10 @@ function App() {
       <NavBar />
       <Switch>
         <Route exact path="/">
-          <Home />{' '}
+          <Start />{' '}
+        </Route>
+        <Route exact path="/home">
+          <Home />
         </Route>
         <Route path="/jumble">
           <Jumble />

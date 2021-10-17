@@ -7,10 +7,10 @@ class SearchBar extends React.Component {
         <input
           class="form-control me-2"
           type="search"
-          placeholder="Search"
+          placeholder="Search Adresses or Jumbles"
           aria-label="Search"
         />
-        <button class="btn btn-outline-success" type="submit">
+        <button class="btn btn-primary" type="submit">
           Search
         </button>
       </form>
