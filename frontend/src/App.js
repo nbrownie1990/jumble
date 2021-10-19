@@ -12,6 +12,7 @@ import Start from './pages/Start/start'
 import Home from './pages/Home/home'
 import Jumble from './pages/Jumble/jumble'
 import AddJumble from './pages/AddJumble/add-jumble'
+import EditProfile from './pages/Profile/edit-profile'
 
 import Category from './pages/Category/category'
 import Categories from './pages/Categories/categories'
@@ -69,6 +70,9 @@ function App() {
         </Route>
         <Route path="/profile">
           <Profile />
+        </Route>
+        <Route path="/profileedit">
+          <EditProfile />
         </Route>
         <Route path="/impressum" component={Impressum} />
         <Missing path="*" component={Missing} />
