@@ -11,6 +11,8 @@ import PropTypes from 'prop-types'
 import Start from './pages/Start/start'
 import Home from './pages/Home/home'
 import Jumble from './pages/Jumble/jumble'
+import AddJumble from './pages/AddJumble/add-jumble'
+
 import Category from './pages/Category/category'
 import Categories from './pages/Categories/categories'
 import Login from './pages/Login/login'
@@ -40,6 +42,9 @@ function App() {
         </Route>
         <Route path="/jumble">
           <Jumble />
+        </Route>
+        <Route path="/jumbleadd">
+          <AddJumble />
         </Route>
         <Route path="/category">
           <Category />

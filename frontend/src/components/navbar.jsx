@@ -40,7 +40,7 @@ class NavBar extends React.Component {
                 </Link>
               </li>
               <li className="nav-item px-2" data-anchor="data-anchor">
-                <Link className="nav-link" to="/jumble:id">
+                <Link className="nav-link" to="/jumbleadd">
                   Add Jumble
                 </Link>
               </li>
