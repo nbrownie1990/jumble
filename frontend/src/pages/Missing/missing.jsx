@@ -1,8 +1,10 @@
 import React from 'react'
+import NavBar from '../../components/navbar'
 
 const Missing = () => {
   return (
     <React.Fragment>
+      <NavBar />
       <div class="container-xxl">
         <div class="row mt-3">
           <div class="col-lg-4 col-md-6">

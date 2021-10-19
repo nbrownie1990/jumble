@@ -20,7 +20,7 @@ import Profile from './pages/Profile/profile'
 import Logout from './pages/Logout/logout'
 import SignUp from './pages/SignUp/sign-up'
 import Missing from './pages/Missing/missing'
-import About from './pages/About/about'
+import Impressum from './pages/Impressum/impressum'
 
 // -- Component Styles
 import './assets/css/style.css'
@@ -65,7 +65,7 @@ function App() {
         <Route path="/profile">
           <Profile />
         </Route>
-        <Route path="/about" component={About} />
+        <Route path="/impressum" component={Impressum} />
         <Missing path="*" component={Missing} />
       </Switch>
     </React.Fragment>

@@ -8,9 +8,9 @@ class NavBar extends React.Component {
         data-navbar-on-scroll="data-navbar-on-scroll"
       >
         <div className="container-fluid">
-          <a class="navbar-brand" to="/home">
+          <Link class="navbar-brand " to="/home">
             Jumble
-          </a>
+          </Link>
 
           <button
             className="navbar-toggler"
