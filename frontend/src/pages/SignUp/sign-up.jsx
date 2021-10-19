@@ -68,7 +68,7 @@ const SignUp = () => {
                       />
                       <label for="agree" className="custom-control-label">
                         Ich stimme den {''}
-                        <Link to="/about">Nutzungsbedingungen</Link>
+                        <Link to="/impressum">Nutzungsbedingungen</Link>
                         {''} zu
                       </label>
                       <div className="invalid-feedback">
@@ -78,6 +78,7 @@ const SignUp = () => {
                   </div>
 
                   <div className="form-group m-0">
+                    <br />
                     <button type="submit" className="btn btn-primary btn-block">
                       Sign up
                     </button>
@@ -91,7 +92,6 @@ const SignUp = () => {
                 </form>
               </div>
             </div>
-            <div className="footer">Copyright &copy; 2021 &mdash; Jumble</div>
           </div>
         </div>
       </div>

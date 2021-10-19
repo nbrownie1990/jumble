@@ -31,7 +31,7 @@ const Login = () => {
 
                   <div className="form-group">
                     <label for="password">
-                      Passwort
+                      Passwort{' '}
                       <Link className="nav-link" to="/forgot">
                         Passwort vergessen?
                       </Link>
@@ -64,6 +64,7 @@ const Login = () => {
                   </div>
 
                   <div className="form-group m-0">
+                    <br />
                     <button type="submit" className="btn btn-primary btn-block">
                       Login
                     </button>
@@ -77,7 +78,6 @@ const Login = () => {
                 </form>
               </div>
             </div>
-            <div className="footer">Copyright &copy; 2021 &mdash; Jumble</div>
           </div>
         </div>
       </div>

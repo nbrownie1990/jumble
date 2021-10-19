@@ -1,5 +1,6 @@
 import React from 'react'
 import NavBar from '../../components/navbar'
+import Map from '../../components/map'
 import SearchBar from '../../components/searchbar'
 // import Map from '../../components/map'
 
@@ -18,7 +19,12 @@ const Home = () => {
             </p>
             <p className="lead">
               <div className="container-fluid" data-aos="fade-up">
-                <SearchBar />
+                <Map />
+
+                <div className="card h-100">
+                  <SearchBar />
+                  <div className="card-body p-4"></div>
+                </div>
               </div>
             </p>
           </div>

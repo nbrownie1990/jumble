@@ -19,7 +19,16 @@ class Map extends Component {
 
   render() {
     return (
-      <div class="container bg-info"> </div>
+      <article className="bg-info py-5">
+        <div className="container px-4 px-lg-5 my-5">
+          <div className="text-center text-white">
+            <h1 className="display-4 fw-bolder">Map Container</h1>
+            <p className="lead fw-normal text-white-50 mb-0">
+              A placeholder for Mapbox API
+            </p>
+          </div>
+        </div>
+      </article>
       //     <ReactMapGL
       //         {...this.state.viewport}
       //         mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}

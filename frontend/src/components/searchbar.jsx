@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 class SearchBar extends React.Component {
   render() {
     return (
-      <form class="d-flex">
+      <form class="d-flex m-3">
         <input
           class="form-control me-2"
           type="search"

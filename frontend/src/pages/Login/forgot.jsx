@@ -41,7 +41,6 @@ const Forgot = () => {
                 </form>
               </div>
             </div>
-            <div className="footer">Copyright &copy; 2021 &mdash; Jumble </div>
           </div>
         </div>
       </div>
