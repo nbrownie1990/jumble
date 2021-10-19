@@ -1,10 +1,13 @@
 import React from 'react'
+import NavBar from '../../components/navbar'
 
 const Categories = () => {
   return (
-    <main>
+    <React.Fragment>
+      <NavBar />
+
       <h1>Categories</h1>
-    </main>
+    </React.Fragment>
   )
 }
 

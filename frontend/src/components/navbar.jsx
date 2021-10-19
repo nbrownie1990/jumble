@@ -8,7 +8,7 @@ class NavBar extends React.Component {
         data-navbar-on-scroll="data-navbar-on-scroll"
       >
         <div className="container-fluid">
-          <a class="navbar-brand" href="#">
+          <a class="navbar-brand" to="/home">
             Jumble
           </a>
 

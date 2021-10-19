@@ -10,8 +10,6 @@ import PropTypes from 'prop-types'
 // -- Custom Components
 import Start from './pages/Start/start'
 import Home from './pages/Home/home'
-import NavBar from './components/navbar'
-import Footer from './components/footer'
 import Jumble from './pages/Jumble/jumble'
 import Category from './pages/Category/category'
 import Categories from './pages/Categories/categories'
@@ -33,7 +31,6 @@ function App() {
   })
   return (
     <React.Fragment className="App">
-      <NavBar />
       <Switch>
         <Route exact path="/">
           <Start />{' '}
@@ -71,7 +68,6 @@ function App() {
         <Route path="/about" component={About} />
         <Missing path="*" component={Missing} />
       </Switch>
-      <Footer />
     </React.Fragment>
   )
 }

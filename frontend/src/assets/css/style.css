@@ -22773,6 +22773,23 @@ body {
   height: 100%;
 }
 
+footer {
+  background-image: url(../../assets/images/wave.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 20rem;
+}
+footer p,
+footer a {
+  color: white;
+  float: right;
+  text-align: right;
+  right: 1em;
+  bottom: 3em;
+  position: absolute;
+  display: inline;
+}
+
 .navbar-toggler,
 .navbar-toggler:focus,
 .navbar-toggler:active,
@@ -22781,12 +22798,6 @@ body {
   outline: none -webkit-focus-ring-color;
   box-shadow: none;
   border: 0px;
-}
-
-footer {
-  background-image: url(../../assets/images/wave.svg);
-  background-repeat: no-repeat;
-  background-size: cover;
 }
 
 /*# sourceMappingURL=style.css.map */
