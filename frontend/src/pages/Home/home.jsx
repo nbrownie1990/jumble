@@ -2,6 +2,7 @@ import React from 'react'
 import NavBar from '../../components/navbar'
 import Map from '../../components/map'
 import SearchBar from '../../components/searchbar'
+import JumbleListComponent from '../../components/jumblelistcomponent'
 // import Map from '../../components/map'
 
 const Home = () => {
@@ -23,7 +24,14 @@ const Home = () => {
 
                 <div className="card h-100">
                   <SearchBar />
-                  <div className="card-body p-4"></div>
+                  <div className="scroll-list card-body p-4">
+                    <JumbleListComponent />
+                    <JumbleListComponent />
+                    <JumbleListComponent />
+                    <JumbleListComponent />
+                    <JumbleListComponent />
+                    <JumbleListComponent />
+                  </div>
                 </div>
               </div>
             </p>

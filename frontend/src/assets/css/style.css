@@ -22790,6 +22790,18 @@ footer a {
   display: inline;
 }
 
+.profile-img {
+  position: sticky;
+  right: 10em;
+  bottom: 27em;
+  z-index: 5;
+}
+
+.scroll-list {
+  overflow-y: scroll;
+  height: 300px;
+}
+
 .navbar-toggler,
 .navbar-toggler:focus,
 .navbar-toggler:active,

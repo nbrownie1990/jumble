@@ -8,10 +8,10 @@ const Profile = () => {
       <section className="h-100">
         <div className="container h-100">
           <div className="row">
-            <div className="d-flex flex-column align-items-center text-center p-3 py-5">
+            <div className="d-flex flex-column align-items-center text-center">
               <div className="col-6">
                 <img
-                  className="rounded-circle m-3 float-end"
+                  className="rounded-circle profile-img m-3 "
                   src="https://images.unsplash.com/photo-1542596594-649edbc13630?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1374&q=80"
                   width="150"
                 />
@@ -20,7 +20,7 @@ const Profile = () => {
               <div className="col-6 align-self-center ">
                 <div className="card ">
                   <div className="card-body">
-                    <p className="m-0 py-3 text-muted">
+                    <p className="m-0 py-2 text-muted ">
                       Hallo Ihr Lieben! Ich mache regelmäßig Flohmärkte mit,
                       also kommt vorbei! Pieces from all over the world - picked
                       and cared with love for you. ♥️
