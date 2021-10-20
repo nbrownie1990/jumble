@@ -1,47 +1,99 @@
-import React, { Component } from 'react'
-// import ReactMapGL,{Marker} from 'react-map-gl';
-// import {withRouter} from 'react-router-dom'
-// import {connect} from 'react-redux'
-// import {GoLocation} from 'react-icons/go'
+import ReactDom from 'react-dom'
+import React from 'react'
+import mapboxgl from 'mapbox-gl'
 
-// const mapStateToProps = (state) => state;
+mapboxgl.accessToken =
+  'pk.eyJ1IjoibmJyb3duaWUiLCJhIjoiY2t1aWVhNGhlMDJrZjMwcXoyZWUybDYxZCJ9.HLXmIOmvZtR3uhDR1JofjA'
 
-class Map extends Component {
-  //   state = {
-  //     viewport: {
-  //       width: "100%",
-  //     //   height: "100vh",
-  //       latitude: 6.5236,
-  //       longitude: 3.6006,
-  //       zoom: 8
-  //     }
-  //   };
+const data = [
+  {
+    location: 'Mannhattan',
+    city: 'Brooklyn',
+    state: 'New York',
+    coordinates: [9.96292, 53.56192],
+  },
+  {
+    location: '6th Avenue',
+    city: 'Mannhatten',
+    state: 'New York',
+    coordinates: [9.962923, 53.56192],
+  },
+]
+
+class Map extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      lng: 9.993682,
+      lat: 53.551086,
+      zoom: 8,
+    }
+  }
+
+  componentDidMount() {
+    const map = new mapboxgl.Map({
+      container: this.mapContainer,
+      style: 'mapbox://styles/nbrownie/ckur58op823es17k99ugvww0z',
+      center: [this.state.lng, this.state.lat],
+      zoom: this.state.zoom,
+    })
+
+    // data.forEach(location => {
+    //   console.log(location)
+    //   var marker = new mapboxgl.Marker()
+    //     .setLngLat(location.coordinates)
+    //     .setPopup(new mapboxgl.Popup({ offset: 30 }))
+    //     .setHTML('<h4>' + location.city + '</h4>' + location.location)
+    //     .addTo(map)
+    // })
+  }
 
   render() {
     return (
-      <article className="bg-info py-5">
-        <div className="container px-4 px-lg-5 my-5">
-          <div className="text-center text-white">
-            <h1 className="display-4 fw-bolder">Map Container</h1>
-            <p className="lead fw-normal text-white-50 mb-0">
-              A placeholder for Mapbox API
-            </p>
-          </div>
+      <div className="card h-100">
+        <div
+          className="container p-0 
+        "
+        >
+          <div
+            ref={el => (this.mapContainer = el)}
+            style={{ width: '100%', height: '50vh' }}
+          />
         </div>
-      </article>
-      //     <ReactMapGL
-      //         {...this.state.viewport}
-      //         mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
-      //         mapStyle={"mapbox://styles/"}
-      //         onViewportChange={(viewport) => this.setState({viewport})}
-      //       >
-      //           <GoLocation style={{color: "white"}}/>
-
-      //       </ReactMapGL>
+      </div>
     )
   }
 }
-export default Map
-// export default withRouter(connect(mapStateToProps, null) (Map));
 
-//Oder https://github.com/endy-imam/black-deliver-app/blob/main/src/Map.js
+export default Map
+
+// let [viewport, setViewport] = useState({
+//   viewport: {
+//     width: window.innerWidth,
+//     height: window.innerHeight,
+//     latitude: 37.7577,
+//     longitude: -122.4376,
+//     zoom: 8,
+//   },
+// })
+
+// return (
+//     <ReactMapGL
+//
+//       {...viewport}
+//       onViewportChange={newView => setViewport(newView)}
+//     >
+//       <Marker
+//         latitude={22.8046}
+//         longitude={86.20929}
+//         offsetTop={(viewport.zoom * 5) / 2}
+//       >
+//         <img src="..." width={viewport.zoom * 5} height={viewport.zoom * 5} />
+//       </Marker>
+//     </ReactMapGL>
+//   )
+// }
+
+// export default withRouter(connect(mapStateToProps, null) (Map));
+//Oder https://github.com/endy-imamblack-deliver-app/blob/main/src/Map.js
+//

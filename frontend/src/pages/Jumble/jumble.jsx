@@ -1,10 +1,14 @@
 import React from 'react'
 import Star from '../../components/common/rating'
+import Map from '../../components/map'
 import NavBar from '../../components/navbar'
+
 const Jumble = () => {
   return (
     <React.Fragment>
       <NavBar />
+
+      <Map />
 
       <div class="container">
         <div class="row gx-5">

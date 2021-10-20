@@ -14,7 +14,6 @@ const Missing = () => {
                 text utilities to control alignment, wrapping, weight, and more.
               </p>
             </div>
-
             <div class="mt-5 mb-5">
               <button type="button" class="btn btn-primary">
                 Primary
