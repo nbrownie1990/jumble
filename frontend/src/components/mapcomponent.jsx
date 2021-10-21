@@ -2,7 +2,6 @@ import ReactDom from 'react-dom'
 import mapboxgl from 'mapbox-gl'
 import React from 'react'
 import SearchBar from '../components/searchbar'
-import JumbleListComponent from '../components/jumblelistcomponent'
 
 mapboxgl.accessToken =
   'pk.eyJ1IjoibmJyb3duaWUiLCJhIjoiY2t1aWVhNGhlMDJrZjMwcXoyZWUybDYxZCJ9.HLXmIOmvZtR3uhDR1JofjA'
