@@ -1,15 +1,13 @@
 import React from 'react'
 import NavBar from '../../components/navbar'
-import SearchBar from '../../components/searchbar'
-import JumbleListComponent from '../../components/jumblelistcomponent'
-import Map from '../../components/map'
+import MapComponent from '../../components/mapcomponent'
 
 const Home = () => {
   return (
     <React.Fragment>
       <NavBar />
-      <main className="d-flex h-100 text-center text-white">
-        <div className="cover-container d-flex w-100 h-100 p-3 flex-column">
+      <main className="d-flex h-100 text-center text-white ">
+        <div className="cover-container d-flex w-100 h-100 p-3 flex-column ">
           <div className="px-3">
             <h1>Jumble - the right place for your stuff</h1>
             <p className="lead">
@@ -17,23 +15,8 @@ const Home = () => {
               für dein Ausrangiertes und tue dabei etwas Gutes! Food-Sharing,
               Flea Markets, Clothing Donations & Second-Hand in deiner Nähe!
             </p>
-            <p className="lead">
-              <div className="container-fluid" data-aos="fade-up">
-                <Map />
-                <div className="card h-100">
-                  <SearchBar />
-                  <div className="scroll-list card-body p-4">
-                    <JumbleListComponent />
-                    <JumbleListComponent />
-                    <JumbleListComponent />
-                    <JumbleListComponent />
-                    <JumbleListComponent />
-                    <JumbleListComponent />
-                  </div>
-                </div>
-              </div>
-            </p>
           </div>
+          <MapComponent />
         </div>
       </main>
     </React.Fragment>

@@ -2,6 +2,8 @@ import ReactDom from 'react-dom'
 import mapboxgl from 'mapbox-gl'
 import React from 'react'
 
+//wird evtl. später ersetzt durch mapcomponent
+
 mapboxgl.accessToken =
   'pk.eyJ1IjoibmJyb3duaWUiLCJhIjoiY2t1aWVhNGhlMDJrZjMwcXoyZWUybDYxZCJ9.HLXmIOmvZtR3uhDR1JofjA'
 
@@ -24,9 +26,9 @@ class Map extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      lng: 9.993682,
+      lng: 9.993683,
       lat: 53.551086,
-      zoom: 8,
+      zoom: 12,
     }
   }
 

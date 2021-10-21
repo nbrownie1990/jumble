@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Star from '../../components/common/rating'
+import MapComponent from '../../components/mapcomponent'
 import NavBar from '../../components/navbar'
 
 class Category extends React.Component {
@@ -11,10 +12,8 @@ class Category extends React.Component {
     return (
       <React.Fragment>
         <NavBar />
-        <div>
-          <h2>Jumbles Component</h2>
-          <Star />
-        </div>
+
+        <MapComponent />
       </React.Fragment>
     )
   }

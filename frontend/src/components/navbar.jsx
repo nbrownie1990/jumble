@@ -1,12 +1,9 @@
-import React, { Component } from 'react'
+import React, { Component, useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 class NavBar extends React.Component {
   render() {
     return (
-      <nav
-        className="navbar navbar-expand-lg navbar-dark fixed-top py-4 d-block m-3"
-        data-navbar-on-scroll="data-navbar-on-scroll"
-      >
+      <nav className="navbar navbar-expand-lg navbar-dark  py-4 d-block m-3">
         <div className="container-fluid">
           <Link class="navbar-brand " to="/home">
             Jumble

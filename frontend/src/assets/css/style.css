@@ -22758,10 +22758,6 @@ textarea.form-control-lg {
   box-sizing: border-box;
 }
 
-#root {
-  margin-top: 15rem;
-}
-
 body {
   position: relative;
   overflow-x: hidden;
@@ -22900,6 +22896,8 @@ footer a {
   border-bottom-left-radius: 10px;
 }
 
+/* The page is split between map and sidebar - the sidebar gets 1/3, map
+  gets 2/3 of the page. You can adjust this to your personal liking. */
 .navbar-toggler,
 .navbar-toggler:focus,
 .navbar-toggler:active,

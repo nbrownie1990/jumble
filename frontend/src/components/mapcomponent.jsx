@@ -1,6 +1,8 @@
 import ReactDom from 'react-dom'
 import mapboxgl from 'mapbox-gl'
 import React from 'react'
+import SearchBar from '../components/searchbar'
+import JumbleListComponent from '../components/jumblelistcomponent'
 
 mapboxgl.accessToken =
   'pk.eyJ1IjoibmJyb3duaWUiLCJhIjoiY2t1aWVhNGhlMDJrZjMwcXoyZWUybDYxZCJ9.HLXmIOmvZtR3uhDR1JofjA'
@@ -15,6 +17,7 @@ const stores = {
         coordinates: [-77.034084142948, 38.909671288923],
       },
       properties: {
+        name: 'Lala-Land',
         phoneFormatted: '(202) 234-7336',
         phone: '2022347336',
         address: '1471 P St NW',
@@ -32,6 +35,7 @@ const stores = {
         coordinates: [-77.049766, 38.900772],
       },
       properties: {
+        name: 'Bibi-Land',
         phoneFormatted: '(202) 507-8357',
         phone: '2025078357',
         address: '2221 I St NW',
@@ -49,6 +53,7 @@ const stores = {
         coordinates: [-77.043929, 38.910525],
       },
       properties: {
+        name: 'Lulu-Land',
         phoneFormatted: '(202) 387-9338',
         phone: '2023879338',
         address: '1512 Connecticut Ave NW',
@@ -66,6 +71,7 @@ const stores = {
         coordinates: [-77.0672, 38.90516896],
       },
       properties: {
+        name: 'Lego-Land',
         phoneFormatted: '(202) 337-9338',
         phone: '2023379338',
         address: '3333 M St NW',
@@ -83,6 +89,7 @@ const stores = {
         coordinates: [-77.002583742142, 38.887041080933],
       },
       properties: {
+        name: 'Lili-Land',
         phoneFormatted: '(202) 547-9338',
         phone: '2025479338',
         address: '221 Pennsylvania Ave SE',
@@ -100,6 +107,7 @@ const stores = {
         coordinates: [-76.933492720127, 38.99225245786],
       },
       properties: {
+        name: 'Lou-Land',
         address: '8204 Baltimore Ave',
         city: 'College Park',
         country: 'United States',
@@ -114,6 +122,7 @@ const stores = {
         coordinates: [-77.097083330154, 38.980979],
       },
       properties: {
+        name: 'Live-Land',
         phoneFormatted: '(301) 654-7336',
         phone: '3016547336',
         address: '4831 Bethesda Ave',
@@ -131,6 +140,7 @@ const stores = {
         coordinates: [-77.359425054188, 38.958058116661],
       },
       properties: {
+        name: 'Leio-Land',
         phoneFormatted: '(571) 203-0082',
         phone: '5712030082',
         address: '11935 Democracy Dr',
@@ -148,6 +158,7 @@ const stores = {
         coordinates: [-77.10853099823, 38.880100922392],
       },
       properties: {
+        name: 'Papa-Land',
         phoneFormatted: '(703) 522-2016',
         phone: '7035222016',
         address: '4075 Wilson Blvd',
@@ -165,6 +176,7 @@ const stores = {
         coordinates: [-75.28784, 40.008008],
       },
       properties: {
+        name: 'Liop-Land',
         phoneFormatted: '(610) 642-9400',
         phone: '6106429400',
         address: '68 Coulter Ave',
@@ -181,6 +193,7 @@ const stores = {
         coordinates: [-75.20121216774, 39.954030175164],
       },
       properties: {
+        name: 'Uff-Land',
         phoneFormatted: '(215) 386-1365',
         phone: '2153861365',
         address: '3925 Walnut St',
@@ -197,6 +210,7 @@ const stores = {
         coordinates: [-77.043959498405, 38.903883387232],
       },
       properties: {
+        name: 'Lele-Land',
         phoneFormatted: '(202) 331-3355',
         phone: '2023313355',
         address: '1901 L St. NW',
@@ -210,7 +224,7 @@ const stores = {
   ],
 }
 
-class Locator extends React.Component {
+class MapComponent extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -225,7 +239,7 @@ class Locator extends React.Component {
   componentDidMount() {
     const map = new mapboxgl.Map({
       container: 'map',
-      style: 'mapbox://styles/mapbox/light-v10',
+      style: 'mapbox://styles/nbrownie/ckur58op823es17k99ugvww0z',
       center: [-77.034084142948, 38.909671288923],
       zoom: 13,
       scrollZoom: false,
@@ -319,21 +333,45 @@ class Locator extends React.Component {
         /* Assign a unique `id` to the listing. */
         listing.id = `listing-${store.properties.id}`
         /* Assign the `item` class to each listing for styling. */
-        listing.className = 'item'
+        listing.className = 'card m-2'
+
+        const listingBody = listing.appendChild(document.createElement('div'))
+        listingBody.id = `listingBody-${store.properties.id}`
+        listingBody.className = 'card-body'
+
+        const listingRow = listingBody.appendChild(
+          document.createElement('div')
+        )
+        listingRow.id = `listingRow-${store.properties.id}`
+        listingRow.className = 'row'
+
+        const listingCol = listingRow.appendChild(document.createElement('div'))
+        listingCol.id = `listingCol-${store.properties.id}`
+        listingCol.className = 'col-6'
 
         /* Add the link to the individual listing created above. */
-        const link = listing.appendChild(document.createElement('a'))
+        const link = listingCol.appendChild(document.createElement('a'))
         link.href = '#'
-        link.className = 'title'
+        link.className = 'title lead h5'
         link.id = `link-${store.properties.id}`
-        link.innerHTML = `${store.properties.address}`
+        link.innerHTML = `${store.properties.name}`
 
         /* Add details to the individual listing. */
-        const details = listing.appendChild(document.createElement('div'))
-        details.innerHTML = `${store.properties.city}`
-        if (store.properties.phone) {
-          details.innerHTML += ` &middot; ${store.properties.phoneFormatted}`
-        }
+        const details = listingCol.appendChild(document.createElement('div'))
+        details.innerHTML = `${store.properties.address}`
+
+        const listingCol2 = listingRow.appendChild(
+          document.createElement('div')
+        )
+        listingCol2.id = `listingCol2-${store.properties.id}`
+        listingCol2.className = 'col-6'
+
+        const button = listingCol2.appendChild(document.createElement('button'))
+        button.id = `button-${store.properties.id}`
+        button.className = 'btn btn-primary m-1 float-end text-white'
+        button.type = 'button'
+        button.title = 'Details'
+        button.innerHTML = 'Details'
 
         /**
          * Listen to the element and when it is clicked, do four things:
@@ -379,7 +417,7 @@ class Locator extends React.Component {
       const popup = new mapboxgl.Popup({ closeOnClick: false })
         .setLngLat(currentFeature.geometry.coordinates)
         .setHTML(
-          `<h3>Sweetgreen</h3><h4>${currentFeature.properties.address}</h4>`
+          `<h3> ${currentFeature.properties.name}</h3><h4>${currentFeature.properties.address}</h4>`
         )
         .addTo(map)
     }
@@ -388,16 +426,28 @@ class Locator extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <div class="sidebar">
-          <div class="heading">
-            <h1>Our locations</h1>
+        <div className="container-fluid text-primary" data-aos="fade-up">
+          <div className="card h-100">
+            <div
+              id="map"
+              class="map"
+              ref={el => (this.mapContainer = el)}
+              style={{ width: '100%', height: '50vh' }}
+            />
           </div>
-          <div id="listings" class="listings"></div>
+          <div className="card h-100">
+            <SearchBar />
+            <div class="sidebar scroll-list card-body p-4 text-start ">
+              <div class="heading">
+                <h1>Jumbles:</h1>
+              </div>
+              <div id="listings" class="listings"></div>
+            </div>
+          </div>
         </div>
-        <div id="map" class="map"></div>
       </React.Fragment>
     )
   }
 }
 
-export default Locator
+export default MapComponent
