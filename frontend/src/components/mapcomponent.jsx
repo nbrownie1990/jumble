@@ -1,6 +1,7 @@
 import ReactDom from 'react-dom'
 import mapboxgl from 'mapbox-gl'
 import React from 'react'
+import Star from '../components/common/rating'
 import SearchBar from '../components/searchbar'
 
 mapboxgl.accessToken =
