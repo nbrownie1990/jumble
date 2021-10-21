@@ -5,7 +5,7 @@ import '../assets/css/style.css'
 class Rezension extends React.Component {
   render() {
     return (
-      <div className="rez container">
+      <div className="rez container scroll-list">
         <div className="chat">
           <div className="mine messages">
             <div className=" message last row">
