@@ -19,17 +19,18 @@ header {
   margin-top: 15rem;
 }
 
-.top-nav {
-  background-color: var(--primary-color);
-  border-bottom-left-radius: 160%;
-  border-bottom-right-radius: 50%;
-  height: -7rem;
-  position: fixed;
-  top: -100vh;
-  transition: all 0.65s cubic-bezier(1, 0, 0, 1);
-  width: 100%;
-  z-index: 50;
-}
+// Navbar-style
+// .open {
+//   background-color: #e46965;
+//   border-bottom-left-radius: 160%;
+//   border-bottom-right-radius: 50%;
+//   height: -7rem;
+//   position: fixed;
+//   top: -100vh;
+//   transition: all 0.65s cubic-bezier(1, 0, 0, 1);
+//   width: 100%;
+//   z-index: 50;
+// }
 
 footer {
   background-image: url(../../assets/images/wave.svg);
