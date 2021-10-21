@@ -1,25 +1,40 @@
-import React from 'react'
+import React, { Component } from 'react'
 import NavBar from '../../components/navbar'
 import Map from '../../components/map'
-import CategoryCard from '../../components/categorycard'
+import CategoryGroup from '../../components/common/categoryGroup'
+import { getJumbles } from '../../services/fakeJumbleService'
+import { getCategories } from '../../services/fakeCategoryService'
 
-const Categories = () => {
-  return (
-    <React.Fragment>
-      <NavBar />
-      <Map />
-      <section className="container px-4 px-lg-5 mt-5">
-        <div className="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-          <CategoryCard />
-          <CategoryCard />
-          <CategoryCard />
-          <CategoryCard />
-          <CategoryCard />
-          <CategoryCard />
-        </div>
-      </section>
-    </React.Fragment>
-  )
+class Categories extends React.Component {
+  state = {
+    jumbles: [],
+    categories: [],
+  }
+
+  componentDidMount() {
+    this.setState({ jumbles: getJumbles(), categories: getCategories() })
+  }
+
+  handleCategorySelect = category => {
+    console.log(category)
+  }
+  render() {
+    const { length: count } = this.state.jumbles
+    return (
+      <React.Fragment>
+        <NavBar />
+        <Map />
+        <section className="container px-4 px-lg-5 mt-5">
+          <CategoryGroup
+            items={this.state.categories}
+            textProperty="name"
+            valueProperty="_id"
+            onItemSelect={this.handleCategorySelect}
+          />{' '}
+        </section>
+      </React.Fragment>
+    )
+  }
 }
 
 export default Categories
