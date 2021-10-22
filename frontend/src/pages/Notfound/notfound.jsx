@@ -1,7 +1,7 @@
 import React from 'react'
 import NavBar from '../../components/navbar'
 
-const Missing = () => {
+const NotFound = () => {
   return (
     <React.Fragment>
       <NavBar />
@@ -478,4 +478,4 @@ const Missing = () => {
   )
 }
 
-export default Missing
+export default NotFound
