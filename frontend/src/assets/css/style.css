@@ -22773,45 +22773,19 @@ header {
   margin-top: 15rem;
 }
 
-.open {
-  background-color: #e46965;
-  border-bottom-left-radius: 160%;
-  border-bottom-right-radius: 50%;
-  height: -7rem;
-  position: fixed;
-  top: -100vh;
-  transition: all 0.65s cubic-bezier(1, 0, 0, 1);
-  width: 100%;
-  z-index: 50;
-}
-
-footer {
-  background-image: url(../../assets/images/wave.svg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 20rem;
-}
-footer p,
-footer a {
-  color: white;
-  float: right;
-  text-align: right;
-  right: 1em;
-  bottom: 3em;
-  position: absolute;
-  display: inline;
-}
-
-.profile-img {
-  position: sticky;
-  right: 10em;
-  bottom: 27em;
-  z-index: 5;
-}
-
 .scroll-list {
   overflow-y: scroll;
   height: 300px;
+}
+
+.navbar-toggler,
+.navbar-toggler:focus,
+.navbar-toggler:active,
+.navbar-toggler-icon:focus {
+  outline: none;
+  outline: none -webkit-focus-ring-color;
+  box-shadow: none;
+  border: 0px;
 }
 
 .rez {
@@ -22910,16 +22884,6 @@ footer a {
   height: 20px;
   background: #e46965;
   border-bottom-left-radius: 10px;
-}
-
-.navbar-toggler,
-.navbar-toggler:focus,
-.navbar-toggler:active,
-.navbar-toggler-icon:focus {
-  outline: none;
-  outline: none -webkit-focus-ring-color;
-  box-shadow: none;
-  border: 0px;
 }
 
 /*# sourceMappingURL=style.css.map */

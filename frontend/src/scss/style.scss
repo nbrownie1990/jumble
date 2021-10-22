@@ -1,13 +1,6 @@
 @use 'custom';
 @use './general';
+@use './components/footer';
 @use './components/navbar';
-@use './components/typography';
-
-// variables
-
-// $dark-color: #6a4c93;
-// $light-color: hsla(54, 91%, 86%, 0.5);
-// $border-color: #fcf6bd;
-// $extra-color: #1982c4;
-// $highlight-color: #fcf6bd;
-// $aux-color: #f2b5d4;
+@use './components/rezension';
+@use './pages/profile';
