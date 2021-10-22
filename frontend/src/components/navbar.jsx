@@ -1,13 +1,13 @@
 import React, { Component, useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 class NavBar extends React.Component {
   render() {
     return (
       <nav className="navbar navbar-expand-lg navbar-dark  py-4 d-block m-3">
         <div className="container-fluid">
-          <Link className="navbar-brand " to="/home">
+          <NavLink className="navbar-brand " to="/home">
             Jumble
-          </Link>
+          </NavLink>
 
           <button
             className="navbar-toggler"
@@ -27,30 +27,30 @@ class NavBar extends React.Component {
           >
             <ul className="navbar-nav ms-auto pt-2 pt-lg-0 font-base">
               <li className="nav-item px-2" data-anchor="data-anchor">
-                <Link className="nav-link" to="/home">
+                <NavLink className="nav-link" to="/home">
                   Home
-                </Link>
+                </NavLink>
               </li>
               <li className="nav-item px-2" data-anchor="data-anchor">
-                <Link className="nav-link" to="/categories">
+                <NavLink className="nav-link" to="/categories">
                   Categories
-                </Link>
+                </NavLink>
               </li>
               <li className="nav-item px-2" data-anchor="data-anchor">
-                <Link className="nav-link" to="/jumbleadd">
+                <NavLink className="nav-link" to="/jumbleadd">
                   Add Jumble
-                </Link>
+                </NavLink>
               </li>
               <li className="nav-item px-2" data-anchor="data-anchor">
-                <Link className="nav-link" to="/profile">
+                <NavLink className="nav-link" to="/profile">
                   Profile
-                </Link>
+                </NavLink>
               </li>
             </ul>
             <form className="ps-lg-5">
-              <Link className="nav-link" to="/logout">
+              <NavLink className="nav-link" to="/logout">
                 Logout
-              </Link>
+              </NavLink>
             </form>
           </div>
         </div>
