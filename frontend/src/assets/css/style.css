@@ -22778,6 +22778,23 @@ header {
   height: 300px;
 }
 
+footer {
+  background-image: url(../../assets/images/wave.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 20rem;
+}
+footer p,
+footer a {
+  color: white;
+  float: right;
+  text-align: right;
+  right: 1em;
+  bottom: 3em;
+  position: absolute;
+  display: inline;
+}
+
 .navbar-toggler,
 .navbar-toggler:focus,
 .navbar-toggler:active,
@@ -22884,6 +22901,13 @@ header {
   height: 20px;
   background: #e46965;
   border-bottom-left-radius: 10px;
+}
+
+.profile-img {
+  position: sticky;
+  right: 10em;
+  bottom: 27em;
+  z-index: 5;
 }
 
 /*# sourceMappingURL=style.css.map */

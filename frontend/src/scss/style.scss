@@ -1,5 +1,7 @@
 @use 'custom';
 @use './general';
+@use './base/typography';
+
 @use './components/footer';
 @use './components/navbar';
 @use './components/rezension';
