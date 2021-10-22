@@ -1,13 +1,12 @@
 import React from 'react'
 
 const CategoryGroup = props => {
-  const { items, textProperty, valueProperty, selectedItem, onItemSelect } =
-    props
+  const { items, selectedItem, onItemSelect } = props
 
   return (
     <div className="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
       {items.map(item => (
-        <div key={item[valueProperty]} className="col mb-5">
+        <div key={item._id} className="col mb-5">
           <div className="card h-100">
             <img
               className="card-img-top"
@@ -16,7 +15,7 @@ const CategoryGroup = props => {
             />
             <div className="card-body p-4">
               <div className="text-center">
-                <h5 className="fw-bolder">{item[textProperty]}</h5>
+                <h5 className="fw-bolder">{item.name}</h5>
                 {item.description}
               </div>
             </div>
@@ -24,11 +23,7 @@ const CategoryGroup = props => {
               <div className="text-center">
                 <a
                   onClick={() => onItemSelect(item)}
-                  className={
-                    item === selectedItem
-                      ? 'btn btn-primary mt-auto active'
-                      : 'btn btn-primary mt-auto'
-                  }
+                  className="btn btn-primary mt-auto"
                   href="#"
                 >
                   Mehr

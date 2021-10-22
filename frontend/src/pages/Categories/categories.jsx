@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import NavBar from '../../components/navbar'
 import Map from '../../components/map'
 import CategoryGroup from '../../components/common/categoryGroup'
+import JumbleList from '../../components/common/jumbleList'
 import { getJumbles } from '../../services/fakeJumbleService'
 import { getCategories } from '../../services/fakeCategoryService'
 
@@ -19,12 +20,27 @@ class Categories extends React.Component {
     this.setState({ selectedCategory: category })
   }
 
+  handleJumbleSelect = jumble => {
+    this.setState({ selectedJumble: jumble })
+  }
+
   render() {
     const { length: count } = this.state.jumbles
+    const { selectedCategory, jumbles: allJumbles } = this.state
+
+    if (count === 0) return <p>There are no jumbles in the database</p>
+
+    const filtered =
+      selectedCategory && selectedCategory._id
+        ? allJumbles.filter(j => j.category._id === selectedCategory._id)
+        : allJumbles
+
+    const jumbles = filtered
+
     return (
       <React.Fragment>
         <NavBar />
-        <Map />
+        {/* <Map /> */}
         <section className="container px-4 px-lg-5 mt-5">
           <CategoryGroup
             items={this.state.categories}
@@ -32,14 +48,20 @@ class Categories extends React.Component {
             onItemSelect={this.handleCategorySelect}
           />{' '}
         </section>
+        <section className="card container px-4 px-lg-5 mt-5">
+          <p className="m-2">
+            Showing {filtered.length} Jumbles in the database.{' '}
+          </p>
+          <JumbleList
+            jumbles={this.state.jumbles}
+            selectedJumble={this.state.selectedJumble}
+            onJumbleSelect={this.handleJumbleSelect}
+            jumblesCount={filtered.length}
+          />
+        </section>
       </React.Fragment>
     )
   }
-}
-
-CategoryGroup.defaultProps = {
-  textProperty: 'name',
-  valueProperty: '_id',
 }
 
 export default Categories

@@ -2,11 +2,11 @@ import * as categoriesAPI from './fakeCategoryService'
 
 const jumbles = [
   {
-    _id: '5b21ca3eeb7f6fbccd471815',
+    _id: '5b21be3eeb7f6fbccd471815',
     name: 'Flohschanze',
     category: {
       _id: '5b21ca3eeb7f6fbccd471818',
-      categoryname: 'Flea Markets',
+      name: 'Flea Markets',
     },
     address: 'Fake-Street 123',
     postalCode: '20005',
@@ -16,11 +16,11 @@ const jumbles = [
     rating: 3,
   },
   {
-    _id: '5b21ca3eeb7f6fbccd471816',
+    _id: '5b21ca3aeb7f6fbccd471816',
     name: 'Flohmarkt Michelwiese',
     category: {
       _id: '5b21ca3eeb7f6fbccd471818',
-      categoryname: 'Flea Markets',
+      name: 'Flea Markets',
     },
     address: 'Fake-Street 123',
     postalCode: '20005',
@@ -30,11 +30,11 @@ const jumbles = [
     rating: 3,
   },
   {
-    _id: '5b21ca3eeb7f6fbccd471817',
+    _id: '5b21ca34eb7f6fbccd471817',
     name: 'Fairteiler Winterhude',
     category: {
-      _id: '5b21ca3eeb7f6fbccd471818',
-      categoryname: 'Flea Markets',
+      _id: '5b21ca3eeb7f6fbccd471820',
+      name: 'Food-Sharing',
     },
     address: 'Fake-Street 123',
     postalCode: '20005',
@@ -44,11 +44,11 @@ const jumbles = [
     rating: 3,
   },
   {
-    _id: '5b21ca3eeb7f6fbccd471819',
+    _id: '5b21cs3eeb7f6fbccd471819',
     name: 'Secondella',
     category: {
-      _id: '5b21ca3eeb7f6fbccd471818',
-      categoryname: 'Flea Markets',
+      _id: '5b21ca3eeb7f6fbccd471814',
+      name: 'Second-Hand',
     },
     address: 'Fake-Street 123',
     postalCode: '20005',
@@ -58,11 +58,11 @@ const jumbles = [
     rating: 3,
   },
   {
-    _id: '5b21ca3eeb7f6fbccd47181a',
+    _id: '5b21ca2eeb7f6fbccd47181a',
     name: 'Second-Hand Shop Altona',
     category: {
-      _id: '5b21ca3eeb7f6fbccd471818',
-      categoryname: 'Flea Markets',
+      _id: '5b21ca3eeb7f6fbccd471814',
+      name: 'Second-Hand',
     },
     address: 'Fake-Street 123',
     postalCode: '20005',
@@ -72,11 +72,11 @@ const jumbles = [
     rating: 3,
   },
   {
-    _id: '5b21ca3eeb7f6fbccd47181b',
+    _id: '5b21ca3eek7f6fbccd47181b',
     name: 'Humana Winterhude',
     category: {
-      _id: '5b21ca3eeb7f6fbccd471818',
-      categoryname: 'Flea Markets',
+      _id: '5b21ca3eeb7f6fbced471821',
+      name: 'Online-Angebote',
     },
     address: 'Fake-Street 123',
     postalCode: '20005',
@@ -86,11 +86,11 @@ const jumbles = [
     rating: 3,
   },
   {
-    _id: '5b21ca3eeb7f6fbccd47181e',
+    _id: '5b26ca3eeb7f6fbccd47181e',
     name: 'Fairteiler Altona',
     category: {
-      _id: '5b21ca3eeb7f6fbccd471818',
-      categoryname: 'Flea Markets',
+      _id: '5b21ca3eeb7f6fbccd471921',
+      name: 'Donation',
     },
     address: 'Fake-Street 123',
     postalCode: '20005',
@@ -100,11 +100,11 @@ const jumbles = [
     rating: 3,
   },
   {
-    _id: '5b21ca3eeb7f6fbccd47181f',
+    _id: '5b21da3eeb7f6fbccd47181f',
     name: 'Isemarkt Fairteiler',
     category: {
-      _id: '5b21ca3eeb7f6fbccd471818',
-      categoryname: 'Flea Markets',
+      _id: '5b21ca3eeb7f6fbccd471820',
+      name: 'Food-Sharing',
     },
     address: 'Fake-Street 123',
     postalCode: '20005',
@@ -114,11 +114,25 @@ const jumbles = [
     rating: 3,
   },
   {
-    _id: '5b21ca3eeb7f6fbccd471821',
+    _id: '5b21ca3deb7f6fbccd471821',
     name: 'Flohmarkt am Lehmweg',
     category: {
       _id: '5b21ca3eeb7f6fbccd471818',
-      categoryname: 'Flea Markets',
+      name: 'Flea Markets',
+    },
+    address: 'Fake-Street 123',
+    postalCode: '20005',
+    openingDate: '28.02.21',
+    openingTime: '10 - 16 Uhr',
+    website: 'www.fakeweb.com',
+    rating: 3,
+  },
+  {
+    _id: '5b21ca3deb7f6fbccd479921',
+    name: 'Upcycling-Markt',
+    category: {
+      _id: '5b21ca3eeb7f6fbccd771821',
+      name: 'Upcylcling & Tausch',
     },
     address: 'Fake-Street 123',
     postalCode: '20005',
