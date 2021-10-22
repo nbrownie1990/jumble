@@ -1,7 +1,8 @@
 import React from 'react'
 
 const CategoryGroup = props => {
-  const { items, textProperty, valueProperty } = props
+  const { items, textProperty, valueProperty, selectedItem, onItemSelect } =
+    props
 
   return (
     <div className="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
@@ -21,7 +22,15 @@ const CategoryGroup = props => {
             </div>
             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
               <div className="text-center">
-                <a className="btn btn-primary mt-auto" href="#">
+                <a
+                  onClick={() => onItemSelect(item)}
+                  className={
+                    item === selectedItem
+                      ? 'btn btn-primary mt-auto active'
+                      : 'btn btn-primary mt-auto'
+                  }
+                  href="#"
+                >
                   Mehr
                 </a>
               </div>

@@ -301,7 +301,7 @@ class MapComponent extends React.Component {
        * - The location listings on the side of the page
        * - The markers onto the map
        */
-      buildLocationList(stores)
+      buildJumbleList(stores)
       addMarkers()
     })
 
@@ -354,7 +354,7 @@ class MapComponent extends React.Component {
     /**
      * Add a listing for each store to the sidebar.
      **/
-    function buildLocationList(stores) {
+    function buildJumbleList(stores) {
       for (const store of stores.features) {
         /* Add a new listing section to the sidebar. */
         const listings = document.getElementById('listings')
@@ -459,18 +459,18 @@ class MapComponent extends React.Component {
           <div className="card h-100">
             <div
               id="map"
-              class="map"
+              className="map"
               ref={el => (this.mapContainer = el)}
               style={{ width: '100%', height: '50vh' }}
             />
           </div>
           <div className="card h-100">
             <SearchBar />
-            <div class="sidebar scroll-list card-body p-4 text-start ">
-              <div class="heading">
+            <div className="sidebar scroll-list card-body p-4 text-start ">
+              <div className="heading">
                 <h1>Jumbles:</h1>
               </div>
-              <div id="listings" class="listings"></div>
+              <div id="listings" className="listings"></div>
             </div>
           </div>
         </div>

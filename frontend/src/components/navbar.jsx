@@ -5,7 +5,7 @@ class NavBar extends React.Component {
     return (
       <nav className="navbar navbar-expand-lg navbar-dark  py-4 d-block m-3">
         <div className="container-fluid">
-          <Link class="navbar-brand " to="/home">
+          <Link className="navbar-brand " to="/home">
             Jumble
           </Link>
 

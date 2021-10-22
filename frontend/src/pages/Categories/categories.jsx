@@ -16,8 +16,9 @@ class Categories extends React.Component {
   }
 
   handleCategorySelect = category => {
-    console.log(category)
+    this.setState({ selectedCategory: category })
   }
+
   render() {
     const { length: count } = this.state.jumbles
     return (
@@ -27,14 +28,18 @@ class Categories extends React.Component {
         <section className="container px-4 px-lg-5 mt-5">
           <CategoryGroup
             items={this.state.categories}
-            textProperty="name"
-            valueProperty="_id"
+            selectedItem={this.state.selectedCategory}
             onItemSelect={this.handleCategorySelect}
           />{' '}
         </section>
       </React.Fragment>
     )
   }
+}
+
+CategoryGroup.defaultProps = {
+  textProperty: 'name',
+  valueProperty: '_id',
 }
 
 export default Categories

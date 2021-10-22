@@ -19,21 +19,21 @@ export const categories = [
   },
 
   {
-    _id: '5b21ca3eeb7f6fbccd471821',
+    _id: '5b21ca3eeb7f6fbccd471921',
     name: 'Donation',
     description:
       'Alle Angebote zum organisierten Einsammeln von gebrauchter oder ungebrauchter Kleidung. Die Spende soll in einem noch verwendbaren Zustand sein.',
   },
 
   {
-    _id: '5b21ca3eeb7f6fbccd471821',
+    _id: '5b21ca3eeb7f6fbccd771821',
     name: 'Upcylcling & Tausch',
     description:
       'In diesen Jumbles kannst du dein Ausrangiertes kreativ verwerten oder mit anderen tauschen.',
   },
 
   {
-    _id: '5b21ca3eeb7f6fbccd471821',
+    _id: '5b21ca3eeb7f6fbced471821',
     name: 'Online-Angebote',
     description:
       'Alle Online-Angebote zum organisierten Einsammeln von gebrauchter oder ungebrauchter Kleidung. Die Spende soll in einem noch verwendbaren Zustand sein.',

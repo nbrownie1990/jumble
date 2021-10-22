@@ -33,7 +33,7 @@ function App() {
     AOS.init()
   })
   return (
-    <React.Fragment className="App">
+    <div className="App">
       <Switch>
         <Route exact path="/">
           <Start />{' '}
@@ -77,7 +77,7 @@ function App() {
         <Route path="/impressum" component={Impressum} />
         <Missing path="*" component={Missing} />
       </Switch>
-    </React.Fragment>
+    </div>
   )
 }
 
