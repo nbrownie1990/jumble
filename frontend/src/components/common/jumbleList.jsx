@@ -1,5 +1,6 @@
 import React from 'react'
 import Star from '../common/rating'
+import { Link } from 'react-router-dom'
 
 const JumbleList = props => {
   const { jumbles, selectedJumble, onJumbleSelect } = props
@@ -20,13 +21,13 @@ const JumbleList = props => {
               </div>
               <div className="col-6 text-end">
                 <Star />
-                <a
+                <Link
+                  to={`/category/${jumble.id}`}
                   onClick={() => onJumbleSelect(jumble)}
                   className="btn btn-primary mt-auto"
-                  href="#"
                 >
                   Details
-                </a>
+                </Link>
               </div>
             </div>
           </div>

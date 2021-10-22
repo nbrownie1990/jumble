@@ -35,17 +35,11 @@ function App() {
   return (
     <div className="App">
       <Switch>
-        <Route exact path="/">
-          <Start />{' '}
-        </Route>
-        <Route exact path="/home">
-          <Home />
-        </Route>
-        <Route path="/jumble">
-          <Jumble />
-        </Route>
         <Route path="/jumbleadd">
           <AddJumble />
+        </Route>
+        <Route path="/category/:id">
+          <Jumble />
         </Route>
         <Route path="/category">
           <Category />
@@ -68,11 +62,17 @@ function App() {
         <Route path="/logout">
           <Logout />
         </Route>
+        <Route path="/profileedit">
+          <EditProfile />
+        </Route>
         <Route path="/profile">
           <Profile />
         </Route>
-        <Route path="/profileedit">
-          <EditProfile />
+        <Route exact path="/home">
+          <Home />
+        </Route>
+        <Route exact path="/">
+          <Start />
         </Route>
         <Route path="/impressum" component={Impressum} />
         <Missing path="*" component={Missing} />
