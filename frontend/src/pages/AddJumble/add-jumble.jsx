@@ -1,6 +1,6 @@
 import React from 'react'
 import NavBar from '../../components/navbar'
-import Star from '../../components/common/rating'
+import Star from '../../components/rating'
 
 const AddJumble = () => {
   return (

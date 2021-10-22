@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import NavBar from '../../components/navbar'
-import JumbleList from '../../components/common/jumbleList'
+import JumbleList from '../../components/jumbleList'
 import { getJumbles } from '../../services/fakeJumbleService'
 import { getCategories } from '../../services/fakeCategoryService'
 class Category extends React.Component {

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Star from '../../components/common/rating'
+import Star from '../../components/rating'
 import Map from '../../components/map'
 import NavBar from '../../components/navbar'
 import Rezension from '../../components/rezension'

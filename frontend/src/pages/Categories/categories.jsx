@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import NavBar from '../../components/navbar'
 import Map from '../../components/map'
-import CategoryGroup from '../../components/common/categoryGroup'
-import JumbleList from '../../components/common/jumbleList'
+import CategoryGroup from '../../components/categoryGroup'
+import JumbleList from '../../components/jumbleList'
 import { getJumbles } from '../../services/fakeJumbleService'
 import { getCategories } from '../../services/fakeCategoryService'
 

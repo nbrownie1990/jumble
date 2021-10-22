@@ -1,5 +1,5 @@
 import React from 'react'
-import Star from '../common/rating'
+import Star from './rating'
 import { Link } from 'react-router-dom'
 
 const JumbleList = props => {

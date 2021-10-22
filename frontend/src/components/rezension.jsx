@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Star from '../components/common/rating'
+import Star from './rating'
 import '../assets/css/style.css'
 
 class Rezension extends React.Component {
