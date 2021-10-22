@@ -1,6 +1,6 @@
 // -- React and related libs
-import { Route, Switch, useHistory } from 'react-router-dom'
 import React, { useState, useEffect } from 'react'
+import { Route, Switch, Redirect } from 'react-router-dom'
 
 // -- Third Party Libs
 import AOS from 'aos'
@@ -22,7 +22,7 @@ import Reset from './pages/Login/reset'
 import Profile from './pages/Profile/profile'
 import Logout from './pages/Logout/logout'
 import SignUp from './pages/SignUp/sign-up'
-import Missing from './pages/Missing/missing'
+import NotFound from './pages/Notfound/notfound'
 import Impressum from './pages/Impressum/impressum'
 
 // -- Component Styles
@@ -75,7 +75,8 @@ function App() {
           <Start />
         </Route>
         <Route path="/impressum" component={Impressum} />
-        <Missing path="*" component={Missing} />
+        <NotFound path="/not-found" component={NotFound} />
+        <Redirect to="/not-found" />
       </Switch>
     </div>
   )
