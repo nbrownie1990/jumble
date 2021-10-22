@@ -7,7 +7,7 @@ import SearchBar from '../components/searchbar'
 mapboxgl.accessToken =
   'pk.eyJ1IjoibmJyb3duaWUiLCJhIjoiY2t1aWVhNGhlMDJrZjMwcXoyZWUybDYxZCJ9.HLXmIOmvZtR3uhDR1JofjA'
 
-const stores = {
+const jumbles = {
   type: 'FeatureCollection',
   features: [
     {
@@ -279,8 +279,8 @@ class MapComponent extends React.Component {
      * later to associate each point on the map with a listing
      * in the sidebar.
      */
-    stores.features.forEach((store, i) => {
-      store.properties.id = i
+    jumbles.features.forEach((jumble, i) => {
+      jumble.properties.id = i
     })
 
     /**
@@ -293,7 +293,7 @@ class MapComponent extends React.Component {
        */
       map.addSource('places', {
         type: 'geojson',
-        data: stores,
+        data: jumbles,
       })
 
       /**
@@ -301,7 +301,7 @@ class MapComponent extends React.Component {
        * - The location listings on the side of the page
        * - The markers onto the map
        */
-      buildJumbleList(stores)
+      buildJumbleList(jumbles)
       addMarkers()
     })
 
@@ -310,7 +310,7 @@ class MapComponent extends React.Component {
      **/
     function addMarkers() {
       /* For each feature in the GeoJSON object above: */
-      for (const marker of stores.features) {
+      for (const marker of jumbles.features) {
         /* Create a div element for the marker. */
         const el = document.createElement('div')
         /* Assign a unique `id` to the marker. */
@@ -334,7 +334,7 @@ class MapComponent extends React.Component {
          **/
         el.addEventListener('click', e => {
           /* Fly to the point */
-          flyToStore(marker)
+          flyToJumble(marker)
           /* Close all other popups and display popup for clicked store */
           createPopUp(marker)
           /* Highlight listing in sidebar */
@@ -354,49 +354,49 @@ class MapComponent extends React.Component {
     /**
      * Add a listing for each store to the sidebar.
      **/
-    function buildJumbleList(stores) {
-      for (const store of stores.features) {
+    function buildJumbleList(jumbles) {
+      for (const jumble of jumbles.features) {
         /* Add a new listing section to the sidebar. */
         const listings = document.getElementById('listings')
         const listing = listings.appendChild(document.createElement('div'))
         /* Assign a unique `id` to the listing. */
-        listing.id = `listing-${store.properties.id}`
+        listing.id = `listing-${jumble.properties.id}`
         /* Assign the `item` class to each listing for styling. */
         listing.className = 'card m-2'
 
         const listingBody = listing.appendChild(document.createElement('div'))
-        listingBody.id = `listingBody-${store.properties.id}`
+        listingBody.id = `listingBody-${jumble.properties.id}`
         listingBody.className = 'card-body'
 
         const listingRow = listingBody.appendChild(
           document.createElement('div')
         )
-        listingRow.id = `listingRow-${store.properties.id}`
+        listingRow.id = `listingRow-${jumble.properties.id}`
         listingRow.className = 'row'
 
         const listingCol = listingRow.appendChild(document.createElement('div'))
-        listingCol.id = `listingCol-${store.properties.id}`
+        listingCol.id = `listingCol-${jumble.properties.id}`
         listingCol.className = 'col-6'
 
         /* Add the link to the individual listing created above. */
         const link = listingCol.appendChild(document.createElement('a'))
         link.href = '#'
         link.className = 'title lead h5'
-        link.id = `link-${store.properties.id}`
-        link.innerHTML = `${store.properties.name}`
+        link.id = `link-${jumble.properties.id}`
+        link.innerHTML = `${jumble.properties.name}`
 
         /* Add details to the individual listing. */
         const details = listingCol.appendChild(document.createElement('div'))
-        details.innerHTML = `${store.properties.address}`
+        details.innerHTML = `${jumble.properties.address}`
 
         const listingCol2 = listingRow.appendChild(
           document.createElement('div')
         )
-        listingCol2.id = `listingCol2-${store.properties.id}`
+        listingCol2.id = `listingCol2-${jumble.properties.id}`
         listingCol2.className = 'col-6'
 
         const button = listingCol2.appendChild(document.createElement('button'))
-        button.id = `button-${store.properties.id}`
+        button.id = `button-${jumble.properties.id}`
         button.className = 'btn btn-primary m-1 float-end text-white'
         button.type = 'button'
         button.title = 'Details'
@@ -410,9 +410,9 @@ class MapComponent extends React.Component {
          * 4. Highlight listing in sidebar (and remove highlight for all other listings)
          **/
         link.addEventListener('click', function () {
-          for (const feature of stores.features) {
+          for (const feature of jumbles.features) {
             if (this.id === `link-${feature.properties.id}`) {
-              flyToStore(feature)
+              flyToJumble(feature)
               createPopUp(feature)
             }
           }
@@ -430,7 +430,7 @@ class MapComponent extends React.Component {
      * Use Mapbox GL JS's `flyTo` to move the camera smoothly
      * a given center point.
      **/
-    function flyToStore(currentFeature) {
+    function flyToJumble(currentFeature) {
       map.flyTo({
         center: currentFeature.geometry.coordinates,
         zoom: 15,
