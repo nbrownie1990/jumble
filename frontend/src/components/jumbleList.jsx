@@ -22,7 +22,7 @@ const JumbleList = props => {
               <div className="col-6 text-end">
                 <Star />
                 <Link
-                  to={`/category/${jumble.id}`}
+                  to={`/categories/category/${jumble.id}`}
                   onClick={() => onJumbleSelect(jumble)}
                   className="btn btn-primary mt-auto"
                 >

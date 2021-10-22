@@ -84,14 +84,6 @@ const EditProfile = () => {
                   >
                     Save Profile
                   </button>
-                  <button
-                    class="btn btn-success m-3"
-                    type="button"
-                    data-toggle="tooltip"
-                    title="Edit"
-                  >
-                    <i class="fa fa-user-edit"></i>
-                  </button>
                 </div>
               </div>
             </div>

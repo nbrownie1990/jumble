@@ -1,10 +1,11 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const CategoryGroup = props => {
   const { items, selectedItem, onItemSelect } = props
 
   return (
-    <div className="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+    <div className="row gx-4 gx-lg-5 row-cols-1 row-cols-md-2 row-cols-xl-3  justify-content-center">
       {items.map(item => (
         <div key={item._id} className="col mb-5">
           <div className="card h-100">
@@ -21,13 +22,13 @@ const CategoryGroup = props => {
             </div>
             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
               <div className="text-center">
-                <a
+                <Link
+                  to={`/categories/category`}
                   onClick={() => onItemSelect(item)}
                   className="btn btn-primary mt-auto"
-                  href="#"
                 >
                   Mehr
-                </a>
+                </Link>
               </div>
             </div>
           </div>

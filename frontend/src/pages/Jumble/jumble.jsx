@@ -6,11 +6,6 @@ import Rezension from '../../components/rezension'
 import { getJumbles } from '../../services/fakeJumbleService'
 
 class Jumble extends Component {
-  handleSave = () => {
-    //Navigate back to Category
-    // this.props.history.push('/home')
-  }
-
   render() {
     return (
       <React.Fragment>
@@ -45,11 +40,11 @@ class Jumble extends Component {
               />
             </div>
             <div className="col-6">
-              <h4 className="display-6 fw-bolder mt-2">Text template</h4>
+              <h4 className="display-6 fw-bolder mt-2">Erfahrungsberichte</h4>
               <p className="lead">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Hier findest du einige Rezensionen zu diesem Jumble. Erzähl auch
+                du gerne von deinen Erfahrungen!
               </p>
-              <button onClick={this.handleSave}>Save</button>
               <Rezension />
             </div>
           </div>

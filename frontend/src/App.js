@@ -38,10 +38,10 @@ function App() {
         <Route path="/jumbleadd">
           <AddJumble />
         </Route>
-        <Route path="/category/:id">
+        <Route path="/categories/category/:id">
           <Jumble />
         </Route>
-        <Route path="/category">
+        <Route path="/categories/category">
           <Category />
         </Route>
         <Route path="/categories">

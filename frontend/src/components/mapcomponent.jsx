@@ -3,6 +3,7 @@ import mapboxgl from 'mapbox-gl'
 import React from 'react'
 import Star from './rating'
 import SearchBar from '../components/searchbar'
+// import { getJumbles } from '../../services/fakeFeatureService'
 
 mapboxgl.accessToken =
   'pk.eyJ1IjoibmJyb3duaWUiLCJhIjoiY2t1aWVhNGhlMDJrZjMwcXoyZWUybDYxZCJ9.HLXmIOmvZtR3uhDR1JofjA'

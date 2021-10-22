@@ -1,6 +1,6 @@
 import React from 'react'
 import NavBar from '../../components/navbar'
-
+import { Link } from 'react-router-dom'
 const Profile = () => {
   return (
     <React.Fragment>
@@ -25,14 +25,15 @@ const Profile = () => {
                       also kommt vorbei! Pieces from all over the world - picked
                       and cared with love for you. ♥️
                     </p>
-                    <button
-                      class="btn btn-outline-dark m-3 float-end"
+                    <Link
+                      to={`/profileedit`}
+                      className="btn btn-outline-dark m-3 float-end"
                       type="button"
                       data-toggle="tooltip"
                       title="Edit"
                     >
                       <i class="fa fa-user-edit"></i>
-                    </button>
+                    </Link>
                   </div>
                 </div>
               </div>
