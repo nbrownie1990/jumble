@@ -1,0 +1,14 @@
+{
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Spring Boot-JumblesbackendApplication<jumblesbackend>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "console": "internalConsole",
+      "mainClass": "de.nbrownie.jumblesbackend.JumblesbackendApplication",
+      "projectName": "jumblesbackend",
+      "args": ""
+    }
+  ]
+}
