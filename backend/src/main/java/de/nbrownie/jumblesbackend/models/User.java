@@ -1,4 +1,4 @@
-package de.nbrownie.jumblesbackend;
+package de.nbrownie.jumblesbackend.models;
 
 import javax.persistence.*;
 import javax.print.DocFlavor;
@@ -17,6 +17,10 @@ public class User {
 
     public void setUser_id(BigInteger user_id) {
         this.user_id = user_id;
+    }
+
+    public User(){
+
     }
 
     public String getUser_name() {
