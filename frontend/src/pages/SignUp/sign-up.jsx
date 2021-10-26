@@ -1,7 +1,48 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { Link } from 'react-router-dom'
+import { useAuth } from '../../auth/AuthProvider'
+import {postNewUser} from "../../services/authService";
 
-const SignUp = () => {
+const initialState = {
+  username: '',
+  email: '',
+  password: '',
+}
+
+export default function SignUp() {
+  const { login, user } = useAuth()
+  const [credentials, setCredentials] = useState(initialState)
+  const [passwordCheck, setPasswordCheck] = useState('')
+  const [error, setError] = useState()
+  const [loading, setLoading] = useState(false)
+  const history = useHistory()
+
+  const handleCredentials = event => {
+      setCredentials({
+          ...credentials,
+          [event.target.name]: event.target.value,
+      })
+  }
+
+  const handlePasswordCheck = event => {
+      setPasswordCheck(event.target.value)
+  }
+
+  const handleSubmit = event => {
+      event.preventDefault()
+      setLoading(true)
+      setError()
+      postNewUser(credentials)
+          .then(() => login(credentials))
+          .then(() => history.push('/profile/view'))
+          .catch(error => {
+              setError(error)
+              setLoading(false)
+          })
+  }
+
+
+
   return (
     <React.Fragment>
       <header />
@@ -14,17 +55,17 @@ const SignUp = () => {
                 <div className="card-body">
                   <h4 className="card-title">Sign Up</h4>
                   <form
-                    method="POST"
+                    as="form" onSubmit={handleSubmit}
                     className="my-login-validation"
-                    novalidate=""
                   >
                     <div className="form-group">
                       <label for="name">Name</label>
                       <input
-                        id="name"
-                        type="text"
+                        name="username"
+                        value={credentials.username}
                         className="form-control"
-                        name="name"
+                        onChange={handleCredentials}
+                        title="Username"
                         required
                         autofocus
                       />
@@ -34,10 +75,12 @@ const SignUp = () => {
                     <div className="form-group">
                       <label for="email">E-Mail Adresse</label>
                       <input
-                        id="email"
-                        type="email"
-                        className="form-control"
-                        name="email"
+                         name="email"
+                         value={credentials.email}
+                         className="form-control"
+                         onChange={handleCredentials}
+                         title="Email"
+                         required
                         required
                       />
                       <div className="invalid-feedback">
@@ -48,13 +91,22 @@ const SignUp = () => {
                     <div className="form-group">
                       <label for="password">Passwort</label>
                       <input
-                        id="password"
-                        type="password"
-                        className="form-control"
                         name="password"
+                        type="password"
+                        value={credentials.password}
+                        className="form-control"
+                        onChange={handleCredentials}
+                        title="Password"
                         required
                         data-eye
                       />
+                        <TextField
+                            name="passwordCheck"
+                            value={passwordCheck}
+                            onChange={handlePasswordCheck}
+                            title="Retype Password"
+                            type="password"
+                        />
                       <div className="invalid-feedback">
                         Passwort ist erforderlich
                       </div>
@@ -82,12 +134,15 @@ const SignUp = () => {
 
                     <div className="form-group m-0">
                       <br />
-                      <button
+                      {credentials.username && credentials.password
+                        && passwordCheck === credentials.password && (
+                        <button
                         type="submit"
                         className="btn btn-primary btn-block"
                       >
                         Sign up
                       </button>
+                      )}
                     </div>
                     <div className="mt-4 text-center">
                       Hast du bereits einen Account?
