@@ -9,6 +9,16 @@
       "mainClass": "de.nbrownie.jumblesbackend.JumblesbackendApplication",
       "projectName": "jumblesbackend",
       "args": ""
+    },
+    {
+      "type": "java",
+      "name": "Spring Boot-JumblesBackendApplication<jumblesbackend>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "console": "internalConsole",
+      "mainClass": "de.nbrownie.jumblesbackend.JumblesBackendApplication",
+      "projectName": "jumblesbackend",
+      "args": ""
     }
   ]
 }
