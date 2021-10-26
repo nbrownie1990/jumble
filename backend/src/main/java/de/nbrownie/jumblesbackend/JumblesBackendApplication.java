@@ -7,12 +7,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @SpringBootApplication
 @EnableSwagger2
-public class JumblesbackendApplication {
+public class JumblesBackendApplication {
 
-	public static void main(String[] args) {
-
-		SpringApplication.run(JumblesbackendApplication.class, args);
-	}
-
-
+	public static void main(String[] args) { SpringApplication.run(JumblesBackendApplication.class, args); }
 }
