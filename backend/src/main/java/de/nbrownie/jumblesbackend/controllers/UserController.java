@@ -18,14 +18,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping(path= "/api/v1/user")
 public class UserController {
     @Autowired
     private UserRepository userRepository;
 
     @GetMapping ("/")
     public List<User> GetUsers() {
-    return userRepository.findAll();
+    return List.of(
+        new User(
+            56, 
+           "HosenHans",
+           "hh@hansweb.de",
+           "Hallo Leute!",
+           "Hans"
+        )
+    )
     }
     
     @GetMapping("/{user_id}")
