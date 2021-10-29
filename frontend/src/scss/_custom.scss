@@ -9,29 +9,6 @@ $light-plum: #ff6469;
 $dark-plum: #be4362;
 $red: #dc2f27;
 
-//$indigo:  #6610f2 !default;
-// $purple:  #6f42c1 !default;
-// $pink:    #d63384 !default;
-// $orange:  #fd7e14 !default;
-// $yellow:  #ffc107 !default;
-// $green:   #198754 !default;
-// $teal:    #20c997 !default;
-// $cyan:    #0dcaf0 !default;
-
-//WHITE AND GRAY COLORS
-// scss-docs-start gray-color-variables
-// $white:    #fff !default;
-// $gray-100: #f8f9fa !default;
-// $gray-200: #e9ecef !default;
-// $gray-300: #dee2e6 !default;
-// $gray-400: #ced4da !default;
-// $gray-500: #adb5bd !default;
-// $gray-600: #6c757d !default;
-// $gray-700: #495057 !default;
-// $gray-800: #343a40 !default;
-// $gray-900: #212529 !default;
-// $black:    #000 !default
-
 //BUTTON THEMES
 $theme-colors: (
   'primary': $dark-indigo,
@@ -43,31 +20,5 @@ $theme-colors: (
   'light': $light-background,
   'dark': $dark-plum,
 );
-// Links - Style anchor elements.
-// $link-color:                           $primary !default;
-// $link-decoration:                         underline !default;
-// $link-shade-percentage:                   20% !default;
-// $link-hover-color:                        shift-color($link-color, $link-shade-percentage) !default;
-// $link-hover-decoration:                   null !default;
-// $stretched-link-pseudo-element:           after !default;
-// $stretched-link-z-index:                  1 !default;
-// Body
-//
-// Settings for the `<body>` element.
-// $body-bg:                   $white !default;
-// $body-color:                $gray-900 !default;
-// $body-text-align:           null !default;
-//ICONS
-//plus-lg bi bi-plus-lg
-// <path fill-rule="evenodd" clip-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z" fill="#000"/>
-// person bi bi-person-circle
-// <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
-// <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
-//categories -- bi bi-grid-fill
-//  <path d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5v-3zm8 0A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 5.5v-3zm-8 8A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5v-3zm8 0A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5v-3z"/>
-//location - bi bi-geo-alt-fill
-//  <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
-//back bi bi-chevron-left
-//  <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
-//edit --bi bi-pen-fill
-//  <path d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001z"/>
+
+@import '../../node_modules/bootstrap/scss/bootstrap.scss'; // am Ende schauen ob wirklich die große Datei benötigt wird oder nur einzelne Pakete von Bootstrap: grid, buttons & noch einbauen minified,

@@ -24,6 +24,7 @@ import Logout from './pages/Logout/logout'
 import SignUp from './pages/SignUp/sign-up'
 import NotFound from './pages/Notfound/notfound'
 import Impressum from './pages/Impressum/impressum'
+import Footer from './components/footer'
 
 // -- Component Styles
 import './assets/css/style.css'
@@ -78,6 +79,7 @@ function App() {
         <NotFound path="/not-found" component={NotFound} />
         <Redirect to="/not-found" />
       </Switch>
+      <Footer />
     </div>
   )
 }

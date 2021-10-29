@@ -2,7 +2,7 @@ footer {
   background-image: url(../../assets/images/wave.svg);
   background-repeat: no-repeat;
   background-size: cover;
-  height: 20rem;
+  height: 20em;
 
   p,
   a {
@@ -13,5 +13,6 @@ footer {
     bottom: 3em;
     position: absolute;
     display: inline;
+    padding: 2em;
   }
 }

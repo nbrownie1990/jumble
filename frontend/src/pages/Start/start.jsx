@@ -4,8 +4,10 @@ import { Link } from 'react-router-dom'
 const Start = () => {
   return (
     <React.Fragment>
-      <header />
-      <section class="d-flex h-100 text-center text-white">
+      <main
+        id="start-page"
+        class="d-flex h-100 text-center text-white align-self-center"
+      >
         <div className="cover-container d-flex w-100 h-100 p-3 flex-column">
           <div className="px-3">
             <h1>Jumble - the right place for your stuff</h1>
@@ -21,7 +23,7 @@ const Start = () => {
             </p>{' '}
           </div>
         </div>
-      </section>
+      </main>
     </React.Fragment>
   )
 }

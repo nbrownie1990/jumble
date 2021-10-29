@@ -15,12 +15,12 @@ body {
   height: 100%;
 }
 
-header {
-  margin-top: 15rem;
+.page-wrapper {
+  min-height: 100vh;
 }
 
-.page-container {
-  min-height: 100vh;
+.App {
+  height: 100%;
 }
 
 .scroll-list {
