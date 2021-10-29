@@ -1,0 +1,36 @@
+spring:
+  profiles:
+    active: @spring.profiles.active@
+  application:
+    name: jumbles
+  datasource:
+    url: jdbc:postgresql://localhost:5432/jumbles
+    username: ninabraunger
+    password: Hallohi123
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    generate-ddl: true
+    open-in-view: false
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        jdbc:
+          time_zone: UTC
+    hibernate:
+      ddl-auto: update
+
+server:
+  servlet:
+    context-path: "/api"
+  error:
+    include-message: always
+
+security:
+  jwt:
+    secret: ${JWT-SECRET}
+    expiresAfterMinutes: 30
+
+mapbox-client:
+  access-token: "pk.eyJ1IjoibmJyb3duaWUiLCJhIjoiY2t1aWVhNGhlMDJrZjMwcXoyZWUybDYxZCJ9.HLXmIOmvZtR3uhDR1JofjA"
