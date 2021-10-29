@@ -1,4 +1,3 @@
-@import '../../node_modules/bootstrap/scss/bootstrap.scss'; // grid, buttons, npch einbauen minified,
 @use 'custom';
 @use './general';
 @use './base/typography';
@@ -7,3 +6,4 @@
 @use './components/navbar';
 @use './components/rezension';
 @use './pages/profile';
+@import '../../node_modules/bootstrap/scss/bootstrap.scss'; // am Ende schauen ob wirklich die große Datei benötigt wird oder nur einzelne Pakete von Bootstrap: grid, buttons & noch einbauen minified,
