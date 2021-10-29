@@ -19,6 +19,10 @@ header {
   margin-top: 15rem;
 }
 
+.page-container {
+  min-height: 100vh;
+}
+
 .scroll-list {
   overflow-y: scroll;
   height: 300px;
