@@ -22813,6 +22813,7 @@ footer {
   outline: none -webkit-focus-ring-color;
   box-shadow: none;
   border: 0px;
+  text-align: end;
 }
 
 .rez {
