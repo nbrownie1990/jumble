@@ -457,7 +457,7 @@ class MapComponent extends React.Component {
     return (
       <React.Fragment>
         <div className="container-fluid text-primary" data-aos="fade-up">
-          <div className="card h-100">
+          <div className="card">
             <div
               id="map"
               className="map"
@@ -465,7 +465,7 @@ class MapComponent extends React.Component {
               style={{ width: '100%', height: '50vh' }}
             />
           </div>
-          <div className="card h-100">
+          <div className="card">
             <SearchBar />
             <div className="sidebar scroll-list card-body p-4 text-start ">
               <div className="heading">

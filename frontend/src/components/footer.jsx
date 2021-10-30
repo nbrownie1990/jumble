@@ -5,9 +5,11 @@ class Footer extends React.Component {
   render() {
     return (
       <footer>
-        <p>© 2021 All rights reserved.</p>
-        <br />
-        <Link to="/impressum">Impressum</Link>
+        <div className="svg-wrapper">
+          <p>© 2021 All rights reserved.</p>
+          <br />
+          <Link to="/impressum">Impressum</Link>
+        </div>
       </footer>
     )
   }

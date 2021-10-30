@@ -1,8 +1,17 @@
 footer {
+  position: relative;
+  padding-top: 25rem;
+}
+
+.svg-wrapper {
   background-image: url(../../assets/images/wave.svg);
   background-repeat: no-repeat;
   background-size: cover;
-  height: 20em;
+  position: absolute;
+  top: 48px;
+  bottom: 0;
+  left: 0;
+  right: 0;
 
   p,
   a {

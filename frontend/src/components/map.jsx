@@ -52,15 +52,12 @@ class Map extends React.Component {
 
   render() {
     return (
-      <div className="card h-100">
+      <div className="card">
         <div
           className="container p-0 
         "
         >
-          <div
-            ref={el => (this.mapContainer = el)}
-            style={{ width: '100%', height: '50vh' }}
-          />
+          <div ref={el => (this.mapContainer = el)} />
         </div>
       </div>
     )

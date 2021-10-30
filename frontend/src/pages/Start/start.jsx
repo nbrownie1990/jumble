@@ -4,12 +4,9 @@ import { Link } from 'react-router-dom'
 const Start = () => {
   return (
     <React.Fragment>
-      <main
-        id="start-page"
-        class="d-flex h-100 text-center text-white align-self-center"
-      >
-        <div className="cover-container d-flex w-100 h-100 p-3 flex-column">
-          <div className="px-3">
+      <main className="d-flex h-100 text-center text-white ">
+        <div className="cover-container d-flex w-100 h-100 p-3">
+          <div className="px-3 align-self-center">
             <h1>Jumble - the right place for your stuff</h1>
             <p className="lead">
               Endlich wieder Platz in den Regalen - Finde einen besseren Platz
