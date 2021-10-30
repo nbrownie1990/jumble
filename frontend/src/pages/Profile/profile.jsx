@@ -5,7 +5,7 @@ const Profile = () => {
   return (
     <React.Fragment>
       <NavBar />
-      <section className="h-100">
+      <section>
         <div className="container h-100">
           <div className="row">
             <div className="d-flex flex-column align-items-center text-center">
