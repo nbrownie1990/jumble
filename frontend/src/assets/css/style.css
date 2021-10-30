@@ -22807,6 +22807,7 @@ footer {
 
 header {
   height: 3rem;
+  position: fixed;
 }
 
 .navbar-toggler,
