@@ -22805,6 +22805,10 @@ footer {
   padding: 2em;
 }
 
+header {
+  height: 3rem;
+}
+
 .navbar-toggler,
 .navbar-toggler:focus,
 .navbar-toggler:active,
