@@ -4,10 +4,9 @@ import { Link } from 'react-router-dom'
 const Forgot = () => {
   return (
     <React.Fragment>
-      <header />
-      <section classNameName="h-100">
+      <section className="h-100">
         <div className="container h-100">
-          <div className="row justify-content-md-center align-items-center h-100">
+          <div className="row justify-content-md-center h-100">
             <div className="card-wrapper align-self-center">
               <div className="card fat">
                 <div className="card-body">

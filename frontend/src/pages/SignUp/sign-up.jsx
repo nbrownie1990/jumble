@@ -43,8 +43,6 @@ export default function SignUp() {
 
   return (
     <React.Fragment>
-      <header />
-
       <section className="h-100">
         <div className="container h-100">
           <div className="row justify-content-md-center h-100">
