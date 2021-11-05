@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 const CategoryGroup = props => {
-  const { items, selectedItem, onItemSelect } = props
+  const { items, onItemSelect } = props
 
   return (
     <div className="row gx-4 gx-lg-5 row-cols-1 row-cols-md-2 row-cols-xl-3  justify-content-center">

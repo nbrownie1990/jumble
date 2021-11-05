@@ -41,24 +41,26 @@ class Categories extends React.Component {
       <React.Fragment>
         <NavBar />
         {/* <Map /> */}
-        <section className="container px-4 px-lg-5 mt-5">
-          <CategoryGroup
-            items={this.state.categories}
-            selectedItem={this.state.selectedCategory}
-            onItemSelect={this.handleCategorySelect}
-          />{' '}
-        </section>
-        <section className="card container px-4 px-lg-5 mt-5">
-          <p className="m-2">
-            Showing {filtered.length} Jumbles in the database.{' '}
-          </p>
-          <JumbleList
-            jumbles={this.state.jumbles}
-            selectedJumble={this.state.selectedJumble}
-            onJumbleSelect={this.handleJumbleSelect}
-            jumblesCount={filtered.length}
-          />
-        </section>
+        <main className="m-5 mb-5">
+          <section className="container w-100 h-100 px-4 px-lg-5 mt-5">
+            <CategoryGroup
+              items={this.state.categories}
+              selectedItem={this.state.selectedCategory}
+              onItemSelect={this.handleCategorySelect}
+            />{' '}
+          </section>
+          <section className="card container px-4 px-lg-5 mt-5">
+            <p className="m-2">
+              Showing {filtered.length} Jumbles in the database.{' '}
+            </p>
+            <JumbleList
+              jumbles={this.state.jumbles}
+              selectedJumble={this.state.selectedJumble}
+              onJumbleSelect={this.handleJumbleSelect}
+              jumblesCount={filtered.length}
+            />
+          </section>
+        </main>
       </React.Fragment>
     )
   }

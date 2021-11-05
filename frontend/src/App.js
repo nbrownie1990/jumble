@@ -5,7 +5,6 @@ import { Route, Switch, Redirect } from 'react-router-dom'
 // -- Third Party Libs
 import AOS from 'aos'
 import 'aos/dist/aos.css'
-import PropTypes from 'prop-types'
 
 // -- Custom Components
 import Start from './pages/Start/start'
