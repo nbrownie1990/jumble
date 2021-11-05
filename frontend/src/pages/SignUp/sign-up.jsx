@@ -46,7 +46,7 @@ export default function SignUp() {
       <section className="h-100">
         <div className="container h-100">
           <div className="row justify-content-md-center h-100">
-            <div className="card-wrapper align-self-center">
+            <div className="card-wrapper align-self-center col-md-8 col-12 ">
               <div className="card fat">
                 <div className="card-body">
                   <h4 className="card-title">Sign Up</h4>
