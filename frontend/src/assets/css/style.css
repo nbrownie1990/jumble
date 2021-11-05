@@ -22758,24 +22758,23 @@ textarea.form-control-lg {
   box-sizing: border-box;
 }
 
+html,
+body,
+#root {
+  height: 100% !important;
+}
+
 .App {
   position: relative;
   overflow-x: hidden;
-  background: url(../../assets/images/jumble-bg.webp);
+  background: url(../../assets/images/jumble-bg.svg);
   background-attachment: fixed;
   background-size: cover;
   background-repeat: no-repeat;
   font-family: "Josefin Sans", sans-serif;
-  height: 100vh;
-}
-
-#root {
-  min-height: 100vh;
-}
-
-.scroll-list {
-  overflow-y: scroll;
-  height: 300px;
+  height: 100%;
+  display: flex;
+  flex-direction: column !important;
 }
 
 footer {
@@ -22784,7 +22783,7 @@ footer {
 }
 
 .svg-wrapper {
-  background-image: url(../../assets/images/wave.svg);
+  background-image: url(../../assets/images/wave-2.svg);
   background-repeat: no-repeat;
   background-size: cover;
   position: absolute;
@@ -22805,11 +22804,6 @@ footer {
   padding: 2em;
 }
 
-header {
-  height: 3rem;
-  position: fixed;
-}
-
 .navbar-toggler,
 .navbar-toggler:focus,
 .navbar-toggler:active,
@@ -22819,6 +22813,11 @@ header {
   box-shadow: none;
   border: 0px;
   text-align: end;
+}
+
+.scroll-list {
+  overflow-y: scroll;
+  height: 300px;
 }
 
 .rez {
