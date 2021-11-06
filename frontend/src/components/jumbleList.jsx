@@ -3,7 +3,7 @@ import Star from './rating'
 import { Link } from 'react-router-dom'
 
 const JumbleList = props => {
-  const { jumbles, selectedJumble, onJumbleSelect } = props
+  const { jumbles, onJumbleSelect } = props
 
   return (
     <div className="container">
