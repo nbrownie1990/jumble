@@ -3,7 +3,6 @@ import Star from '../../components/rating'
 import Map from '../../components/map'
 import NavBar from '../../components/navbar'
 import Rezension from '../../components/rezension'
-import { getJumbles } from '../../services/fakeJumbleService'
 
 class Jumble extends Component {
   render() {
@@ -36,7 +35,7 @@ class Jumble extends Component {
               <img
                 className="card-img-top mb-5 -md-0 mt-2"
                 src="https://dummyimage.com/400x500/dee2e6/6c757d.jpg"
-                alt="..."
+                alt="This is a jumble"
               />
             </div>
             <div className="col-6">

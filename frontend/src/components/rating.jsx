@@ -1,7 +1,6 @@
 //https://github.com/voronianski/react-star-rating-component
 
 import React from 'react'
-import ReactDOM from 'react-dom'
 import StarRatingComponent from 'react-star-rating-component'
 
 class Star extends React.Component {

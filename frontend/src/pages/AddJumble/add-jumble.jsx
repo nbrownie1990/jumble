@@ -16,6 +16,7 @@ const AddJumble = () => {
                     className="rounded-circle mt-5"
                     src="https://www.deutschlandmalanders.com/wp-content/uploads/2020/10/Flohschanze-Flohmarkt-Schanzenviertel-Hamburg-1.jpg"
                     width="110"
+                    alt="This is a jumble"
                   />
                   <span className="font-weight-bold mt-2 mb-3">
                     Bild des Jumbles

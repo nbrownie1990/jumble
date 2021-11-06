@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import Star from './rating'
 import '../assets/css/style.css'
 
@@ -20,6 +20,7 @@ class Rezension extends React.Component {
                     className="rounded-circle mt-5"
                     src="https://i.imgur.com/O1RmJXT.jpg"
                     width="50"
+                    alt="This is a jumble"
                   />
                 </div>
                 <div className="col-12">
@@ -39,6 +40,7 @@ class Rezension extends React.Component {
                   className="rounded-circle mt-5"
                   src="https://images.unsplash.com/photo-1542596594-649edbc13630?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1374&q=80"
                   width="50"
+                  alt="This is a jumble"
                 />
               </div>
               <div className="col-12">

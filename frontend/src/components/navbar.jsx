@@ -1,4 +1,4 @@
-import React, { Component, useState, useEffect } from 'react'
+import React from 'react'
 import { Navbar, Nav, Container } from 'react-bootstrap'
 
 class NavBar extends React.Component {

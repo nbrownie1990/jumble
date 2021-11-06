@@ -14,6 +14,7 @@ const EditProfile = () => {
                 className="rounded-circle mt-5"
                 src="https://i.imgur.com/O1RmJXT.jpg"
                 width="110"
+                alt="This is a profile"
               />
               <span className="font-weight-bold">John Doe</span>
             </div>

@@ -1,6 +1,5 @@
-import React, { Component } from 'react'
+import React from 'react'
 import NavBar from '../../components/navbar'
-import Map from '../../components/map'
 import CategoryGroup from '../../components/categoryGroup'
 import JumbleList from '../../components/jumbleList'
 import { getJumbles } from '../../services/fakeJumbleService'
@@ -34,8 +33,6 @@ class Categories extends React.Component {
       selectedCategory && selectedCategory._id
         ? allJumbles.filter(j => j.category._id === selectedCategory._id)
         : allJumbles
-
-    const jumbles = filtered
 
     return (
       <React.Fragment>

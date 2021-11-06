@@ -1,7 +1,5 @@
-import ReactDom from 'react-dom'
 import mapboxgl from 'mapbox-gl'
 import React from 'react'
-import Star from './rating'
 import SearchBar from '../components/searchbar'
 // import { getJumbles } from '../../services/fakeFeatureService'
 

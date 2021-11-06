@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import NavBar from '../../components/navbar'
 import JumbleList from '../../components/jumbleList'
 import { getJumbles } from '../../services/fakeJumbleService'
