@@ -70,7 +70,7 @@ const EditProfile = () => {
               <div className="col-md-5 border-right">
                 <div className="p-3 py-5">
                   <div className="d-flex flex-column align-items-center text-center">
-                    <div className="form-group col-md-12">
+                    <div className="form-group col-12">
                       <label className="labels">Erzähl uns etwas von dir</label>
                       <textarea
                         className="form-control rounded"

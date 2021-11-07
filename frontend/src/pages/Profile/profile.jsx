@@ -5,14 +5,14 @@ const Profile = () => {
   return (
     <React.Fragment>
       <NavBar />
-      <main className="m-5">
+      <main className="m-md-5 mt-5 mb-5">
         <section className="container w-100 h-100">
-          <div className="container h-100">
+          <div className="container">
             <div className="row">
               <div className="d-flex flex-column align-items-center text-center">
-                <div className="col-12 mt-5">
+                <div className="col-12 mt-5 ">
                   <img
-                    className="rounded-circle profile-img m-3 "
+                    className="rounded-circle profile-img "
                     src="https://images.unsplash.com/photo-1542596594-649edbc13630?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1374&q=80"
                     width="150"
                     alt="Profile"
