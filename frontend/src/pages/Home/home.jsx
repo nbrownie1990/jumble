@@ -6,7 +6,7 @@ const Home = () => {
   return (
     <React.Fragment>
       <NavBar />
-      <main className="d-flex text-center text-white m-5 mb-0">
+      <main className="d-flex text-center text-white m-md-5 mt-5 mb-5">
         <div className="container w-100 h-100 p-3 flex-column ">
           <div className="px-3 mt-5">
             <h1>Jumble - the right place for your stuff</h1>

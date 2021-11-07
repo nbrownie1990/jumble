@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 const Login = () => {
   return (
     <React.Fragment>
-      <main className="d-flex m-5 mb-0">
+      <main className="d-flex m-md-5 mt-5 mb-5">
         <section className="container w-100 h-100 p-3 flex-column ">
           <div className="container h-100">
             <div className="row justify-content-center h-100">

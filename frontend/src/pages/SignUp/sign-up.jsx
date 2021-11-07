@@ -43,7 +43,7 @@ export default function SignUp() {
 
   return (
     <React.Fragment>
-      <main className="m-5 mb-5 h-100">
+      <main className="m-md-5 mt-5 mb-5 h-100">
         <section className="container w-100 h-100 px-4 px-lg-5 mt-5">
           <div className="container h-100">
             <div className="row justify-content-md-center h-100">

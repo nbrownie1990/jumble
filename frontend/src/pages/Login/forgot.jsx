@@ -2,7 +2,7 @@ import React from 'react'
 
 const Forgot = () => {
   return (
-    <main className="d-flex m-5 min-vh-100">
+    <main className="d-flex m-md-5 mt-5 mb-5 min-vh-100">
       <section className="container w-100 p-3 flex-column align-self-center">
         <div className="row justify-content-center h-100">
           <div className="card-wrapper align-self-center col-md-8 col-12">

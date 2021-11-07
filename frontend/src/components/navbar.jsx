@@ -48,7 +48,7 @@ class NavBar extends React.Component {
 
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="me-auto justify-content-end w-100 text-end mr-2">
+            <Nav className="me-auto w-100 justify-content-end text-end mr-2">
               <Nav.Link href="/home">Home</Nav.Link>
 
               <Nav.Link href="/categories">Categories</Nav.Link>
