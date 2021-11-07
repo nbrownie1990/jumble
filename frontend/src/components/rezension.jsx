@@ -53,10 +53,11 @@ class Rezension extends React.Component {
             </div>
           </div>
         </div>
-        <div className="form-group col-md-12 ">
-          <label className="labels m-2">
+        <div className="form-group col-md-12 text-center mt-5">
+          <label className="labels m-2 ">
             Wie sind deine Erfahrungen mit diesem Jumble?
           </label>
+          <Star />
           <textarea
             className="form-control rounded-3"
             rows="5"
