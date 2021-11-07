@@ -5,14 +5,14 @@ const EditProfile = () => {
   return (
     <React.Fragment>
       <NavBar />
-      <main className="m-5 mb-5">
-        <section className="container w-100 h-100 px-4 px-lg-5 mt-5">
-          <div className="container rounded bg-white m-5">
+      <main className="m-5">
+        <section className="container w-100 h-100 p-0 mt-5">
+          <div className="container rounded bg-white">
             <div className="row">
               <div className="col-md-2 border-right">
                 <div className="d-flex flex-column align-items-center text-center p-3 py-5">
                   <img
-                    className="rounded-circle mt-5"
+                    className="rounded-circle p-md-3"
                     src="https://i.imgur.com/O1RmJXT.jpg"
                     width="110"
                     alt="This is a profile"
@@ -73,7 +73,7 @@ const EditProfile = () => {
                     <div className="form-group col-md-12">
                       <label className="labels">Erzähl uns etwas von dir</label>
                       <textarea
-                        className="form-control rounded-0"
+                        className="form-control rounded"
                         rows="10"
                         placeholder="Erzähl etwas von dir!"
                         value="Hallo Ihr Lieben! Ich mache regelmäßig Flohmärkte mit, also kommt vorbei! Pieces from all over the world - picked and cared with love for you. ♥️"

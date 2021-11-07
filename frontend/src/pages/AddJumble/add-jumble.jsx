@@ -6,9 +6,9 @@ const AddJumble = () => {
   return (
     <React.Fragment>
       <NavBar />
-      <main className="m-5 mb-5">
-        <section className="container w-100 h-100 px-4 px-lg-5 mt-5">
-          <div className="container rounded bg-white p-5">
+      <main className="m-md-5 m-2 mt-5 mb-5">
+        <section className="container w-100 h-100 px-lg-5 mt-5">
+          <div className="container rounded bg-white p-md-5">
             <div className="row">
               <div className="col-md-2 border-right">
                 <div className="d-flex flex-column align-items-center text-center p-3 py-5">
@@ -29,12 +29,12 @@ const AddJumble = () => {
                 </div>
               </div>
               <div className="col-md-5 border-right">
-                <div className="p-3 py-5">
+                <div className="p-md-3 py-5">
                   <div className="d-flex justify-content-between align-items-center mb-3">
                     <h2 className="text-right">Erstelle ein Jumble</h2>
                   </div>
                   <div className="row mt-2">
-                    <div className="col-md-6">
+                    <div className="col-md-12">
                       <label className="labels">Jumble-Name</label>
                       <input
                         type="text"
