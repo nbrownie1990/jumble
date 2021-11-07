@@ -5,7 +5,7 @@ const EditProfile = () => {
   return (
     <React.Fragment>
       <NavBar />
-      <main className="m-5">
+      <main className="m-md-5 m-3 mt-5 mb-5">
         <section className="container w-100 h-100 p-0 mt-5">
           <div className="container rounded bg-white">
             <div className="row">
@@ -21,7 +21,7 @@ const EditProfile = () => {
                 </div>
               </div>
               <div className="col-md-5 border-right">
-                <div className="p-3 py-5">
+                <div className="p-3 py-md-5">
                   <div className="d-flex justify-content-between align-items-center mb-3">
                     <h2 className="text-right">Edit your profile</h2>
                   </div>
@@ -68,7 +68,7 @@ const EditProfile = () => {
               </div>
 
               <div className="col-md-5 border-right">
-                <div className="p-3 py-5">
+                <div className="p-3 py-md-5">
                   <div className="d-flex flex-column align-items-center text-center">
                     <div className="form-group col-12">
                       <label className="labels">Erzähl uns etwas von dir</label>
