@@ -15,7 +15,7 @@ class NavBar extends React.Component {
     this.listener = document.addEventListener('scroll', e => {
       let scrolled = document.scrollingElement.scrollTop
 
-      if (scrolled >= 120) {
+      if (scrolled >= 20) {
         if (this.state.status !== '') {
           this.setState({ status: '' })
         }
@@ -35,7 +35,8 @@ class NavBar extends React.Component {
     return (
       <Navbar
         style={{
-          backgroundColor: this.state.status === 'top' ? '' : 'blue',
+          backgroundColor:
+            this.state.status === 'top' ? '' : 'hsl(266, 76%, 19%)',
         }}
         collapseOnSelect
         fixed="top"

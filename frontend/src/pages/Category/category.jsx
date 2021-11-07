@@ -36,17 +36,21 @@ class Category extends React.Component {
     return (
       <React.Fragment>
         <NavBar />
-        <div className="sidebar scroll-list card-body p-4 text-start ">
-          <div className="heading">
-            <h1>Jumbles:</h1>
-          </div>
-          <JumbleList
-            jumbles={jumbles}
-            selectedJumble={this.state.selectedJumble}
-            onJumbleSelect={this.handleJumbleSelect}
-            jumblesCount={filtered.length}
-          />
-        </div>
+        <main className="m-5 mb-5">
+          <section className="container w-100 h-100 px-4 px-lg-5 mt-5">
+            <div className="sidebar scroll-list card-body p-4 text-start ">
+              <div className="heading">
+                <h1>Jumbles:</h1>
+              </div>
+              <JumbleList
+                jumbles={jumbles}
+                selectedJumble={this.state.selectedJumble}
+                onJumbleSelect={this.handleJumbleSelect}
+                jumblesCount={filtered.length}
+              />
+            </div>
+          </section>
+        </main>
       </React.Fragment>
     )
   }
