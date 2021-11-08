@@ -21,7 +21,7 @@ const EditProfile = () => {
                     alt="This is a profile"
                   />
                   <Link
-                    to={`/profileedit`}
+                    to={`/user/edit`}
                     className="btn"
                     type="button"
                     data-toggle="tooltip"
@@ -95,12 +95,13 @@ const EditProfile = () => {
                       ></TextArea>
                     </div>
                     <div className="mt-5 text-center">
-                      <button
+                      <Link
+                        to={`/home`}
                         className="btn btn-primary profile-button"
                         type="button"
                       >
                         Save Profile
-                      </button>
+                      </Link>
                     </div>
                   </div>
                 </div>

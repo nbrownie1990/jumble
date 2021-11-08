@@ -113,12 +113,13 @@ const AddJumble = () => {
 
                     <div className="mt-5 text-center">
                       <Star />
-                      <button
+                      <Link
+                        to={`/home`}
                         className="btn btn-primary profile-button mt-3"
                         type="button"
                       >
                         Save Jumble
-                      </button>
+                      </Link>
                     </div>
                   </div>
                 </div>
