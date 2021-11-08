@@ -28,7 +28,7 @@ const Profile = () => {
                         picked and cared with love for you. ♥️
                       </p>
                       <Link
-                        to={`/profileedit`}
+                        to={`/user/edit`}
                         className="btn btn-outline-dark m-3 float-end"
                         type="button"
                         data-toggle="tooltip"

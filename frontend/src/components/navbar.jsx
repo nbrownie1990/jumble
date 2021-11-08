@@ -53,9 +53,9 @@ class NavBar extends React.Component {
 
               <Nav.Link href="/categories">Categories</Nav.Link>
 
-              <Nav.Link href="/jumbleadd">Add Jumble</Nav.Link>
+              <Nav.Link href="/jumble/edit">Add Jumble</Nav.Link>
 
-              <Nav.Link href="/profile">Profile</Nav.Link>
+              <Nav.Link href="/user">Profile</Nav.Link>
 
               <Nav.Link href="/logout">Logout</Nav.Link>
             </Nav>

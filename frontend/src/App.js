@@ -35,7 +35,7 @@ function App() {
   return (
     <div className="App">
       <Switch>
-        <Route path="/jumbleadd">
+        <Route path="/jumble/edit">
           <AddJumble />
         </Route>
         <Route path="/categories/category/:id">
@@ -62,10 +62,10 @@ function App() {
         <Route path="/logout">
           <Logout />
         </Route>
-        <Route path="/profileedit">
+        <Route path="/user/edit">
           <EditProfile />
         </Route>
-        <Route path="/profile">
+        <Route path="/user">
           <Profile />
         </Route>
         <Route exact path="/home">

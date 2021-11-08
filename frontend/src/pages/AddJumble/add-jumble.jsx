@@ -22,7 +22,7 @@ const AddJumble = () => {
                     alt="This is a jumble"
                   />
                   <Link
-                    to={`/profileedit`}
+                    to={`/jumble/edit`}
                     className="btn"
                     type="button"
                     data-toggle="tooltip"

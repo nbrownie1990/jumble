@@ -134,12 +134,13 @@ export default function SignUp() {
                         <br />
                         {/* {credentials.username && credentials.password
                         && passwordCheck === credentials.password && ( */}
-                        <button
+                        <Link
+                          to={`/user/edit`}
                           type="submit"
                           className="btn btn-primary btn-block"
                         >
                           Sign up
-                        </button>
+                        </Link>
                         {/* )} */}
                       </div>
                       <div className="mt-4 text-center">
