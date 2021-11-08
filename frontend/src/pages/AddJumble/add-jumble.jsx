@@ -1,6 +1,7 @@
 import React from 'react'
 import NavBar from '../../components/navbar'
 import Star from '../../components/rating'
+import { Link } from 'react-router-dom'
 
 const AddJumble = () => {
   return (
@@ -18,6 +19,15 @@ const AddJumble = () => {
                     width="110"
                     alt="This is a jumble"
                   />
+                  <Link
+                    to={`/profileedit`}
+                    className="btn"
+                    type="button"
+                    data-toggle="tooltip"
+                    title="Edit"
+                  >
+                    <i class="fas fa-pen"></i>
+                  </Link>
                   <span className="font-weight-bold mt-2 mb-3">
                     Bild des Jumbles
                   </span>

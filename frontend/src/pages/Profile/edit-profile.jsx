@@ -1,5 +1,6 @@
 import React from 'react'
 import NavBar from '../../components/navbar'
+import { Link } from 'react-router-dom'
 
 const EditProfile = () => {
   return (
@@ -17,6 +18,15 @@ const EditProfile = () => {
                     width="110"
                     alt="This is a profile"
                   />
+                  <Link
+                    to={`/profileedit`}
+                    className="btn"
+                    type="button"
+                    data-toggle="tooltip"
+                    title="Edit"
+                  >
+                    <i class="fas fa-pen"></i>
+                  </Link>
                   <span className="font-weight-bold">John Doe</span>
                 </div>
               </div>
