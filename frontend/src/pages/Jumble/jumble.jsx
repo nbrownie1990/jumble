@@ -21,7 +21,7 @@ class Jumble extends Component {
                   <p class="text-800 mb-5 fs-4">
                     Adresse: Neuer Kamp 30, 20357 Hamburg
                     <br />
-                    Termine: tt.mm.jjjj
+                    Termine
                     <br />
                     Öffnungszeiten: 9- 16 Uhr
                     <br />
@@ -30,7 +30,14 @@ class Jumble extends Component {
                     Kategorie: Flea Markets
                   </p>
                 </div>
-                <div class="col-md-6 "> Map-Component</div>
+                <div class="col-md-6 ">
+                  <img
+                    className="card-img-top m-5"
+                    src="https://dummyimage.com/400x500/dee2e6/6c757d.jpg"
+                    alt="This is a map"
+                    title="Map-Component"
+                  />
+                </div>
                 <div className="col-md-4">
                   <img
                     className="card-img-top mb-5 -md-0 mt-2"
