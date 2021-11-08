@@ -2,6 +2,8 @@ import React from 'react'
 import NavBar from '../../components/navbar'
 import Star from '../../components/rating'
 import { Link } from 'react-router-dom'
+import TextField from '../../components/textField'
+import TextArea from '../../components/textArea'
 
 const AddJumble = () => {
   return (
@@ -46,9 +48,8 @@ const AddJumble = () => {
                   <div className="row mt-2">
                     <div className="col-md-12">
                       <label className="labels">Jumble-Name</label>
-                      <input
+                      <TextField
                         type="text"
-                        className="form-control"
                         placeholder="Jumblename"
                         value="Flohschanze"
                       />
@@ -58,9 +59,8 @@ const AddJumble = () => {
                   <div className="row mt-3">
                     <div className="col-md-12">
                       <label className="labels">Adresse</label>
-                      <input
+                      <TextField
                         type="text"
-                        className="form-control"
                         placeholder="Adresse"
                         value=" Neuer Kamp 30, 20357 Hamburg"
                       />
@@ -71,21 +71,15 @@ const AddJumble = () => {
 
                     <div className="col-md-12">
                       <label className="labels">Termine</label>
-                      <input
-                        type="date"
-                        className="form-control"
-                        placeholder="Termine"
-                        value="17.05.2022"
-                      />
+                      <TextField type="date" placeholder="Termine" />
                       <span id="dateHelpInline" class="form-text">
                         Wann findet das nächste Jumble statt?
                       </span>
                     </div>
                     <div className="col-md-12">
                       <label className="labels">Öffnungszeiten</label>
-                      <input
+                      <TextField
                         type="time"
-                        className="form-control"
                         placeholder="Öffnungszeiten"
                         value="10-16 Uhr"
                       />
@@ -95,9 +89,8 @@ const AddJumble = () => {
                     </div>
                     <div className="col-md-12">
                       <label className="labels"> Website</label>
-                      <input
+                      <TextField
                         type="url"
-                        className="form-control"
                         placeholder="Website"
                         value="www.flohschanze.de"
                       />
@@ -111,12 +104,11 @@ const AddJumble = () => {
                   <div className="d-flex flex-column align-items-center text-center">
                     <div className="form-group col-md-12">
                       <label className="labels">Rezension schreiben</label>
-                      <textarea
-                        className="form-control rounded-0"
+                      <TextArea
                         rows="10"
                         placeholder="Wie ist/war es hier?"
                         value="Verkaufe hier einmal im Monat meine Klamotten und es lohnt sich!"
-                      ></textarea>
+                      />
                     </div>
 
                     <div className="mt-5 text-center">

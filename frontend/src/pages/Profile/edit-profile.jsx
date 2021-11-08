@@ -1,6 +1,8 @@
 import React from 'react'
 import NavBar from '../../components/navbar'
 import { Link } from 'react-router-dom'
+import TextField from '../../components/textField'
+import TextArea from '../../components/textArea'
 
 const EditProfile = () => {
   return (
@@ -36,13 +38,15 @@ const EditProfile = () => {
                     <h2 className="text-right">Edit your profile</h2>
                   </div>
                   <div className="row mt-2">
-                    <div className="col-md-6">
+                    <div className="col-md-12">
                       <label className="labels">Nutzername</label>
-                      <input
+                      <TextField
+                        name="username"
+                        value=""
+                        onChange=""
+                        title="Name"
                         type="text"
-                        className="form-control"
-                        placeholder="Nutzername"
-                        value="JohnD123"
+                        disabled=""
                       />
                     </div>
                   </div>
@@ -50,11 +54,14 @@ const EditProfile = () => {
                   <div className="row mt-3">
                     <div className="col-md-12">
                       <label className="labels">E-Mail:</label>
-                      <input
+                      <TextField
+                        name="email"
+                        value=""
+                        onChange=""
+                        title="Email"
                         type="text"
-                        className="form-control"
-                        placeholder="E-Mail"
-                        value="john.d@gmail.com"
+                        placeholder="Email"
+                        disabled=""
                       />
                       <span id="mailHelpInline" class="form-text">
                         Hier eine valide E-Mail-Adresse eintragen.
@@ -63,9 +70,8 @@ const EditProfile = () => {
 
                     <div className="col-md-12">
                       <label className="labels">Passwort</label>
-                      <input
+                      <TextField
                         type="text"
-                        className="form-control"
                         placeholder="Passwort"
                         value="*******"
                       />
@@ -82,12 +88,11 @@ const EditProfile = () => {
                   <div className="d-flex flex-column align-items-center text-center">
                     <div className="form-group col-12">
                       <label className="labels">Erzähl uns etwas von dir</label>
-                      <textarea
-                        className="form-control rounded"
+                      <TextArea
                         rows="10"
                         placeholder="Erzähl etwas von dir!"
                         value="Hallo Ihr Lieben! Ich mache regelmäßig Flohmärkte mit, also kommt vorbei! Pieces from all over the world - picked and cared with love for you. ♥️"
-                      ></textarea>
+                      ></TextArea>
                     </div>
                     <div className="mt-5 text-center">
                       <button
