@@ -1,7 +1,8 @@
 import mapboxgl from 'mapbox-gl'
 import React from 'react'
 import SearchBar from '../components/searchbar'
-// import { getJumbles } from '../../services/fakeFeatureService'
+// import { getJumbles } from '../services/featureService'
+// import { getCategories} from '../services/categoryService'
 
 mapboxgl.accessToken =
   'pk.eyJ1IjoibmJyb3duaWUiLCJhIjoiY2t1aWVhNGhlMDJrZjMwcXoyZWUybDYxZCJ9.HLXmIOmvZtR3uhDR1JofjA'
@@ -261,6 +262,7 @@ class MapComponent extends React.Component {
       zoom: 8,
     }
   }
+
   /**
    * Add the map to the page
    */
