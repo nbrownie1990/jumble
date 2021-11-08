@@ -23,10 +23,10 @@ public class User {
             generator = "user_sequence"
     )
 
-    @Column(name = "id", nullable = false)
+    @Column(name = "id", nullable = false, unique = true)
     private Long user_id;
 
-    @Column(name = "user_name", nullable = false, unique = true)
+    @Column(name = "user_name", nullable = false )
     private String user_name;
 
     @Column(name = "user_email")
