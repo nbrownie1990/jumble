@@ -17,7 +17,7 @@ class Jumble extends Component {
                   <h1 class="display-1 fs-md-5 fs-lg-6 fs-xl-8 text-light">
                     Flohschanze
                   </h1>
-                  <Star />
+                  Bewertung: <Star />
                   <p class="text-800 mb-5 fs-4">
                     Adresse: Neuer Kamp 30, 20357 Hamburg
                     <br />
@@ -27,6 +27,7 @@ class Jumble extends Component {
                     <br />
                     Website: www.flohmarkt.de
                     <br />
+                    Kategorie: Flea Markets
                   </p>
                 </div>
                 <div class="col-md-6 "> Map-Component</div>

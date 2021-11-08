@@ -53,15 +53,15 @@ class Rezension extends React.Component {
             </div>
           </div>
         </div>
-        <div className="form-group col-md-12 text-center mt-5">
-          <label className="labels m-2 ">
-            Wie sind deine Erfahrungen mit diesem Jumble?
-          </label>
+        <div className="form-group col-md-12 mt-5">
+          <h5>Bewerte diesen Jumble:</h5>
+
           <Star />
           <textarea
             className="form-control rounded-3"
             rows="5"
-            placeholder="Wie war/ist es?"
+            placeholder="Wie sind deine Erfahrungen mit diesem Jumble?
+            "
           ></textarea>
         </div>
         <div className="mt-5 text-center">

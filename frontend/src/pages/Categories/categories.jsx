@@ -2,8 +2,8 @@ import React from 'react'
 import NavBar from '../../components/navbar'
 import CategoryGroup from '../../components/categoryGroup'
 import JumbleList from '../../components/jumbleList'
-import { getJumbles } from '../../services/fakeJumbleService'
-import { getCategories } from '../../services/fakeCategoryService'
+import { getJumbles } from '../../services/jumbleService'
+import { getCategories } from '../../services/categoryService'
 
 class Categories extends React.Component {
   state = {

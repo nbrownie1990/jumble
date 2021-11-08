@@ -1,4 +1,4 @@
-import * as categoriesAPI from './fakeCategoryService'
+import * as categoriesAPI from './categoryService'
 
 const jumbles = [
   {
@@ -142,6 +142,21 @@ const jumbles = [
     rating: 3,
   },
 ]
+
+export const initialJumbleStates = {
+  _id: null,
+  name: '',
+  category: {
+    _id: null,
+    name: '',
+  },
+  address: null,
+  postalCode: '',
+  openingDate: new Date(),
+  openingTime: '',
+  website: '',
+  rating: [1, 2, 3, 4, 5],
+}
 
 export function getJumbles() {
   return jumbles

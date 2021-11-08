@@ -1,8 +1,8 @@
 import React from 'react'
 import NavBar from '../../components/navbar'
 import JumbleList from '../../components/jumbleList'
-import { getJumbles } from '../../services/fakeJumbleService'
-import { getCategories } from '../../services/fakeCategoryService'
+import { getJumbles } from '../../services/jumbleService'
+import { getCategories } from '../../services/categoryService'
 class Category extends React.Component {
   state = {
     jumbles: [],
@@ -37,7 +37,7 @@ class Category extends React.Component {
       <React.Fragment>
         <NavBar />
         <main className="m-md-5 mt-5 mb-5">
-          <section className="container w-100 h-100 px-lg-5 mt-5">
+          <section className="container w-100 min-vh-100 px-lg-5 mt-5">
             <div className="sidebar scroll-list card-body p-0 text-start ">
               <div className="heading">
                 <h1>Jumbles:</h1>
