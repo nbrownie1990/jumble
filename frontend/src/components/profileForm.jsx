@@ -69,7 +69,7 @@ export default function ProfileForm({}) {
                   className="btn btn-primary profile-button m-3"
                   type="button"
                 >
-                  Save Profile
+                  <i class="fas fa-save"></i> Save Profile
                 </Link>
                 <Link
                   to={`/user/edit`}

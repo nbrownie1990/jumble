@@ -56,7 +56,7 @@ const AddJumble = () => {
                   className="btn btn-primary profile-button mb-5 m-3"
                   type="button"
                 >
-                  Save Jumble
+                  <i class="fas fa-save"></i> Save Jumble
                 </Link>
                 <Link
                   to={`/user/edit`}
