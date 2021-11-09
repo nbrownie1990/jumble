@@ -1,0 +1,21 @@
+.profile-img,
+.jumble-img {
+  height: 15rem;
+  width: 15rem;
+}
+
+.edit-btn {
+  background-color: #ffff;
+  border: 1px solid #cccc;
+  border-radius: 50%;
+  height: 2rem;
+  width: 2rem;
+  position: absolute;
+  bottom: 0px;
+  right: 3px;
+  padding-left: 0px;
+}
+
+.img-wrapper {
+  position: relative;
+}
