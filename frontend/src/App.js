@@ -10,7 +10,7 @@ import 'aos/dist/aos.css'
 import Start from './pages/Start/start'
 import Home from './pages/Home/home'
 import Jumble from './pages/Jumble/jumble'
-import AddJumble from './pages/AddJumble/add-jumble'
+import EditJumble from './pages/Jumble/edit-jumble'
 import EditProfile from './pages/Profile/edit-profile'
 
 import Category from './pages/Category/category'
@@ -35,7 +35,7 @@ function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path="/jumble/edit" element={<AddJumble />} />
+        <Route path="/categories/category/:id/edit" element={<EditJumble />} />
         <Route path="/categories/category/:id" element={<Jumble />} />
         <Route path="/categories/category" element={<Category />} />
         <Route path="/categories" element={<Categories />} />

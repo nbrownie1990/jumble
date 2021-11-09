@@ -4,6 +4,8 @@ import Map from '../../components/map'
 import NavBar from '../../components/navbar'
 import Rezension from '../../components/rezension'
 
+import { Link } from 'react-router-dom'
+
 class Jumble extends Component {
   render() {
     return (
@@ -13,39 +15,52 @@ class Jumble extends Component {
           <section className="container w-100 h-100 m-md-5 mt-5">
             <div class="container">
               <div class="row ">
-                <div class="col-md-6">
+                <div class="col-sm-12">
                   <h1 class="display-1 fs-md-5 fs-lg-6 fs-xl-8 text-light">
                     Flohschanze
+                    <span>
+                      <Link
+                        to={`/categories/category/:id/edit`}
+                        className="btn "
+                        type="button"
+                        data-toggle="tooltip"
+                        title="Edit"
+                      >
+                        <i class="fas fa-pen ps-2 pb-1"> </i>
+                      </Link>
+                    </span>
                   </h1>
-                  Bewertung: <Star />
-                  <p class="text-800 mb-5 fs-4">
-                    Adresse: Neuer Kamp 30, 20357 Hamburg
-                    <br />
-                    Termine
-                    <br />
-                    Öffnungszeiten: 9- 16 Uhr
-                    <br />
-                    Website: www.flohmarkt.de
-                    <br />
-                    Kategorie: Flea Markets
-                  </p>
+                  <div class="row ">
+                    <div className="col-sm-6">
+                      <img
+                        className="rounded-circle jumble-img"
+                        src="https://www.deutschlandmalanders.com/wp-content/uploads/2020/10/Flohschanze-Flohmarkt-Schanzenviertel-Hamburg-1.jpg"
+                        alt="This is a jumble"
+                      />
+                    </div>
+
+                    <div className="col-sm-6">
+                      Bewertung: <Star />
+                      <p class="text-800 mb-5 fs-4">
+                        Adresse: Neuer Kamp 30, 20357 Hamburg
+                        <br />
+                        Termine
+                        <br />
+                        Öffnungszeiten: 9- 16 Uhr
+                        <br />
+                        Website: www.flohmarkt.de
+                        <br />
+                        Kategorie: Flea Markets
+                      </p>
+                    </div>
+                  </div>
                 </div>
-                <div class="col-md-6 ">
-                  <img
-                    className="card-img-top m-5"
-                    src="https://dummyimage.com/400x500/dee2e6/6c757d.jpg"
-                    alt="This is a map"
-                    title="Map-Component"
-                  />
+
+                <div class="col-sm-12 ">
+                  <Map />
                 </div>
-                <div className="col-md-4">
-                  <img
-                    className="card-img-top mb-5 -md-0 mt-2"
-                    src="https://dummyimage.com/400x500/dee2e6/6c757d.jpg"
-                    alt="This is a jumble"
-                  />
-                </div>
-                <div className="col-md-8">
+
+                <div className="col-sm-12">
                   <h4 className="display-6 fw-bolder mt-2">
                     Erfahrungsberichte
                   </h4>

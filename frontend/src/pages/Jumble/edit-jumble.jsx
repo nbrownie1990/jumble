@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 import TextArea from '../../components/textArea'
 import JumbleForm from '../../components/jumbleForm'
 
-const AddJumble = () => {
+const EditJumble = () => {
   return (
     <React.Fragment>
       <NavBar />
@@ -77,4 +77,4 @@ const AddJumble = () => {
   )
 }
 
-export default AddJumble
+export default EditJumble
