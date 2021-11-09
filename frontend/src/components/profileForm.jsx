@@ -57,7 +57,7 @@ export default function ProfileForm({}) {
         <div className="p-3 py-md-5">
           <div className="d-flex flex-column align-items-center text-center">
             <div className="form-group col-12">
-              <label className="labels">Erzähl uns etwas von dir</label>
+              <label className="labels mb-2">Erzähl uns etwas von dir</label>
               <TextArea
                 rows="10"
                 placeholder="Erzähl etwas von dir!"
