@@ -3,7 +3,7 @@ package de.nbrownie.jumblesbackend.models;
 import lombok.*;
 
 import javax.persistence.*;
-import java.util.Date;
+
 
 
 @Entity
@@ -25,7 +25,7 @@ public class Jumble {
             generator = "jumble_sequence"
     )
 
-    @Column(name = "id", nullable = false, unique = true)
+    @Column(name = "jumble_id", nullable = false, unique = true)
     private Long jumble_id;
 
     @Column(name = "jumble_name", nullable = false )
@@ -40,8 +40,8 @@ public class Jumble {
     @Column(name = "jumble_postalCode")
     private String jumble_postalCode;
 
-    @Column(name = "jumble_openingDate")
-    private Date jumble_openingDate;
+    @Column(name = "jumble_termin")
+    private String jumble_termin;
 
     @Column(name = "jumble_openingTime")
     private String jumble_openingTime;
