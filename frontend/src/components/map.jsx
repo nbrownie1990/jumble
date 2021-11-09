@@ -52,7 +52,7 @@ class Map extends React.Component {
 
   render() {
     return (
-      <div className="card">
+      <div className="card jumble-map">
         <div
           className="container p-0 
         "
