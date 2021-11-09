@@ -28,6 +28,7 @@ const EditProfile = () => {
                   >
                     <i class="fas fa-pen"></i>
                   </Link>
+
                   <span className="font-weight-bold">John Doe</span>
                 </div>
               </div>

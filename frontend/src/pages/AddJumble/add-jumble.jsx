@@ -53,10 +53,19 @@ const AddJumble = () => {
               <div className="mt-2 mt-md-5 text-center">
                 <Link
                   to={`/home`}
-                  className="btn btn-primary profile-button mb-5"
+                  className="btn btn-primary profile-button mb-5 m-3"
                   type="button"
                 >
                   Save Jumble
+                </Link>
+                <Link
+                  to={`/user/edit`}
+                  className="btn btn-warning mb-5 m-3"
+                  type="button"
+                  data-toggle="tooltip"
+                  title="Delete Jumble"
+                >
+                  <i class="fas fa-trash"></i> Delete Jumble
                 </Link>
               </div>
             </div>

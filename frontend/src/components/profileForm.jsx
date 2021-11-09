@@ -66,10 +66,19 @@ export default function ProfileForm({}) {
               <div className="mt-5 text-center">
                 <Link
                   to={`/home`}
-                  className="btn btn-primary profile-button"
+                  className="btn btn-primary profile-button m-3"
                   type="button"
                 >
                   Save Profile
+                </Link>
+                <Link
+                  to={`/user/edit`}
+                  className="btn btn-warning m-3"
+                  type="button"
+                  data-toggle="tooltip"
+                  title="Delete Profile"
+                >
+                  <i class="fas fa-trash"></i> Delete Profile
                 </Link>
               </div>
             </div>
