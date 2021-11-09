@@ -12,7 +12,7 @@ class Jumble extends Component {
       <React.Fragment>
         <NavBar />
         <main className="m-md-5 mt-5 mb-5">
-          <section className="container w-100 h-100 m-md-5 mt-5">
+          <section className="container w-100 h-100 mt-5">
             <div class="container">
               <div class="row ">
                 <div class="col-sm-12">
@@ -56,11 +56,11 @@ class Jumble extends Component {
                   </div>
                 </div>
 
-                <div class="col-sm-12 ">
+                <div class="col-sm-6 ">
                   <Map />
                 </div>
 
-                <div className="col-sm-12">
+                <div className="col-sm-6">
                   <h4 className="display-6 fw-bolder mt-2">
                     Erfahrungsberichte
                   </h4>
