@@ -36,7 +36,7 @@ class NavBar extends React.Component {
       <Navbar
         style={{
           backgroundColor:
-            this.state.status === 'top' ? '' : 'hsl(266, 76%, 19%)',
+            this.state.status === 'top' ? '' : 'rgba(44, 12, 85, 0.9)',
         }}
         collapseOnSelect
         fixed="top"
@@ -48,7 +48,7 @@ class NavBar extends React.Component {
 
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="me-auto w-100 justify-content-end text-end mr-2">
+            <Nav className="me-auto w-100 justify-content-end text-end pe-3">
               <Nav.Link href="/home">Home</Nav.Link>
 
               <Nav.Link href="/categories">Categories</Nav.Link>

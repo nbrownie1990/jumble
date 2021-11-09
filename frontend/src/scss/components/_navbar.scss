@@ -9,6 +9,12 @@
   text-align: end;
 }
 
-.show {
-  background-color: #2c0c55;
+.navbar {
+  background-color: rgba(44, 12, 85, 0.9);
+}
+
+@media (min-width: 576px) {
+  .navbar {
+    background-color: transparent;
+  }
 }
