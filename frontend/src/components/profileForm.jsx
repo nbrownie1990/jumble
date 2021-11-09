@@ -65,14 +65,14 @@ export default function ProfileForm({}) {
               ></TextArea>
               <div className="mt-5 text-center">
                 <Link
-                  to={`/home`}
+                  to={`/user`}
                   className="btn btn-primary profile-button m-3"
                   type="button"
                 >
                   <i class="fas fa-save"></i> Save Profile
                 </Link>
                 <Link
-                  to={`/user/edit`}
+                  to={`/home`}
                   className="btn btn-warning m-3"
                   type="button"
                   data-toggle="tooltip"

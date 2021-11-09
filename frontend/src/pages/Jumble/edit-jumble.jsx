@@ -53,14 +53,14 @@ const EditJumble = () => {
 
               <div className="mt-2 mt-md-5 text-center">
                 <Link
-                  to={`/home`}
+                  to={`/categories/category`}
                   className="btn btn-primary profile-button mb-5 m-3"
                   type="button"
                 >
                   <i class="fas fa-save"></i> Save Jumble
                 </Link>
                 <Link
-                  to={`/user/edit`}
+                  to={`/categories/category`}
                   className="btn btn-warning mb-5 m-3"
                   type="button"
                   data-toggle="tooltip"
