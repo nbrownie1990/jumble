@@ -14,42 +14,7 @@ const EditJumble = () => {
         <section className="container w-100 h-100 px-lg-5 mt-5">
           <div className="container rounded bg-white p-md-5">
             <div className="row">
-              <div className="col-md-6 border-right">
-                <div className="d-flex flex-column align-items-center text-center p-3 py-5">
-                  <div className="img-wrapper mt-5 ">
-                    <img
-                      className="rounded-circle jumble-img"
-                      src="https://www.deutschlandmalanders.com/wp-content/uploads/2020/10/Flohschanze-Flohmarkt-Schanzenviertel-Hamburg-1.jpg"
-                      alt="This is a jumble"
-                    />
-                    <Link
-                      to={`/jumble/edit`}
-                      className="btn edit-btn"
-                      type="button"
-                      data-toggle="tooltip"
-                      title="Edit"
-                    >
-                      <i class="fas fa-pen ps-2 pb-1"></i>
-                    </Link>
-                  </div>
-                  <span className="font-weight-bold mt-2 mb-3">
-                    Bild des Jumbles
-                  </span>
-                  <span class="form-text">
-                    Jumbles sind Orte für dein Ausrangiertes! Es geht um:
-                    Food-Sharing, Flea Markets, Clothing Donations & Second-Hand
-                    in deiner Nähe!
-                  </span>
-                </div>
-              </div>
-              <div className="col-md-6 border-right">
-                <div className="p-md-3 py-5">
-                  <div className="d-flex justify-content-between align-items-center mb-3">
-                    <h2 className="text-right">Erstelle ein Jumble</h2>
-                  </div>
-                  <JumbleForm />
-                </div>
-              </div>
+              <JumbleForm />
 
               <div className="mt-2 mt-md-5 text-center">
                 <Link
