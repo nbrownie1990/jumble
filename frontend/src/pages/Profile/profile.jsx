@@ -12,9 +12,8 @@ const Profile = () => {
               <div className="d-flex flex-column align-items-center text-center">
                 <div className="col-12 mt-5 ">
                   <img
-                    className="rounded-circle profile-img "
+                    className="rounded-circle user-img "
                     src="https://images.unsplash.com/photo-1542596594-649edbc13630?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1374&q=80"
-                    width="150"
                     alt="Profile"
                   />
                 </div>

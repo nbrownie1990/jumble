@@ -11,24 +11,24 @@ const EditProfile = () => {
         <section className="container w-100 h-100 p-0 mt-5">
           <div className="container rounded bg-white">
             <div className="row">
-              <div className="col-md-2 border-right">
+              <div className="col-md-4 border-right">
                 <div className="d-flex flex-column align-items-center text-center p-3 py-5">
-                  <img
-                    className="rounded-circle p-md-3"
-                    src="https://i.imgur.com/O1RmJXT.jpg"
-                    width="110"
-                    alt="This is a profile"
-                  />
-                  <Link
-                    to={`/user/edit`}
-                    className="btn"
-                    type="button"
-                    data-toggle="tooltip"
-                    title="Edit"
-                  >
-                    <i class="fas fa-pen"></i>
-                  </Link>
-
+                  <div className="img-wrapper">
+                    <img
+                      className="rounded-circle p-md-3 profile-img"
+                      src="https://i.imgur.com/O1RmJXT.jpg"
+                      alt="This is a profile"
+                    />
+                    <Link
+                      to={`/user/edit`}
+                      className="btn edit-btn"
+                      type="button"
+                      data-toggle="tooltip"
+                      title="Edit"
+                    >
+                      <i class="fas fa-pen ps-2 pb-1"></i>
+                    </Link>
+                  </div>
                   <span className="font-weight-bold">John Doe</span>
                 </div>
               </div>

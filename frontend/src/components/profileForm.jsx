@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 export default function ProfileForm({}) {
   return (
     <React.Fragment>
-      <div className="col-md-5 border-right">
+      <div className="col-md-4 border-right">
         <div className="p-3 py-md-5">
           <div className="d-flex justify-content-between align-items-center mb-3">
             <h2 className="text-right">Edit your profile</h2>
@@ -53,7 +53,7 @@ export default function ProfileForm({}) {
         </div>
       </div>
 
-      <div className="col-md-5 border-right">
+      <div className="col-md-4 border-right">
         <div className="p-3 py-md-5">
           <div className="d-flex flex-column align-items-center text-center">
             <div className="form-group col-12">

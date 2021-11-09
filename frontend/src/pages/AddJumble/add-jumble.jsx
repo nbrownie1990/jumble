@@ -16,21 +16,22 @@ const AddJumble = () => {
             <div className="row">
               <div className="col-md-6 border-right">
                 <div className="d-flex flex-column align-items-center text-center p-3 py-5">
-                  <img
-                    className="rounded-circle mt-5"
-                    src="https://www.deutschlandmalanders.com/wp-content/uploads/2020/10/Flohschanze-Flohmarkt-Schanzenviertel-Hamburg-1.jpg"
-                    width="110"
-                    alt="This is a jumble"
-                  />
-                  <Link
-                    to={`/jumble/edit`}
-                    className="btn"
-                    type="button"
-                    data-toggle="tooltip"
-                    title="Edit"
-                  >
-                    <i class="fas fa-pen"></i>
-                  </Link>
+                  <div className="img-wrapper mt-5 ">
+                    <img
+                      className="rounded-circle jumble-img"
+                      src="https://www.deutschlandmalanders.com/wp-content/uploads/2020/10/Flohschanze-Flohmarkt-Schanzenviertel-Hamburg-1.jpg"
+                      alt="This is a jumble"
+                    />
+                    <Link
+                      to={`/jumble/edit`}
+                      className="btn edit-btn"
+                      type="button"
+                      data-toggle="tooltip"
+                      title="Edit"
+                    >
+                      <i class="fas fa-pen ps-2 pb-1"></i>
+                    </Link>
+                  </div>
                   <span className="font-weight-bold mt-2 mb-3">
                     Bild des Jumbles
                   </span>
