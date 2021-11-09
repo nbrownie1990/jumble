@@ -24,7 +24,7 @@ public class Category {
             generator = "category_sequence"
     )
 
-    @Column(name = "id", nullable = false,  unique = true)
+    @Column(name = "category_id", nullable = false,  unique = true)
     private Long category_id;
 
     @Column(name = "category_name", nullable = false)
