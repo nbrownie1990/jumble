@@ -1,9 +1,6 @@
 import React from 'react'
 import NavBar from '../../components/navbar'
-import Star from '../../components/rating'
 import { Link } from 'react-router-dom'
-
-import TextArea from '../../components/textArea'
 import JumbleForm from '../../components/jumbleForm'
 
 const EditJumble = () => {
@@ -15,7 +12,6 @@ const EditJumble = () => {
           <div className="container rounded bg-white p-md-5">
             <div className="row">
               <JumbleForm />
-
               <div className="mt-2 mt-md-5 text-center">
                 <Link
                   to={`/categories/category`}

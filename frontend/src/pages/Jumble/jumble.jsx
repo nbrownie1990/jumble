@@ -41,7 +41,7 @@ class Jumble extends Component {
 
                     <div className="col-sm-6">
                       Bewertung: <Star />
-                      <p class="text-800 mb-5 fs-4">
+                      <p className="text-300 mb-5 fs-4">
                         Adresse: Neuer Kamp 30, 20357 Hamburg
                         <br />
                         Termine
@@ -56,8 +56,17 @@ class Jumble extends Component {
                   </div>
                 </div>
 
-                <div class="col-sm-6 ">
+                <div className="col-sm-6 mt-2">
                   <Map />
+
+                  <p className="lead mt-5">
+                    <strong>Beschreibung: </strong>
+                    Jeden Samstag ab 08:00 Uhr wird das Gelände vor der
+                    Rinderschlachthalle zum Kult-Flohmarkt. Sehr gut zu
+                    erreichen am U-Bahnhof Feldstraße lädt dieser Flohmarkt zum
+                    trödeln und feilschen ein. Bei diesem Flohmarkt ist der
+                    Trödelcharakter hoch.
+                  </p>
                 </div>
 
                 <div className="col-sm-6">
