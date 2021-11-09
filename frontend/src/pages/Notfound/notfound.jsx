@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { Link } from 'react-router-dom'
 const NotFound = () => {
   return (
     <main className="d-flex m-md-5 mt-5 mb-5 min-vh-100">
@@ -13,6 +13,15 @@ const NotFound = () => {
               ipsum vitae temporibus ipsa fugiat expedita exercitationem
               corporis?
             </p>
+            <div className="form-group m-0">
+              <Link
+                to={`/home`}
+                type="button"
+                className="btn btn-primary btn-block"
+              >
+                Go Back
+              </Link>
+            </div>
           </div>
         </div>
       </section>
