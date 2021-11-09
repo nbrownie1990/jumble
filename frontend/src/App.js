@@ -1,6 +1,6 @@
 // -- React and related libs
 import React, { useEffect } from 'react'
-import { Route, Switch, Redirect } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
 
 // -- Third Party Libs
 import AOS from 'aos'
@@ -34,50 +34,23 @@ function App() {
   })
   return (
     <div className="App">
-      <Switch>
-        <Route path="/jumble/edit">
-          <AddJumble />
-        </Route>
-        <Route path="/categories/category/:id">
-          <Jumble />
-        </Route>
-        <Route path="/categories/category">
-          <Category />
-        </Route>
-        <Route path="/categories">
-          <Categories />
-        </Route>
-        <Route path="/signup">
-          <SignUp />
-        </Route>
-        <Route path="/login">
-          <Login />
-        </Route>
-        <Route path="/forgot">
-          <Forgot />
-        </Route>
-        <Route path="/reset">
-          <Reset />
-        </Route>
-        <Route path="/logout">
-          <Logout />
-        </Route>
-        <Route path="/user/edit">
-          <EditProfile />
-        </Route>
-        <Route path="/user">
-          <Profile />
-        </Route>
-        <Route exact path="/home">
-          <Home />
-        </Route>
-        <Route exact path="/">
-          <Start />
-        </Route>
-        <Route path="/impressum" component={Impressum} />
-        <NotFound path="/not-found" component={NotFound} />
-        <Redirect to="/not-found" />
-      </Switch>
+      <Routes>
+        <Route path="/jumble/edit" element={<AddJumble />} />
+        <Route path="/categories/category/:id" element={<Jumble />} />
+        <Route path="/categories/category" element={<Category />} />
+        <Route path="/categories" element={<Categories />} />
+        <Route path="/signup" element={<SignUp />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/forgot" element={<Forgot />} />
+        <Route path="/reset" element={<Reset />} />
+        <Route path="/logout" element={<Logout />} />
+        <Route path="/user/edit" element={<EditProfile />} />
+        <Route path="/user" element={<Profile />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/" element={<Start />} />
+        <Route path="/impressum" element={<Impressum />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
       <Footer />
     </div>
   )

@@ -1,16 +1,18 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import 'mapbox-gl/dist/mapbox-gl.css'
-import App from './App'
-import reportWebVitals from './reportWebVitals'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
+
 import 'font-awesome/css/font-awesome.css'
 import './assets/css/style.css'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import App from './App'
+
+import reportWebVitals from './reportWebVitals'
+import 'mapbox-gl/dist/mapbox-gl.css'
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
-      <Route path="/" component={App} />
+      <App />
     </Router>
   </React.StrictMode>,
   document.getElementById('root')
