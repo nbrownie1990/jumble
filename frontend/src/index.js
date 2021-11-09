@@ -10,11 +10,9 @@ import reportWebVitals from './reportWebVitals'
 import 'mapbox-gl/dist/mapbox-gl.css'
 
 ReactDOM.render(
-  <React.StrictMode>
-    <Router>
-      <App />
-    </Router>
-  </React.StrictMode>,
+  <Router>
+    <App />
+  </Router>,
   document.getElementById('root')
 )
 
