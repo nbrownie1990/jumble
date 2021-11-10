@@ -71,7 +71,7 @@ export default function ProfileForm({}) {
                 >
                   <i class="fas fa-save"></i> Save Profile
                 </Link>
-                <Link
+                {/* <Link
                   to={`/home`}
                   className="btn btn-warning m-3"
                   type="button"
@@ -79,7 +79,7 @@ export default function ProfileForm({}) {
                   title="Delete Profile"
                 >
                   <i class="fas fa-trash"></i> Delete Profile
-                </Link>
+                </Link> */}
               </div>
             </div>
           </div>
