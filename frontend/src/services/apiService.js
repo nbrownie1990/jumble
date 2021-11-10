@@ -1,5 +1,4 @@
 import axios from 'axios'
-import { jumbles } from './featureService'
 
 export const getToken = credentials =>
   axios
@@ -27,7 +26,7 @@ export const getCategory = (token, category) =>
     .then(response => response.data)
 
 //JumbleList (all Jumbles) GET
-export const getJumbleList = (token, jumbles) =>
+export const getJumbles = (token, jumbles) =>
   axios
     .get(`/api/jumbles/getall`, headers(token))
     .then(response => response.data)

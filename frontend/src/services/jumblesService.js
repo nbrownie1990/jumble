@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const JUMBLE_API_BASE_URL = 'http://localhost:8080/api/v1/jumbles'
+const JUMBLE_API_BASE_URL = 'http://localhost:8080/api/jumbles'
 
 class JumblesService {
   getJumbles() {
