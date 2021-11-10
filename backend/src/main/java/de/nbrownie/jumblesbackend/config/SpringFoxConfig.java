@@ -55,7 +55,7 @@ public class SpringFoxConfig {
     private ApiInfo getApiInfo() {
         return new ApiInfoBuilder()
                 .title("Jumbles")
-                .description("Follow soon")
+                .description("This is the swagger-overview for the jumble-project")
                 .version("1.0")
                 .build();
     }

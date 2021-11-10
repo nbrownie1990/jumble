@@ -77,7 +77,23 @@ Du kannst dich bei Jumble einloggen und die Jumbles mit Sternen bewerten, um and
 ├── theme                    # Theme as a local package
 └── process.json             # pm2 process file
 ```
+### Api Endpoints
 
+  | Endpoint                                                          | Secured | Roles                       |
+  | ----------------------------------------------------------------- | ------- | --------------------------- |
+  | `GET /api/jumbles/getall`  (all)                                  | No      |                             |
+  | `GET /api/jumbles/{jumbleId}` (one)                               | No      |                             |
+  | `POST /api/jumbles/new`                                           | No      |                             |
+  | `PUT /api/jumbles/edit/{jumbleId}`                                | Yes     | `OWNER`                     |
+  | `DELETE /api/jumbles/edit/{jumbleId}`                             | Yes     | `OWNER`                     |
+  | `POST /api/jumbles/{jumbleId}/{rezensionsId}`                     | Yes     | `USER`                      |
+  | `GET /api/categories`  (all Categories)                           | No      |                             |
+  | `GET /api/categories/category` (one Category)                     | No      |                             |
+  | `POST /api/user/signup`                                           | Yes     | `OWNER` and `USER`          |
+  | `GET /api/user/{userId}`                                          | Yes     | `OWNER` and `USER`          |
+  | `PUT /api/user/edit/{userId}`                                     | Yes     | `OWNER`                     |
+  | `DELETE /api/user/edit/{userId}`                                  | Yes     | `OWNER`                     | 
+  
 ### User Stories
 
 - [x] User kann sich ein Profil erstellen (Learnings: Password-Validation, Authentication & Authorization)
