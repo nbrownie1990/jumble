@@ -1,13 +1,13 @@
-import AuthContext from './AuthContext'
 import { useContext, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import jwt from 'jsonwebtoken'
-import { getToken } from '../services/api-service'
-import { useHistory } from 'react-router-dom'
+import { getToken } from '../services/apiService'
+import AuthContext from './AuthContext'
 
 export default function AuthProvider({ children }) {
   const [token, setToken] = useState()
   const claims = jwt.decode(token)
-  const history = useHistory()
+  const navigate = useNavigate()
 
   const user = claims && {
     username: claims.sub,
@@ -17,7 +17,7 @@ export default function AuthProvider({ children }) {
 
   const logout = () => {
     setToken()
-    history.push('/login')
+    navigate('/login')
   }
 
   return (

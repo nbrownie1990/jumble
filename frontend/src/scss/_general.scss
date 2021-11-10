@@ -22,3 +22,14 @@ body,
   display: flex;
   flex-direction: column !important;
 }
+
+.error {
+  color: #be4362;
+
+  ::before {
+    content: '💢';
+  }
+  ::after {
+    content: '💢';
+  }
+}

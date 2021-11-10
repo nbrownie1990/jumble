@@ -22776,6 +22776,16 @@ body,
   flex-direction: column !important;
 }
 
+.error {
+  color: #be4362;
+}
+.error ::before {
+  content: "💢";
+}
+.error ::after {
+  content: "💢";
+}
+
 footer {
   position: relative;
   padding-top: 13rem;

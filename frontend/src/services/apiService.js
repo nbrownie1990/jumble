@@ -49,19 +49,9 @@ export const updateJumbleImage = (token, jumbleId, jumbleImage) =>
     .put(`/api/jumble/edit/${jumbleId}`, jumbleImage, headers(token))
     .then(response => response.data)
 
-export const updateJumbleImage = (token, jumbleId, jumbleImage) =>
-  axios
-    .put(`/api/jumble/edit/${jumbleId}`, jumbleImage, headers(token))
-    .then(response => response.data)
-
 export const updateJumbleAdresse = (token, jumbleId, jumbleAdresse) =>
   axios
     .put(`/api/jumble/edit/${jumbleId}`, jumbleAdresse, headers(token))
-    .then(response => response.data)
-
-export const updateJumbleTermine = (token, jumbleId, jumbleTermine) =>
-  axios
-    .put(`/api/jumble/edit/${jumbleId}`, jumbleTermine, headers(token))
     .then(response => response.data)
 
 export const updateJumbleTermine = (token, jumbleId, jumbleTermine) =>
