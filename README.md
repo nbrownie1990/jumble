@@ -81,17 +81,19 @@ Du kannst dich bei Jumble einloggen und die Jumbles mit Sternen bewerten, um and
 
   | Endpoint                                                          | Secured | Roles                       |
   | ----------------------------------------------------------------- | ------- | --------------------------- |
+  | `GET /api/jumbles`  (all)                                         | No      |                             |
+  | `GET /api/jumbles/{jumbleId}`                                     | No      |                             |
+  | `POST /api/jumbles/{jumbleId}`                                    | Yes     | `OWNER` and `USER`          |
+  | `PUT /api/jumbles/{jumbleId}`                                     | Yes     | `OWNER`                     |
+  | `DELETE /api/jumbles/{jumbleId}`                                  | Yes     | `OWNER`                     |
+  | `POST /api/jumbles/{jumbleId}/{rezensionsId}`                     | Yes     | `USER`                      |
+  | `GET /api/categories`                                             | No      |                             |
+  | `GET /api/categories/category`                                    | No      |                             |
   | `GET /api/user/me`                                                | Yes     | `OWNER` and `USER`          |
   | `POST /api/user/edit`                                             | Yes     | `OWNER` and `USER`          |
-  | `GET /api/categories`                                             | No      |                             |
-  | `GET /api/categories/category` (same?)                            | No      |                             |
-  | `GET /api/jumbles` (same?)                                        | No      |                             |
-  | `GET /api/jumbles/{jumbleId}`                                     | No      |                             |
-  | `POST /api/jumbles/{jumbleId}                                     | Yes     | `OWNER` and `USER`          |
-  | `PUT /api/jumbles/{jumbleId}`                                     | Yes     | `OWNER`                     |
-  | `POST /api/jumbles/{jumbleId}/rezensionen (korrekt?)              | Yes     | `OWNER` and `USER`          |
-  | `DELETE /api/jumbles/{jumbleId}`                                  | Yes     | `OWNER`                     |
-
+  | `PUT /api/user/edit`                                              | Yes     | `OWNER`                     |
+  | `DELETE /api/user/edit`                                           | Yes     | `OWNER`                     | 
+  
 ### User Stories
 
 - [x] User kann sich ein Profil erstellen (Learnings: Password-Validation, Authentication & Authorization)
