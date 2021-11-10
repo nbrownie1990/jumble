@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom'
 import Select from './select'
 
 export default function JumbleForm({}) {
+  state = {}
   return (
     <React.Fragment>
       <div className="col-md-6 border-right">
@@ -54,7 +55,6 @@ export default function JumbleForm({}) {
 
             <div className="col-md-12">
               <label className="labels">Jumble-Category</label>
-
               <Select />
             </div>
           </div>
