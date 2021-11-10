@@ -28,7 +28,9 @@ export const getCategory = (token, category) =>
 
 //JumbleList (all Jumbles) GET
 export const getJumbleList = (token, jumbles) =>
-  axios.get(`/api/jumbles`, headers(token)).then(response => response.data)
+  axios
+    .get(`/api/jumbles/getall`, headers(token))
+    .then(response => response.data)
 
 //Jumble GET
 export const getJumbleById = (token, jumbleId) =>
