@@ -9,7 +9,7 @@ export default function TextField({
   title,
   readOnly = false,
   disabled = false,
-  autocomplete = 'on',
+  autoComplete = 'on',
   ...props
 }) {
   return (
@@ -23,7 +23,7 @@ export default function TextField({
         name={name}
         readOnly={readOnly}
         disabled={disabled}
-        autocomplete={autocomplete}
+        autoComplete={autoComplete}
       />
     </React.Fragment>
   )
