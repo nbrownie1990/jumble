@@ -4,6 +4,7 @@ import TextArea from './textArea'
 import React from 'react'
 import Address from './address'
 import { Link } from 'react-router-dom'
+import Select from './select'
 
 export default function JumbleForm({}) {
   return (
@@ -49,6 +50,12 @@ export default function JumbleForm({}) {
             <div className="col-md-12">
               <label className="labels">Jumble-Name</label>
               <TextField type="text" placeholder="z.B. Flohschanze" value="" />
+            </div>
+
+            <div className="col-md-12">
+              <label className="labels">Jumble-Category</label>
+
+              <Select />
             </div>
           </div>
 
