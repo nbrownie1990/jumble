@@ -81,18 +81,18 @@ Du kannst dich bei Jumble einloggen und die Jumbles mit Sternen bewerten, um and
 
   | Endpoint                                                          | Secured | Roles                       |
   | ----------------------------------------------------------------- | ------- | --------------------------- |
-  | `GET /api/jumbles`  (all)                                         | No      |                             |
-  | `GET /api/jumbles/{jumbleId}`                                     | No      |                             |
-  | `POST /api/jumbles/{jumbleId}`                                    | Yes     | `OWNER` and `USER`          |
-  | `PUT /api/jumbles/{jumbleId}`                                     | Yes     | `OWNER`                     |
-  | `DELETE /api/jumbles/{jumbleId}`                                  | Yes     | `OWNER`                     |
+  | `GET /api/jumbles/getall`  (all)                                  | No      |                             |
+  | `GET /api/jumbles/{jumbleId}` (one)                               | No      |                             |
+  | `POST /api/jumbles/new`                                           | No      |                             |
+  | `PUT /api/jumbles/edit/{jumbleId}`                                | Yes     | `OWNER`                     |
+  | `DELETE /api/jumbles/edit/{jumbleId}`                             | Yes     | `OWNER`                     |
   | `POST /api/jumbles/{jumbleId}/{rezensionsId}`                     | Yes     | `USER`                      |
-  | `GET /api/categories`                                             | No      |                             |
-  | `GET /api/categories/category`                                    | No      |                             |
-  | `GET /api/user/me`                                                | Yes     | `OWNER` and `USER`          |
-  | `POST /api/user/edit`                                             | Yes     | `OWNER` and `USER`          |
-  | `PUT /api/user/edit`                                              | Yes     | `OWNER`                     |
-  | `DELETE /api/user/edit`                                           | Yes     | `OWNER`                     | 
+  | `GET /api/categories`  (all Categories)                           | No      |                             |
+  | `GET /api/categories/category` (one Category)                     | No      |                             |
+  | `POST /api/user/signup`                                           | Yes     | `OWNER` and `USER`          |
+  | `GET /api/user/{userId}`                                          | Yes     | `OWNER` and `USER`          |
+  | `PUT /api/user/edit/{userId}`                                     | Yes     | `OWNER`                     |
+  | `DELETE /api/user/edit/{userId}`                                  | Yes     | `OWNER`                     | 
   
 ### User Stories
 
