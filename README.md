@@ -88,7 +88,7 @@ Du kannst dich bei Jumble einloggen und die Jumbles mit Sternen bewerten, um and
   | `DELETE /api/jumbles/edit/{jumbleId}`                             | Yes     | `OWNER`                     |
   | `POST /api/jumbles/{jumbleId}/{rezensionsId}`                     | Yes     | `USER`                      |
   | `GET /api/categories`  (all Categories)                           | No      |                             |
-  | `GET /api/categories/category` (one Category)                     | No      |                             |
+  | `GET /api/categories/{categoryId}` (one Category)                     | No      |                             |
   | `POST /api/user/signup`                                           | Yes     | `OWNER` and `USER`          |
   | `GET /api/user/{userId}`                                          | Yes     | `OWNER` and `USER`          |
   | `PUT /api/user/edit/{userId}`                                     | Yes     | `OWNER`                     |
