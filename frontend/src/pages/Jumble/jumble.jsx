@@ -39,7 +39,7 @@ class Jumble extends Component {
                         data-toggle="tooltip"
                         title="Edit"
                       >
-                        <i class="fas fa-pen ps-2 pb-1"> </i>
+                        <i className="fas fa-pen ps-2 pb-1"> </i>
                       </Link>
                     </span>
                   </h1>
