@@ -12,11 +12,12 @@ const initialState = {
   password: '',
 }
 export default function SignUp() {
-  const { login } = useAuth()
   const [credentials, setCredentials] = useState(initialState)
   const [passwordCheck, setPasswordCheck] = useState('')
+  const [checkbox, setCheckbox] = useState(false)
   const [error, setError] = useState()
   const navigate = useNavigate()
+  const { login } = useAuth()
 
   const handleCredentials = e => {
     setCredentials({
@@ -49,130 +50,125 @@ export default function SignUp() {
   }
 
   return (
-    <React.Fragment>
-      <main className="m-md-5 mt-5 mb-5 h-100">
-        <section className="container w-100 h-100 px-4 px-lg-5 mt-5">
-          <div className="container h-100">
-            <div className="row justify-content-md-center h-100">
-              <div className="card-wrapper align-self-center col-md-8 col-12 ">
-                <div className="card fat">
-                  <div className="card-body">
-                    <h4 className="card-title">Sign Up</h4>
-                    <form
-                      as="form"
-                      onSubmit={handleSubmit}
-                      className="my-login-validation"
-                    >
-                      <div className="form-group">
-                        <label htmlFor="name">Name</label>
-                        <TextField
-                          name="username"
-                          title="Username"
-                          placeholder="Nutzername"
-                          value={credentials.username}
-                          className="form-control"
-                          onChange={handleCredentials}
-                          required
-                        />
-                      </div>
+    <main className="m-md-5 mt-5 mb-5 h-100">
+      <section className="container w-100 h-100 px-4 px-lg-5 mt-5">
+        <div className="container h-100">
+          <div className="row justify-content-md-center h-100">
+            <div className="card-wrapper align-self-center col-md-8 col-12 ">
+              <div className="card fat">
+                <div className="card-body">
+                  <h4 className="card-title">Sign Up</h4>
+                  <form
+                    as="form"
+                    onSubmit={handleSubmit}
+                    className="my-login-validation"
+                  >
+                    <div className="form-group">
+                      <label htmlFor="name">Name</label>
+                      <TextField
+                        name="username"
+                        title="Username"
+                        placeholder="Nutzername"
+                        value={credentials.username}
+                        className="form-control"
+                        onChange={handleCredentials}
+                        required
+                      />
+                    </div>
 
-                      <div className="form-group">
-                        <label htmlFor="email">E-Mail Adresse</label>
-                        <TextField
-                          name="email"
-                          title="Email (optional)*"
-                          placeholder="Email"
-                          value={credentials.email}
-                          className="form-control"
-                          onChange={handleCredentials}
-                          required
+                    <div className="form-group">
+                      <label htmlFor="email">E-Mail Adresse</label>
+                      <TextField
+                        name="email"
+                        title="Email (optional)*"
+                        placeholder="Email"
+                        value={credentials.email}
+                        className="form-control"
+                        onChange={handleCredentials}
+                        required
+                      />
+                      <label className="text-info">
+                        * um dein Passwort ggf. zurücksetzen zu können
+                      </label>
+                      {error && <Error>Deine Emailadresse ist ungültig</Error>}
+                    </div>
+
+                    <div className="form-group">
+                      <label htmlFor="password">Passwort</label>
+                      <TextField
+                        name="password"
+                        type="password"
+                        title="Password"
+                        placeholder="Passwort"
+                        value={credentials.password}
+                        className="form-control"
+                        onChange={handleCredentials}
+                        required
+                        data-eye
+                      />
+                      <TextField
+                        name="passwordCheck"
+                        value={passwordCheck}
+                        onChange={handlePasswordCheck}
+                        placeholder="Passwort erneut eingeben"
+                        title="Retype Password"
+                        type="password"
+                      />
+                      {error && <Error>Passwort ist erforderlich</Error>}
+                    </div>
+
+                    <div className="form-group">
+                      <div className="custom-checkbox custom-control">
+                        <input
+                          type="checkbox"
+                          name="agree"
+                          value={checkbox}
+                          onChange={e => setCheckbox(e.currentTarget.checked)}
+                          id="agree"
+                          className="custom-control-input"
+                          required={true}
                         />
-                        <label className="text-info">
-                          * um dein Passwort ggf. zurücksetzen zu können
+                        <label htmlFor="agree" className="custom-control-label">
+                          Ich stimme den {''}
+                          <Link to="/impressum"> Nutzungsbedingungen</Link>
+                          {''} zu
                         </label>
                         {error && (
-                          <Error>Deine Emailadresse ist ungültig</Error>
+                          <Error>
+                            Du musst unseren Nutzungsbedingungen zustimmen
+                          </Error>
                         )}
                       </div>
+                    </div>
 
-                      <div className="form-group">
-                        <label htmlFor="password">Passwort</label>
-                        <TextField
-                          name="password"
-                          type="password"
-                          title="Password"
-                          placeholder="Passwort"
-                          value={credentials.password}
-                          className="form-control"
-                          onChange={handleCredentials}
-                          required
-                          data-eye
-                        />
-                        <TextField
-                          name="passwordCheck"
-                          value={passwordCheck}
-                          onChange={handlePasswordCheck}
-                          placeholder="Passwort erneut eingeben"
-                          title="Retype Password"
-                          type="password"
-                        />
-                        {error && <Error>Passwort ist erforderlich</Error>}
-                      </div>
-
-                      <div className="form-group">
-                        <div className="custom-checkbox custom-control">
-                          <input
-                            type="checkbox"
-                            name="agree"
-                            id="agree"
-                            className="custom-control-input"
-                            required=""
-                          />
-                          <label
-                            htmlFor="agree"
-                            className="custom-control-label"
+                    <div className="form-group text-center m-0">
+                      <br />
+                      {credentials.username &&
+                        credentials.password &&
+                        passwordCheck === credentials.password && (
+                          <button
+                            className="btn btn-primary btn-block"
+                            onClick={handleToProfile}
                           >
-                            Ich stimme den {''}
-                            <Link to="/impressum"> Nutzungsbedingungen</Link>
-                            {''} zu
-                          </label>
-                          {error && (
-                            <Error>
-                              Du musst unseren Nutzungsbedingungen zustimmen
-                            </Error>
-                          )}
-                        </div>
+                            {' '}
+                            Sign up
+                          </button>
+                        )}
+                    </div>
+                    <div className="mt-4 text-center">
+                      Hast du bereits einen Account?
+                      <div onClick={handleToLogin} className="nav-link">
+                        {' '}
+                        Login
                       </div>
-
-                      <div className="form-group text-center m-0">
-                        <br />
-                        {credentials.username &&
-                          credentials.password &&
-                          passwordCheck === credentials.password && (
-                            <button
-                              className="btn btn-primary btn-block"
-                              onClick={handleToProfile}
-                            >
-                              {' '}
-                              Sign up
-                            </button>
-                          )}
-                      </div>
-                      <div className="mt-4 text-center">
-                        Hast du bereits einen Account?
-                        <div onClick={handleToLogin} className="nav-link">
-                          {' '}
-                          Login
-                        </div>
-                      </div>
-                    </form>
-                  </div>
+                    </div>
+                  </form>
                 </div>
               </div>
             </div>
           </div>
-        </section>
-      </main>
-    </React.Fragment>
+        </div>
+      </section>
+    </main>
   )
 }
