@@ -3,34 +3,47 @@ import Star from '../../components/rating'
 import Map from '../../components/map'
 import NavBar from '../../components/navbar'
 import Rezension from '../../components/rezension'
-
+import { getJumbles } from '../../services/jumbleService'
 import { Link } from 'react-router-dom'
 
 class Jumble extends Component {
+  // { const jumbleToString = jumble => {
+  //   return (
+  //     jumble.name +
+  //     ' ' +
+  //     jumble.category +
+  //     ', ' +
+  //    jumble.date +
+  //     ' ' +
+  //     jumble.time
+  //   )
+  // }
+
   render() {
     return (
       <React.Fragment>
         <NavBar />
         <main className="m-md-5 mt-5 mb-5">
           <section className="container w-100 h-100 mt-5">
-            <div class="container">
-              <div class="row ">
-                <div class="col-sm-12">
-                  <h1 class="display-1 fs-md-5 fs-lg-6 fs-xl-8 text-light">
+            <div className="container">
+              <div className="row ">
+                <div className="col-sm-12">
+                  <h1 className="display-1 fs-md-5 fs-lg-6 fs-xl-8 text-light">
                     Flohschanze
                     <span>
                       <Link
-                        to={`/categories/category/:id/edit`}
+                        to={`/jumbles/edit`}
                         className="btn "
                         type="button"
+                        // onClick={() => handleEditJumble(jumble.id)}
                         data-toggle="tooltip"
                         title="Edit"
                       >
-                        <i class="fas fa-pen ps-2 pb-1"> </i>
+                        <i className="fas fa-pen ps-2 pb-1"> </i>
                       </Link>
                     </span>
                   </h1>
-                  <div class="row ">
+                  <div className="row ">
                     <div className="col-sm-6">
                       <img
                         className="rounded-circle jumble-img"
@@ -52,6 +65,13 @@ class Jumble extends Component {
                         <br />
                         Kategorie: Flea Markets
                       </p>
+                      {/* <TextField
+                  disabled={true}
+                  key={jumble.id}
+                  name={`jumble${id}`}
+                  value={jumbleToString(jumble)}
+                  readOnly={true}
+                /> */}
                     </div>
                   </div>
                 </div>

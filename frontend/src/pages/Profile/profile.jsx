@@ -33,7 +33,7 @@ const Profile = () => {
                         data-toggle="tooltip"
                         title="Edit"
                       >
-                        <i class="fa fa-user-edit"></i>
+                        <i className="fa fa-user-edit"></i>
                       </Link>
                     </div>
                   </div>

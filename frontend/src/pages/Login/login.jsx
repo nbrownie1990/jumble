@@ -8,8 +8,9 @@ const initialState = {
   username: '',
   password: '',
 }
+
 export default function Login() {
-  const { login } = useAuth()
+  const { user, login } = useAuth()
   const [credentials, setCredentials] = useState(initialState)
   const [error, setError] = useState()
   const navigate = useNavigate()

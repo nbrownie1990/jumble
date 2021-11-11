@@ -26,7 +26,7 @@ const EditProfile = () => {
                       data-toggle="tooltip"
                       title="Edit"
                     >
-                      <i class="fas fa-pen ps-2 pb-1"></i>
+                      <i className="fas fa-pen ps-2 pb-1"></i>
                     </Link>
                   </div>
                   <span className="font-weight-bold">John Doe</span>

@@ -1,17 +1,13 @@
 import TextField from './textField'
 import React from 'react'
 
-export default function Address({
-  mode,
-  address,
-  handleEditAddress,
-  handleSaveNewAddress,
-  handleSaveAddressChanges,
-  handleAddressInputChange,
-  handleCancel,
-  handleDeleteAddress,
-  readOnly,
-}) {
+export default function Address(
+  {
+    // address,
+    // handleAddressInputChange,
+    // readOnly,
+  }
+) {
   return (
     <React.Fragment>
       <TextField
@@ -32,7 +28,6 @@ export default function Address({
         type="text"
         // disabled={readOnly}
       />
-
       <TextField
         name="zip"
         // value={address.zip}
@@ -51,7 +46,6 @@ export default function Address({
         type="text"
         // disabled={readOnly}
       />
-
       <TextField
         name="country"
         // value={address.country}

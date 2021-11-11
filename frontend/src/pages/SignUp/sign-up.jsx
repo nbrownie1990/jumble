@@ -41,7 +41,7 @@ export default function SignUp() {
   }
 
   const handleToProfile = () => {
-    navigate('/user/edit')
+    navigate('/user')
   }
 
   const handleToLogin = () => {

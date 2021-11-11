@@ -4,22 +4,34 @@ import JumbleList from '../../components/jumbleList'
 import { getJumbles } from '../../services/jumbleService'
 import { getCategories } from '../../services/categoryService'
 class Category extends React.Component {
-  state = {
-    jumbles: [],
-    categories: [],
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      jumbles: [],
+      categories: [],
+    }
   }
 
   componentDidMount() {
-    this.setState({ jumbles: getJumbles(), categories: getCategories() })
+    this.setState({
+      jumbles: getJumbles(),
+      categories: getCategories(),
+    })
   }
 
   handleCategorySelect = category => {
     this.setState({ selectedCategory: category })
   }
 
-  handleJumbleSelect = jumble => {
-    this.setState({ selectedJumble: jumble })
-  }
+  ////////////////////GET PARAMS
+  //console.log(this.props) //this.props.match
+  //this.props.match.params.id
+  /////////////////////////
+
+  // handleJumbleSelect = jumble => {
+  //   this.setState({ selectedJumble: jumble })
+  // }
   render() {
     const { length: count } = this.state.jumbles
     const { selectedCategory, jumbles: allJumbles } = this.state
@@ -31,8 +43,6 @@ class Category extends React.Component {
         ? allJumbles.filter(j => j.category._id === selectedCategory._id)
         : allJumbles
 
-    const jumbles = filtered
-
     return (
       <React.Fragment>
         <NavBar />
@@ -42,11 +52,14 @@ class Category extends React.Component {
               <div className="heading">
                 <h1>Jumbles:</h1>
               </div>
+              <p className="m-2">
+                Showing {filtered.length} Jumbles in the database.{' '}
+              </p>
               <JumbleList
-                jumbles={jumbles}
-                selectedJumble={this.state.selectedJumble}
-                onJumbleSelect={this.handleJumbleSelect}
-                jumblesCount={filtered.length}
+                jumbles={filtered}
+                // selectedJumble={this.state.selectedJumble}
+                // onJumbleSelect={this.handleJumbleSelect}
+                // jumblesCount={filtered.length}
               />
             </div>
           </section>

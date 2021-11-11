@@ -37,7 +37,7 @@ class Categories extends React.Component {
     return (
       <React.Fragment>
         <NavBar />
-        {/* <Map /> */}
+
         <main className="m-md-5 m-2 mt-5 mb-5">
           <section className="container w-100 h-100 px-4 px-lg-5 mt-5">
             <CategoryGroup
@@ -51,7 +51,7 @@ class Categories extends React.Component {
               Showing {filtered.length} Jumbles in the database.{' '}
             </p>
             <JumbleList
-              jumbles={this.state.jumbles}
+              jumbles={filtered}
               selectedJumble={this.state.selectedJumble}
               onJumbleSelect={this.handleJumbleSelect}
               jumblesCount={filtered.length}
@@ -62,5 +62,6 @@ class Categories extends React.Component {
     )
   }
 }
+//const CategoryWithParams = props => <Category {...props} params={useParams()} />
 
 export default Categories
