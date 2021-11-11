@@ -1,6 +1,7 @@
 import React from 'react'
 import NavBar from '../../components/navbar'
 import MapComponent from '../../components/mapcomponent'
+import SearchBar from '../../components/searchBar'
 
 const Home = () => {
   return (
@@ -17,6 +18,15 @@ const Home = () => {
             </p>
           </div>
           <MapComponent />
+          <div className="card">
+            <SearchBar />
+            <div className="sidebar scroll-list card-body p-4 text-start text-black">
+              <div className="heading text-black">
+                <h1>Jumbles:</h1>
+              </div>
+              <div id="listings" className="listings"></div>
+            </div>
+          </div>
         </div>
       </main>
     </React.Fragment>
