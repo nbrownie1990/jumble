@@ -1,6 +1,5 @@
 import mapboxgl from 'mapbox-gl'
 import React from 'react'
-import SearchBar from '../components/searchbar'
 // import { getJumbles } from '../services/featureService'
 // import { getCategories} from '../services/categoryService'
 
@@ -464,15 +463,6 @@ class MapComponent extends React.Component {
               ref={el => (this.mapContainer = el)}
               style={{ width: '100%', height: '50vh' }}
             />
-          </div>
-          <div className="card">
-            <SearchBar />
-            <div className="sidebar scroll-list card-body p-4 text-start ">
-              <div className="heading">
-                <h1>Jumbles:</h1>
-              </div>
-              <div id="listings" className="listings"></div>
-            </div>
           </div>
         </div>
       </React.Fragment>

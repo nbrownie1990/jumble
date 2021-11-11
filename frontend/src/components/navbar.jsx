@@ -53,9 +53,7 @@ class NavBar extends React.Component {
 
               <Nav.Link href="/categories">Categories</Nav.Link>
 
-              <Nav.Link href="/categories/category/:id/edit">
-                Add Jumble
-              </Nav.Link>
+              <Nav.Link href="/jumbles/new">Add Jumble</Nav.Link>
 
               <Nav.Link href="/user">Profile</Nav.Link>
 

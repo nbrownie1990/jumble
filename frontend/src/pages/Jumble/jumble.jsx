@@ -3,7 +3,7 @@ import Star from '../../components/rating'
 import Map from '../../components/map'
 import NavBar from '../../components/navbar'
 import Rezension from '../../components/rezension'
-
+import { getJumbles } from '../../services/jumbleService'
 import { Link } from 'react-router-dom'
 
 class Jumble extends Component {
