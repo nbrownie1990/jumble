@@ -32,7 +32,7 @@ class Jumble extends Component {
                     Flohschanze
                     <span>
                       <Link
-                        to={`/categories/category/:id/edit`}
+                        to={`/jumbles/edit`}
                         className="btn "
                         type="button"
                         // onClick={() => handleEditJumble(jumble.id)}
