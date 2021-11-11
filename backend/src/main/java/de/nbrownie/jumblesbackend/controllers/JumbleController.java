@@ -22,19 +22,35 @@ public class JumbleController {
     @GetMapping("/getall")
     public List<Jumble> GetAllJumbles() { return jumbleRepository.findAll();
     }
-
-    @GetMapping("/jumbles/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<Jumble> GetJumbleById(@PathVariable Long id) {
         Jumble jumble = jumbleRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Jumble with this id:" + id + "not exist..."));
         return ResponseEntity.ok(jumble);
     }
 
-
     @PostMapping("/new")
     public Jumble PostJumble(@RequestBody Jumble jumble){
         return jumbleRepository.save(jumble);
     }
 
+    @PutMapping("/edit/{id}")
+    public ResponseEntity<Jumble> updateJumble(@PathVariable Long id, @RequestBody Jumble jumbleDetails){
+
+        Jumble jumble = jumbleRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Jumble with this id:" + id + "not exist..."));
+
+        jumble.setJumble_address(jumbleDetails.getJumble_name());
+        jumble.setJumble_category(jumbleDetails.getJumble_category());
+        jumble.setJumble_rating(jumbleDetails.getJumble_rating());
+        jumble.setJumble_termin(jumbleDetails.getJumble_termin());
+        jumble.setJumble_name(jumbleDetails.getJumble_name());
+        jumble.setJumble_website(jumbleDetails.getJumble_website());
+        jumble.setJumble_text(jumbleDetails.getJumble_text());
+        jumble.setJumble_openingTime(jumbleDetails.getJumble_openingTime());
+
+        Jumble updateJumble = jumbleRepository.save(jumble);
+        return ResponseEntity.ok(updateJumble);
+    }
 }
     
