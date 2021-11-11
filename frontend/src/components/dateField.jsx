@@ -17,8 +17,8 @@ export default function DateField({
         placeholder={placeholder}
         value={value}
         onChange={date => onChange(date, name)}
+        dateformat="dd/MM/yyyy"
         name={name}
-        dateFormat="dd/MM/yyyy"
         disabled={readOnly}
       />
     </React.Fragment>

@@ -7,6 +7,18 @@ import Rezension from '../../components/rezension'
 import { Link } from 'react-router-dom'
 
 class Jumble extends Component {
+  // { const jumbleToString = jumble => {
+  //   return (
+  //     jumble.name +
+  //     ' ' +
+  //     jumble.category +
+  //     ', ' +
+  //    jumble.date +
+  //     ' ' +
+  //     jumble.time
+  //   )
+  // }
+
   render() {
     return (
       <React.Fragment>
@@ -23,6 +35,7 @@ class Jumble extends Component {
                         to={`/categories/category/:id/edit`}
                         className="btn "
                         type="button"
+                        // onClick={() => handleEditJumble(jumble.id)}
                         data-toggle="tooltip"
                         title="Edit"
                       >
@@ -52,6 +65,13 @@ class Jumble extends Component {
                         <br />
                         Kategorie: Flea Markets
                       </p>
+                      {/* <TextField
+                  disabled={true}
+                  key={jumble.id}
+                  name={`jumble${id}`}
+                  value={jumbleToString(jumble)}
+                  readOnly={true}
+                /> */}
                     </div>
                   </div>
                 </div>
