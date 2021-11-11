@@ -51,7 +51,7 @@ class Categories extends React.Component {
               Showing {filtered.length} Jumbles in the database.{' '}
             </p>
             <JumbleList
-              jumbles={this.state.jumbles}
+              jumbles={filtered}
               selectedJumble={this.state.selectedJumble}
               onJumbleSelect={this.handleJumbleSelect}
               jumblesCount={filtered.length}
