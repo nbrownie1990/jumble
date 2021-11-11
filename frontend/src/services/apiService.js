@@ -30,16 +30,21 @@ export const getJumbles = (token, jumbles) =>
     .get(`/api/jumbles/getall`, headers(token))
     .then(response => response.data)
 
-//Jumble GET
 export const getJumbleById = (token, jumbleId) =>
   axios
-    .get(`/api/jumbles/edit/${jumbleId}`, headers(token))
+    .get(`/api/jumbles/${jumbleId}`, headers(token))
     .then(response => response.data)
 
 //Add Jumble POST
 export const postJumble = (token, userId, jumble) =>
   axios
     .post(`/api/jumbles/new`, jumble, headers(token))
+    .then(response => response.data)
+
+//Jumble GET to update
+export const getJumbleToUpdate = (token, jumbleId) =>
+  axios
+    .get(`/api/jumbles/edit/${jumbleId}`, headers(token))
     .then(response => response.data)
 
 //Edit Jumble PUT - DELETE
