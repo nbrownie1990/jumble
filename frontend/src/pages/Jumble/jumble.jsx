@@ -25,10 +25,10 @@ class Jumble extends Component {
         <NavBar />
         <main className="m-md-5 mt-5 mb-5">
           <section className="container w-100 h-100 mt-5">
-            <div class="container">
-              <div class="row ">
-                <div class="col-sm-12">
-                  <h1 class="display-1 fs-md-5 fs-lg-6 fs-xl-8 text-light">
+            <div className="container">
+              <div className="row ">
+                <div className="col-sm-12">
+                  <h1 className="display-1 fs-md-5 fs-lg-6 fs-xl-8 text-light">
                     Flohschanze
                     <span>
                       <Link
@@ -43,7 +43,7 @@ class Jumble extends Component {
                       </Link>
                     </span>
                   </h1>
-                  <div class="row ">
+                  <div className="row ">
                     <div className="col-sm-6">
                       <img
                         className="rounded-circle jumble-img"
