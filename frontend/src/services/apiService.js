@@ -33,7 +33,7 @@ export const getJumbles = (token, jumbles) =>
 //Jumble GET
 export const getJumbleById = (token, jumbleId) =>
   axios
-    .get(`/api/jumbles/${jumbleId}`, headers(token))
+    .get(`/api/jumbles/edit/${jumbleId}`, headers(token))
     .then(response => response.data)
 
 //Add Jumble POST
@@ -53,19 +53,19 @@ export const updateJumbleImage = (token, jumbleId, jumbleImage) =>
     .put(`/api/jumbles/edit/${jumbleId}`, jumbleImage, headers(token))
     .then(response => response.data)
 
-export const updateJumbleAdresse = (token, jumbleId, jumbleAdresse) =>
+export const updateJumbleAddress = (token, jumbleId, jumbleAddress) =>
   axios
-    .put(`/api/jumbles/edit/${jumbleId}`, jumbleAdresse, headers(token))
+    .put(`/api/jumbles/edit/${jumbleId}`, jumbleAddress, headers(token))
     .then(response => response.data)
 
-export const updateJumbleTermine = (token, jumbleId, jumbleTermine) =>
+export const updateJumbleDate = (token, jumbleId, jumbleDate) =>
   axios
-    .put(`/api/jumbles/edit/${jumbleId}`, jumbleTermine, headers(token))
+    .put(`/api/jumbles/edit/${jumbleId}`, jumbleDate, headers(token))
     .then(response => response.data)
 
-export const updateJumbleZeiten = (token, jumbleId, jumbleZeiten) =>
+export const updateJumbleTime = (token, jumbleId, jumbleTime) =>
   axios
-    .put(`/api/jumbles/edit/${jumbleId}`, jumbleZeiten, headers(token))
+    .put(`/api/jumbles/edit/${jumbleId}`, jumbleTime, headers(token))
     .then(response => response.data)
 
 export const updateJumbleWebsite = (token, jumbleId, jumbleWebsite) =>
