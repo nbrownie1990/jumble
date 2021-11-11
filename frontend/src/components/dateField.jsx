@@ -16,7 +16,7 @@ export default function DateField({
         className="form-control"
         placeholder={placeholder}
         value={value}
-        onChange={date => onChange(date, name)}
+        onChange={onChange}
         dateformat="dd/MM/yyyy"
         name={name}
         disabled={readOnly}

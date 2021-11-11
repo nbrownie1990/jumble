@@ -11,6 +11,7 @@ import Start from './pages/Start/start'
 import Home from './pages/Home/home'
 import Jumble from './pages/Jumble/jumble'
 import EditJumble from './pages/Jumble/edit-jumble'
+import AddJumble from './pages/Jumble/add-jumble'
 import EditProfile from './pages/Profile/edit-profile'
 
 import Category from './pages/Category/category'
@@ -35,8 +36,9 @@ function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path="/jumbles/edit/:jid" element={<EditJumble />} />
-        <Route path="/jumbles/:jid" element={<Jumble />} />
+        <Route path="/jumbles/edit/:id" element={<EditJumble />} />
+        <Route path="/jumbles/new" element={<AddJumble />} />
+        <Route path="/jumbles/:id" element={<Jumble />} />
         <Route path="/categories/:cid" element={<Category />} />
         <Route path="/categories" element={<Categories />} />
         <Route path="/signup" element={<SignUp />} />

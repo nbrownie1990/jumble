@@ -48,7 +48,7 @@ class Category extends React.Component {
         <NavBar />
         <main className="m-md-5 mt-5 mb-5">
           <section className="container w-100 min-vh-100 px-lg-5 mt-5">
-            <div className="sidebar scroll-list h-100 card-body p-0 text-start ">
+            <div className="sidebar h-100 card-body p-0 text-start ">
               <div className="heading">
                 <h1>Jumbles:</h1>
               </div>

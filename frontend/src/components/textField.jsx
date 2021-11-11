@@ -13,7 +13,7 @@ export default function TextField({
   ...props
 }) {
   return (
-    <React.Fragment>
+    <React.Fragment {...props}>
       <input
         type={type}
         className="form-control"
