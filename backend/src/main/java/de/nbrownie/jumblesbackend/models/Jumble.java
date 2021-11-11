@@ -37,8 +37,8 @@ public class Jumble {
     @Column(name = "jumble_address")
     private String jumble_address;
 
-    @Column(name = "jumble_postalCode")
-    private String jumble_postalCode;
+    @Column(name = "jumble_text")
+    private String jumble_text;
 
     @Column(name = "jumble_termin")
     private String jumble_termin;
