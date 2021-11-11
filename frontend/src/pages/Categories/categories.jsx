@@ -37,7 +37,7 @@ class Categories extends React.Component {
     return (
       <React.Fragment>
         <NavBar />
-        {/* <Map /> */}
+
         <main className="m-md-5 m-2 mt-5 mb-5">
           <section className="container w-100 h-100 px-4 px-lg-5 mt-5">
             <CategoryGroup
