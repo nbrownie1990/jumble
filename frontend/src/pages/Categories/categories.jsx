@@ -62,5 +62,6 @@ class Categories extends React.Component {
     )
   }
 }
+//const CategoryWithParams = props => <Category {...props} params={useParams()} />
 
 export default Categories
