@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 const CategoryGroup = props => {
-  const { items, onItemSelect } = props
+  const { items, onItemSelected } = props
 
   return (
     <div className="row gx-4 gx-lg-5 row-cols-1 row-cols-md-2 row-cols-xl-3  justify-content-center">
@@ -23,8 +23,8 @@ const CategoryGroup = props => {
             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
               <div className="text-center">
                 <Link
-                  to={`/categories/category`}
-                  onClick={() => onItemSelect(item)}
+                  to={`/categories/${item._id}`}
+                  onClick={() => onItemSelected(item)}
                   className="btn btn-primary mt-auto"
                 >
                   Mehr
