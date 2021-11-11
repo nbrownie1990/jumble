@@ -21,4 +21,8 @@ public class CategoryService {
     public List<Category> GetCategories() {
         return categoryRepository.findAll();
     }
+
+   // public CategoryEntity GetCategoryById(Long id) {
+   //     return categoryRepository.GetCategoryById(id).orElseThrow(() -> new IllegalArgumentException("Category not found"));
+   // }
 }
