@@ -90,7 +90,7 @@ class JumbleForm extends Component {
                 alt="This is a jumble"
               />
               <Link
-                to={`/jumble/edit`}
+                to={`/jumbles/edit`}
                 className="btn edit-btn"
                 type="button"
                 data-toggle="tooltip"
@@ -176,7 +176,7 @@ class JumbleForm extends Component {
                   value={this.state.time}
                   onChange={this.changeTimeHandler}
                 />
-                />
+
                 <span id="timeHelpInline" className="form-text">
                   Wie sind die Öffnungszeiten des Jumbles?
                 </span>

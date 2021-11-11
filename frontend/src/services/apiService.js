@@ -19,9 +19,9 @@ export const getCategories = (token, categories) =>
   axios.get(`/api/categories`, headers(token)).then(response => response.data)
 
 // Category GET
-export const getCategory = (token, category) =>
+export const getCategory = (token, categoryId) =>
   axios
-    .get(`/api/categories/category`, headers(token))
+    .get(`/api/categories/${categoryId}`, headers(token))
     .then(response => response.data)
 
 //JumbleList (all Jumbles) GET
@@ -37,7 +37,7 @@ export const getJumbleById = (token, jumbleId) =>
     .then(response => response.data)
 
 //Add Jumble POST
-export const postJumble = (token, user_id, jumble) =>
+export const postJumble = (token, userId, jumble) =>
   axios
     .post(`/api/jumbles/new`, jumble, headers(token))
     .then(response => response.data)

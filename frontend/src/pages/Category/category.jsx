@@ -4,13 +4,16 @@ import JumbleList from '../../components/jumbleList'
 import { getJumbles } from '../../services/jumbleService'
 import { getCategories } from '../../services/categoryService'
 class Category extends React.Component {
-  state = {
-    jumbles: [],
-    categories: [],
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      jumbles: [],
+      categories: [],
+    }
   }
 
   componentDidMount() {
-    console.log(this.props)
     this.setState({
       jumbles: getJumbles(),
       categories: getCategories(),

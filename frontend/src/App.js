@@ -35,8 +35,8 @@ function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path="/categories/:cid/:jid/edit" element={<EditJumble />} />
-        <Route path="/categories/:cid/:jid" element={<Jumble />} />
+        <Route path="/jumbles/edit/:jid" element={<EditJumble />} />
+        <Route path="/jumbles/:jid" element={<Jumble />} />
         <Route path="/categories/:cid" element={<Category />} />
         <Route path="/categories" element={<Categories />} />
         <Route path="/signup" element={<SignUp />} />
