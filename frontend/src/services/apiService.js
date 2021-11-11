@@ -14,7 +14,6 @@ const headers = token => ({
 
 //Map GET
 //JumbleMapList GET
-
 //Categories GET
 export const getCategories = (token, categories) =>
   axios.get(`/api/categories`, headers(token)).then(response => response.data)
