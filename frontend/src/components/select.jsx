@@ -15,8 +15,8 @@ export default function Select({
         className="form-control"
         placeholder={placeholder}
         value={value}
-        onChange={date => onChange(date, name)}
-        dateFormat="dd/MM/yyyy"
+        onChange={onChange}
+        dateformat="dd/MM/yyyy"
         disabled={readOnly}
       >
         <option>
