@@ -41,6 +41,11 @@ export const postJumble = (token, userId, jumble) =>
     .post(`/api/jumbles/new`, jumble, headers(token))
     .then(response => response.data)
 
+export const postAddress = (token, userId, address) =>
+  axios
+    .post(`/api/jumbles/new`, address, headers(token))
+    .then(response => response.data)
+
 //Jumble GET to update
 export const getJumbleToUpdate = (token, jumbleId) =>
   axios

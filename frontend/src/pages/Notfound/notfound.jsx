@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import ListJumbleComponent from '../../components/ListJumbleComponent'
+import TryIt from '../../components/tryIt'
 
 const NotFound = () => {
   return (
@@ -26,7 +26,8 @@ const NotFound = () => {
             </div>
             <br />
             <br />
-            <ListJumbleComponent />
+
+            <TryIt />
           </div>
         </div>
       </section>

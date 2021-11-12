@@ -1,6 +1,4 @@
 import axios from 'axios'
-import Jumble from '../pages/Jumble/jumble'
-import { deleteJumble } from './jumbleService'
 
 const JUMBLE_API_BASE_URL = 'http://localhost:8080/api/jumbles'
 
@@ -9,7 +7,7 @@ class JumblesService {
     return axios.get(JUMBLE_API_BASE_URL)
   }
   getJumbleById(jumbleId) {
-    return axios.get(JUMBLE_API_BASE_URL + '/' + jumbleId)
+    return axios.get(JUMBLE_API_BASE_URL + '/jumbles/' + jumbleId)
   }
   postJumble(jumble) {
     return axios.post(JUMBLE_API_BASE_URL + '/' + jumble)
