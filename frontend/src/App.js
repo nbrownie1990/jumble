@@ -38,7 +38,7 @@ function App() {
       <Routes>
         <Route path="/jumbles/edit/:id" element={<EditJumble />} />
         <Route path="/jumbles/new" element={<AddJumble />} />
-        {/* <Route path="/jumbles/:id" element={<Jumble />} /> */}
+        <Route path="/jumbles/:id" element={<Jumble />} />
         <Route path="/categories/:cid" element={<Category />} />
         <Route path="/categories" element={<Categories />} />
         <Route path="/signup" element={<SignUp />} />
@@ -51,8 +51,7 @@ function App() {
         <Route path="/home" element={<Home />} />
         <Route path="/" element={<Start />} />
         <Route path="/impressum" element={<Impressum />} />
-        <Route path="/jumbles/:id" element={<NotFound />} />
-        {/* <Route path="*" element={<NotFound />} /> */}
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
     </div>
