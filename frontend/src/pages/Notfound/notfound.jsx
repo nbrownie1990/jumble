@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import ListJumbleComponent from '../../components/ListJumbleComponent'
+
 const NotFound = () => {
   return (
     <main className="d-flex m-md-5 mt-5 mb-5 min-vh-100">
