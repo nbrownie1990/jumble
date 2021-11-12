@@ -64,16 +64,14 @@ export default function EditJumble() {
         <main className="m-md-5 m-2 mt-5 mb-5">
           <section className="container w-100 h-100 px-lg-5 mt-5">
             <div className="container rounded bg-white p-md-5">
-              <div className="row">
-                <JumbleForm
-                  handleJumbleInputChange={handleJumbleInputChange}
-                  handleSaveJumbleChanges={handleSaveJumbleChanges}
-                  handleCancel={handleCancel}
-                  handleDeleteJumble={handleDeleteJumble}
-                  readOnly={false}
-                  mode="edit"
-                />
-              </div>
+              <JumbleForm
+                handleJumbleInputChange={handleJumbleInputChange}
+                handleSaveJumbleChanges={handleSaveJumbleChanges}
+                handleCancel={handleCancel}
+                handleDeleteJumble={handleDeleteJumble}
+                readOnly={false}
+                mode="edit"
+              />
             </div>
           </section>
         </main>

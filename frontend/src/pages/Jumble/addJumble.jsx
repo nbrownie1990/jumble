@@ -43,7 +43,7 @@ export default function AddJumble() {
         setError(error)
       })
       .finally(() => {
-        navigate('/home')
+        // navigate('/home')
       })
   }
 
@@ -57,16 +57,14 @@ export default function AddJumble() {
       <main className="m-md-5 m-2 mt-5 mb-5">
         <section className="container w-100 h-100 px-lg-5 mt-5">
           <div className="container rounded bg-white p-md-5">
-            <div className="row">
-              <JumbleForm
-                jumble={jumble}
-                handleJumbleInputChange={handleJumbleInputChange}
-                handleSaveNewJumble={handleSaveNewJumble}
-                handleCancel={handleCancel}
-                readOnly={false}
-                mode="new"
-              />
-            </div>
+            <JumbleForm
+              jumble={jumble}
+              handleJumbleInputChange={handleJumbleInputChange}
+              handleSaveNewJumble={handleSaveNewJumble}
+              handleCancel={handleCancel}
+              readOnly={false}
+              mode="new"
+            />
           </div>
         </section>
       </main>
