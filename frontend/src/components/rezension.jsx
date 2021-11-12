@@ -5,7 +5,7 @@ import '../assets/css/style.css'
 class Rezension extends React.Component {
   handleSave = () => {
     //Navigate back to Category
-    // this.props.history.push('/home')
+    // navigate('/home')
   }
 
   render() {
