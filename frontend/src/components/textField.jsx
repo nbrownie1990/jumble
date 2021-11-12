@@ -15,8 +15,8 @@ export default function TextField({
   return (
     <React.Fragment {...props}>
       <input
-        type={type}
         className="form-control"
+        type={type}
         placeholder={placeholder}
         value={value}
         onChange={onChange}

@@ -10,20 +10,16 @@ import Select from './select'
 export default function JumbleForm({
   mode,
   jumble,
+  handleJumbleInputChange,
   handleEditJumble,
   handleSaveNewJumble,
   handleSaveJumbleChanges,
-  handleTextInputChange,
-  handleNameInputChange,
-  handleCategoryInputChange,
-  handleDateInputChange,
-  handleTimeInputChange,
   handleCancel,
   handleDeleteJumble,
   readOnly,
 }) {
   return (
-    <React.Fragment>
+    <>
       <div className="col-md-6 border-right">
         <div className="d-flex flex-column align-items-center text-center p-3 py-5">
           <div className="img-wrapper mt-5 ">
@@ -46,12 +42,12 @@ export default function JumbleForm({
 
           <label className="labels">Beschreibung</label>
           <TextArea
-            rows="5"
-            placeholder=" Bitte beschreibe diesen Jumble"
             name="text"
+            placeholder=" Bitte beschreibe diesen Jumble"
             type="text"
+            rows="5"
             value={jumble.text}
-            onChange={handleTextInputChange}
+            onChange={handleJumbleInputChange}
             disabled={readOnly}
           />
           <span id="dateHelpInline" className="form-text">
@@ -70,21 +66,23 @@ export default function JumbleForm({
             <div className="col-md-12">
               <label className="labels">Jumble-Name</label>
               <TextField
-                placeholder="z.B. Flohschanze"
                 name="name"
+                placeholder="z.B. Flohschanze"
                 type="text"
-                value={jumble.jumble_name}
-                onChange={handleNameInputChange}
+                value={jumble.name}
+                onChange={handleJumbleInputChange}
+                disabled={readOnly}
               />
             </div>
             <div className="col-md-12">
               <label className="labels">Jumble-Category</label>
               <Select
-                placeholder=""
                 name="category"
+                placeholder=""
                 type="select"
-                value={jumble.jumble_category}
-                onChange={handleCategoryInputChange}
+                value={jumble.category}
+                onChange={handleJumbleInputChange}
+                disabled={readOnly}
               />
             </div>
           </div>
@@ -93,18 +91,20 @@ export default function JumbleForm({
               <label className="labels">Jumble-Adresse</label>
               <Address
                 // address={address}
-                // handleAddressInputChange={handleAddressInputChange}
-                readOnly={false}
+                // handleAddressInputChange={handleInputChange}
+                onChange={handleJumbleInputChange}
+                // disabled={readOnly}
               />
             </div>
             <div className="col-md-12">
               <label className="labels">Termin</label>
               <DateField
-                placeholder="Termin"
                 name="date"
+                placeholder="Termin"
                 type="date"
-                value={jumble.jumble_date}
-                onChange={handleDateInputChange}
+                value={jumble.date}
+                onChange={handleJumbleInputChange}
+                disabled={readOnly}
               />
               <span id="dateHelpInline" className="form-text">
                 Wann findet das nächste Jumble statt?
@@ -113,11 +113,12 @@ export default function JumbleForm({
             <div className="col-md-12">
               <label className="labels">Öffnungszeiten</label>
               <TextField
-                type="text"
-                placeholder=" z.B. 9-16 Uhr"
                 name="time"
-                value={jumble.jumble_time}
-                onChange={handleTimeInputChange}
+                placeholder=" z.B. 9-16 Uhr"
+                type="text"
+                value={jumble.time}
+                onChange={handleJumbleInputChange}
+                disabled={readOnly}
               />
 
               <span id="timeHelpInline" className="form-text">
@@ -127,11 +128,12 @@ export default function JumbleForm({
             <div className="col-md-12">
               <label className="labels"> Website</label>
               <TextField
-                type="url"
-                placeholder="z.B. www.flohschanze.de"
                 name="website"
-                value={jumble.jumble_website}
-                onChange={handleNameInputChange}
+                placeholder="z.B. www.flohschanze.de"
+                type="url"
+                value={jumble.website}
+                onChange={handleJumbleInputChange}
+                disabled={readOnly}
               />
             </div>
           </div>
@@ -186,6 +188,6 @@ export default function JumbleForm({
           </button>
         </div>
       </div>
-    </React.Fragment>
+    </>
   )
 }
