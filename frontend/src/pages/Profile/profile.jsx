@@ -1,6 +1,7 @@
 import React from 'react'
 import NavBar from '../../components/navbar'
 import { Link } from 'react-router-dom'
+
 const Profile = () => {
   return (
     <React.Fragment>
