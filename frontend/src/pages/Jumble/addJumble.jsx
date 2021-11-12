@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router'
 import { useAuth } from '../../auth/AuthProvider'
-import { postJumble } from '../../services/apiService'
+import { postJumble, postAddress } from '../../services/apiService'
 import NavBar from '../../components/navbar'
 import JumbleForm from '../../components/jumbleForm'
+import Error from '../../components/error'
 
 const initialState = {
   id: null,
@@ -33,12 +34,14 @@ export default function AddJumble() {
 
   const handleJumbleInputChange = e => {
     setJumble({ ...jumble, [e.target.name]: e.target.value })
+    setAddress({ ...address, [e.target.name]: e.target.value })
   }
 
   const handleSaveNewJumble = e => {
     e.preventDefault()
     setError()
     postJumble(token, jumble)
+    postAddress(token, address)
       .catch(error => {
         setError(error)
       })
@@ -59,6 +62,7 @@ export default function AddJumble() {
           <div className="container rounded bg-white p-md-5">
             <JumbleForm
               jumble={jumble}
+              address={address}
               handleJumbleInputChange={handleJumbleInputChange}
               handleSaveNewJumble={handleSaveNewJumble}
               handleCancel={handleCancel}

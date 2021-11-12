@@ -1,26 +1,28 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
 
 import DateField from './dateField'
 import TextField from './textField'
 import TextArea from './textArea'
-import Address from './address'
+import AddressForm from './addressForm'
 import Select from './select'
 
 export default function JumbleForm({
   mode,
   jumble,
+  address,
   handleJumbleInputChange,
   handleEditJumble,
   handleSaveNewJumble,
   handleSaveJumbleChanges,
   handleCancel,
   handleDeleteJumble,
+
   readOnly,
 }) {
   return (
     <>
-      <form as="form" onSubmit={handleSaveNewJumble} className="row">
+      <form as="form" className="row">
         <div className="col-md-6">
           <div className="d-flex flex-column align-items-center text-center p-3 py-5">
             <div className="img-wrapper mt-5 ">
@@ -91,11 +93,13 @@ export default function JumbleForm({
             <div className="row mt-3">
               <div className="col-md-10 col-8 m-2">
                 <label className="labels">Jumble-Adresse</label>
-                <Address
-                  // address={address}
-                  // handleAddressInputChange={handleInputChange}
-                  onChange={handleJumbleInputChange}
-                  // disabled={readOnly}
+                <AddressForm
+                  address={address}
+                  handleJumbleInputChange={handleJumbleInputChange}
+                  handleSaveNewJumble={handleSaveNewJumble}
+                  handleCancel={handleCancel}
+                  readOnly={false}
+                  disabled={readOnly}
                 />
               </div>
               <div className="col-md-12">
@@ -180,7 +184,7 @@ export default function JumbleForm({
             <button
               type="button"
               className="btn btn-outline-primary"
-              onClick={handleCancel}
+              onClick={() => handleCancel()}
             >
               Cancel
             </button>
