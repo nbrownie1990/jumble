@@ -21,4 +21,8 @@ public class JumbleService {
     public List<Jumble> GetJumbles() {
         return jumbleRepository.findAll();
     }
+
+    public Jumble GetJumbleById(Long id) {
+        return jumbleRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Jumble not found"));
+    }
 }
