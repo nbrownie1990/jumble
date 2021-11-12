@@ -12,11 +12,11 @@ const initialState = {
   password: '',
 }
 export default function SignUp() {
+  const navigate = useNavigate()
   const [credentials, setCredentials] = useState(initialState)
   const [passwordCheck, setPasswordCheck] = useState('')
   const [checkbox, setCheckbox] = useState(false)
   const [error, setError] = useState()
-  const navigate = useNavigate()
   const { login } = useAuth()
 
   const handleCredentials = e => {
