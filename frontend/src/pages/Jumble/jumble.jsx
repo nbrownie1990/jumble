@@ -1,5 +1,4 @@
-import React, { useState } from 'react'
-import { useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router'
 import { Link } from 'react-router-dom'
 
@@ -7,19 +6,29 @@ import Star from '../../components/rating'
 import Map from '../../components/map'
 import NavBar from '../../components/navbar'
 import Rezension from '../../components/rezension'
-import { useAuth } from '../../auth/AuthProvider'
 import { getJumbleById } from '../../services/apiService'
 
 export default function Jumble() {
   const navigate = useNavigate()
   const [error, setError] = useState()
-  const [jumble, setJumble] = useState()
+  const [jumble, setJumble] = useState([])
   const { id } = useParams()
 
-  // useEffect(() => {
+  const fetchJumbles = () =>
+    getJumbleById()
+      .then(res => res.json())
+      .then(data => console.log(data))
+
+  useEffect(() => {
+    console.log('component is mounted')
+    fetchJumbles()
+  }, [])
+
+  //  useEffect(() => {
+  //   console.log("component is mounted")
   //   setError()
-  //   getJumbleById(jumble, id).then(setJumble).catch(setError)
-  // }, [jumble, id])
+  //     getJumbleById(jumble, id).then(setJumble).catch(setError)
+  //   }, [jumble, id])
 
   return (
     <React.Fragment>

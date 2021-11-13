@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import JumbleList from '../../components/jumbleList'
 
 const NotFound = () => {
   return (
@@ -8,6 +9,7 @@ const NotFound = () => {
         <div className="d-flex h-100 w-100 text-center text-white  ">
           <div className="cover-container align-self-center">
             <h1>Not Found</h1>
+            <JumbleList />
             <p>
               Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id
               architecto similique facilis amet eos necessitatibus enim, sed

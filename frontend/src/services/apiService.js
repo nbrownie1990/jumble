@@ -33,6 +33,20 @@
 //     .get(`/api/jumbles/${jumbleId}`, headers(token))
 //     .then(response => response.data)
 
+import fetch from 'unfetch'
+
+const checkStatus = response => {
+  if (response.ok) {
+    return response
+  }
+  // convert non-2xx HTTP responses into errors:
+  const error = new Error(response.statusText)
+  error.response = response
+  return Promise.reject(error)
+}
+export const getJumbleById = jumbleId =>
+  fetch(`/api/jumbles/${jumbleId}`).then(checkStatus)
+
 // //Add Jumble POST
 // export const postJumble = (token, userId, jumble) =>
 //   axios
