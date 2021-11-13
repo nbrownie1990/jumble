@@ -14,13 +14,12 @@ export default function Jumble() {
   const navigate = useNavigate()
   const [error, setError] = useState()
   const [jumble, setJumble] = useState()
-  const { token } = useAuth()
   const { id } = useParams()
 
-  useEffect(() => {
-    setError()
-    getJumbleById(token, jumble, id).then(setJumble).catch(setError)
-  }, [token, jumble, id])
+  // useEffect(() => {
+  //   setError()
+  //   getJumbleById(jumble, id).then(setJumble).catch(setError)
+  // }, [jumble, id])
 
   return (
     <React.Fragment>

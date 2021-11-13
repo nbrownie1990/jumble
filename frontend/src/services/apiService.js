@@ -25,10 +25,8 @@
 //     .then(response => response.data)
 
 // //JumbleList (all Jumbles) GET
-// export const getJumbles = (token, jumbles) =>
-//   axios
-//     .get(`/api/jumbles/getall`, headers(token))
-//     .then(response => response.data)
+// export const getJumbles = jumbles =>
+//   axios.get(`/api/jumbles/getall`, jumbles).then(response => response.data)
 
 // export const getJumbleById = (token, jumbleId) =>
 //   axios

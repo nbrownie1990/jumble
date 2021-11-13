@@ -25,7 +25,6 @@ import SignUp from './pages/SignUp/sign-up'
 import NotFound from './pages/Notfound/notfound'
 import Impressum from './pages/Impressum/impressum'
 import Footer from './components/footer'
-
 // -- Component Styles
 import './assets/css/style.css'
 
@@ -33,6 +32,7 @@ function App() {
   useEffect(() => {
     AOS.init()
   })
+
   return (
     <div className="App">
       <Routes>

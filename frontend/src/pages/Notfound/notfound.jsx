@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import TryIt from '../../components/tryIt'
 
 const NotFound = () => {
   return (
@@ -26,8 +25,6 @@ const NotFound = () => {
             </div>
             <br />
             <br />
-
-            <TryIt />
           </div>
         </div>
       </section>

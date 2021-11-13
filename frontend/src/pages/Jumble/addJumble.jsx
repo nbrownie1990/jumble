@@ -30,25 +30,24 @@ export default function AddJumble() {
   const [jumble, setJumble] = useState(initialState)
   const [address, setAddress] = useState(initialAddressState)
   const [error, setError] = useState()
-  const { token } = useAuth()
 
   const handleJumbleInputChange = e => {
     setJumble({ ...jumble, [e.target.name]: e.target.value })
     setAddress({ ...address, [e.target.name]: e.target.value })
   }
 
-  const handleSaveNewJumble = e => {
-    e.preventDefault()
-    setError()
-    postJumble(token, jumble)
-    postAddress(token, address)
-      .catch(error => {
-        setError(error)
-      })
-      .finally(() => {
-        // navigate('/home')
-      })
-  }
+  // const handleSaveNewJumble = e => {
+  //   e.preventDefault()
+  //   setError()
+  //   postJumble(jumble)
+  //   postAddress(address)
+  //     .catch(error => {
+  //       setError(error)
+  //     })
+  //     .finally(() => {
+  //       // navigate('/home')
+  //     })
+  // }
 
   const handleCancel = () => {
     navigate('/home')
@@ -64,8 +63,8 @@ export default function AddJumble() {
               jumble={jumble}
               address={address}
               handleJumbleInputChange={handleJumbleInputChange}
-              handleSaveNewJumble={handleSaveNewJumble}
-              handleCancel={handleCancel}
+              // handleSaveNewJumble={handleSaveNewJumble}
+              // handleCancel={handleCancel}
               readOnly={false}
               mode="new"
             />

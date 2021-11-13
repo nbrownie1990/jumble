@@ -3,9 +3,6 @@ import { Link, useNavigate } from 'react-router-dom'
 import TextField from '../../components/textField'
 import Error from '../../components/error'
 
-import { useAuth } from '../../auth/AuthProvider'
-import { postUser } from '../../services/apiService'
-
 const initialState = {
   username: '',
   email: '',
@@ -17,7 +14,6 @@ export default function SignUp() {
   const [passwordCheck, setPasswordCheck] = useState('')
   const [checkbox, setCheckbox] = useState(false)
   const [error, setError] = useState()
-  const { login } = useAuth()
 
   const handleCredentials = e => {
     setCredentials({
@@ -26,16 +22,16 @@ export default function SignUp() {
     })
   }
 
-  const handleSubmit = e => {
-    e.preventDefault()
-    setError()
-    postUser(credentials)
-      .then(() => login(credentials))
-      .then(() => navigate('/user/edit'))
-      .catch(error => {
-        setError(error)
-      })
-  }
+  // const handleSubmit = e => {
+  //   e.preventDefault()
+  //   setError()
+  //   postUser(credentials)
+  //     .then(() => login(credentials))
+  //     .then(() => navigate('/user/edit'))
+  //     .catch(error => {
+  //       setError(error)
+  //     })
+  // }
 
   const handlePasswordCheck = event => {
     setPasswordCheck(event.target.value)
@@ -60,7 +56,7 @@ export default function SignUp() {
                   <h4 className="card-title">Sign Up</h4>
                   <form
                     as="form"
-                    onSubmit={handleSubmit}
+                    // onSubmit={handleSubmit}
                     className="my-login-validation"
                   >
                     <div className="form-group">

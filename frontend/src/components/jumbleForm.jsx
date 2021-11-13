@@ -17,7 +17,6 @@ export default function JumbleForm({
   handleSaveJumbleChanges,
   handleCancel,
   handleDeleteJumble,
-
   readOnly,
 }) {
   return (
