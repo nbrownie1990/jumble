@@ -23,7 +23,6 @@ public class Category {
             strategy = GenerationType.SEQUENCE,
             generator = "category_sequence"
     )
-
     @Column(name = "category_id", nullable = false,  unique = true)
     private Long category_id;
 

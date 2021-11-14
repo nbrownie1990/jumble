@@ -23,6 +23,6 @@ public class JumbleService {
     }
 
     public Jumble GetJumbleById(Long id) {
-        return jumbleRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Jumble not found"));
+        return jumbleRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("JumbleApplication not found"));
     }
 }

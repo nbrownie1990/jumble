@@ -1,7 +1,6 @@
 package de.nbrownie.jumbleapplication.controllers;
 
 import de.nbrownie.jumbleapplication.exceptions.ResourceNotFoundException;
-import de.nbrownie.jumbleapplication.models.Jumble;
 import de.nbrownie.jumbleapplication.repo.JumbleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -17,27 +16,27 @@ public class JumbleController {
     @Autowired
     private JumbleRepository jumbleRepository;
 
-    //Get all Jumbles
+    //Get all JumbleApplication
     @GetMapping("/getall")
-    public List<Jumble> GetAllJumbles() { return jumbleRepository.findAll();
+    public List<de.nbrownie.jumbleapplication.models.Jumble> GetAllJumbles() { return jumbleRepository.findAll();
     }
     @GetMapping("/{id}")
-    public ResponseEntity<Jumble> GetJumbleById(@PathVariable Long id) {
-        Jumble jumble = jumbleRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Jumble with this id:" + id + "not exist..."));
+    public ResponseEntity<de.nbrownie.jumbleapplication.models.Jumble> GetJumbleById(@PathVariable Long id) {
+        de.nbrownie.jumbleapplication.models.Jumble jumble = jumbleRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("JumbleApplication with this id:" + id + "not exist..."));
         return ResponseEntity.ok(jumble);
     }
 
     @PostMapping("/new")
-    public Jumble PostJumble(@RequestBody Jumble jumble){
+    public de.nbrownie.jumbleapplication.models.Jumble PostJumble(@RequestBody de.nbrownie.jumbleapplication.models.Jumble jumble){
         return jumbleRepository.save(jumble);
     }
 
     @PutMapping("/edit/{id}")
-    public ResponseEntity<Jumble> updateJumble(@PathVariable Long id, @RequestBody Jumble jumbleDetails){
+    public ResponseEntity<de.nbrownie.jumbleapplication.models.Jumble> updateJumble(@PathVariable Long id, @RequestBody de.nbrownie.jumbleapplication.models.Jumble jumbleDetails){
 
-        Jumble jumble = jumbleRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Jumble with this id:" + id + "not exist..."));
+        de.nbrownie.jumbleapplication.models.Jumble jumble = jumbleRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("JumbleApplication with this id:" + id + "not exist..."));
 
         jumble.setJumble_address(jumbleDetails.getJumble_name());
         jumble.setJumble_category(jumbleDetails.getJumble_category());
@@ -48,7 +47,7 @@ public class JumbleController {
         jumble.setJumble_text(jumbleDetails.getJumble_text());
         jumble.setJumble_openingTime(jumbleDetails.getJumble_openingTime());
 
-        Jumble updateJumble = jumbleRepository.save(jumble);
+        de.nbrownie.jumbleapplication.models.Jumble updateJumble = jumbleRepository.save(jumble);
         return ResponseEntity.ok(updateJumble);
     }
 }

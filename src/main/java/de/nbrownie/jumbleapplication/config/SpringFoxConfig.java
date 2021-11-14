@@ -46,7 +46,7 @@ public class SpringFoxConfig {
                 .securityContexts(Arrays.asList(securityContext()))
                 .securitySchemes(Arrays.asList(apiKey()))
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("de.nbrownie.jumblesbackend"))
+                .apis(RequestHandlerSelectors.basePackage("de.nbrownie.jumbleapplication"))
                 .paths(PathSelectors.any())
                 .build()
                 .apiInfo(getApiInfo());
@@ -54,7 +54,7 @@ public class SpringFoxConfig {
 
     private ApiInfo getApiInfo() {
         return new ApiInfoBuilder()
-                .title("Jumbles")
+                .title("JumbleApplication")
                 .description("This is the swagger-overview for the jumble-project")
                 .version("1.0")
                 .build();
