@@ -4,13 +4,17 @@ import lombok.*;
 import javax.persistence.*;
 
 
-@Entity
-@Table(name = "users")
+
+@ToString
 @Setter
 @Getter
-@Builder(toBuilder = true)
+@EqualsAndHashCode
+@Entity
 @AllArgsConstructor
 @NoArgsConstructor
+@Table(name = "users")
+@Builder(toBuilder = true)
+
 public class User {
     @Id
     @SequenceGenerator(
@@ -19,12 +23,12 @@ public class User {
             allocationSize = 1
     )
     @GeneratedValue(
-            strategy = GenerationType.SEQUENCE,
-            generator = "user_sequence"
+            generator = "user_sequence",
+            strategy = GenerationType.SEQUENCE
     )
 
-//    @Column(name = "user_id", nullable = false, unique = true)
-//    private Long user_id;
+    @Column(name = "user_id", nullable = false, unique = true)
+    private Long user_id;
 
     @Column(name = "user_name", nullable = false )
     private String user_name;

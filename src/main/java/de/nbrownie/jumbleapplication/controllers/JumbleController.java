@@ -41,11 +41,11 @@ public class JumbleController {
         jumble.setJumble_address(jumbleDetails.getJumble_name());
         jumble.setJumble_category(jumbleDetails.getJumble_category());
         jumble.setJumble_rating(jumbleDetails.getJumble_rating());
-        jumble.setJumble_termin(jumbleDetails.getJumble_termin());
+        jumble.setJumble_time(jumbleDetails.getJumble_time());
         jumble.setJumble_name(jumbleDetails.getJumble_name());
         jumble.setJumble_website(jumbleDetails.getJumble_website());
         jumble.setJumble_text(jumbleDetails.getJumble_text());
-        jumble.setJumble_openingTime(jumbleDetails.getJumble_openingTime());
+        jumble.setJumble_time(jumbleDetails.getJumble_time());
 
         de.nbrownie.jumbleapplication.models.Jumble updateJumble = jumbleRepository.save(jumble);
         return ResponseEntity.ok(updateJumble);

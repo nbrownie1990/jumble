@@ -40,11 +40,11 @@ public class Jumble {
     @Column(name = "jumble_text")
     private String jumble_text;
 
-    @Column(name = "jumble_termin")
-    private String jumble_termin;
+    @Column(name = "jumble_date")
+    private String jumble_date;
 
-    @Column(name = "jumble_openingTime")
-    private String jumble_openingTime;
+    @Column(name = "jumble_time")
+    private String jumble_time;
 
     @Column(name = "jumble_website")
     private String jumble_website;

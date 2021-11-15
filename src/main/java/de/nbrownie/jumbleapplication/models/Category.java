@@ -29,7 +29,7 @@ public class Category {
     @Column(name = "category_name", nullable = false)
     private String category_name;
 
-    @Column(name = "category_description")
-    private String category_description;
+    @Column(name = "category_text")
+    private String category_text;
 
 }
