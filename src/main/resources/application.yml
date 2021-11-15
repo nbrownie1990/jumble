@@ -4,7 +4,7 @@ spring:
   application:
     name: jumbles
   datasource:
-    url: jdbc:postgresql://localhost:5432/jumble-postgres-db
+    url: jdbc:postgresql://localhost:5432/jumbledb
     username: postgres
     password: mysecretpassword
     driver-class-name: org.postgresql.Driver
@@ -19,11 +19,11 @@ spring:
         jdbc:
           time_zone: UTC
     hibernate:
-      ddl-auto: update
+      ddl-auto: create-drop
 
 server:
   servlet:
-    context-path: "/"
+    context-path: "/api"
   error:
     include-message: always
 
