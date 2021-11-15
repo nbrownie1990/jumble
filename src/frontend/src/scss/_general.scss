@@ -13,10 +13,8 @@ body,
 .App {
   position: relative;
   overflow-x: hidden;
-  background: url(../../assets/images/jumble-bg.svg);
-  background-attachment: fixed;
   background-size: cover;
-  background-repeat: no-repeat;
+  background: url(../../jumble-bg.png) no-repeat fixed;
   font-family: $main-font;
   // height: 100%;
   display: flex;

@@ -1,12 +1,8 @@
 package de.nbrownie.jumbleapplication.controllers;
 
-import de.nbrownie.jumbleapplication.exceptions.ResourceNotFoundException;
 import de.nbrownie.jumbleapplication.models.Jumble;
-import de.nbrownie.jumbleapplication.repo.JumbleRepository;
 import de.nbrownie.jumbleapplication.services.JumbleService;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
