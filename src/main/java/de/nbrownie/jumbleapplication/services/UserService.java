@@ -22,8 +22,8 @@ public class UserService {
         return userRepository.findAll();
     }
 
-    public User getUserById(Long id) {
-        return userRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("JumbleApplication not found"));
+    public User getUserById(Long userId) {
+        return userRepository.findById(userId).orElseThrow(() -> new IllegalArgumentException("JumbleApplication not found"));
     }
 
 
@@ -37,12 +37,12 @@ public class UserService {
         userRepository.save(user);
     }
 
-    public void deleteUser(Long user_id) {
-        if(!userRepository.existsById(user_id)) {
+    public void deleteUser(Long userId) {
+        if(!userRepository.existsById(userId)) {
             throw new ResourceNotFoundException(
-                    "User with id " + user_id + " does not exists");
+                    "User with id " + userId + " does not exists");
         }
-        userRepository.deleteById(user_id);
+        userRepository.deleteById(userId);
     }
 
 }

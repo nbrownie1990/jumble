@@ -22,7 +22,7 @@ public class CategoryService {
         return categoryRepository.findAll();
     }
 
-    public Category getCategoryById(Long category_id) {
-        return categoryRepository.findById(category_id).orElseThrow(() -> new IllegalArgumentException("Category not found"));
+    public Category getCategoryById(Long categoryId) {
+        return categoryRepository.findById(categoryId).orElseThrow(() -> new IllegalArgumentException("Category not found"));
     }
 }

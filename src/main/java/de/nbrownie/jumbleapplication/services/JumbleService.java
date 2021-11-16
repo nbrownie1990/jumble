@@ -23,19 +23,19 @@ public class JumbleService {
         return jumbleRepository.findAll();
     }
 
-    public Jumble getJumbleById(Long id) {
-        return jumbleRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("JumbleApplication not found"));
+    public Jumble getJumbleById(Long jumbleId) {
+        return jumbleRepository.findById(jumbleId).orElseThrow(() -> new IllegalArgumentException("JumbleApplication not found"));
     }
 
     public void addNewJumble(Jumble jumble){
          jumbleRepository.save(jumble);
     }
 
-    public void deleteJumble(Long jumble_id) {
-        if(!jumbleRepository.existsById(jumble_id)) {
+    public void deleteJumble(Long jumbleId) {
+        if(!jumbleRepository.existsById(jumbleId)) {
             throw new ResourceNotFoundException(
-                    "Jumble with id " + jumble_id + " does not exists");
+                    "Jumble with id " + jumbleId + " does not exists");
         }
-        jumbleRepository.deleteById(jumble_id);
+        jumbleRepository.deleteById(jumbleId);
     }
 }

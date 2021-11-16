@@ -22,10 +22,10 @@ public class JumbleController {
         return jumbleService.getAllJumbles();
     }
 
-    @GetMapping(path = "/{jumble_id}")
+    @GetMapping(path = "/{jumbleId}")
     public Jumble getJumbleById(
-            @PathVariable("jumble_id") Long jumble_id) {
-        return jumbleService.getJumbleById(jumble_id);
+            @PathVariable("jumbleId") Long jumbleId) {
+        return jumbleService.getJumbleById(jumbleId);
     }
 
     @PostMapping("/new")
@@ -33,10 +33,10 @@ public class JumbleController {
         jumbleService.addNewJumble(jumble);
     }
 
-    @DeleteMapping(path = "{jumble_id}")
+    @DeleteMapping(path = "{jumbleId}")
     public void deleteJumble(
-            @PathVariable("jumble_id") Long jumble_id) {
-        jumbleService.deleteJumble(jumble_id);
+            @PathVariable("jumbleId") Long jumbleId) {
+        jumbleService.deleteJumble(jumbleId);
     }
 }
 //    @GetMapping("/{id}")

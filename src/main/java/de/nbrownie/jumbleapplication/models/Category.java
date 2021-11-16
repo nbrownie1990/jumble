@@ -5,7 +5,7 @@ import lombok.*;
 import javax.persistence.*;
 
 
-@Entity
+@Entity(name = "Categories")
 @Table(name = "categories")
 @Setter
 @Getter
@@ -24,16 +24,16 @@ public class Category {
             generator = "category_sequence"
     )
     @Column(name = "category_id", nullable = false,  unique = true)
-    private Long category_id;
+    private Long categoryId;
 
     @Column(name = "category_name", nullable = false)
-    private String category_name;
+    private String categoryName;
 
     @Column(name = "category_text")
-    private String category_text;
+    private String categoryText;
 
     public Category(String name, String text ) {
-        this.category_name = name;
-        this.category_text = text;
+        this.categoryName = name;
+        this.categoryText = text;
     }
 }

@@ -16,11 +16,11 @@ import lombok.NoArgsConstructor;
 public class SignUp {
 
     @ApiModelProperty(required = true, example = "klara42", notes = "The username")
-    private String username;
+    private String userName;
 
     @ApiModelProperty(notes = "The email address")
-    private String email;
+    private String userEmail;
 
     @ApiModelProperty(required = true, example = "12345", notes = "The password")
-    private String password;
+    private String userPassword;
 }

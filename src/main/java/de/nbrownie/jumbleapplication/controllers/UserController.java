@@ -21,10 +21,10 @@ public class UserController {
         return userService.getAllUsers();
     }
 
-    @GetMapping(path = "/{user_id}")
+    @GetMapping(path = "/{userId}")
     public User getUserById(
-            @PathVariable("user_id") Long user_id) {
-        return userService.getUserById(user_id);
+            @PathVariable("userId") Long userId) {
+        return userService.getUserById(userId);
     }
 
    @PostMapping("/signup")
@@ -32,10 +32,10 @@ public class UserController {
          userService.addNewUser(user);
     }
 
-    @DeleteMapping(path = "/{user_id}")
+    @DeleteMapping(path = "/{userId}")
     public void deleteUser(
-            @PathVariable("user_id") Long user_id) {
-        userService.deleteUser(user_id);
+            @PathVariable("userId") Long userId) {
+        userService.deleteUser(userId);
     }
 }
     

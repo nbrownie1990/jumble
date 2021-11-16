@@ -13,10 +13,10 @@ import lombok.NoArgsConstructor;
 public class Password {
 
     @ApiModelProperty(example = "1234", notes = "The current password")
-    private String password;
+    private String userPassword;
 
     @ApiModelProperty(example = "1234", notes = "The old password")
-    private String oldPassword;
+    private String oldUserPassword;
 
 
 

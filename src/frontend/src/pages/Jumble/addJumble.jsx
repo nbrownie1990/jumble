@@ -5,6 +5,7 @@ import { postJumble, postAddress } from '../../services/apiService'
 import NavBar from '../../components/navbar'
 import JumbleForm from '../../components/jumbleForm'
 import Error from '../../components/error'
+import {addNewJumble} from "../../services/apiService";
 
 const initialState = {
   id: null,
@@ -36,6 +37,29 @@ export default function AddJumble() {
     setAddress({ ...address, [e.target.name]: e.target.value })
   }
 
+  const handleSaveNewJumble = jumble => {
+    console.log(JSON.stringify(jumble, null, 2))
+    addNewJumble(jumble)
+        .then(() => {
+          console.log("jumble added")
+          alert("Thanks for adding a new Jumble! 🥳");
+        }).catch(error => {
+          console.log(error)
+          error.response.json().then(res => {
+          console.log(res);
+           alert("There was an issue")
+      });
+    })
+  };
+
+  const handleSaveFailed = errorInfo => {
+    alert(JSON.stringify(errorInfo, null, 2));
+  };
+
+  const handleCancel = () => {
+    navigate('/home')
+  }
+
   // const handleSaveNewJumble = e => {
   //   e.preventDefault()
   //   setError()
@@ -49,9 +73,7 @@ export default function AddJumble() {
   //     })
   // }
 
-  const handleCancel = () => {
-    navigate('/home')
-  }
+
 
   return (
     <>
@@ -63,8 +85,9 @@ export default function AddJumble() {
               jumble={jumble}
               address={address}
               handleJumbleInputChange={handleJumbleInputChange}
-              // handleSaveNewJumble={handleSaveNewJumble}
-              // handleCancel={handleCancel}
+              handleSaveNewJumble={handleSaveNewJumble}
+              handleSaveFailed={handleSaveFailed()}
+              handleCancel={handleCancel}
               readOnly={false}
               mode="new"
             />

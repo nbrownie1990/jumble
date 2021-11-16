@@ -24,10 +24,10 @@ public class CategoryController {
         return categoryService.getAllCategories();
     }
 
-    @GetMapping(path = "/{category_id}")
+    @GetMapping(path = "/{categoryId}")
     public ResponseEntity<Category> getJumbleById(
-            @PathVariable Long category_id) {
-        Category category = categoryService.getCategoryById(category_id);
+            @PathVariable Long categoryId) {
+        Category category = categoryService.getCategoryById(categoryId);
         return ResponseEntity.ok(category);
     }
 

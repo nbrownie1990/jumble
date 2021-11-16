@@ -6,10 +6,11 @@ import javax.persistence.*;
 
 
 
-@Entity
+@Entity(name= "Jumbles")
 @Table(name = "jumbles")
 @Setter
 @Getter
+@ToString
 @Builder(toBuilder = true)
 @AllArgsConstructor
 @NoArgsConstructor
@@ -25,43 +26,43 @@ public class Jumble {
             generator = "jumble_sequence"
     )
 
-    @Column(nullable = false, unique = true)
-    private Long jumble_id;
+    @Column(name = "jumble_id", nullable = false, unique = true)
+    private Long jumbleId;
 
 
-    @Column(nullable = false )
-    private String jumble_name;
+    @Column(name = "jumble_name", nullable = false )
+    private String jumbleName;
 
-    @Column(nullable = false )
-    private String jumble_category;
+    @Column(name = "jumble_category", nullable = false )
+    private String jumbleCategory;
 
-    @Column
-    private String jumble_address;
+    @Column(name = "jumble_address")
+    private String jumbleAddress;
 
-    @Column
-    private String jumble_text;
+    @Column(name = "jumble_text")
+    private String jumbleText;
 
-    @Column
-    private String jumble_date;
+    @Column(name = "jumble_date")
+    private String jumbleDate;
 
-    @Column
-    private String jumble_time;
+    @Column(name = "jumble_time")
+    private String jumbleTime;
 
-    @Column
-    private String jumble_website;
+    @Column(name = "jumble_website")
+    private String jumbleWebsite;
 
-    @Column
-    private Short jumble_rating;
+    @Column(name = "jumble_rating")
+    private Short jumbleRating;
 
     public Jumble(String name, String address, String text, String category, String date, String time, String website, Short rating ) {
-        this.jumble_name = name;
-        this.jumble_address = address;
-        this.jumble_text = text;
-        this.jumble_category = category;
-        this.jumble_date= date;
-        this.jumble_time = time;
-        this.jumble_website = website;
-        this.jumble_rating = rating;
+        this.jumbleName = name;
+        this.jumbleAddress = address;
+        this.jumbleText = text;
+        this.jumbleCategory = category;
+        this.jumbleDate= date;
+        this.jumbleTime = time;
+        this.jumbleWebsite = website;
+        this.jumbleRating = rating;
     }
 }
 
