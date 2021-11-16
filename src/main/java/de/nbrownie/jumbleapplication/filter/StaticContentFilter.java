@@ -1,4 +1,4 @@
-package de.nbrownie.jumbleapplication.controllers;
+package de.nbrownie.jumbleapplication.filter;
 
 
 import org.springframework.stereotype.Component;
@@ -16,7 +16,7 @@ import static org.springframework.http.HttpStatus.NOT_FOUND;
 @Component
 public class StaticContentFilter implements Filter {
 
-    private List<String> fileExtensions = Arrays.asList("html", "js", "json", "csv", "css", "webp", "png", "svg", "eot", "ttf", "woff", "appcache", "jpg", "jpeg", "gif", "ico");
+    private List<String> fileExtensions = Arrays.asList("html", "js", "jsx", "json", "csv", "css", "webp", "png", "svg", "eot", "ttf", "woff", "appcache", "jpg", "jpeg", "gif", "ico");
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
