@@ -1,3 +1,86 @@
+import fetch from 'unfetch'
+import unfetch from "unfetch";
+
+const checkStatus = response => {
+    if (response.ok) {
+        return response
+    }
+    // convert non-2xx HTTP responses into errors:
+    const error = new Error(response.statusText)
+    error.response = response
+    return Promise.reject(error)
+}
+
+//JUMBLE
+export const getJumbleById = jumbleId =>
+    fetch(`/jumbles/${jumbleId}`).then(checkStatus)
+
+export const getAllJumbles = () =>
+    fetch("/jumbles/getall").then(checkStatus)
+
+export const addNewJumble = jumble =>
+    fetch("/jumbles/new", {header: {
+            'Content-Type': 'application/json', method: 'POST'
+            , body: JSON.stringify(jumble)}
+    }).then(checkStatus);
+
+// export const getAddressById = jumbleId =>
+//     fetch(`/jumbles/${jumbleId}`).then(checkStatus)
+
+// export const addNewAddress = address =>
+//     fetch("/jumbles/new", {header: {
+//             'Content-Type': 'application/json', method: 'POST'
+//             , body: JSON.stringify(address)}
+//     }).then(checkStatus);
+
+export const deleteJumble = jumbleId =>
+    fetch(`/user/${jumbleId}`, {
+        method: 'DELETE'
+    }).then(checkStatus);
+
+// export const deleteAddress = addressId =>
+//     fetch(`/jumble/${addressId}`, {
+//         method: 'DELETE'
+//     }).then(checkStatus);
+
+//USER
+export const getUserById = async (userId) =>{
+const url = `/user/${userId}`;
+const res = await unfetch(url, {
+    method: 'GET',
+    headers: {
+        'Content-Type': 'application/json',
+    },
+});
+if (res.status === 200) {
+    return Promise.resolve(res.json());
+} return Promise.reject(Error(`Unable to get user: error ${res.status} received from server`));
+};
+
+export const addNewUser = user =>
+    fetch("/user/signup", {header: {
+            'Content-Type': 'application/json', method: 'POST'
+            , body: JSON.stringify(user)}
+    }).then(checkStatus);
+
+export const deleteUser = userId =>
+    fetch(`/user/${userId}`, {
+        method: 'DELETE'
+    }).then(checkStatus);
+
+
+//CATEGORY
+export const getCategoryById = categoryId =>
+    fetch(`/categories/${categoryId}`).then(checkStatus)
+
+export const getAllCategories = () =>
+    fetch("/categories").then(checkStatus)
+
+
+
+
+
+
 // import axios from 'axios'
 
 // export const getToken = credentials =>
@@ -33,19 +116,6 @@
 //     .get(`/api/jumbles/${jumbleId}`, headers(token))
 //     .then(response => response.data)
 
-import fetch from 'unfetch'
-
-const checkStatus = response => {
-  if (response.ok) {
-    return response
-  }
-  // convert non-2xx HTTP responses into errors:
-  const error = new Error(response.statusText)
-  error.response = response
-  return Promise.reject(error)
-}
-export const getJumbleById = jumbleId =>
-  fetch(`/api/jumbles/${jumbleId}`).then(checkStatus)
 
 // //Add Jumble POST
 // export const postJumble = (token, userId, jumble) =>

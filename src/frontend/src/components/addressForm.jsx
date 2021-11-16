@@ -1,21 +1,23 @@
 import TextField from './textField'
-import React from 'react'
+import React, {useState} from 'react'
 
 export default function AddressForm({
   address,
   handleJumbleInputChange,
   readOnly,
-}) {
+}){
+
   return (
     <>
       <TextField
         name="street"
         placeholder="Straße"
         type="text"
-        value={address.street}
+        value={address}
         onChange={handleJumbleInputChange}
         title="Straße"
         disabled={readOnly}
+        rules={[{required: true, message: 'Please enter a address'}]}
       />
       <TextField
         name="number"
@@ -25,6 +27,7 @@ export default function AddressForm({
         onChange={handleJumbleInputChange}
         title="Hausnummer"
         disabled={readOnly}
+        rules={[{required: true, message: 'Please enter the street number'}]}
       />
       <TextField
         name="zip"
@@ -34,6 +37,8 @@ export default function AddressForm({
         onChange={handleJumbleInputChange}
         title="Postleitzahl"
         disabled={readOnly}
+        rules={[{required: true, message: 'Please enter zip code'}]}
+
       />
       <TextField
         name="city"
