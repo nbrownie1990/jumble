@@ -51,6 +51,7 @@ export default function JumbleForm({
               value={jumble.text}
               onChange={handleJumbleInputChange}
               disabled={readOnly}
+              rules={[{required: true, message: 'Please enter a description'}]}
             />
             <span id="dateHelpInline" className="form-text">
               Jumbles sind Orte für dein Ausrangiertes! Es geht um:
@@ -75,6 +76,8 @@ export default function JumbleForm({
                   value={jumble.name}
                   onChange={handleJumbleInputChange}
                   disabled={readOnly}
+                  rules={[{required: true, message: 'Please enter jumble name'}]}
+
                 />
               </div>
               <div className="col-md-12">

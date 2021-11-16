@@ -39,6 +39,7 @@ function App() {
         <Route path="/jumbles/edit/:id" element={<EditJumble />} />
         <Route path="/jumbles/new" element={<AddJumble />} />
         <Route path="/jumbles/:id" element={<Jumble />} />
+        <Route path="/jumbles/getall" element={<Category />} />
         <Route path="/categories/:cid" element={<Category />} />
         <Route path="/categories" element={<Categories />} />
         <Route path="/signup" element={<SignUp />} />

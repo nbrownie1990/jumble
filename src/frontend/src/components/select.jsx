@@ -1,4 +1,5 @@
-import React from 'react'
+import React, {useState} from 'react'
+import {getCategoryById} from "../services/apiService";
 
 export default function Select({
   placeholder,
@@ -6,7 +7,10 @@ export default function Select({
   onChange,
   name,
   readOnly,
-}) {
+}){
+const [categories, setCategories] = useState([]);
+
+
   return (
     <React.Fragment>
       <select
@@ -19,18 +23,14 @@ export default function Select({
         dateformat="dd/MM/yyyy"
         disabled={readOnly}
       >
-        <option>
-          {' '}
-          upcycling
-          {/* {options.map(option => {
-          ;<option key={option._id} value={option._id}>
-            {option.name}
-          </option>
-        })} */}
-        </option>
-        <option>Flohmarkt</option>
+          <options>
+        {/*{categories.map(category => {*/}
+        {/*  <option key={category.id} value={category.name}>*/}
+        {/*    Category: {category.name} </option>*/}
+        {/*}*/}
+        {/*)}*/}
+          </options>
 
-        <option>FoodSharing</option>
       </select>
     </React.Fragment>
   )

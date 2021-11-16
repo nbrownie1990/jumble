@@ -10,8 +10,8 @@
 //   const navigate = useNavigate()
 
 //   const user = claims && {
-//     username: claims.sub,
-//     role: claims.role,
+//     userName: claims.sub,
+//     userRole: claims.role,
 //   }
 //   const login = credentials => getToken(credentials).then(setToken)
 
