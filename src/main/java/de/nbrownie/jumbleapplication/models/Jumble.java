@@ -25,31 +25,43 @@ public class Jumble {
             generator = "jumble_sequence"
     )
 
-    @Column(name = "jumble_id", nullable = false, unique = true)
+    @Column(nullable = false, unique = true)
     private Long jumble_id;
 
-    @Column(name = "jumble_name", nullable = false )
+
+    @Column(nullable = false )
     private String jumble_name;
 
-    @Column(name = "jumble_category", nullable = false )
+    @Column(nullable = false )
     private String jumble_category;
 
-    @Column(name = "jumble_address")
+    @Column
     private String jumble_address;
 
-    @Column(name = "jumble_text")
+    @Column
     private String jumble_text;
 
-    @Column(name = "jumble_date")
+    @Column
     private String jumble_date;
 
-    @Column(name = "jumble_time")
+    @Column
     private String jumble_time;
 
-    @Column(name = "jumble_website")
+    @Column
     private String jumble_website;
 
-    @Column(name = "jumble_rating")
+    @Column
     private Short jumble_rating;
+
+    public Jumble(String name, String address, String text, String category, String date, String time, String website, Short rating ) {
+        this.jumble_name = name;
+        this.jumble_address = address;
+        this.jumble_text = text;
+        this.jumble_category = category;
+        this.jumble_date= date;
+        this.jumble_time = time;
+        this.jumble_website = website;
+        this.jumble_rating = rating;
+    }
 }
 
