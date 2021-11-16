@@ -110,9 +110,46 @@
 			<artifactId>maven-resources-plugin</artifactId>
 			<version>3.2.0</version>
 		</dependency>
+			<!-- Mapbox dependency -->
+			<dependency>
+				<groupId>com.mapbox.mapboxsdk</groupId>
+				<!-- Replace `DESIRED_JAVA_SDK_PACKAGE` with the name of an available package:
+                     https://docs.mapbox.com/android/java/guides/#available-packages -->
+				<artifactId>mapbox-sdk-geojson</artifactId>
+				<version>5.8.0</version>
+			</dependency>
+			<dependency>
+				<groupId>com.mapbox.mapboxsdk</groupId>
+				<!-- Replace `DESIRED_JAVA_SDK_PACKAGE` with the name of an available package:
+                     https://docs.mapbox.com/android/java/guides/#available-packages -->
+				<artifactId>mapbox-sdk-services</artifactId>
+				<version>5.8.0</version>
+			</dependency>
+			<dependency>
+				<groupId>androidx.annotation</groupId>
+				<artifactId>annotation</artifactId>
+				<version>1.0.0</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-aws -->
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-starter-aws</artifactId>
+				<version>2.2.6.RELEASE</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk -->
+			<dependency>
+				<groupId>com.amazonaws</groupId>
+				<artifactId>aws-java-sdk</artifactId>
+				<version>1.11.822</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-validation -->
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter-validation</artifactId>
+				<version>2.5.6</version>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
-
 			<build>
 				<plugins>
 					<plugin>
