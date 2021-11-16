@@ -32,4 +32,8 @@ public class Category {
     @Column(name = "category_text")
     private String category_text;
 
+    public Category(String name, String text ) {
+        this.category_name = name;
+        this.category_text = text;
+    }
 }

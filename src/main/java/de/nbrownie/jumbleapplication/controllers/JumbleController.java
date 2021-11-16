@@ -3,6 +3,7 @@ package de.nbrownie.jumbleapplication.controllers;
 import de.nbrownie.jumbleapplication.models.Jumble;
 import de.nbrownie.jumbleapplication.services.JumbleService;
 import lombok.AllArgsConstructor;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,9 +18,27 @@ public class JumbleController {
 
     //Get all JumbleApplication
     @GetMapping("/getall")
-    public List<Jumble> getAllJumbles() { return jumbleService.getAllJumbles();
+    public List<Jumble> getAllJumbles() {
+        return jumbleService.getAllJumbles();
     }
 
+    @GetMapping(path = "/{jumble_id}")
+    public Jumble getJumbleById(
+            @PathVariable("jumble_id") Long jumble_id) {
+        return jumbleService.getJumbleById(jumble_id);
+    }
+
+    @PostMapping("/new")
+    public void addNewJumble(@Validated @RequestBody Jumble jumble) {
+        jumbleService.addNewJumble(jumble);
+    }
+
+    @DeleteMapping(path = "{jumble_id}")
+    public void deleteJumble(
+            @PathVariable("jumble_id") Long jumble_id) {
+        jumbleService.deleteJumble(jumble_id);
+    }
+}
 //    @GetMapping("/{id}")
 //    public ResponseEntity<de.nbrownie.jumbleapplication.models.Jumble> GetJumbleById(@PathVariable Long id) {
 //        de.nbrownie.jumbleapplication.models.Jumble jumble = jumbleRepository.findById(id)
@@ -27,10 +46,6 @@ public class JumbleController {
 //        return ResponseEntity.ok(jumble);
 //    }
 //
-//    @PostMapping("/new")
-//    public de.nbrownie.jumbleapplication.models.Jumble PostJumble(@RequestBody de.nbrownie.jumbleapplication.models.Jumble jumble){
-//        return jumbleRepository.save(jumble);
-//    }
 //
 //    @PutMapping("/edit/{id}")
 //    public ResponseEntity<de.nbrownie.jumbleapplication.models.Jumble> updateJumble(@PathVariable Long id, @RequestBody de.nbrownie.jumbleapplication.models.Jumble jumbleDetails){
@@ -50,5 +65,5 @@ public class JumbleController {
 //        de.nbrownie.jumbleapplication.models.Jumble updateJumble = jumbleRepository.save(jumble);
 //        return ResponseEntity.ok(updateJumble);
 //    }
-}
+
     
