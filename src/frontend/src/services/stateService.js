@@ -19,9 +19,23 @@ export const initialAddressState = {
 }
 
 export const initialViewport = {
-    latitude: 52.497678727124054,
-    longitude: 13.41515292321081,
-    zoom: 14,
-    width: '100%',
-    height: '100%',
+    long: 9.993683,
+    lat: 53.551086,
+    zoom: 12,
 }
+
+
+//
+// export function getInitialViewport() {
+//     return initialViewport
+// }
+
+
+
+// export const initialProfileState = {
+//   id: null,
+//   user_img: '',
+//   user_name: '',
+//   user_email: '',
+//   user_text: '',
+// }
