@@ -8,10 +8,10 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin
+//@CrossOrigin
 @AllArgsConstructor
 @RestController
-@RequestMapping(path= "/jumbles")
+@RequestMapping(path= "/api/jumbles")
 public class JumbleController {
 
     private final JumbleService jumbleService;
@@ -39,6 +39,8 @@ public class JumbleController {
         jumbleService.deleteJumble(jumbleId);
     }
 }
+
+
 //    @GetMapping("/{id}")
 //    public ResponseEntity<de.nbrownie.jumbleapplication.models.Jumble> GetJumbleById(@PathVariable Long id) {
 //        de.nbrownie.jumbleapplication.models.Jumble jumble = jumbleRepository.findById(id)

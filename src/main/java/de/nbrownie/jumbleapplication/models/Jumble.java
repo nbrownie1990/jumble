@@ -1,5 +1,6 @@
 package de.nbrownie.jumbleapplication.models;
 
+import com.sun.istack.NotNull;
 import lombok.*;
 
 import javax.persistence.*;

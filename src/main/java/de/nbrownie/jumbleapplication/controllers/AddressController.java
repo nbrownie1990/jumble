@@ -13,7 +13,7 @@ import java.util.List;
 @CrossOrigin
 @AllArgsConstructor
 @RestController
-@RequestMapping(path= "/jumbles")
+@RequestMapping(path= "/api/jumbles")
 public class AddressController {
 
     private final AddressService addressService;

@@ -21,25 +21,25 @@ export const getAllCategories = () =>
 // Category GET
 export const getCategoryById = (categoryId) =>
   axios
-    .get(`/categories/${categoryId}`)
+    .get(`/api/categories/${categoryId}`)
     .then(response => response.data)
 
 //JumbleList (all Jumbles) GET
 export const getAllJumbles = () =>
-  axios.get(`/jumbles/getall`)
+  axios.get(`/api/jumbles/getall`)
       .then(response => response.data)
 
 
             export const getJumbleById = (jumbleId) =>
                 axios
-                    .get(`/jumbles/${jumbleId}`)
+                    .get(`/api/jumbles/${jumbleId}`)
                     .then(response => response.data)
 
 
 //Add Jumble POST
             export const addNewJumble = (jumble) =>
                 axios
-                    .post(`/jumbles/new`, jumble)
+                    .post(`/api/jumbles/new`, jumble)
                     .then(response => response.data)
 
 // export const addNewAddress = ( address) =>
@@ -50,13 +50,13 @@ export const getAllJumbles = () =>
 //Jumble GET to update
             export const getJumbleToUpdate = (jumbleId) =>
                 axios
-                    .get(`/jumbles/edit/${jumbleId}`)
+                    .get(`/api/jumbles/edit/${jumbleId}`)
                     .then(response => response.data)
 
 // //Edit Jumble PUT - DELETE
             export const updateJumbleName = (jumbleId, jumbleName) =>
                 axios
-                    .put(`/jumbles/edit/${jumbleId}`, jumbleName)
+                    .put(`/api/jumbles/edit/${jumbleId}`, jumbleName)
                     .then(response => response.data)
 
             export const updateJumbleImage = (jumbleId, jumbleImage) =>
