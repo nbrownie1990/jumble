@@ -351,7 +351,7 @@
 								<configuration>
 									<resources>
 										<resource>
-											<directory>src/frontend/build</directory>
+											<directory>${basedir}/src/frontend/build</directory>
 										</resource>
 									</resources>
 									<outputDirectory>${basedir}/target/classes/static</outputDirectory>
