@@ -21,16 +21,37 @@ spring:
     hibernate:
       ddl-auto: update
 
+  data:
+    rest:
+      base-path: "/api"
+
 server:
-  servlet:
-    context-path: "/"
   error:
     include-message: always
+    include-binding-errors: always
 
+#  servlet:
+#    context-path: "/"
+#  error:
+#    include-message: always
+cloud:
+  aws:
+    credentials:
+      instanceProfile: false
+      useDefaultAwsCredentialsChain: false
+      profileName: nbrownie
+
+    s3:
+      default-bucket:
+      multipart.maxFileSize: 5MB
+      multipart.maxRequestSize: 5MB
+    region:
+      static: eu-central-1
+      auto: false
 #security:
 #  jwt:
 #    secret: ${JWT-SECRET}
 #    expiresAfterMinutes: 30
 #
-mapbox-client:
-  access-token: "pk.eyJ1IjoibmJyb3duaWUiLCJhIjoiY2t1aWVhNGhlMDJrZjMwcXoyZWUybDYxZCJ9.HLXmIOmvZtR3uhDR1JofjA"
+#mapbox-client:
+#  access-token: ${MAPBOX_TOKEN}
