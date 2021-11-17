@@ -1,25 +1,23 @@
 {
   "name": "jumble-frontend",
   "version": "0.1.0",
-  "proxy": "http://localhost:8080",
   "private": true,
+  "proxy": "http://localhost:8080",
   "dependencies": {
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
     "axios": "^0.21.4",
-    "babel-jest": "^26.6.0",
-    "babel-loader": "8.1.0",
     "jsonwebtoken": "^8.5.1",
     "mapbox-gl": "^2.5.1",
     "prop-types": "^15.7.2",
     "react": "^17.0.2",
     "react-datepicker": "^4.3.0",
     "react-dom": "^17.0.2",
+    "react-map-gl": "^6.1.17",
     "react-router-dom": "^6.0.1",
     "react-scripts": "4.0.3",
     "react-star-rating-component": "^1.4.1",
-    "unfetch": "^4.2.0",
     "web-vitals": "^1.1.2"
   },
   "devDependencies": {
