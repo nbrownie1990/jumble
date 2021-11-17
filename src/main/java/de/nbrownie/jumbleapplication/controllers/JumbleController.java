@@ -33,7 +33,7 @@ public class JumbleController {
         jumbleService.addNewJumble(jumble);
     }
 
-    @DeleteMapping(path = "{jumbleId}")
+    @DeleteMapping(path = "/{jumbleId}/delete")
     public void deleteJumble(
             @PathVariable("jumbleId") Long jumbleId) {
         jumbleService.deleteJumble(jumbleId);

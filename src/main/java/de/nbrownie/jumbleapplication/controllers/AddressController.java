@@ -24,18 +24,18 @@ public class AddressController {
         return addressService.getAllAddresses();
     }
 
-    @GetMapping(path = "/{addressId}")
-    public Address getAddressById(
-            @PathVariable("addressId") Long addressId) {
-        return addressService.getAddressById(addressId);
-    }
+//    @GetMapping(path = "/{jumbleId}/{addressId}")
+//    public Address getAddressById(
+//            @PathVariable("addressId") Long addressId) {
+//        return addressService.getAddressById(addressId);
+//    }
 
     @PostMapping
     public void addNewAddress(@Validated @RequestBody Address address) {
         addressService.addNewAddress(address);
     }
 
-    @DeleteMapping(path = "{addressId}")
+    @DeleteMapping(path = "/{addressId}")
     public void deleteAddress(
             @PathVariable("addressId") Long addressId) {
         addressService.deleteAddress(addressId);
