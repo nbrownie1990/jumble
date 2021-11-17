@@ -1,12 +1,12 @@
 import React from 'react'
-import NavBar from '../../components/navbar'
+import Navbar from '../../components/navbar'
 import MapComponent from '../../components/mapComponent'
 import SearchBar from '../../components/searchBar'
 
 const Home = () => {
   return (
     <React.Fragment>
-      <NavBar />
+      <Navbar />
       <main className="d-flex text-center text-white m-md-5 mt-5 mb-5">
         <div className="container w-100 h-100 p-3 flex-column ">
           <div className="px-3 mt-5">

@@ -1,8 +1,10 @@
 import React from 'react'
-import NavBar from '../../components/navbar'
+import Navbar from '../../components/navbar'
 import JumbleList from '../../components/jumbleList'
-import { getJumbles } from '../../services/jumbleService'
-import { getCategories } from '../../services/categoryService'
+import { getAllJumbles} from "../../services/apiService";
+import { getAllCategories } from "../../services/apiService";
+
+
 class Category extends React.Component {
   constructor(props) {
     super(props)
@@ -15,8 +17,8 @@ class Category extends React.Component {
 
   componentDidMount() {
     this.setState({
-      jumbles: getJumbles(),
-      categories: getCategories(),
+      jumbles: getAllJumbles(),
+      categories: getAllCategories(),
     })
   }
 
@@ -45,7 +47,7 @@ class Category extends React.Component {
 
     return (
       <React.Fragment>
-        <NavBar />
+        <Navbar />
         <main className="m-md-5 mt-5 mb-5">
           <section className="container w-100 min-vh-100 px-lg-5 mt-5">
             <div className="sidebar h-100 card-body p-0 text-start ">

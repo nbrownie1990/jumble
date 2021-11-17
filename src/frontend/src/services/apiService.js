@@ -1,174 +1,93 @@
-import fetch from 'unfetch'
-import unfetch from "unfetch";
-
-const checkStatus = response => {
-    if (response.ok) {
-        return response
-    }
-    // convert non-2xx HTTP responses into errors:
-    const error = new Error(response.statusText)
-    error.response = response
-    return Promise.reject(error)
-}
-
-//JUMBLE
-export const getJumbleById = jumbleId =>
-    fetch(`/jumbles/${jumbleId}`).then(checkStatus)
-
-export const getAllJumbles = () =>
-    fetch("/jumbles/getall").then(checkStatus)
-
-export const addNewJumble = jumble =>
-    fetch("/jumbles/new", {header: {
-            'Content-Type': 'application/json', method: 'POST'
-            , body: JSON.stringify(jumble)}
-    }).then(checkStatus);
-
-// export const getAddressById = jumbleId =>
-//     fetch(`/jumbles/${jumbleId}`).then(checkStatus)
-
-// export const addNewAddress = address =>
-//     fetch("/jumbles/new", {header: {
-//             'Content-Type': 'application/json', method: 'POST'
-//             , body: JSON.stringify(address)}
-//     }).then(checkStatus);
-
-export const deleteJumble = jumbleId =>
-    fetch(`/user/${jumbleId}`, {
-        method: 'DELETE'
-    }).then(checkStatus);
-
-// export const deleteAddress = addressId =>
-//     fetch(`/jumble/${addressId}`, {
-//         method: 'DELETE'
-//     }).then(checkStatus);
-
-//USER
-export const getUserById = async (userId) =>{
-const url = `/user/${userId}`;
-const res = await unfetch(url, {
-    method: 'GET',
-    headers: {
-        'Content-Type': 'application/json',
-    },
-});
-if (res.status === 200) {
-    return Promise.resolve(res.json());
-} return Promise.reject(Error(`Unable to get user: error ${res.status} received from server`));
-};
-
-export const addNewUser = user =>
-    fetch("/user/signup", {header: {
-            'Content-Type': 'application/json', method: 'POST'
-            , body: JSON.stringify(user)}
-    }).then(checkStatus);
-
-export const deleteUser = userId =>
-    fetch(`/user/${userId}`, {
-        method: 'DELETE'
-    }).then(checkStatus);
-
-
-//CATEGORY
-export const getCategoryById = categoryId =>
-    fetch(`/categories/${categoryId}`).then(checkStatus)
-
-export const getAllCategories = () =>
-    fetch("/categories").then(checkStatus)
-
-
-
-
-
-
-// import axios from 'axios'
+import axios from 'axios'
 
 // export const getToken = credentials =>
 //   axios
 //     .post('/api/auth/access_token', credentials)
 //     .then(response => response.data)
 //     .then(dto => dto.token)
-
+//
 // const headers = token => ({
 //   headers: {
 //     Authorization: `Bearer ${token}`,
 //   },
 // })
 
-// //Map GET
-// //JumbleMapList GET
-// //Categories GET
-// export const getCategories = (token, categories) =>
-//   axios.get(`/api/categories`, headers(token)).then(response => response.data)
+//Map GET
+//JumbleMapList GET
+//Categories GET
+export const getAllCategories = () =>
+  axios.get(`/categories`).then(response => response.data)
 
-// // Category GET
-// export const getCategory = (token, categoryId) =>
+// Category GET
+export const getCategoryById = (categoryId) =>
+  axios
+    .get(`/categories/${categoryId}`)
+    .then(response => response.data)
+
+//JumbleList (all Jumbles) GET
+export const getAllJumbles = () =>
+  axios.get(`/jumbles/getall`)
+      .then(response => response.data)
+
+
+            export const getJumbleById = (jumbleId) =>
+                axios
+                    .get(`/jumbles/${jumbleId}`)
+                    .then(response => response.data)
+
+
+//Add Jumble POST
+            export const addNewJumble = (jumble) =>
+                axios
+                    .post(`/jumbles/new`, jumble)
+                    .then(response => response.data)
+
+// export const addNewAddress = ( address) =>
 //   axios
-//     .get(`/api/categories/${categoryId}`, headers(token))
+//     .post(`/api/jumbles/new`, address)
 //     .then(response => response.data)
 
-// //JumbleList (all Jumbles) GET
-// export const getJumbles = jumbles =>
-//   axios.get(`/api/jumbles/getall`, jumbles).then(response => response.data)
-
-// export const getJumbleById = (token, jumbleId) =>
-//   axios
-//     .get(`/api/jumbles/${jumbleId}`, headers(token))
-//     .then(response => response.data)
-
-
-// //Add Jumble POST
-// export const postJumble = (token, userId, jumble) =>
-//   axios
-//     .post(`/api/jumbles/new`, jumble, headers(token))
-//     .then(response => response.data)
-
-// export const postAddress = (token, userId, address) =>
-//   axios
-//     .post(`/api/jumbles/new`, address, headers(token))
-//     .then(response => response.data)
-
-// //Jumble GET to update
-// export const getJumbleToUpdate = (token, jumbleId) =>
-//   axios
-//     .get(`/api/jumbles/edit/${jumbleId}`, headers(token))
-//     .then(response => response.data)
+//Jumble GET to update
+            export const getJumbleToUpdate = (jumbleId) =>
+                axios
+                    .get(`/jumbles/edit/${jumbleId}`)
+                    .then(response => response.data)
 
 // //Edit Jumble PUT - DELETE
-// export const updateJumbleName = (token, jumbleId, jumbleName) =>
-//   axios
-//     .put(`/api/jumbles/edit/${jumbleId}`, jumbleName, headers(token))
-//     .then(response => response.data)
+            export const updateJumbleName = (jumbleId, jumbleName) =>
+                axios
+                    .put(`/jumbles/edit/${jumbleId}`, jumbleName)
+                    .then(response => response.data)
 
-// export const updateJumbleImage = (token, jumbleId, jumbleImage) =>
-//   axios
-//     .put(`/api/jumbles/edit/${jumbleId}`, jumbleImage, headers(token))
-//     .then(response => response.data)
+            export const updateJumbleImage = (jumbleId, jumbleImage) =>
+                axios
+                    .put(`/jumbles/edit/${jumbleId}`, jumbleImage)
+                    .then(response => response.data)
 
-// export const updateJumbleAddress = (token, jumbleId, jumbleAddress) =>
-//   axios
-//     .put(`/api/jumbles/edit/${jumbleId}`, jumbleAddress, headers(token))
-//     .then(response => response.data)
+            export const updateJumbleAddress = (jumbleId, jumbleAddress) =>
+                axios
+                    .put(`/jumbles/edit/${jumbleId}`, jumbleAddress)
+                    .then(response => response.data)
 
-// export const updateJumbleDate = (token, jumbleId, jumbleDate) =>
-//   axios
-//     .put(`/api/jumbles/edit/${jumbleId}`, jumbleDate, headers(token))
-//     .then(response => response.data)
+            export const updateJumbleDate = (jumbleId, jumbleDate) =>
+                axios
+                    .put(`/jumbles/edit/${jumbleId}`, jumbleDate)
+                    .then(response => response.data)
 
-// export const updateJumbleTime = (token, jumbleId, jumbleTime) =>
-//   axios
-//     .put(`/api/jumbles/edit/${jumbleId}`, jumbleTime, headers(token))
-//     .then(response => response.data)
+            export const updateJumbleTime = (jumbleId, jumbleTime) =>
+                axios
+                    .put(`/jumbles/edit/${jumbleId}`, jumbleTime,)
+                    .then(response => response.data)
 
-// export const updateJumbleWebsite = (token, jumbleId, jumbleWebsite) =>
-//   axios
-//     .put(`/api/jumbles/edit/${jumbleId}`, jumbleWebsite, headers(token))
-//     .then(response => response.data)
+            export const updateJumbleWebsite = (jumbleId, jumbleWebsite) =>
+                axios
+                    .put(`/jumbles/edit/${jumbleId}`, jumbleWebsite)
+                    .then(response => response.data)
 
-// export const deleteJumble = (token, jumbleId) =>
-//   axios
-//     .delete(`/api/jumbles/edit/${jumbleId}`, headers(token))
-//     .then(response => response.data)
+            export const deleteJumble = (jumbleId) =>
+                axios
+                    .delete(`/jumbles/edit/${jumbleId}/delete`)
+                    .then(response => response.data)
 
 // //Add Rezension GET - POST
 // export const getRezensionsList = (token, jumbleId, rezensionId) =>
@@ -187,46 +106,50 @@ export const getAllCategories = () =>
 //     .then(response => response.data)
 
 // //Signup User POST
-// export const postUser = credentials =>
-//   axios.post(`/api/user/signup`, credentials).then(response => response.data)
+            export const addNewUser = credentials =>
+                axios.post(`/api/user/signup`, credentials).then(response => response.data)
 
 // //Profile bzw User GET
-// // export const getUserById = (token, userId) =>
-// //   axios
-// //     .get(`/api/user/${userId}`, headers(token))
-// //     .then(response => response.data)
+            export const getUserById = (userId) =>
+                axios
+                    .get(`/api/user/${userId}`)
+                    .then(response => response.data)
+                    .then(response => {
+                          console.log(response.data);
+                    });
 
 // // //Edit Profile bzw User PUT - DELETE
-// // export const updateUserName = (token, userId, newusername) =>
-// //   axios
-// //     .put(`/api/user/edit/${userId}`, { username: newusername }, headers(token))
-// //     .then(response => response.data)
+            export const updateUserName = (userId, newUsername) =>
+                axios
+                    .put(`/api/user/edit/${userId}`, {username: newUsername})
+                    .then(response => response.data)
 
-// // export const updateUserImage = (token, userId, userImage) =>
-// //   axios
-// //     .put(`/api/user/edit/${userId}`, userImage, headers(token))
-// //     .then(response => response.data)
+            export const updateUserImage = (userId, userImage) =>
+                axios
+                    .put(`/api/user/edit/${userId}`, userImage)
+                    .then(response => response.data)
 
-// // export const updateUserEmail = (token, userId, email) =>
-// //   axios
-// //     .put(`/api/user/edit/${userId}`, email, headers(token))
-// //     .then(response => response.data)
+            export const updateUserEmail = (userId, email) =>
+                axios
+                    .put(`/api/user/edit/${userId}`, email)
+                    .then(response => response.data)
 
-// // export const updateUserPassword = (token, passwords) =>
-// //   axios
-// //     .put(
-// //       `/api/user/edit/${userId}`,
-// //       { password: passwords.newPassword, oldPassword: passwords.oldPassword },
-// //       headers(token)
-// //     )
-// //     .then(response => response.data)
+// export const updateUserPassword = (userPassword) =>
+//   axios
+//     .put(
+//       `/api/user/edit/${userId}`,
+//       { userPassword: userPassword.newUserPassword, oldPassword: userPassword.oldUserPassword },
+//       headers(token)
+//     )
+//     .then(response => response.data)
 
-// // export const updateUserText = (token, userId, userText) =>
-// //   axios
-// //     .put(`/api/user/edit/${userId}`, userText, headers(token))
-// //     .then(response => response.data)
+            export const updateUserText = (userId, userText) =>
+                axios
+                    .put(`/api/user/edit/${userId}`, userText)
+                    .then(response => response.data)
 
-// // export const deleteUser = (token, userId) =>
-// //   axios
-// //     .delete(`/api/user/edit/${userId}`, headers(token))
-// //     .then(response => response.data)
+            export const deleteUser = (userId) =>
+                axios
+                    .delete(`/api/user/edit/${userId}/delete`)
+                    .then(response => response.data)
+

@@ -6,26 +6,6 @@ import { getAllJumbles } from './tryIt'
 function JumbleList() {
   const [jumbles, setJumbles] = useState([])
 
-  const fetchJumbles = () =>
-      getAllJumbles()
-          .then(res => res.json())
-          .then(data => {
-            console.log(data);
-            setJumbles(data);
-          }).catch(error => {
-        console.log(error.response)
-        error.response.json().then(response => {
-          console.log(response);
-          alert("There was an issue 😰");
-        })
-  //          .finally(() => setFetching(false))
-      });
-
-  useEffect(() => {
-    console.log('component is mounted')
-    console.log(JSON.stringify(jumbles, null, 2))
-    fetchJumbles()
-  }, [])
 
 
   return (

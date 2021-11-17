@@ -12,7 +12,7 @@
 //   updateJumbleWebsite,
 //   deleteJumble,
 // } from '../../services/apiService'
-// import NavBar from '../../components/navbar'
+// import Navbar from '../../components/navbar'
 // import JumbleForm from '../../components/jumbleForm'
 
 // export default function EditJumble() {
@@ -58,7 +58,7 @@
 //   {
 //     return (
 //       <React.Fragment>
-//         <NavBar />
+//         <Navbar />
 //         <main className="m-md-5 m-2 mt-5 mb-5">
 //           <section className="container w-100 h-100 px-lg-5 mt-5">
 //             <div className="container rounded bg-white p-md-5">

@@ -22,7 +22,7 @@ import Reset from './pages/Login/reset'
 import Profile from './pages/Profile/profile'
 import Logout from './pages/Logout/logout'
 import SignUp from './pages/SignUp/sign-up'
-import NotFound from './pages/Notfound/notfound'
+import Notfound from './pages/Notfound/notfound'
 import Impressum from './pages/Impressum/impressum'
 import Footer from './components/footer'
 // -- Component Styles
@@ -52,7 +52,7 @@ function App() {
         <Route path="/home" element={<Home />} />
         <Route path="/" element={<Start />} />
         <Route path="/impressum" element={<Impressum />} />
-        <Route path="*" element={<NotFound />} />
+        <Route path="*" element={<Notfound />} />
       </Routes>
       <Footer />
     </div>
