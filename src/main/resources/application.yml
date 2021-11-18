@@ -53,5 +53,5 @@ cloud:
 #    secret: ${JWT-SECRET}
 #    expiresAfterMinutes: 30
 #
-#mapbox-client:
-#  access-token: ${MAPBOX_TOKEN}
+mapbox-client:
+  access-token: 'pk.eyJ1IjoibmJyb3duaWUiLCJhIjoiY2t1aWVhNGhlMDJrZjMwcXoyZWUybDYxZCJ9.HLXmIOmvZtR3uhDR1JofjA'
