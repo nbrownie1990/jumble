@@ -3,22 +3,18 @@ import { Link, useNavigate } from 'react-router-dom'
 import TextField from '../../components/textField'
 import { useAuth } from '../../auth/AuthProvider'
 import Error from '../../components/error'
-
-const initialState = {
-  username: '',
-  password: '',
-}
+import {initialLoginState} from "../../services/stateService";
 
 export default function Login() {
   const { user, login } = useAuth()
-  const [credentials, setCredentials] = useState(initialState)
+  const [credentials, setCredentials] = useState(initialLoginState)
   const [error, setError] = useState()
   const navigate = useNavigate()
 
   const handleCredentials = e => {
     setCredentials({
       ...credentials,
-      [e.currentTarget.name]: e.currentTarget.value,
+      [e.currentTarget.name]: e.currentTarget.value
     })
   }
 
@@ -28,12 +24,12 @@ export default function Login() {
     login(credentials)
       .then(() => navigate('/home'))
       .catch(error => {
-        setError(error)
+        setError(error);
       })
   }
 
   const handleToSignUp = () => {
-    navigate('/signup')
+    navigate('/signup');
   }
 
   return (

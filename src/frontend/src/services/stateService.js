@@ -24,6 +24,12 @@ export const initialViewport = {
     zoom: 12,
 }
 
+export const initialLoginState = {
+    username: '',
+    password: '',
+}
+
+
 
 //
 // export function getInitialViewport() {
