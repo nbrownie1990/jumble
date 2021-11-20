@@ -11,10 +11,10 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin
+@CrossOrigin("http://localhost:8080/")
 @AllArgsConstructor
 @RestController
-@RequestMapping(path= "/api/categories")
+@RequestMapping(path= "api/categories")
 public class CategoryController {
 
     private final CategoryService categoryService;
@@ -24,7 +24,7 @@ public class CategoryController {
         return categoryService.getAllCategories();
     }
 
-    @GetMapping(path = "/{categoryId}")
+    @GetMapping(path = "{categoryId}")
     public ResponseEntity<Category> getJumbleById(
             @PathVariable Long categoryId) {
         Category category = categoryService.getCategoryById(categoryId);

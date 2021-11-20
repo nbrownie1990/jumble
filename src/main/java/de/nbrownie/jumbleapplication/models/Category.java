@@ -32,8 +32,12 @@ public class Category {
     @Column(name = "category_text")
     private String categoryText;
 
-    public Category(String name, String text ) {
+    @Column(name = "category_img")
+    private String categoryImage;
+
+    public Category(String name, String text, String image ) {
         this.categoryName = name;
         this.categoryText = text;
+        this.categoryImage = image;
     }
 }

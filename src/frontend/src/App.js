@@ -27,6 +27,7 @@ import Impressum from './pages/Impressum/impressum'
 import Footer from './components/footer'
 // -- Component Styles
 import './assets/css/style.css'
+import JumbleList from "./components/jumbleList";
 
 function App() {
   useEffect(() => {
@@ -36,11 +37,11 @@ function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path="/jumbles/edit/:id" element={<EditJumble />} />
+        <Route path="/jumbles/:jumbleId/edit" element={<EditJumble />} />
         <Route path="/jumbles/new" element={<AddJumble />} />
-        <Route path="/jumbles/:id" element={<Jumble />} />
-        <Route path="/jumbles/getall" element={<Category />} />
-        <Route path="/categories/:cid" element={<Category />} />
+        <Route path="/jumbles/getall" element={<JumbleList />} />
+        <Route path="/jumbles/:jumbleId" element={<Jumble />} />
+        <Route path="/categories/:categoryId" element={<Category />} />
         <Route path="/categories" element={<Categories />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<Login />} />

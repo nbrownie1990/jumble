@@ -55,7 +55,10 @@ public class Jumble {
     @Column(name = "jumble_rating")
     private Short jumbleRating;
 
-    public Jumble(String name, String address, String text, String category, String date, String time, String website, Short rating ) {
+    @Column(name = "jumble_img")
+    private String jumbleImage;
+
+    public Jumble(String name, String address, String text, String category, String date, String time, String website, Short rating, String image) {
         this.jumbleName = name;
         this.jumbleAddress = address;
         this.jumbleText = text;
@@ -64,6 +67,7 @@ public class Jumble {
         this.jumbleTime = time;
         this.jumbleWebsite = website;
         this.jumbleRating = rating;
+        this.jumbleImage = image;
     }
 }
 
