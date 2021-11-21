@@ -7,6 +7,6 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Credentials {
-    private String userName;
-    private String userPassword;
+    private String username;
+    private String password;
 }

@@ -30,25 +30,25 @@ public class User {
     private Long userId;
 
     @Column(name = "user_name", nullable = false )
-    private String userName;
+    private String username;
 
     @Column(name = "user_email")
-    private String userEmail;
+    private String email;
 
     @Column(name = "user_text")
     private String userText;
 
     @Column(name = "user_psw")
-    private String userPassword;
+    private String password;
 
     @Column(name = "user_role")
     private String userRole;
 
     public User(String name, String email, String text, String password, String role ) {
-        this.userName = name;
-        this.userEmail = email;
+        this.username = name;
+        this.email = email;
         this.userText = text;
-        this.userPassword = password;
+        this.password = password;
         this.userRole= role;
 
     }

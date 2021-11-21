@@ -1,12 +1,13 @@
 import React, { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import TextField from '../../components/textField'
-import { useAuth } from '../../auth/AuthProvider'
+//import { useAuth } from '../../auth/AuthProvider'
 import Error from '../../components/error'
 import {initialLoginState} from "../../services/stateService";
+import {useNavigate} from "react-router";
 
 export default function Login() {
-  const { user, login } = useAuth()
+  //const { user, login } = useAuth()
   const [credentials, setCredentials] = useState(initialLoginState)
   const [error, setError] = useState()
   const navigate = useNavigate()
@@ -18,15 +19,15 @@ export default function Login() {
     })
   }
 
-  const handleSubmit = e => {
-    e.preventDefault()
-    setError()
-    login(credentials)
-      .then(() => navigate('/home'))
-      .catch(error => {
-        setError(error);
-      })
-  }
+  // const handleSubmit = e => {
+  //   e.preventDefault()
+  //   setError()
+  //   login(credentials)
+  //     .then(() => navigate('/home'))
+  //     .catch(error => {
+  //       setError(error);
+  //     })
+  // }
 
   const handleToSignUp = () => {
     navigate('/signup');
@@ -42,7 +43,7 @@ export default function Login() {
                 <div className="card-body">
                   <h4 className="card-title">Login</h4>
                   <form
-                    onSubmit={handleSubmit}
+                    //onSubmit={handleSubmit}
                     method="POST"
                     className="my-login-validation"
                     noValidate=""

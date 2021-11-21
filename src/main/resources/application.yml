@@ -21,9 +21,9 @@ spring:
     hibernate:
       ddl-auto: update
 
-  data:
-    rest:
-      base-path: "/api"
+#  data:
+#    rest:
+#      base-path: /api
 
 server:
   error:
@@ -54,4 +54,4 @@ cloud:
 #    expiresAfterMinutes: 30
 #
 mapbox-client:
-  access-token: 'pk.eyJ1IjoibmJyb3duaWUiLCJhIjoiY2t1aWVhNGhlMDJrZjMwcXoyZWUybDYxZCJ9.HLXmIOmvZtR3uhDR1JofjA'
+  access-token: pk.eyJ1IjoibmJyb3duaWUiLCJhIjoiY2t1aWVhNGhlMDJrZjMwcXoyZWUybDYxZCJ9.HLXmIOmvZtR3uhDR1JofjA
