@@ -3,17 +3,27 @@ package de.nbrownie.jumbleapplication.services;
 import de.nbrownie.jumbleapplication.exceptions.ResourceNotFoundException;
 import de.nbrownie.jumbleapplication.models.Address;
 import de.nbrownie.jumbleapplication.repo.AddressRepository;
-import lombok.AllArgsConstructor;
+import de.nbrownie.jumbleapplication.repo.JumbleRepository;
+import lombok.Getter;
+import lombok.Setter;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-
+@Getter
+@Setter
 @Service
-@AllArgsConstructor
 public class AddressService {
 
-    private final AddressRepository addressRepository;
+    private AddressRepository addressRepository;
+    private JumbleRepository jumbleRepository;
+
+    @Autowired
+    public AddressService(AddressRepository addressRepository, JumbleRepository jumbleRepository) {
+        this.addressRepository = addressRepository;
+        this.jumbleRepository = jumbleRepository;
+    }
 
     public List<Address> getAllAddresses() {
         return addressRepository.findAll();

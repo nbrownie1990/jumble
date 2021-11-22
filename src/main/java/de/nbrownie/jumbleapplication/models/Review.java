@@ -34,13 +34,11 @@ public class Review {
     @Column(name = "review_rating",  nullable = false)
     private Short reviewRating;
 
-    @ManyToOne( cascade = CascadeType.ALL,
-            fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="jumble_id")
     private Jumble jumble;
 
     @ManyToOne(
-            cascade = CascadeType.ALL,
             fetch = FetchType.EAGER)
     @JoinColumn(name="user_id")
     private User user;

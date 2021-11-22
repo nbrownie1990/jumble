@@ -49,15 +49,15 @@ public class Address {
     @Column(name = "latitude")
     private double latitude;
 
-   @OneToOne(
-           cascade= CascadeType.ALL,
-           fetch= FetchType.LAZY
-//           optional = false
-   )
-   @JoinColumn(
-           name="jumble_id"
-   )
-    private Jumble jumble;
+//   @OneToOne(
+//           cascade= CascadeType.ALL,
+//           fetch= FetchType.LAZY
+////           optional = false
+//   )
+//   @JoinColumn(
+//           name="jumble_id"
+//   )
+//    private Jumble jumble;
 
 
     @Override

@@ -8,7 +8,6 @@ import java.util.Set;
 @ToString
 @Setter
 @Getter
-@EqualsAndHashCode
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity (name = "Users")
@@ -45,13 +44,13 @@ public class User {
     @Column(name = "user_role")
     private String userRole;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name = "user_id")
-    private Set<Review> reviewList;
+//    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+//    @JoinColumn(name = "user_id")
+//    private Set<Review> reviewList;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name = "user_id")
-    private Set<Jumble> jumbleList;
+//    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+//    @JoinColumn(name = "user_id")
+//    private Set<Jumble> jumbleList;
 
 
 }

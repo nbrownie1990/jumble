@@ -2,22 +2,32 @@ package de.nbrownie.jumbleapplication.services;
 
 import de.nbrownie.jumbleapplication.exceptions.ResourceNotFoundException;
 import de.nbrownie.jumbleapplication.models.Jumble;
-import de.nbrownie.jumbleapplication.models.User;
+import de.nbrownie.jumbleapplication.repo.AddressRepository;
+import de.nbrownie.jumbleapplication.repo.CategoryRepository;
 import de.nbrownie.jumbleapplication.repo.JumbleRepository;
-import io.swagger.v3.oas.annotations.parameters.RequestBody;
-import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-
+@Getter
+@Setter
 @Service
-@AllArgsConstructor
 public class JumbleService {
 
-    private final JumbleRepository jumbleRepository;
+    private JumbleRepository jumbleRepository;
+    private AddressRepository addressRepository;
+    private CategoryRepository categoryRepository;
+
+    @Autowired
+    public JumbleService(JumbleRepository jumbleRepository, AddressRepository addressRepository, CategoryRepository categoryRepository) {
+        this.jumbleRepository = jumbleRepository;
+        this.addressRepository = addressRepository;
+        this.categoryRepository = categoryRepository;
+    }
+
 
     public List<Jumble> getAllJumbles() {
         return jumbleRepository.findAll();

@@ -1,22 +1,27 @@
 package de.nbrownie.jumbleapplication.services;
 
-import de.nbrownie.jumbleapplication.exceptions.BadRequestException;
 import de.nbrownie.jumbleapplication.exceptions.ResourceNotFoundException;
 import de.nbrownie.jumbleapplication.models.User;
 import de.nbrownie.jumbleapplication.repo.UserRepository;
-import io.swagger.v3.oas.annotations.parameters.RequestBody;
-import lombok.AllArgsConstructor;
-import org.springframework.stereotype.Component;
+import lombok.Getter;
+import lombok.Setter;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 
-@AllArgsConstructor
+@Getter
+@Setter
 @Service
 public class UserService {
 
-    private final UserRepository userRepository;
+    private UserRepository userRepository;
+
+    @Autowired
+    public UserService(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
 
     public List<User> getAllUsers() {
         return userRepository.findAll();

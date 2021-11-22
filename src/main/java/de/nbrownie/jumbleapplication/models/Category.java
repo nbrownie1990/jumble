@@ -38,9 +38,8 @@ public class Category {
     @Column(name = "category_img")
     private String categoryImage;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name = "category_id")
-    private Set<Jumble> jumbleList;
-
+//    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+//    @JoinColumn(name = "category_id")
+//    private Set<Jumble> jumbleList;
 
 }

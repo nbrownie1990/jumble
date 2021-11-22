@@ -1,18 +1,32 @@
 package de.nbrownie.jumbleapplication.services;
 
 import de.nbrownie.jumbleapplication.models.Review;
-import de.nbrownie.jumbleapplication.repo.ReviewRepository;
-import lombok.AllArgsConstructor;
+import de.nbrownie.jumbleapplication.repo.*;
+import lombok.Getter;
+import lombok.Setter;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 
+@Getter
+@Setter
 @Service
-@AllArgsConstructor
 public class ReviewService {
 
-    private final ReviewRepository reviewRepository;
+    private ReviewRepository reviewRepository;
+    private JumbleRepository jumbleRepository;
+    private UserRepository userRepository;
+
+
+    @Autowired
+    public ReviewService(ReviewRepository reviewRepository,JumbleRepository jumbleRepository, UserRepository userRepository) {
+        this.reviewRepository = reviewRepository;
+        this.jumbleRepository = jumbleRepository;
+        this.userRepository = userRepository;
+    }
+
 
     public List<Review> getAllReviews() {
         return reviewRepository.findAll();

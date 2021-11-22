@@ -30,7 +30,7 @@ public class Jumble {
     )
     private Long jumbleId;
 
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="user_id")
     private User user;
 
@@ -40,13 +40,12 @@ public class Jumble {
     @Column(name = "jumble_img")
     private String jumbleImage;
 
-    @ManyToOne( cascade = CascadeType.ALL,
-            fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="category_id")
     private Category category;
 
-    @OneToOne(mappedBy = "jumble")
-    private Address address;
+//    @OneToOne(mappedBy = "jumble")
+//    private Address address;
 
     @Column(name = "jumble_text")
     private String jumbleText;
@@ -60,10 +59,9 @@ public class Jumble {
     @Column(name = "jumble_website")
     private String jumbleWebsite;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name = "jumble_id")
-    private Set<Review> reviewList;
-
+//    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+//    @JoinColumn(name = "jumble_id")
+//    private Set<Review> reviewList;
 
 }
 
