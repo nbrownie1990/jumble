@@ -2,9 +2,10 @@ import React, {useEffect, useState} from 'react'
 import Navbar from '../../components/navbar'
 import {useNavigate, useParams} from "react-router";
 import JumbleList from "../../components/jumbleList";
+import {Link} from "react-router-dom";
 
 
-function Category({onJumbleSelect}) {
+function Category() {
     const navigate = useNavigate()
     const [category, setCategory] = useState([]);
     const [jumbles, setJumbles] = useState([]);
@@ -15,7 +16,7 @@ function Category({onJumbleSelect}) {
 
 
   useEffect(() => {
-      console.log(categoryId)
+    console.log(categoryId)
     setLoading(true);
     fetch(`/api/categories/${categoryId}`)
         .then((res) => res.json())
@@ -33,7 +34,7 @@ function Category({onJumbleSelect}) {
   }, [categoryId]);
 
   if (loading) {
-    return <p>Data is loading...</p>;
+      return <p className="container w-100 h-100 mt-5" >Data is loading...</p>;
   }
 
   return (
@@ -62,12 +63,25 @@ function Category({onJumbleSelect}) {
                              Showing filtered.length Jumbles in the database.
                            </p>
                            <JumbleList
+                               //jumbles={jumbles}
                           // jumbles={filtered}
                           // selectedJumble={this.state.selectedJumble}
-                          //  onJumbleSelect={this.handleJumbleSelect}
+                          // onJumbleSelect={this.handleJumbleSelect}
                           // jumblesCount={filtered.length}
                                           />
                      </div>
+                       <span>
+                              <Link
+                                  to={`/jumbles/getall`}
+                                  className="btn edit-btn"
+                                  type="button"
+                                  data-toggle="tooltip"
+                                  title="Get All Jumbles"
+                              >
+                            <i className="fas fa-book-open ps-2 pb-1"></i>
+                                  Show All Jumbles
+                            </Link>
+                          </span>
                    </section>
                  </main>
       </React.Fragment>

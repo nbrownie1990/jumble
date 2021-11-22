@@ -2,13 +2,10 @@ import React, {useEffect, useState} from 'react'
 import Navbar from '../../components/navbar'
 import CategoryGroup from '../../components/categoryGroup'
 import JumbleList from '../../components/jumbleList'
-import ApiService from '../../services/apiService'
 
 
 function Categories() {
-    const [jumble, setJumble] = useState([]);
-    const [jumbles, setJumbles] = useState([]);
-  const [category, setCategory] = useState([]);
+  const [jumbles, setJumbles] = useState([]);
   const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState();
@@ -32,11 +29,11 @@ function Categories() {
   }, []);
 
   if (loading) {
-    return <p>Data is loading...</p>;
+      return <p className="container w-100 h-100 mt-5" >Data is loading...</p>;
   }
 
   if (error || !Array.isArray(jumbles)) {
-    return <p>There was an error loading your data!</p>;
+    return <p className="container w-100 h-100 mt-5" >There was an error loading your data!</p>;
   }
 
   // const handleStates = event => {

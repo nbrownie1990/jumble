@@ -1,6 +1,15 @@
 
-export const initialState = {
+export const jumbleCategoryOptions = [
+    null,
+    'Flohmarkt',
+    'Upcycling',
+    'Donation',
+    'FoodSharing'
+]
+
+export const initialJumbleState = {
     id: null,
+    image: '',
     text: '',
     name: '',
     category: '',

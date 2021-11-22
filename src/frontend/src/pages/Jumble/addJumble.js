@@ -1,33 +1,38 @@
-import React, { useState } from 'react'
+import React, {useEffect, useState} from 'react'
 import { useNavigate } from 'react-router'
-import { useAuth } from '../../auth/AuthProvider'
 import Navbar from '../../components/navbar'
 import JumbleForm from '../../components/jumbleForm'
-import {addNewJumble} from "../../services/apiService";
-import {initialState, initialAddressState} from "../../services/stateService";
+import {initialJumbleState, initialAddressState, jumbleCategoryOptions} from "../../services/stateService";
 import Error from "../../components/error";
 
 
 export default function AddJumble() {
-  const navigate = useNavigate()
-  const [jumble, setJumble] = useState(initialState)
-  const [address, setAddress] = useState(initialAddressState)
-  const [error, setError] = useState()
+  const navigate = useNavigate();
+  const [jumble, setJumble] = useState(initialJumbleState);
+  const [address, setAddress] = useState(initialAddressState);
+  const [error, setError] = useState();
 
   const handleJumbleInputChange = event => {
     setJumble({ ...jumble, [event.target.name]: event.target.value })
     setAddress({ ...address, [event.target.name]: event.target.value })
   }
 
-  const handleSaveNewJumble = event => {
-    event.preventDefault()
-    setError()
-    addNewJumble(jumble, jumble.id)
-        .catch(setError)
-        .finally(() =>{
-          navigate(`/home`)
-    })
-  };
+  useEffect(() => {
+    fetch(`/api/jumbles/new`)
+        .then((res) => res.json())
+        .then((data) => {
+          setJumble(data)
+          setAddress(data)
+          console.log(data);
+        })
+        .catch((err) => {
+          setError(err);
+        })
+        .finally(() => {
+         // navigate(`/home`);
+        });
+  }, []);
+
 
   const handleSaveFailed = errorInfo => {
     alert(JSON.stringify(errorInfo, null, 2));
@@ -36,7 +41,6 @@ export default function AddJumble() {
   const handleCancel = () => {
     navigate('/home')
   }
-
 
   return (
     <>
@@ -48,7 +52,7 @@ export default function AddJumble() {
               jumble={jumble}
               address={address}
               handleJumbleInputChange={handleJumbleInputChange}
-              handleSaveNewJumble={handleSaveNewJumble}
+              //handleSaveNewJumble={handleSaveNewJumble}
               handleSaveFailed={handleSaveFailed}
               handleCancel={handleCancel}
               readOnly={false}

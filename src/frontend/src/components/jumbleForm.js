@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-
 import DateField from './dateField'
 import TextField from './textField'
 import TextArea from './textArea'
@@ -27,7 +26,7 @@ export default function JumbleForm({
             <div className="img-wrapper mt-5 ">
               <img
                 className="rounded-circle jumble-img"
-                src="https://www.deutschlandmalanders.com/wp-content/uploads/2020/10/Flohschanze-Flohmarkt-Schanzenviertel-Hamburg-1.jpg"
+                src={jumble.jumbleImage}
                 alt="This is a jumble"
               />
               <Link
@@ -48,7 +47,7 @@ export default function JumbleForm({
               placeholder=" Bitte beschreibe diesen Jumble"
               type="text"
               rows="5"
-              value={jumble.text}
+              value={jumble.jumbleText}
               onChange={handleJumbleInputChange}
               disabled={readOnly}
               rules={[{required: true, message: 'Please enter a description'}]}
@@ -73,22 +72,19 @@ export default function JumbleForm({
                   name="name"
                   placeholder="z.B. Flohschanze"
                   type="text"
-                  value={jumble.name}
+                  value={jumble.jumbleName}
                   onChange={handleJumbleInputChange}
                   disabled={readOnly}
                   rules={[{required: true, message: 'Please enter jumble name'}]}
-
                 />
               </div>
               <div className="col-md-12">
                 <label className="labels">Jumble-Category</label>
-                <Select
+                <Select className="form-control"
                   name="category"
-                  placeholder=""
-                  type="select"
                   value={jumble.category}
                   onChange={handleJumbleInputChange}
-                  disabled={readOnly}
+                  readOnly={readOnly}
                 />
               </div>
             </div>
@@ -98,10 +94,11 @@ export default function JumbleForm({
                 <AddressForm
                   address={address}
                   handleJumbleInputChange={handleJumbleInputChange}
-                  handleSaveNewJumble={handleSaveNewJumble}
                   handleCancel={handleCancel}
+                  handleSaveJumbleChanges={handleSaveJumbleChanges}
+                  handleSaveNewJumble={handleSaveNewJumble}
+                  handleDeleteJumble={handleDeleteJumble}
                   readOnly={false}
-                  disabled={readOnly}
                 />
               </div>
               <div className="col-md-12">
@@ -110,7 +107,7 @@ export default function JumbleForm({
                   name="date"
                   placeholder="Termin"
                   type="date"
-                  value={jumble.date}
+                  value={jumble.jumbleDate}
                   onChange={handleJumbleInputChange}
                   disabled={readOnly}
                 />
@@ -124,11 +121,10 @@ export default function JumbleForm({
                   name="time"
                   placeholder=" z.B. 9-16 Uhr"
                   type="text"
-                  value={jumble.time}
+                  value={jumble.jumbleTime}
                   onChange={handleJumbleInputChange}
                   disabled={readOnly}
                 />
-
                 <span id="timeHelpInline" className="form-text">
                   Wie sind die Öffnungszeiten des Jumbles?
                 </span>
@@ -139,7 +135,7 @@ export default function JumbleForm({
                   name="website"
                   placeholder="z.B. www.flohschanze.de"
                   type="url"
-                  value={jumble.website}
+                  value={jumble.jumbleWebsite}
                   onChange={handleJumbleInputChange}
                   disabled={readOnly}
                 />
@@ -160,7 +156,7 @@ export default function JumbleForm({
               <button
                 className="btn btn-primary profile-button mb-5 m-3"
                 type="button"
-                onClick={() => handleEditJumble(jumble.id)}
+                onClick={() => handleEditJumble(jumble.jumbleId)}
               >
                 <i className="fas fa-pen"></i> Edit Jumble
               </button>

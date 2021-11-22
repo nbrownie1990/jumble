@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router'
 import { Link } from 'react-router-dom'
 import Star from '../../components/rating'
-import Map from '../../components/map'
 import Navbar from '../../components/navbar'
 import Rezension from '../../components/rezension'
 
@@ -32,8 +31,9 @@ export default function Jumble() {
   }, [jumbleId]);
 
   if (loading) {
-    return <p>Data is loading...</p>;
+    return <p className="container w-100 h-100 mt-5" >Data is loading...</p>;
   }
+
 
     return (
           <React.Fragment>
@@ -45,26 +45,23 @@ export default function Jumble() {
                     <div className="col-sm-12">
                       <h1 className="display-1 fs-md-5 fs-lg-6 fs-xl-8 text-light">
                         {jumble.jumbleName}
-                           <span>
-                    <Link
-                        to={`/jumbles/new`}
-                        className="btn "
-                        type="button"
-                        // onClick={() => handleNewJumble(jumble.jumbleId)}
-                        data-toggle="tooltip"
-                        title="Edit"
-                    >
-                      <i className="fas fa-pen ps-2 pb-1"> </i>
-                    </Link>
-                          </span>
                       </h1>
                       <div className="row ">
-                        <div className="col-sm-6 align-self-center">
+                        <div className="col-sm-6 align-self-center img-wrapper mt-5">
                           <img
                               className="rounded-circle jumble-img"
                               src={jumble.jumbleImage}
                               alt="This is a jumble"
                           />
+                          <Link
+                              to={`/jumbles/edit/${jumbleId}`}
+                              className="btn edit-btn"
+                              type="button"
+                              data-toggle="tooltip"
+                              title="Edit"
+                          >
+                            <i className="fas fa-pen ps-2 pb-1"></i>
+                          </Link>
                         </div>
 
                         {/*<div className="col-sm-6 mt-2">*/}

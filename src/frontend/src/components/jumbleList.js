@@ -41,9 +41,9 @@ function JumbleList({onJumbleSelect}) {
                 <h5 className="text-primary text-start align-self-start">
                   {jumble.jumbleName}
                 </h5>
-                <p className="m-0 py-2 text-muted text-start">
-                  {jumble.jumbleAddress}
-                </p>
+                {/*<p className="m-0 py-2 text-muted text-start">*/}
+                {/*  {jumble.jumbleAddress}*/}
+                {/*</p>*/}
               </div>
               <div className="col-6 text-end">
                  <Star />

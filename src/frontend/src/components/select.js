@@ -1,37 +1,59 @@
-import React, {useState} from 'react'
-import {getCategoryById} from "../services/apiService";
+import React, {useEffect, useState} from 'react'
 
 export default function Select({
-  placeholder,
-  value,
+  title,
   onChange,
   name,
+  value,
+  selected,
   readOnly,
+  ...props
 }){
-const [categories, setCategories] = useState([]);
+  const [categories, setCategories] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState();
 
+  useEffect(() => {
+    setLoading(true);
+    fetch('/api/categories')
+        .then((res) => res.json())
+        .then((data) => {
+          setCategories(data)
+          console.log(data);
+        })
+        .catch((err) => {
+          setError(err);
+        })
+        .finally(() => {
+          setLoading(false);
+        });
+  }, []);
+
+  if (loading) {
+    return <p className="container w-100 h-100 mt-5" >Data is loading...</p>;
+  }
+
+  if (error || !Array.isArray(categories)) {
+    return <p className="container w-100 h-100 mt-5" >There was an error loading your data!</p>;
+  }
 
   return (
-    <React.Fragment>
+    <label {...props}>
+        {title}
       <select
         name={name}
-        id={name}
-        className="form-control"
-        placeholder={placeholder}
         value={value}
         onChange={onChange}
-        dateformat="dd/MM/yyyy"
         disabled={readOnly}
       >
-          <options>
-        {/*{categories.map(category => {*/}
-        {/*  <option key={category.id} value={category.name}>*/}
-        {/*    Category: {category.name} </option>*/}
-        {/*}*/}
-        {/*)}*/}
-          </options>
+
+        {categories.map(category => (
+          <option key={category.categoryId} value={category.categoryName}>
+             {category.categoryName}
+          </option>
+        ))}
 
       </select>
-    </React.Fragment>
+    </label>
   )
 }

@@ -1,19 +1,33 @@
 import TextField from './textField'
-import React, {useState} from 'react'
+import React from 'react'
 
 export default function AddressForm({
-  address,
   handleJumbleInputChange,
   readOnly,
+    address
 }){
 
+
+// const addressToString = address =>{
+//     return(
+//         address.addressStreet +
+//             ' ' +
+//         address.addressNumber +
+//         ' ' +
+//         address.addressZip +
+//         ' ' +
+//         address.addressCity +
+//         ' ' +
+//         address.addressCountry
+//     )
+// }
   return (
     <>
       <TextField
         name="street"
         placeholder="Straße"
         type="text"
-        value={address}
+        value={address.addressStreet}
         onChange={handleJumbleInputChange}
         title="Straße"
         disabled={readOnly}
@@ -23,7 +37,7 @@ export default function AddressForm({
         name="number"
         placeholder="Hausnr."
         type="text"
-        value={address.number}
+        value={address.addressNumber}
         onChange={handleJumbleInputChange}
         title="Hausnummer"
         disabled={readOnly}
@@ -33,7 +47,7 @@ export default function AddressForm({
         name="zip"
         placeholder="Postleitzahl"
         type="text"
-        value={address.zip}
+        value={address.addressZip}
         onChange={handleJumbleInputChange}
         title="Postleitzahl"
         disabled={readOnly}
@@ -44,7 +58,7 @@ export default function AddressForm({
         name="city"
         placeholder="Stadt"
         type="text"
-        value={address.city}
+        value={address.addressCity}
         onChange={handleJumbleInputChange}
         title="Stadt"
         disabled={readOnly}
@@ -53,7 +67,7 @@ export default function AddressForm({
         name="country"
         placeholder="Land"
         type="text"
-        value={address.country}
+        value={address.addressCountry}
         onChange={handleJumbleInputChange}
         title="Land"
         disabled={readOnly}
