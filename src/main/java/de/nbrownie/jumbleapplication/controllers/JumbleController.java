@@ -32,13 +32,14 @@ public class JumbleController {
         return ResponseEntity.ok(jumble);
     }
 
+
 //    @PostMapping("new")
 //    public void addNewJumble(@Validated @RequestBody Jumble jumble) {
 //        jumbleService.addNewJumble(jumble);
 //    }
 
 
-    @DeleteMapping(path = "{jumbleId}/edit/delete")
+    @DeleteMapping(path = "edit/{jumbleId}/delete")
     public void deleteJumble(
             @PathVariable("jumbleId") Long jumbleId) {
         jumbleService.deleteJumble(jumbleId);
@@ -53,7 +54,7 @@ public class JumbleController {
 //    }
 //
 //
-//    @PutMapping("/edit/{id}")
+//    @PutMapping("edit/{jumbleId}")
 //    public ResponseEntity<de.nbrownie.jumbleapplication.models.Jumble> updateJumble(@PathVariable Long id, @RequestBody de.nbrownie.jumbleapplication.models.Jumble jumbleDetails){
 //
 //        de.nbrownie.jumbleapplication.models.Jumble jumble = jumbleRepository.findById(id)

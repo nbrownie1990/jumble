@@ -38,4 +38,16 @@ public class JumbleService {
         }
         jumbleRepository.deleteById(jumbleId);
     }
+
+
+    //Searchbar findByJumbleByName
+    //public Jumble getJumbleByName(String jumbleName) {
+    //    return jumbleRepository.getJumbleByName(jumbleName);
+    //}
+
+    //Searchbar findByJumbleByAddress
+    //public Jumble getJumbleByAddress(String addressStreet) {
+    //    return jumbleRepository.getJumbleByAddress(addressStreet);
+    //}
 }
+

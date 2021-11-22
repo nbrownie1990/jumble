@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin
+@CrossOrigin("http://localhost:8080/")
 @AllArgsConstructor
 @RestController
 @RequestMapping(path= "/api/jumbles")
@@ -35,7 +35,7 @@ public class AddressController {
         addressService.addNewAddress(address);
     }
 
-    @DeleteMapping(path = "/{addressId}")
+    @DeleteMapping(path = "{addressId}")
     public void deleteAddress(
             @PathVariable("addressId") Long addressId) {
         addressService.deleteAddress(addressId);

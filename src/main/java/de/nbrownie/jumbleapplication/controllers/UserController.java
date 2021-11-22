@@ -8,7 +8,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-@CrossOrigin
+@CrossOrigin("http://localhost:8080/")
 @AllArgsConstructor
 @RestController
 @RequestMapping(path= "/api/user")
@@ -16,23 +16,23 @@ public class UserController {
 
     private final UserService userService;
 
-    @GetMapping("/getall")
+    @GetMapping("getall")
     public List<User> getAllUsers() {
         return userService.getAllUsers();
     }
 
-    @GetMapping(path = "/{userId}")
+    @GetMapping(path = "{userId}")
     public User getUserById(
             @PathVariable("userId") Long userId) {
         return userService.getUserById(userId);
     }
 
-   @PostMapping("/signup")
-    public void addNewUser(@Validated @RequestBody User user){
-         userService.addNewUser(user);
-    }
+//   @PostMapping("signup")
+//    public void addNewUser(@Validated @RequestBody User user){
+//         userService.addNewUser(user);
+//    }
 
-    @DeleteMapping(path = "/{userId}")
+    @DeleteMapping(path = "{userId}")
     public void deleteUser(
             @PathVariable("userId") Long userId) {
         userService.deleteUser(userId);

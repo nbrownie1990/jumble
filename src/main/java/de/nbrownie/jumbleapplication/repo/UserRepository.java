@@ -13,8 +13,8 @@ public interface UserRepository extends JpaRepository<User, Long> {
             "SELECT CASE WHEN COUNT(u) > 0 THEN " +
             "TRUE ELSE FALSE END " +
             "FROM Users u " +
-            "WHERE u.userEmail = ?1"
+            "WHERE u.email = ?1"
     )
-    Boolean selectExistsEmail(String userEmail);
+    Boolean selectExistsEmail(String email);
 
 }

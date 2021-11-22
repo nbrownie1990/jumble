@@ -2,6 +2,7 @@ package de.nbrownie.jumbleapplication.models;
 
 import lombok.*;
 import javax.persistence.*;
+import java.util.Set;
 
 
 @ToString
@@ -15,6 +16,8 @@ import javax.persistence.*;
 @Builder(toBuilder = true)
 
 public class User {
+
+    @Column(name = "user_id", nullable = false)
     @Id
     @SequenceGenerator(
             name = "user_sequence",
@@ -25,8 +28,6 @@ public class User {
             generator = "user_sequence",
             strategy = GenerationType.SEQUENCE
     )
-
-    @Column(name = "user_id", nullable = false, unique = true)
     private Long userId;
 
     @Column(name = "user_name", nullable = false )
@@ -44,12 +45,13 @@ public class User {
     @Column(name = "user_role")
     private String userRole;
 
-    public User(String name, String email, String text, String password, String role ) {
-        this.username = name;
-        this.email = email;
-        this.userText = text;
-        this.password = password;
-        this.userRole= role;
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "user_id")
+    private Set<Review> reviewList;
 
-    }
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "user_id")
+    private Set<Jumble> jumbleList;
+
+
 }

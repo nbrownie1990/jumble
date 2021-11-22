@@ -3,6 +3,7 @@ package de.nbrownie.jumbleapplication.models;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.Set;
 
 
 @Entity(name = "Categories")
@@ -12,7 +13,10 @@ import javax.persistence.*;
 @Builder(toBuilder = true)
 @AllArgsConstructor
 @NoArgsConstructor
+
 public class Category {
+
+    @Column(name = "category_id", nullable = false)
     @Id
     @SequenceGenerator(
             name = "category_sequence",
@@ -23,7 +27,6 @@ public class Category {
             strategy = GenerationType.SEQUENCE,
             generator = "category_sequence"
     )
-    @Column(name = "category_id", nullable = false,  unique = true)
     private Long categoryId;
 
     @Column(name = "category_name", nullable = false)
@@ -35,9 +38,9 @@ public class Category {
     @Column(name = "category_img")
     private String categoryImage;
 
-    public Category(String name, String text, String image ) {
-        this.categoryName = name;
-        this.categoryText = text;
-        this.categoryImage = image;
-    }
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "category_id")
+    private Set<Jumble> jumbleList;
+
+
 }
