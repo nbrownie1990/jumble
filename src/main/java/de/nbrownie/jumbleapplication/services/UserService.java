@@ -1,6 +1,8 @@
 package de.nbrownie.jumbleapplication.services;
 
+import de.nbrownie.jumbleapplication.exceptions.BadRequestException;
 import de.nbrownie.jumbleapplication.exceptions.ResourceNotFoundException;
+import de.nbrownie.jumbleapplication.exceptions.UnauthorizedUserException;
 import de.nbrownie.jumbleapplication.models.User;
 import de.nbrownie.jumbleapplication.repo.UserRepository;
 import lombok.Getter;
@@ -8,6 +10,7 @@ import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.EntityNotFoundException;
 import java.util.List;
 
 
@@ -27,19 +30,39 @@ public class UserService {
         return userRepository.findAll();
     }
 
-    public User getUserById(Long userId) {
-        return userRepository.findById(userId).orElseThrow(() -> new IllegalArgumentException("JumbleApplication not found"));
+    public User getUserByUserId(Long userId) {
+        return userRepository.getUserByUserId(userId).orElseThrow(() -> new IllegalArgumentException("JumbleApplication not found"));
     }
 
+    public User addNewUser(User user, String email) {
+        User existingEmail = userRepository.getUserByEmail(email).orElseThrow(() -> new EntityNotFoundException("User not found"));
+        if (existingEmail.equals(user)) {
+            throw new BadRequestException(
+                    "Email " + user.getEmail() + "already taken");}
+        return userRepository.save(user);
+    }
 
-    public void addNewUser(User user) {
-//        Boolean existsEmail = userRepository
-//                .selectExistsEmail(user.getEmail());
-//        if (existsEmail) {
-//            throw new BadRequestException(
-//                    "Email " + user.getEmail() + " taken");}
-
-        userRepository.save(user);
+    public User updateUser(Long userId, User changedUser) {
+        User existingUser = userRepository.getUserByUserId(userId).orElseThrow(() -> new EntityNotFoundException("User not found"));
+        if (!existingUser.equals(userId)){
+            throw new UnauthorizedUserException("User can only be updated himself/herself");
+        }
+        if (changedUser.getUserImage() != null && !changedUser.getUserImage().equals(existingUser.getUserImage())) {
+            existingUser.setUserImage(changedUser.getUserImage());
+        }
+        if (changedUser.getUsername() != null && !changedUser.getUsername().equals(existingUser.getUsername())) {
+            existingUser.setUsername(changedUser.getUsername());
+        }
+        if (changedUser.getEmail() != null && !changedUser.getEmail().equals(existingUser.getEmail())) {
+            existingUser.setEmail(changedUser.getEmail());
+        }
+        if (changedUser.getPassword() != null && !changedUser.getPassword().equals(existingUser.getPassword())) {
+            existingUser.setPassword(changedUser.getPassword());
+        }
+        if (changedUser.getUserText() != null && !changedUser.getUserText().equals(existingUser.getUserText())) {
+            existingUser.setUserText(changedUser.getUserText());
+        }
+        return userRepository.save(existingUser);
     }
 
     public void deleteUser(Long userId) {
