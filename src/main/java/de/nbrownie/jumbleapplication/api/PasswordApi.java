@@ -1,6 +1,5 @@
 package de.nbrownie.jumbleapplication.api;
 
-import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -10,14 +9,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Password {
-
-    @ApiModelProperty(example = "1234", notes = "The current password")
+public class PasswordApi {
     private String password;
-
-    @ApiModelProperty(example = "1234", notes = "The old password")
     private String oldPassword;
-
-
-
 }
