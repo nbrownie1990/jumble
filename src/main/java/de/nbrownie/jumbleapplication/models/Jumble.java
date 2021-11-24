@@ -1,13 +1,15 @@
 package de.nbrownie.jumbleapplication.models;
 
-import com.sun.istack.NotNull;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 
 import javax.persistence.*;
 import java.util.Set;
 
 
-@Entity(name= "Jumbles")
+@Entity
 @Table(name = "jumbles")
 @Setter
 @Getter
@@ -30,24 +32,13 @@ public class Jumble {
     )
     private Long jumbleId;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name="user_id")
-    private User user;
-
-    @Column(name = "jumble_name", nullable = false )
+    @Column(name = "jumble_name", nullable = false, columnDefinition = "TEXT" )
     private String jumbleName;
 
     @Column(name = "jumble_img")
     private String jumbleImage;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name="category_id")
-    private Category category;
-
-//    @OneToOne(mappedBy = "jumble")
-//    private Address address;
-
-    @Column(name = "jumble_text")
+    @Column(name = "jumble_text", columnDefinition = "TEXT")
     private String jumbleText;
 
     @Column(name = "jumble_date")
@@ -59,9 +50,60 @@ public class Jumble {
     @Column(name = "jumble_website")
     private String jumbleWebsite;
 
-//    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-//    @JoinColumn(name = "jumble_id")
-//    private Set<Review> reviewList;
+    //Many Jumbles can be added by one user Entity
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name="user_id")
+    @JsonBackReference
+    private User user;
 
+    //Many Jumbles can be added to one category
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name="category_id")
+    @JsonBackReference
+    private Category category;
+
+    //One Jumble has its own address
+    @OneToOne(cascade= CascadeType.ALL)
+    @JoinColumn(name="address_id")
+    @JsonBackReference
+    private Address address;
+
+    //One Jumble can have many reviews
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy="jumble", fetch = FetchType.EAGER)
+    @JsonManagedReference
+    private Set<Review> reviewList;
+
+    public void addReview(Review review){
+        reviewList.add(review);
+        review.setJumble(this);
+    }
+
+    public Jumble removeReview(Review review){
+        reviewList.remove(review);
+        review.setJumble(null);
+        return this;
+    }
+
+    @Override
+    public int hashCode() {
+        if (getJumbleId() == null){
+            return getClass().hashCode();
+        }
+        return getJumbleId().hashCode();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Jumble that = (Jumble) o;
+        return jumbleId.equals(that.jumbleId);
+    }
+
+    @Override
+    public String toString() {
+        return jumbleName + " " + jumbleText + ", " +
+                jumbleDate + " " + jumbleTime + ", " + jumbleWebsite;
+    }
 }
 

@@ -1,16 +1,16 @@
 package de.nbrownie.jumbleapplication.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 
 import javax.persistence.*;
-import java.util.Set;
 
-@Entity(name = "Address")
-@Table(name = "address")
+@Entity
+@Table(name = "addresses")
 @Builder
 @Setter
 @Getter
-@ToString(exclude = "jumbles")
 @AllArgsConstructor
 @NoArgsConstructor
 public class Address {
@@ -49,15 +49,10 @@ public class Address {
     @Column(name = "latitude")
     private double latitude;
 
-//   @OneToOne(
-//           cascade= CascadeType.ALL,
-//           fetch= FetchType.LAZY
-////           optional = false
-//   )
-//   @JoinColumn(
-//           name="jumble_id"
-//   )
-//    private Jumble jumble;
+    //One Jumble has its own address
+    @OneToOne(mappedBy= "address")
+    @JsonManagedReference
+    private Jumble jumble;
 
 
     @Override

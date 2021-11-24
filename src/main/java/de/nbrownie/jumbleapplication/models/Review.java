@@ -1,11 +1,12 @@
 package de.nbrownie.jumbleapplication.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.*;
 
 import javax.persistence.*;
 import java.util.Set;
 
-@Entity(name= "Reviews")
+@Entity
 @Table(name = "reviews")
 @Builder
 @Setter
@@ -28,20 +29,43 @@ public class Review {
     )
     private Long reviewId;
 
-    @Column(name = "review_text")
+    @Column(name = "review_text", columnDefinition = "TEXT")
     private String reviewText;
 
     @Column(name = "review_rating",  nullable = false)
     private Short reviewRating;
 
+    //Many reviews can be added to one Jumble Entity
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="jumble_id")
+    @JsonBackReference
     private Jumble jumble;
 
-    @ManyToOne(
-            fetch = FetchType.EAGER)
+    //Many reviews can be added by one User Entity
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="user_id")
+    @JsonBackReference
     private User user;
 
+    @Override
+    public int hashCode() {
+        if (getReviewId() == null){
+            return getClass().hashCode();
+        }
+        return getReviewId().hashCode();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Review that = (Review) o;
+        return reviewId.equals(that.reviewId);
+    }
+
+    @Override
+    public String toString() {
+        return "Review: " + reviewText;
+    }
 }
 
