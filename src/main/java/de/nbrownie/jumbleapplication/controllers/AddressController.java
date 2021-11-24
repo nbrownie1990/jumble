@@ -19,27 +19,27 @@ public class AddressController {
     private final AddressService addressService;
 
     //Get all JumbleApplication
-    @GetMapping
+    @GetMapping(path = "/getall/addresses")
     public List<Address> getAllAddress() {
         return addressService.getAllAddresses();
     }
 
-//    @GetMapping(path = "/{jumbleId}/{addressId}")
-//    public Address getAddressById(
-//            @PathVariable("addressId") Long addressId) {
-//        return addressService.getAddressById(addressId);
-//    }
-
-    @PostMapping
-    public void addNewAddress(@Validated @RequestBody Address address) {
-        addressService.addNewAddress(address);
-    }
-
-    @DeleteMapping(path = "{addressId}")
-    public void deleteAddress(
+    @GetMapping(path = "/addresses/{addressId}")
+    public Address getAddressById(
             @PathVariable("addressId") Long addressId) {
-        addressService.deleteAddress(addressId);
+        return addressService.getAddressById(addressId);
     }
+
+//    @PostMapping
+//    public void addNewAddress(@Validated @RequestBody Address address) {
+//        addressService.addNewAddress(address);
+//    }
+//
+//    @DeleteMapping(path = "{addressId}")
+//    public void deleteAddress(
+//            @PathVariable("addressId") Long addressId) {
+//        addressService.deleteAddress(addressId);
+//    }
 }
 //    @GetMapping("/{id}")
 //    public ResponseEntity<de.nbrownie.jumbleapplication.models.Jumble> GetJumbleById(@PathVariable Long id) {

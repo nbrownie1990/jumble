@@ -19,7 +19,7 @@ public class CategoryController {
 
     private final CategoryService categoryService;
 
-    @GetMapping
+    @GetMapping(path = "/getall")
     public List<Category> getAllCategories() {
         return categoryService.getAllCategories();
     }
@@ -30,7 +30,6 @@ public class CategoryController {
         Category category = categoryService.getCategoryById(categoryId);
         return ResponseEntity.ok(category);
     }
-
 
 //   @GetMapping("/{id}")
 //   public ResponseEntity<Category> GetCategoryById(@PathVariable Long id) {
