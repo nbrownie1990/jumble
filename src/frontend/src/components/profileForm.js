@@ -8,13 +8,10 @@ class ProfileForm extends Component {
     super(props)
 
     this.state = {
-      name: '',
+      username: '',
       email: '',
       password: '',
-      date: '',
-      time: '',
-      website: '',
-      text: '',
+      text: ''
     }
 
     this.changeNameHandler = this.changeNameHandler.bind(this)
