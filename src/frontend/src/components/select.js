@@ -15,7 +15,7 @@ export default function Select({
 
   useEffect(() => {
     setLoading(true);
-    fetch('/api/categories')
+    fetch('/api/categories/getall')
         .then((res) => res.json())
         .then((data) => {
           setCategories(data)
