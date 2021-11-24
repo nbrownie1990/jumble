@@ -22,9 +22,9 @@ public class UserController {
     }
 
     @GetMapping(path = "{userId}")
-    public User getUserById(
+    public User getUserByUserId(
             @PathVariable("userId") Long userId) {
-        return userService.getUserById(userId);
+        return userService.getUserByUserId(userId);
     }
 
 //   @PostMapping("signup")
