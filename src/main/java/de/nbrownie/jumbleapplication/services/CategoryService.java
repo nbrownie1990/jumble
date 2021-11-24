@@ -33,6 +33,6 @@ public class CategoryService {
     }
 
     public Category getCategoryById(Long categoryId) {
-        return categoryRepository.findById(categoryId).orElseThrow(() -> new IllegalArgumentException("Category not found"));
+        return categoryRepository.getCategoryByCategoryId(categoryId).orElseThrow(() -> new IllegalArgumentException("Category not found"));
     }
 }

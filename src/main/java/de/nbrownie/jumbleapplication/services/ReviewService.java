@@ -1,13 +1,18 @@
 package de.nbrownie.jumbleapplication.services;
 
+import de.nbrownie.jumbleapplication.models.Jumble;
 import de.nbrownie.jumbleapplication.models.Review;
+import de.nbrownie.jumbleapplication.models.User;
 import de.nbrownie.jumbleapplication.repo.*;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.EntityNotFoundException;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 
 @Getter
@@ -27,6 +32,15 @@ public class ReviewService {
         this.userRepository = userRepository;
     }
 
+    public List<Review> findAllForUser(Long userId) {
+        User user = userRepository.getUserByUserId(userId).orElseThrow(() -> new EntityNotFoundException("User not found"));
+        return reviewRepository.findByUser(user);
+    }
+
+    public List<Review> findAllForJumble(Long jumbleId) {
+        Jumble jumble = jumbleRepository.getJumbleByJumbleId(jumbleId).orElseThrow(() -> new EntityNotFoundException("Jumble not found"));
+        return reviewRepository.findByJumble(jumble);
+    }
 
     public List<Review> getAllReviews() {
         return reviewRepository.findAll();
