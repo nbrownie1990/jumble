@@ -30,10 +30,11 @@ server:
     include-message: always
     include-binding-errors: always
 
-#  servlet:
+#servlet:
 #    context-path: "/"
 #  error:
 #    include-message: always
+
 cloud:
   aws:
     credentials:

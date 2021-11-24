@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react'
 import Navbar from '../../components/navbar'
 import CategoryGroup from '../../components/categoryGroup'
 import JumbleList from '../../components/jumbleList'
-
+import {getAllJumbles, getAllCategories} from "../../services/apiService";
 
 function Categories() {
   const [jumbles, setJumbles] = useState([]);
@@ -11,9 +11,17 @@ function Categories() {
   const [error, setError] = useState();
 
 
+    useEffect(() => {
+        setLoading(true);
+        getAllJumbles()
+            .then(jumbles => setJumbles(jumbles))
+            .catch(error => setError(error))
+            .finally(() => setLoading(false))
+    },[])
+
   useEffect(() => {
     setLoading(true);
-    fetch('/api/categories')
+    fetch('/api/categories/getall')
         .then((res) => res.json())
         .then((data) => {
           setJumbles(data)

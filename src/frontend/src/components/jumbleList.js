@@ -1,30 +1,26 @@
 import React, { useState, useEffect } from 'react'
 import Star from './rating'
 import { Link } from 'react-router-dom'
+import { getAllJumbles} from "../services/apiService";
+import Navbar from "./navbar";
 
 function JumbleList({onJumbleSelect}) {
     const [jumbles, setJumbles] = useState([]);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState();
 
+
     useEffect(() => {
         setLoading(true);
-        fetch('/api/jumbles/getall')
-            .then((res) => res.json())
-            .then((data) => {
-                setJumbles(data)
-                console.log(data);
-            })
-            .catch((err) => {
-                setError(err);
-            })
-            .finally(() => {
-                setLoading(false);
-            });
-    }, []);
+        getAllJumbles()
+            .then(jumbles => setJumbles(jumbles))
+            .catch(error => setError(error))
+            .finally(() => setLoading(false))
+    },[])
+
 
     if (loading) {
-        return <p>Data is loading...</p>;
+        return <main className="container w-100 h-100 mt-5" > Data is loading...</main>;
     }
 
     if (error || !Array.isArray(jumbles)) {
@@ -32,6 +28,10 @@ function JumbleList({onJumbleSelect}) {
     }
 
   return (
+      <React.Fragment>
+          <Navbar />
+
+          <main className="m-md-5 m-2 mt-5 mb-5">
     <div className="container">
       {jumbles.map((jumble) => (
         <div key={jumble.jumbleId} className="card m-2">
@@ -42,7 +42,7 @@ function JumbleList({onJumbleSelect}) {
                   {jumble.jumbleName}
                 </h5>
                 {/*<p className="m-0 py-2 text-muted text-start">*/}
-                {/*  {jumble.jumbleAddress}*/}
+                {/*  {jumble.jumbleAddress.toString()}*/}
                 {/*</p>*/}
               </div>
               <div className="col-6 text-end">
@@ -60,6 +60,8 @@ function JumbleList({onJumbleSelect}) {
         </div>
       ))}
     </div>
+   </main>
+</React.Fragment>
   )
 }
 
