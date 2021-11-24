@@ -1,7 +1,12 @@
 package de.nbrownie.jumbleapplication.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 
@@ -10,7 +15,7 @@ import java.util.Set;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity (name = "Users")
+@Entity
 @Table(name = "users")
 @Builder(toBuilder = true)
 
@@ -29,13 +34,16 @@ public class User {
     )
     private Long userId;
 
-    @Column(name = "user_name", nullable = false )
+    @Column(name = "user_name", nullable = false, columnDefinition = "TEXT" )
     private String username;
 
-    @Column(name = "user_email")
+    @Column(name = "user_email", unique = true)
     private String email;
 
-    @Column(name = "user_text")
+    @Column(name = "user_img")
+    private String userImage;
+
+    @Column(name = "user_text", columnDefinition = "TEXT")
     private String userText;
 
     @Column(name = "user_psw")
@@ -44,13 +52,42 @@ public class User {
     @Column(name = "user_role")
     private String userRole;
 
-//    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
-//    @JoinColumn(name = "user_id")
-//    private Set<Review> reviewList;
+    //One User can make many reviews
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy="user", fetch = FetchType.EAGER)
+    @JsonManagedReference
+    private Set<Review> reviewList;
 
-//    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
-//    @JoinColumn(name = "user_id")
-//    private Set<Jumble> jumbleList;
+    //One User can add many jumbles
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy="user", fetch = FetchType.EAGER)
+    @JsonManagedReference
+    private Set<Jumble> jumbleList;
 
+    public User deleteJumble(Jumble jumble){
+        jumbleList.remove(jumble);
+        jumble.setUser(null);
+        jumble.setAddress(null);
+        jumble.setReviewList(null);
+        return this;
+    }
 
+    @Override
+    public int hashCode() {
+        if (getUserId() == null){
+            return getClass().hashCode();
+        }
+        return getUserId().hashCode();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        User that = (User) o;
+        return userId.equals(that.userId);
+    }
+
+    @Override
+    public String toString() {
+        return username + " " + userText + ", " + userRole;
+    }
 }
