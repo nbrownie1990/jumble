@@ -1,49 +1,49 @@
 import React, {useEffect, useState} from 'react'
-import Navbar from '../../components/navbar'
-import {useNavigate, useParams} from "react-router";
+import {useParams} from "react-router";
 import JumbleList from "../../components/jumbleList";
 import {Link} from "react-router-dom";
+import {getAllJumbles, getCategoryById} from "../../services/apiService";
+import NavBar from "../../components/navbar";
 
 
 function Category() {
-    const navigate = useNavigate()
     const [category, setCategory] = useState([]);
     const [jumbles, setJumbles] = useState([]);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState();
     let { categoryId } = useParams();
 
+    useEffect(() => {
+        setLoading(true);
+        getCategoryById(categoryId)
+            .then(category => setCategory(category))
+            .catch(error => setError(error))
+            .finally(() => setLoading(false))
+    },[categoryId])
+
+    useEffect(() => {
+        setLoading(true);
+        getAllJumbles()
+            .then(jumbles => setJumbles(jumbles))
+            .catch(error => setError(error))
+            .finally(() => setLoading(false))
+    },[])
 
 
-  useEffect(() => {
-    console.log(categoryId)
-    setLoading(true);
-    fetch(`/api/categories/${categoryId}`)
-        .then((res) => res.json())
-        .then((data) => {
-          setCategory(data)
-            setJumbles(data)
-            console.log(data);
-        })
-        .catch((err) => {
-          setError(err);
-        })
-        .finally(() => {
-          setLoading(false);
-        });
-  }, [categoryId]);
+     var filtered = categoryId
+         ? jumbles.filter(jumble => jumble.category.categoryId == categoryId)
+         : jumbles
 
-  if (loading) {
-      return <p className="container w-100 h-100 mt-5" >Data is loading...</p>;
-  }
 
   return (
       <React.Fragment>
-                <Navbar />
+                <NavBar />
                  <main className="m-md-5 mt-5 mb-5">
                    <section className="container w-100 min-vh-100 px-lg-5 mt-5">
-                     <div className="sidebar h-100 card-body p-0 text-start ">
-                           <div key={category.categoryId} className="col mb-5">
+                     <div className="sidebar h-100 p-0 ">
+                         { loading &&  <p>Data is loading...</p>}
+                         { error && <p>There was an error loading your data!</p> }
+                         <div key={category.categoryId} className="col-sm-8 mb-5">
                                <div className="card h-100">
                                    <img
                                        className="card-img-top"
@@ -58,29 +58,26 @@ function Category() {
                                    </div>
                            </div>
                            </div>
-                         <div className="heading"><h1>Category: {category.categoryName} </h1></div>
-                          <p className="m-2">
-                             Showing filtered.length Jumbles in the database.
-                           </p>
+                         <div className="heading"><h1>Category: {category.categoryName} </h1>
+                          { filtered.length === 0 ? <p className="m-2">There are no jumbles for this category in the database</p>
+                             : <p className="m-2"> Showing {filtered.length} Jumbles in the database.</p> }
+                         <Link
+                             to={`/jumbles/getall`}
+                             className="btn btn-primary"
+                             type="button"
+                             data-toggle="tooltip"
+                             title="Get All Jumbles"
+                         >
+                             <i className="fas fa-book-open ps-2 pb-1"></i>
+                             {' '}Show All Jumbles
+                         </Link>
+                         </div>
                            <JumbleList
-                               //jumbles={jumbles}
-                          // jumbles={filtered}
-                          // selectedJumble={this.state.selectedJumble}
-                          // onJumbleSelect={this.handleJumbleSelect}
-                          // jumblesCount={filtered.length}
-                                          />
+                           items={filtered}
+                          />
                      </div>
                        <span>
-                              <Link
-                                  to={`/jumbles/getall`}
-                                  className="btn edit-btn"
-                                  type="button"
-                                  data-toggle="tooltip"
-                                  title="Get All Jumbles"
-                              >
-                            <i className="fas fa-book-open ps-2 pb-1"></i>
-                                  Show All Jumbles
-                            </Link>
+
                           </span>
                    </section>
                  </main>
@@ -88,52 +85,3 @@ function Category() {
 )
 }
 export default Category
-
-
-//////////
-//    class Category extends React.Component {
-//   constructor(props) {
-//     super(props)
-//
-//     this.state = {
-//       jumbles: [],
-//       categories: [],
-//     }
-//   }
-//
-//   componentDidMount() {
-//     this.setState({
-//       jumbles: ApiService.getAllJumbles(),
-//       categories: ApiService.getCategoryById(),
-//     })
-//   }
-//
-//   handleCategorySelect = category => {
-//     this.setState({ selectedCategory: category })
-//   }
-  // handleJumbleSelect = jumble => {
-  //   this.setState({ selectedJumble: jumble })
-  // }
-  // render() {
-  //   const { length: count } = this.state.jumbles
-  //   const { selectedCategory, jumbles: allJumbles } = this.state
-  //
-  //   if (count === 0) return <p>There are no jumbles in the database</p>
-  //
-  //   const filtered =
-  //     selectedCategory && selectedCategory._id
-  //       ? allJumbles.filter(j => j.category._id === selectedCategory._id)
-  //       : allJumbles
-  //
-  //   return (
-  //             <p className="m-2">
-  //               Showing {filtered.length} Jumbles in the database.{' '}
-  //             </p>
-  //             <JumbleList
-  //               jumbles={filtered}
-                // selectedJumble={this.state.selectedJumble}
-                // onJumbleSelect={this.handleJumbleSelect}
-                // jumblesCount={filtered.length}
-//               />
-
-
