@@ -3,6 +3,7 @@ package de.nbrownie.jumbleapplication.services;
 import de.nbrownie.jumbleapplication.exceptions.BadRequestException;
 import de.nbrownie.jumbleapplication.exceptions.ResourceNotFoundException;
 import de.nbrownie.jumbleapplication.exceptions.UnauthorizedUserException;
+import de.nbrownie.jumbleapplication.models.Jumble;
 import de.nbrownie.jumbleapplication.models.User;
 import de.nbrownie.jumbleapplication.repo.UserRepository;
 import lombok.Getter;
@@ -31,18 +32,19 @@ public class UserService {
     }
 
     public User getUserByUserId(Long userId) {
-        return userRepository.getUserByUserId(userId).orElseThrow(() -> new IllegalArgumentException("JumbleApplication not found"));
+        return userRepository.getUserByUserId(userId).orElseThrow(() -> new IllegalArgumentException("User not found"));
     }
 
-    public User addNewUser(User user, String email) {
-        User existingEmail = userRepository.getUserByEmail(email).orElseThrow(() -> new EntityNotFoundException("User not found"));
-        if (existingEmail.equals(user)) {
-            throw new BadRequestException(
-                    "Email " + user.getEmail() + "already taken");}
-        return userRepository.save(user);
-    }
+//    public User addNewUser(User user, String email) {
+//        User existingEmail = userRepository.getUserByEmail(email).orElseThrow(() -> new EntityNotFoundException("User not found"));
+//        if (existingEmail.equals(user)) {
+//            throw new BadRequestException(
+//                    "Email " + user.getEmail() + "already taken");}
+//        return userRepository.save(user);
+//    }
 
-    public User updateUser(Long userId, User changedUser) {
+
+    public User updateUser(Long id, Long userId, User changedUser) {
         User existingUser = userRepository.getUserByUserId(userId).orElseThrow(() -> new EntityNotFoundException("User not found"));
         if (!existingUser.equals(userId)){
             throw new UnauthorizedUserException("User can only be updated himself/herself");
