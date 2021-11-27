@@ -1,47 +1,57 @@
-import React, { useState, useEffect } from 'react'
-import { useParams, useNavigate } from 'react-router'
+import React, {useEffect, useState} from 'react'
 import { Link } from 'react-router-dom'
 import Star from '../../components/rating'
 import Navbar from '../../components/navbar'
 import Rezension from '../../components/rezension'
+import {getJumbleById} from "../../services/apiService";
+import {useParams} from "react-router";
+import TextField from "../../components/textField";
 
-
-export default function Jumble() {
-  const navigate = useNavigate()
+function Jumble() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState();
-  const [jumble, setJumble] = useState([]);
+  const [address] = useState({})
+  const [jumble, setJumble]= useState([]);
   let { jumbleId } = useParams();
 
+
+
   useEffect(() => {
-    console.log(jumbleId)
     setLoading(true);
-    fetch(`/api/jumbles/${jumbleId}`)
-        .then((res) => res.json())
-        .then((data) => {
-          setJumble(data)
-          console.log(data);
-        })
-        .catch((err) => {
-          setError(err);
-        })
-        .finally(() => {
-          setLoading(false);
-        });
-  }, [jumbleId]);
+    getJumbleById(jumbleId)
+        .then(jumble => setJumble(jumble))
+        .catch(error => setError(error))
+        .finally(() => setLoading(false))
+  },[jumbleId])
 
-  if (loading) {
-    return <p className="container w-100 h-100 mt-5" >Data is loading...</p>;
+
+  console.log(jumble.address?.addressStreet)
+
+
+  //console.log(jumble.address[0])
+ // console.log(jumble.address[0].main)
+
+
+  const addressToString = address => {
+    return(
+        jumble.address?.addressStreet +
+        ' ' +
+        jumble.address?.addressNumber +
+        ' ' +
+        jumble.address?.addressZip +
+        ' ' +
+        jumble.address?.addressCity
+    )
   }
-
-
-    return (
+  return (
           <React.Fragment>
             <Navbar/>
             <main className="m-md-5 mt-5 mb-5">
               <section className="container w-100 h-100 mt-5">
                 <div className="container">
-                  <div className="row " key={jumble.jumbleId}>
+                  { loading &&  <p>Data is loading...</p>}
+                  { error && <p>There was an error loading your data!</p> }
+                  <div key={jumble.jumbleId} className="row ">
                     <div className="col-sm-12">
                       <h1 className="display-1 fs-md-5 fs-lg-6 fs-xl-8 text-light">
                         {jumble.jumbleName}
@@ -74,8 +84,13 @@ export default function Jumble() {
                             <strong>Beschreibung: </strong>
                             {jumble.jumbleText}
                           </p>
+                          <TextField
+                              disabled={true}
+                              key={jumble.address?.addressId}
+                              value={addressToString(address)}
+                              readOnly={true}
+                          />
                         </div>
-
                     <div className="col-sm-12">
                       <h4 className="display-6 fw-bolder mt-2">Erfahrungsberichte</h4>
                       <p className="lead">
@@ -93,3 +108,4 @@ export default function Jumble() {
           </React.Fragment>
       )
 }
+export default Jumble
