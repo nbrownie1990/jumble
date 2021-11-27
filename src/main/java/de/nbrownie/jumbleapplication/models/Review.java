@@ -6,7 +6,7 @@ import lombok.*;
 import javax.persistence.*;
 import java.util.Set;
 
-@Entity
+@Entity(name = "Review")
 @Table(name = "reviews")
 @Builder
 @Setter
@@ -16,7 +16,7 @@ import java.util.Set;
 @NoArgsConstructor
 public class Review {
 
-    @Column(name = "review_id", nullable = false)
+    @Column(name = "review_id", unique = true, nullable = false)
     @Id
     @SequenceGenerator(
             name = "review_sequence",
