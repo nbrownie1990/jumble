@@ -1,69 +1,92 @@
-import React, { useState } from 'react'
+import React, { useState} from 'react'
 import { useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router'
 import Navbar from '../../components/navbar'
 import JumbleForm from '../../components/jumbleForm'
+import {
+    deleteJumble, getAddressById,
+    getJumbleById,
+    updateJumble,
+    updateJumbleAddress
+} from "../../services/apiService";
 
 export default function EditJumble() {
   const navigate = useNavigate();
   const [error, setError] = useState();
   const [loading, setLoading] = useState(false);
-  const [jumble, setJumble] = useState();
-  const [address, setAddress] = useState();
-  const { jumbleId } = useParams();
+  const [jumble, setJumble] = useState([]);
+  const [address, setAddress] = useState([]);
+  let { jumbleId } = useParams();
+  const  addressId  = 4;
 
-  useEffect(() => {
-    console.log(jumbleId)
-    setLoading(true);
-    fetch(`/api/jumbles/edit/${jumbleId}`)
-        .then((res) => res.json())
-        .then((data) => {
-          setJumble(data)
-          setAddress(data)
-          console.log(data);
-        })
-        .catch((err) => {
-          setError(err);
-        })
-        .finally(() => {
-          setLoading(false);
-        });
-  }, [jumbleId]);
+    useEffect(() => {
+        setLoading(true);
+        getJumbleById(jumbleId)
+            .then(jumble => setJumble(jumble))
+            .catch(error => setError(error))
+            .finally(() => setLoading(false))
+    },[jumbleId])
 
-  if (loading) {
-    return <p className="container w-100 h-100 mt-5" >Data is loading...</p>;
-  }
+    useEffect(() => {
+        setLoading(true);
+        getAddressById(addressId)
+            .then(address => setAddress(address))
+            .catch(error => setError(error))
+            .finally(() => setLoading(false))
+    },[addressId])
+
 
   const handleJumbleInputChange = event => {
     setJumble({ ...jumble, [event.target.name]: event.target.value })
     setAddress({ ...address, [event.target.name]: event.target.value })
   }
 
-  // const handleSaveJumbleChanges = jumbleId => {
-  //   ApiService.updateJumbleName(jumbleId, jumble)
-  //     .then(updatedJumble => {
-  //       setJumble(updatedJumble)
-  //       navigate(`/jumbles/${jumbleId}`)
-  //     })
-  //     .catch(error => {
-  //       setError(error)
-  //     })
-  // }
+    const handleSaveJumbleChanges = (jumbleId, jumble) => {
+        setLoading(true)
+        updateJumble(jumbleId, jumble)
+            .then(updatedJumble=> {
+                setJumble(updatedJumble)
+                navigate(`/jumbles/edit/${jumbleId}`)
+            })
+            .catch(error => {
+                setError(error)
+                setLoading(false)
+            })
+    }
+
+    const handleSaveAddressChanges = (addressId, address) => {
+        setLoading(true)
+        updateJumbleAddress(addressId, address)
+            .then(updatedAddress=> {
+                setAddress(updatedAddress)
+               navigate(`/jumbles/edit/${jumbleId}`)
+            })
+            .catch(error => {
+                setError(error)
+                setLoading(false)
+            })
+    }
 
   const handleCancel = () => {
     navigate('/home')
   }
 
-  // const handleDeleteJumble = () => {
-  //   ApiService.deleteJumble(jumbleId)
-  //     .then(deletedJumble => {
-  //       console.log('deleted: ', deletedJumble)
-  //       navigate(`/home`)
-  //     })
-  //     .catch(error => {
-  //       setError(error)
-  //     })
-  // }
+    const handleDeleteJumble = (jumbleId, addressId) => {
+        setLoading(true)
+        deleteJumble(jumbleId, addressId)
+            .then(deletedJumble => {
+                console.log('deleted jumble with jumbleId: '+ jumbleId +' and addressId:' + addressId)
+                navigate(`/home`)
+            })
+            .catch(error => {
+                setError(error)
+                setLoading(false)
+            })
+    }
+    console.log(jumble)
+    console.log(jumble.addressId)
+    console.log(address)
+
   {
     return (
       <React.Fragment>
@@ -75,9 +98,10 @@ export default function EditJumble() {
                 jumble={jumble}
                 address={address}
                 handleJumbleInputChange={handleJumbleInputChange}
-                //handleSaveJumbleChanges={handleSaveJumbleChanges}
+                handleSaveJumbleChanges={handleSaveJumbleChanges}
+                handleSaveAddressChanges={handleSaveAddressChanges}
                 handleCancel={handleCancel}
-                //handleDeleteJumble={handleDeleteJumble}
+                handleDeleteJumble={handleDeleteJumble}
                 readOnly={false}
                 mode="edit"
               />

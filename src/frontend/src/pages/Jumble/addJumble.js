@@ -8,35 +8,53 @@ import Error from "../../components/error";
 
 export default function AddJumble() {
   const navigate = useNavigate();
-  const [jumble, setJumble] = useState(initialJumbleState);
-  const [address, setAddress] = useState(initialAddressState);
+  const [jumble, setJumble, setJumbleId] = useState([]);
+  const [address, setAddress] = useState([]);
   const [error, setError] = useState();
+  const [loading, setLoading] = useState(false)
 
-  const handleJumbleInputChange = event => {
+    const handleJumbleInputChange = event => {
     setJumble({ ...jumble, [event.target.name]: event.target.value })
     setAddress({ ...address, [event.target.name]: event.target.value })
   }
 
   useEffect(() => {
-    fetch(`/api/jumbles/new`)
-        .then((res) => res.json())
-        .then((data) => {
-          setJumble(data)
-          setAddress(data)
-          console.log(data);
-        })
-        .catch((err) => {
-          setError(err);
-        })
-        .finally(() => {
-         // navigate(`/home`);
-        });
+      // POST request using fetch inside useEffect React hook
+      const handleSaveNewJumble = {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ title: 'Wenn das mal klappt...' })
+      };
+      fetch('/api/jumbles/new', handleSaveNewJumble)
+          .then(response => response.json())
+          .then(data => setJumbleId(data.id));
+
+      //empty dependency array means this effect will only run once (like componentDidMount in classes)
   }, []);
 
+    //
+    // const handleSaveNewJumble = event => {
+    //     event.preventDefault();
+    //
+    //     setLoading(true)
+    //     const requestOptions = {
+    //         method: 'POST',
+    //         headers: { 'Content-Type': 'application/json' },
+    //         body: JSON.stringify({ title: 'Wenn das mal klappt...' })
+    //     };
+    //     fetch('/api/jumbles/new', requestOptions)
+    //         .then(response => response.json())
+    //         .then(data => setJumbleId(data.id))
+    //
+    //         .catch(setError)
+    //         .finally(() => {
+    //             setLoading(false)
+    //         })
+    // }
 
-  const handleSaveFailed = errorInfo => {
-    alert(JSON.stringify(errorInfo, null, 2));
-  };
+  // const handleSaveFailed = errorInfo => {
+  //   alert(JSON.stringify(errorInfo, null, 2));
+  // };
 
   const handleCancel = () => {
     navigate('/home')
@@ -53,7 +71,7 @@ export default function AddJumble() {
               address={address}
               handleJumbleInputChange={handleJumbleInputChange}
               //handleSaveNewJumble={handleSaveNewJumble}
-              handleSaveFailed={handleSaveFailed}
+              //handleSaveFailed={handleSaveFailed}
               handleCancel={handleCancel}
               readOnly={false}
               mode="new"
