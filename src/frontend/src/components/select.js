@@ -40,7 +40,7 @@ export default function Select({
   return (
     <label {...props}>
         {title}
-      <select
+      <select className="form-select"
         name={name}
         value={value}
         onChange={onChange}
