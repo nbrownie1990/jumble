@@ -1,10 +1,7 @@
 package de.nbrownie.jumbleapplication.services;
 
-import de.nbrownie.jumbleapplication.exceptions.ResourceNotFoundException;
 import de.nbrownie.jumbleapplication.exceptions.UnauthorizedUserException;
 import de.nbrownie.jumbleapplication.models.Address;
-import de.nbrownie.jumbleapplication.models.Jumble;
-import de.nbrownie.jumbleapplication.models.User;
 import de.nbrownie.jumbleapplication.repo.AddressRepository;
 import de.nbrownie.jumbleapplication.repo.JumbleRepository;
 import lombok.Getter;
@@ -14,7 +11,7 @@ import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityNotFoundException;
 import java.util.List;
-import java.util.Set;
+import java.util.Optional;
 
 @Getter
 @Setter
@@ -23,8 +20,8 @@ public class AddressService {
 
     private AddressRepository addressRepository;
     private JumbleRepository jumbleRepository;
-  //  private final MapboxService mapboxService;
-  //  private final PasswordEncoder passwordEncoder;
+    //  private final MapboxService mapboxService;
+    //  private final PasswordEncoder passwordEncoder;
 
     @Autowired
     public AddressService(AddressRepository addressRepository, JumbleRepository jumbleRepository) {
@@ -34,28 +31,18 @@ public class AddressService {
         //this.passwordEncoder = passwordEncoder;
     }
 
-    public List<Address> getAllAddresses() {
-        return addressRepository.findAll();
-    }
-
-    public Address getAddressById(Long addressId) {
+    public Address getAddressByAddressId(Long addressId) {
         return addressRepository.getAddressByAddressId(addressId).orElseThrow(() -> new IllegalArgumentException("Address not found"));
     }
 
-    public Address addNewAddress(Long jumbleId, Address newAddress) {
-        Jumble jumble = jumbleRepository.getJumbleByJumbleId(jumbleId).orElseThrow(() -> new EntityNotFoundException("Jumble not found"));
-        newAddress.setJumble(jumble);
-        return addressRepository.save(newAddress);
-//        if(addressExists(existingUserAddresses, addressEntity)){
-//            throw new EntityExistsException("Address already exists");
-//        }
-//        address.setJumble(jumble);
-//        Address savedAddress = addressRepository.save(address);
-//        mapboxService.getGeoLocation(savedAddress.getId(), address.toString());
-//
-//        return savedAddress;
-
-    }
+    public boolean addressExists(Address existingAddress, Address addressToCheck) {
+        if (existingAddress.getAddressStreet().equals(addressToCheck.getAddressStreet())
+                && existingAddress.getAddressNumber().equals(addressToCheck.getAddressNumber())
+                && existingAddress.getAddressZip().equals(addressToCheck.getAddressZip())
+                && existingAddress.getAddressCity().equals(addressToCheck.getAddressCity()))
+            return true;
+        return false;
+}
 
     public Address updateAddress(Long addressId, Long jumbleId, Address changedAddress) {
         Address existingAddress = addressRepository.getAddressByAddressId(addressId).orElseThrow(() -> new EntityNotFoundException("Address not found"));
@@ -83,6 +70,15 @@ public class AddressService {
     }
 
 
+    public Optional<Address> getAddressByJumbleId(Long jumbleId){
+            return addressRepository.getAddressByJumbleId(jumbleId);
+    }
+
+    public List<Address> getAddressByAddressIdAndJumbleId(Long jumbleId, Long addressId){
+        return addressRepository.getAddressByAddressIdAndJumbleId(jumbleId, addressId);
+    }
+
+
 //    public void deleteAddress(Long addressId) {
 //        if(!addressRepository.existsById(addressId)) {
 //            throw new ResourceNotFoundException(
@@ -92,3 +88,12 @@ public class AddressService {
 //    }
 
 }
+//////////////
+
+
+
+
+
+
+
+

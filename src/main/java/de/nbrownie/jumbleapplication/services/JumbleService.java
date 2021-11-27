@@ -2,6 +2,7 @@ package de.nbrownie.jumbleapplication.services;
 
 import de.nbrownie.jumbleapplication.exceptions.ResourceNotFoundException;
 import de.nbrownie.jumbleapplication.exceptions.UnauthorizedUserException;
+import de.nbrownie.jumbleapplication.models.Address;
 import de.nbrownie.jumbleapplication.models.Jumble;
 import de.nbrownie.jumbleapplication.models.Review;
 import de.nbrownie.jumbleapplication.models.User;
@@ -44,17 +45,12 @@ public class JumbleService {
         return jumbleRepository.getJumbleByJumbleId(jumbleId).orElseThrow(() -> new IllegalArgumentException("JumbleApplication not found"));
     }
 
-///TEXT
-    public Jumble addNewAwesomeJumble(Jumble newJumble) {
-        return jumbleRepository.save(newJumble);
-    }
-  ////
+
   public Jumble addNewJumble(Long userId, Jumble newJumble) {
        User user = userRepository.getUserByUserId(userId).orElseThrow(() -> new EntityNotFoundException("User not found"));
         newJumble.setUser(user);
        return jumbleRepository.save(newJumble);
     }
-
 
     public Jumble updateJumble(Long jumbleId, Long userId, Jumble changedJumble) {
         Jumble existingJumble = jumbleRepository.findById(jumbleId).orElseThrow(() -> new EntityNotFoundException("Jumble not found"));

@@ -1,16 +1,14 @@
 import React, { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import TextField from '../../components/textField'
 import Error from '../../components/error'
+import {initialSignUpState} from "../../services/stateService";
+import {useNavigate} from "react-router";
 
-const initialState = {
-  username: '',
-  email: '',
-  password: '',
-}
+
 export default function SignUp() {
   const navigate = useNavigate()
-  const [credentials, setCredentials] = useState(initialState)
+  const [credentials, setCredentials] = useState(initialSignUpState)
   const [passwordCheck, setPasswordCheck] = useState('')
   const [checkbox, setCheckbox] = useState(false)
   const [error, setError] = useState()
@@ -38,7 +36,7 @@ export default function SignUp() {
   }
 
   const handleToProfile = () => {
-    navigate('/user')
+    navigate('/user/new')
   }
 
   const handleToLogin = () => {
