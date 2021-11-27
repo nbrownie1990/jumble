@@ -13,7 +13,11 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class SignUpApi {
+    private Long userId;
     private String username;
     private String email;
     private String password;
+    private String userImage;
+    private String userText;
+    private String userRole;
 }

@@ -1,14 +1,12 @@
 package de.nbrownie.jumbleapplication.controllers;
 
 import de.nbrownie.jumbleapplication.models.Address;
-import de.nbrownie.jumbleapplication.models.Jumble;
 import de.nbrownie.jumbleapplication.services.AddressService;
-import de.nbrownie.jumbleapplication.services.JumbleService;
 import lombok.AllArgsConstructor;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @CrossOrigin("http://localhost:8080/")
 @AllArgsConstructor
@@ -18,17 +16,26 @@ public class AddressController {
 
     private final AddressService addressService;
 
-    //Get all JumbleApplication
-    @GetMapping(path = "/getall/addresses")
-    public List<Address> getAllAddress() {
-        return addressService.getAllAddresses();
-    }
-
-    @GetMapping(path = "/addresses/{addressId}")
+    @GetMapping(path = "addresses/{addressId}")
     public Address getAddressById(
-            @PathVariable("addressId") Long addressId) {
-        return addressService.getAddressById(addressId);
+            @PathVariable Long addressId) {
+        return addressService.getAddressByAddressId(addressId);
     }
+    @GetMapping(path = "{jumbleId}/{addressId}")
+    public List<Address> getAddressByAddressIdAndJumbleId(
+            @PathVariable Long jumbleId, @PathVariable Long addressId) {
+        return addressService.getAddressByAddressIdAndJumbleId(jumbleId, addressId);
+    }
+}
+
+//    @GetMapping(value="address/find/{username}/{addressId}", produces = APPLICATION_JSON_VALUE)
+//    public ResponseEntity<AddressApi> getJumbleAddressById(@PathVariable Long jumbleId){
+//        Address address = addressService.findJumbleAddressById(addressId);
+//        if(!authUser.getUsername().equals(addressEntity.getUserEntity().getUsername())){
+//            throw new UnauthorizedUserException("User can only view own addresses");
+//        }
+//        return ok(mapAddress(addressEntity));
+//    }
 
 //    @PostMapping
 //    public void addNewAddress(@Validated @RequestBody Address address) {
@@ -40,7 +47,7 @@ public class AddressController {
 //            @PathVariable("addressId") Long addressId) {
 //        addressService.deleteAddress(addressId);
 //    }
-}
+
 //    @GetMapping("/{id}")
 //    public ResponseEntity<de.nbrownie.jumbleapplication.models.Jumble> GetJumbleById(@PathVariable Long id) {
 //        de.nbrownie.jumbleapplication.models.Jumble jumble = jumbleRepository.findById(id)
@@ -48,24 +55,4 @@ public class AddressController {
 //        return ResponseEntity.ok(jumble);
 //    }
 //
-//
-//    @PutMapping("/edit/{id}")
-//    public ResponseEntity<de.nbrownie.jumbleapplication.models.Jumble> updateJumble(@PathVariable Long id, @RequestBody de.nbrownie.jumbleapplication.models.Jumble jumbleDetails){
-//
-//        de.nbrownie.jumbleapplication.models.Jumble jumble = jumbleRepository.findById(id)
-//                .orElseThrow(() -> new ResourceNotFoundException("JumbleApplication with this id:" + id + "not exist..."));
-//
-//        jumble.setJumble_address(jumbleDetails.getJumble_name());
-//        jumble.setJumble_category(jumbleDetails.getJumble_category());
-//        jumble.setJumble_rating(jumbleDetails.getJumble_rating());
-//        jumble.setJumble_time(jumbleDetails.getJumble_time());
-//        jumble.setJumble_name(jumbleDetails.getJumble_name());
-//        jumble.setJumble_website(jumbleDetails.getJumble_website());
-//        jumble.setJumble_text(jumbleDetails.getJumble_text());
-//        jumble.setJumble_time(jumbleDetails.getJumble_time());
-//
-//        de.nbrownie.jumbleapplication.models.Jumble updateJumble = jumbleRepository.save(jumble);
-//        return ResponseEntity.ok(updateJumble);
-//    }
 
-    

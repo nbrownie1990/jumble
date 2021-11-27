@@ -3,6 +3,7 @@ package de.nbrownie.jumbleapplication.controllers;
 import de.nbrownie.jumbleapplication.api.JumbleApi;
 import de.nbrownie.jumbleapplication.api.ReviewApi;
 import de.nbrownie.jumbleapplication.exceptions.UnauthorizedUserException;
+import de.nbrownie.jumbleapplication.models.Address;
 import de.nbrownie.jumbleapplication.models.Jumble;
 import de.nbrownie.jumbleapplication.models.Review;
 import de.nbrownie.jumbleapplication.models.User;
@@ -53,13 +54,11 @@ public class JumbleController extends ControllerMapper {
     }
     //// TEST
     @PostMapping(value = "new", produces = APPLICATION_JSON_VALUE, consumes = APPLICATION_JSON_VALUE)
-    public ResponseEntity<JumbleApi> addNewAwesomeJumble( @RequestBody JumbleApi newJumble) {
+    public ResponseEntity<JumbleApi> addNewJumble(@PathVariable Long userId, @RequestBody JumbleApi newJumble) {
             Jumble jumble = mapJumble(newJumble);
-            Jumble jumbleCreated = jumbleService.addNewAwesomeJumble(jumble);
+            Jumble jumbleCreated = jumbleService.addNewJumble(userId, jumble);
             return ok(mapJumble(jumbleCreated));
         }
-
-
 
     ////
     @PostMapping(value = "new/{userId}", produces = APPLICATION_JSON_VALUE, consumes = APPLICATION_JSON_VALUE)
@@ -73,6 +72,7 @@ public class JumbleController extends ControllerMapper {
         throw new UnauthorizedUserException("Only logged-in user can create a Jumble in list");
     }
 
+    //Reviews
     @PostMapping(value = "post/add/{jumbleId}", produces = APPLICATION_JSON_VALUE, consumes = APPLICATION_JSON_VALUE)
     public ResponseEntity<JumbleApi> addReviewToJumble(@AuthenticationPrincipal User authUser, @PathVariable Long jumbleId, @RequestBody ReviewApi reviewApi) {
         Jumble updatedJumble = jumbleService.addReviewToList(authUser.getUserId(), jumbleId, mapReview(reviewApi));
@@ -91,11 +91,15 @@ public class JumbleController extends ControllerMapper {
         return ok(mapReview(deletedReview));
     }
 
+   ///Addresses
+
+
     @DeleteMapping(value = "edit/delete/{jumbleId}", produces = APPLICATION_JSON_VALUE)
     public ResponseEntity<JumbleApi> deleteJumble(@AuthenticationPrincipal User authUser, @PathVariable Long jumbleId) {
         Jumble deletedJumble = jumbleService.deleteJumble(authUser.getUserId(), jumbleId);
         return ok(mapJumble(deletedJumble));
     }
+
 }
 
 

@@ -12,15 +12,33 @@ abstract class ControllerMapper {
 ///USER////
     public UserApi mapUser(User user) {
         return UserApi.builder()
+                .userId(user.getUserId())
                 .username(user.getUsername())
                 .email(user.getEmail())
+                .userImage(user.getUserImage())
+                .userText(user.getUserText().toString())
+                .userRole(user.getUserRole())
                 .build();
     }
 
-    public User mapUser(SignUpApi user) {
+    public User mapUser(UserApi userApi) {
         return User.builder()
-                .username(user.getUsername())
-                .email(user.getEmail())
+                .userId(userApi.getUserId())
+                .username(userApi.getUsername())
+                .email(userApi.getEmail())
+                .userImage(userApi.getUserImage())
+                .userText(userApi.getUserText().toString())
+                .userRole(userApi.getUserRole())
+                .build();
+    }
+
+
+    public User mapUser(SignUpApi userApi) {
+        return User.builder()
+                .userId(userApi.getUserId())
+                .username(userApi.getUsername())
+                .email(userApi.getEmail())
+                .password(userApi.getPassword())
                 .build();
     }
 

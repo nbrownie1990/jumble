@@ -25,10 +25,9 @@ public class CategoryController {
     }
 
     @GetMapping(path = "{categoryId}")
-    public ResponseEntity<Category> getJumbleById(
-            @PathVariable Long categoryId) {
-        Category category = categoryService.getCategoryById(categoryId);
-        return ResponseEntity.ok(category);
+    public Category getCategoryById(
+            @PathVariable("categoryId") Long categoryId) {
+        return categoryService.getCategoryById(categoryId);
     }
 
 //   @GetMapping("/{id}")
