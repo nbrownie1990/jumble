@@ -14,6 +14,7 @@ export default function JumbleForm({
   handleEditJumble,
   handleSaveNewJumble,
   handleSaveJumbleChanges,
+  handleSaveAddressChanges,
   handleCancel,
   handleDeleteJumble,
   readOnly,
@@ -43,7 +44,7 @@ export default function JumbleForm({
 
             <label className="labels">Beschreibung</label>
             <TextArea
-              name="text"
+              name="jumbleText"
               placeholder=" Bitte beschreibe diesen Jumble"
               type="text"
               rows="5"
@@ -69,8 +70,8 @@ export default function JumbleForm({
               <div className="col-md-12">
                 <label className="labels">Jumble-Name</label>
                 <TextField
-                  name="name"
-                  placeholder="z.B. Flohschanze"
+                  name="jumbleName"
+                  title="Name"
                   type="text"
                   value={jumble.jumbleName}
                   onChange={handleJumbleInputChange}
@@ -79,8 +80,9 @@ export default function JumbleForm({
                 />
               </div>
               <div className="col-md-12">
-                <label className="labels">Jumble-Category</label>
-                <Select className="form-control"
+                <label className="labels mt-3">Jumble-Category</label>
+                <br />
+                <Select
                   name="category"
                   value={jumble.category}
                   onChange={handleJumbleInputChange}
@@ -92,20 +94,21 @@ export default function JumbleForm({
               <div className="col-md-10 col-8 m-2">
                 <label className="labels">Jumble-Adresse</label>
                 <AddressForm
+                  name="address"
                   address={address}
                   handleJumbleInputChange={handleJumbleInputChange}
-                  handleCancel={handleCancel}
-                  handleSaveJumbleChanges={handleSaveJumbleChanges}
-                  handleSaveNewJumble={handleSaveNewJumble}
+                  handleSaveAddressChanges={handleSaveAddressChanges}
+                  //handleSaveNewJumble={handleSaveNewJumble}
                   handleDeleteJumble={handleDeleteJumble}
+                  handleCancel={handleCancel}
                   readOnly={false}
                 />
               </div>
               <div className="col-md-12">
                 <label className="labels">Termin</label>
                 <DateField
-                  name="date"
-                  placeholder="Termin"
+                  name="jumbleDate"
+                  title="Termin"
                   type="date"
                   value={jumble.jumbleDate}
                   onChange={handleJumbleInputChange}
@@ -118,8 +121,8 @@ export default function JumbleForm({
               <div className="col-md-12">
                 <label className="labels">Öffnungszeiten</label>
                 <TextField
-                  name="time"
-                  placeholder=" z.B. 9-16 Uhr"
+                  name="jumbleTime"
+                  title=" z.B. 9-16 Uhr"
                   type="text"
                   value={jumble.jumbleTime}
                   onChange={handleJumbleInputChange}
@@ -132,8 +135,8 @@ export default function JumbleForm({
               <div className="col-md-12">
                 <label className="labels"> Website</label>
                 <TextField
-                  name="website"
-                  placeholder="z.B. www.flohschanze.de"
+                  name="jumbleWebsite"
+                  title="Website"
                   type="url"
                   value={jumble.jumbleWebsite}
                   onChange={handleJumbleInputChange}
