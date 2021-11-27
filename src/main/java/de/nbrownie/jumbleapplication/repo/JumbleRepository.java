@@ -12,23 +12,13 @@ import java.util.Optional;
 
 @Repository
 public interface JumbleRepository extends JpaRepository<Jumble, Long> {
+    @Query("SELECT j FROM Jumble j WHERE j.jumbleId= ?1")
     Optional<Jumble> getJumbleByJumbleId(Long jumbleId);
 
-    @Query(
-            value = "SELECT * FROM jumble j where j.jumble_name = :jumbleName",
-            nativeQuery = true
-    )
-    Jumble getJumbleByName(
-            @Param("jumbleName") String jumbleName
-    );
+    @Query("SELECT j FROM Jumble j WHERE j.jumbleName= ?1")
+    Optional<Jumble> getJumbleByJumbleName(Long jumbleId);
 
-
-    @Query(
-            value = "SELECT * FROM jumble j where j.jumble_address = :addressStreet",
-            nativeQuery = true
-    )
-    Jumble getJumbleByAddress(
-            @Param("addressStreet") String addressStreet
-    );
+    @Query("SELECT j FROM Jumble j WHERE j.address.addressId= ?1")
+    Optional<Jumble> getJumbleByAddressId(Long addressId);
 
 }
