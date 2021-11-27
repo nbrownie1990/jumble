@@ -1,5 +1,6 @@
 package de.nbrownie.jumbleapplication.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
@@ -10,7 +11,7 @@ import java.util.List;
 import java.util.Set;
 
 
-@Entity
+@Entity(name = "Category")
 @Table(name = "categories")
 @Setter
 @Getter
@@ -20,7 +21,7 @@ import java.util.Set;
 
 public class Category {
 
-    @Column(name = "category_id", nullable = false)
+    @Column(name = "category_id", unique = true, nullable = false)
     @Id
     @SequenceGenerator(
             name = "category_sequence",
@@ -43,7 +44,7 @@ public class Category {
     private String categoryImage;
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy="category", fetch = FetchType.EAGER)
-    @JsonManagedReference
+    @JsonBackReference
     private Set<Jumble> jumbleList;
 
 

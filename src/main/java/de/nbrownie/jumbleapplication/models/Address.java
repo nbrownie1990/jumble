@@ -6,7 +6,7 @@ import lombok.*;
 
 import javax.persistence.*;
 
-@Entity
+@Entity(name = "Address")
 @Table(name = "addresses")
 @Builder
 @Setter
@@ -51,7 +51,7 @@ public class Address {
 
     //One Jumble has its own address
     @OneToOne(mappedBy= "address")
-    @JsonManagedReference
+    @JsonBackReference
     private Jumble jumble;
 
 

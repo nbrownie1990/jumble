@@ -15,13 +15,13 @@ import java.util.Set;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
+@Entity(name = "User")
 @Table(name = "users")
 @Builder(toBuilder = true)
 
 public class User {
 
-    @Column(name = "user_id", nullable = false)
+    @Column(name = "user_id",  unique = true, nullable = false)
     @Id
     @SequenceGenerator(
             name = "user_sequence",
@@ -59,7 +59,7 @@ public class User {
 
     //One User can add many jumbles
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy="user", fetch = FetchType.EAGER)
-    @JsonManagedReference
+    @JsonBackReference
     private Set<Jumble> jumbleList;
 
     public User deleteJumble(Jumble jumble){

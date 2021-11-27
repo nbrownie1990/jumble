@@ -1,7 +1,6 @@
 package de.nbrownie.jumbleapplication.models;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 
@@ -9,7 +8,7 @@ import javax.persistence.*;
 import java.util.Set;
 
 
-@Entity
+@Entity(name = "Jumble")
 @Table(name = "jumbles")
 @Setter
 @Getter
@@ -19,7 +18,7 @@ import java.util.Set;
 @NoArgsConstructor
 public class Jumble {
 
-    @Column(name = "jumble_id", nullable = false)
+    @Column(name = "jumble_id", unique = true, nullable = false)
     @Id
     @SequenceGenerator(
             name = "jumble_sequence",
@@ -53,19 +52,19 @@ public class Jumble {
     //Many Jumbles can be added by one user Entity
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="user_id")
-    @JsonBackReference
+    @JsonManagedReference
     private User user;
 
     //Many Jumbles can be added to one category
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="category_id")
-    @JsonBackReference
+    @JsonManagedReference
     private Category category;
 
     //One Jumble has its own address
     @OneToOne(cascade= CascadeType.ALL)
     @JoinColumn(name="address_id")
-    @JsonBackReference
+    @JsonManagedReference
     private Address address;
 
     //One Jumble can have many reviews
