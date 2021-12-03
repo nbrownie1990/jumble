@@ -5,7 +5,7 @@
 @use './components/footer';
 @use './components/navbar';
 @use './components/mapcomponent';
-@use './components/rezension';
+@use 'src/scss/components/review';
 @use './pages/profile';
 @use './pages/edit';
 @use './pages/jumble';
