@@ -3,6 +3,8 @@ package de.nbrownie.jumbleapplication.api;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.*;
 
+import java.util.List;
+
 @Data
 @Builder
 @AllArgsConstructor
@@ -15,4 +17,5 @@ public class UserApi {
     private String userImage;
     private String userText;
     private String userRole;
+    private List<ReviewApi> reviewApiList;
 }

@@ -3,7 +3,6 @@ package de.nbrownie.jumbleapplication.api;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import de.nbrownie.jumbleapplication.models.Address;
 import de.nbrownie.jumbleapplication.models.Category;
-import de.nbrownie.jumbleapplication.models.Review;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
