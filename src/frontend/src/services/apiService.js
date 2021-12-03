@@ -3,17 +3,26 @@ import React from 'react';
 
 const baseUrl = `http://localhost:8080/api`
 
-// export const getToken = credentials =>
-//   axios
-//     .post('api/auth/access_token', credentials)
-//     .then(response => response.data)
-//     .then(dto => dto.token)
-//
-//const headers = token => ({
-//   headers: {
-//     Authorization: `Bearer ${token}`,
-//   },
-// })
+export const getToken = credentials =>
+  axios
+    .post('api/auth/access_token', credentials)
+    .then(response => response.data)
+    .then(dto => dto.token)
+
+const headers = token => ({
+  headers: {
+    Authorization: `Bearer ${token}`,
+  },
+})
+
+// const checkStatus = response => {
+//     if (response.ok) {
+//         return response;
+//     }
+//     const error = new Error(response.statusText);
+//     error.response = response;
+//     return Promise.reject(error)
+// }
 
 
 //////////////////////////////////
@@ -80,23 +89,22 @@ export const getAddressById = async (addressId) => {
         });
 }
 
-//hier evtl.wieder pfad ändern
-export const getJumbleAddressById = async (jumbleId) => {
-    const response = await axios
-        .get(`${baseUrl}/jumbles/${jumbleId}`)
-        //.then(res => console.log(JSON.stringify(res.data, null, 2)));
-
-}
-
-
 export const addNewAddress = (address) =>
   axios
     .post(`/api/jumbles/new`, address)
     .then(response => response.data)
 
-export const updateJumbleAddress = async (jumbleId, jumbleAddress) => {
+export const updateJumbleAddress = async (jumbleId, address) => {
     return await axios
-        .put(`${baseUrl}/jumbles/edit/${jumbleId}`, jumbleAddress)
+        .put(`${baseUrl}/jumbles/edit/${jumbleId}`, address)
+        .then(response => {
+            return response.data;
+        });
+}
+
+export const updateJumbleAndAddress = async (jumbleId, jumble, address) => {
+    return await axios
+        .put(`${baseUrl}/jumbles/edit/${jumbleId}`, jumble, address)
         .then(response => {
             return response.data;
         });
@@ -104,21 +112,24 @@ export const updateJumbleAddress = async (jumbleId, jumbleAddress) => {
 
 ///////////END Address//////////////////
 
-export const deleteJumble = async (jumbleId, addressId) => {
+export const deleteJumble = async (jumbleId) => {
     return await axios
-        .delete(`${baseUrl}/jumbles/edit/delete/${jumbleId}/${addressId}`)
+        .delete(`${baseUrl}/jumbles/edit/delete/${jumbleId}`)
         .then(response => {
             return response.data;
         });
 }
 
 //////////////////////////////////
-///////////Review//////////////////
+///////////Reviews//////////////////
 ////////////////////////////////
-// export const getReviewList = (token, jumbleId, rezensionId) =>
-//   axios
-//     .get(`/api/jumbles/${jumbleId}/${rezensionId}`, headers(token))
-//     .then(response => response.data)
+
+
+export const getReviewList = () =>
+  axios
+    .get(`/api/reviews/getall`)
+   // .then(checkStatus)
+    .then(response => response.data)
 
 // export const addReview = (token, jumbleId, rezensionId, user_id, rating) =>
 //   axios
