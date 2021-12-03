@@ -41,7 +41,7 @@ function Profile () {
                   <div className="card ">
                     <div className="card-body">
                       <p className="m-0 py-2 text-muted ">
-                        {user.userText} ♥️
+                        {user.userText}
                       </p>
                       <Link
                         to={`/user/edit/${userId}`}

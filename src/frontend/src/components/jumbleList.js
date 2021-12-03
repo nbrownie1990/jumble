@@ -1,7 +1,6 @@
 import React from 'react'
-import Star from './rating'
 import { Link } from 'react-router-dom'
-import Navbar from "./navbar";
+import StarRating from "./star";
 
 const JumbleList = props => {
     const { items, onItemSelected} = props
@@ -22,7 +21,7 @@ const JumbleList = props => {
                 {/*</p>*/}
                 </div>
                 <div className="col-6 text-end">
-                 <Star />
+                 <StarRating />
                       <Link
                         to={`/jumbles/${item.jumbleId}`}
                         onClick={() => onItemSelected(item)}

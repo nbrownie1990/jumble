@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import TextField from '../../components/textField'
 //import { useAuth } from '../../auth/AuthProvider'
-import Error from '../../components/error'
 import {initialLoginState} from "../../services/stateService";
 import {useNavigate} from "react-router";
 
@@ -59,7 +58,7 @@ export default function Login() {
                         required
                         autoFocus
                       />
-                      {error && <Error>Email ungültig</Error>}
+                      {error && <p>Email ungültig</p>}
                     </div>
 
                     <div className="form-group">

@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import TextField from '../../components/textField'
-import Error from '../../components/error'
 import {initialSignUpState} from "../../services/stateService";
 import {useNavigate} from "react-router";
 
@@ -84,7 +83,7 @@ export default function SignUp() {
                       <label className="text-info">
                         * um dein Passwort ggf. zurücksetzen zu können
                       </label>
-                      {error && <Error>Deine Emailadresse ist ungültig</Error>}
+                      {error && <p>Deine Emailadresse ist ungültig</p>}
                     </div>
 
                     <div className="form-group">
@@ -108,7 +107,7 @@ export default function SignUp() {
                         title="Retype Password"
                         type="password"
                       />
-                      {error && <Error>Passwort ist erforderlich</Error>}
+                      {error && <p>Passwort ist erforderlich</p>}
                     </div>
 
                     <div className="form-group">
@@ -128,9 +127,9 @@ export default function SignUp() {
                           {''} zu
                         </label>
                         {error && (
-                          <Error>
+                          <p>
                             Du musst unseren Nutzungsbedingungen zustimmen
-                          </Error>
+                          </p>
                         )}
                       </div>
                     </div>
