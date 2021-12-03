@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React, {useCallback, useEffect, useState} from 'react'
 import Navbar from '../../components/navbar'
 import {Link} from 'react-router-dom'
 import ProfileForm from '../../components/profileForm'
@@ -9,18 +9,43 @@ export default function EditProfile() {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState()
   const [user, setUser] = useState([])
+  const [userEmail, setUserEmail] = useState([])
+  const [userName, setUserName] = useState([])
+  const [userText, setUserText] = useState([])
+
   //const { user, token } = useAuth()
   const navigate = useNavigate();
   let { userId } = useParams();
 
 
-  useEffect(() => {
-    setLoading(true);
+  const loadDataOnlyOnce = useCallback(() => {
+    setLoading(true)
     getUserById(userId)
-        .then(user => setUser(user))
-        .catch(error => setError(error))
-        .finally(() => setLoading(false))
-  },[userId])
+        .then(user => {
+          setUser(user)
+        })
+        .then(user => setUserName(user.username))
+        .then(user => setUserEmail(user.email))
+        .then(user => setUserText(user.userText))
+        .catch(setError)
+        .finally(() => {
+          setLoading(false)
+        })
+  }, [userId])
+
+  useEffect(() => {
+    loadDataOnlyOnce()
+  }, [loadDataOnlyOnce])
+
+
+
+  // useEffect(() => {
+  //   setLoading(true);
+  //   getUserById(userId)
+  //       .then(user => setUser(user))
+  //       .catch(error => setError(error))
+  //       .finally(() => setLoading(false))
+  // },[userId])
 
 
 
