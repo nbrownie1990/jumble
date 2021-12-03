@@ -17,7 +17,7 @@ export default function EditJumble() {
   const [jumble, setJumble] = useState([]);
   const [address, setAddress] = useState([]);
   let { jumbleId } = useParams();
-  const  addressId  = 4;
+  let  addressId  = jumble.address?.addressId;
 
     useEffect(() => {
         setLoading(true);
@@ -71,9 +71,9 @@ export default function EditJumble() {
     navigate('/home')
   }
 
-    const handleDeleteJumble = (jumbleId, addressId) => {
+    const handleDeleteJumble = (jumbleId) => {
         setLoading(true)
-        deleteJumble(jumbleId, addressId)
+        deleteJumble(jumbleId)
             .then(deletedJumble => {
                 console.log('deleted jumble with jumbleId: '+ jumbleId +' and addressId:' + addressId)
                 navigate(`/home`)
@@ -83,11 +83,9 @@ export default function EditJumble() {
                 setLoading(false)
             })
     }
-    console.log(jumble)
-    console.log(jumble.addressId)
-    console.log(address)
 
-  {
+    console.log(jumble)
+
     return (
       <React.Fragment>
         <Navbar />
@@ -110,5 +108,4 @@ export default function EditJumble() {
         </main>
       </React.Fragment>
     )
-  }
 }
