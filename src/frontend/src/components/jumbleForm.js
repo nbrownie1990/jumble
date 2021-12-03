@@ -159,7 +159,7 @@ export default function JumbleForm({
               <button
                 className="btn btn-primary profile-button mb-5 m-3"
                 type="button"
-                onClick={() => handleEditJumble(jumble.jumbleId)}
+                onClick={() => handleEditJumble(jumble)}
               >
                 <i className="fas fa-pen"></i> Edit Jumble
               </button>

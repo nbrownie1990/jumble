@@ -24,7 +24,7 @@ function Categories() {
           <main className="m-md-5 m-2 mt-5 mb-5">
             <section className="container w-100 h-100 px-4 px-lg-5 mt-5">
                 { loading &&  <p>Data is loading...</p>}
-                { error || !Array.isArray(jumbles) && <p>There was an error loading your data!</p> }
+                { error  && <p>There was an error loading your data!</p> }
                 <CategoryGroup
                   items={categories}
               />
