@@ -51,21 +51,26 @@ public class Jumble {
 
     //Many Jumbles can be added by one user Entity
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name="user_id")
+    @JoinColumn(name="user_id",
+    foreignKey = @ForeignKey(name= "user_id_fk"))
     @JsonManagedReference
     private User user;
 
     //Many Jumbles can be added to one category
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name="category_id")
+    @JoinColumn(name="category_id",
+            foreignKey = @ForeignKey(name= "category_id_fk"))
     @JsonManagedReference
     private Category category;
 
     //One Jumble has its own address
     @OneToOne(cascade= CascadeType.ALL)
-    @JoinColumn(name="address_id")
+    @JoinColumn(name="address_id",
+            foreignKey = @ForeignKey(name= "address_id_fk"))
     @JsonManagedReference
     private Address address;
+
+
 
     //One Jumble can have many reviews
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy="jumble", fetch = FetchType.EAGER)
@@ -82,6 +87,8 @@ public class Jumble {
         review.setJumble(null);
         return this;
     }
+
+
 
     @Override
     public int hashCode() {

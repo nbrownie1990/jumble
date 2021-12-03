@@ -47,6 +47,6 @@ public class ReviewService {
     }
 
     public Review getReviewById(Long reviewId) {
-        return reviewRepository.findById(reviewId).orElseThrow(() -> new IllegalArgumentException("Review not found"));
+        return reviewRepository.findById(reviewId).orElseThrow(() -> new IllegalArgumentException("Reviews not found"));
     }
 }

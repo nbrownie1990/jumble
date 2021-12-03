@@ -52,10 +52,12 @@ public class User {
     @Column(name = "user_role")
     private String userRole;
 
+
     //One User can make many reviews
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy="user", fetch = FetchType.EAGER)
-    @JsonManagedReference
+    @JsonBackReference
     private Set<Review> reviewList;
+
 
     //One User can add many jumbles
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy="user", fetch = FetchType.EAGER)
@@ -91,3 +93,20 @@ public class User {
         return username + " " + userText + ", " + userRole;
     }
 }
+
+
+//@ManyToMany(
+//        cascade={CascadeType.PERSIST, CascadeType.REMOVE}
+//)
+//@JoinTable(
+//        name= "reviewing",
+//        joinColumns = @JoinColumn(
+//                name= "user_id",
+//        foreignKey = @ForeignKey(name= "reviewing_user_id_fk")
+//        ),
+//        inverseJoinColumns = @JoinColumn(
+//                name= "jumble_id",
+//                foreignKey = @ForeignKey(name= "reviewing_jumble_id_fk")
+//        ),
+//)
+//)

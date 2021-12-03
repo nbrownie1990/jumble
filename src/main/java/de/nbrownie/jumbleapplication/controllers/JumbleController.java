@@ -93,7 +93,6 @@ public class JumbleController extends ControllerMapper {
 
    ///Addresses
 
-
     @DeleteMapping(value = "edit/delete/{jumbleId}", produces = APPLICATION_JSON_VALUE)
     public ResponseEntity<JumbleApi> deleteJumble(@AuthenticationPrincipal User authUser, @PathVariable Long jumbleId) {
         Jumble deletedJumble = jumbleService.deleteJumble(authUser.getUserId(), jumbleId);

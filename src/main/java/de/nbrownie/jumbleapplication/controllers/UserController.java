@@ -51,10 +51,16 @@ public class UserController extends ControllerMapper {
 //    }
 
 
-    @DeleteMapping(path = "edit/delete/{userId}")
-    public void deleteUser(
-            @PathVariable Long userId) {
-        userService.deleteUser(userId);
+//    @DeleteMapping(path = "edit/delete/{userId}")
+//    public void deleteUser(
+//            @PathVariable Long userId) {
+//        userService.deleteUser(userId);
+//    }
+
+    @DeleteMapping(value = "edit/delete/{userId}", produces = APPLICATION_JSON_VALUE)
+    public ResponseEntity<UserApi> deleteUser(@PathVariable Long userId) {
+        User deletedUser = userService.deleteUser(userId);
+        return ok(mapUser(deletedUser));
     }
 }
     

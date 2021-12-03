@@ -50,7 +50,7 @@ public class Address {
     private double latitude;
 
     //One Jumble has its own address
-    @OneToOne(mappedBy= "address")
+    @OneToOne(mappedBy= "address", orphanRemoval = true)
     @JsonBackReference
     private Jumble jumble;
 

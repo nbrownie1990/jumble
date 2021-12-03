@@ -137,7 +137,7 @@ public class JumbleService {
             throw new UnauthorizedUserException("Jumble can only be updated by its owner");
         }
         Review existingReview = reviewRepository.findById(changedReview.getReviewId())
-                .orElseThrow(() -> new EntityNotFoundException("Review not found"));
+                .orElseThrow(() -> new EntityNotFoundException("Reviews not found"));
 
         if (changedReview.getReviewText() != null) {
             existingReview.setReviewText(changedReview.getReviewText());
@@ -154,7 +154,7 @@ public class JumbleService {
 
     public Review deleteReview(Long userId, Long jumbleId, Long reviewId) {
         userRepository.getUserByUserId(userId).orElseThrow(() -> new UnauthorizedUserException("User can only delete own review"));
-        Review existingReview = reviewRepository.findById(reviewId).orElseThrow(() -> new EntityNotFoundException("Review not found"));
+        Review existingReview = reviewRepository.findById(reviewId).orElseThrow(() -> new EntityNotFoundException("Reviews not found"));
         Jumble jumble = jumbleRepository.getJumbleByJumbleId(jumbleId).orElseThrow(() -> new EntityNotFoundException("Jumble not found"));
         if (!existingReview.getJumble().getJumbleId().equals(jumbleId)) {
             throw new IllegalArgumentException("JumbleId and reviewId do not fit");

@@ -42,6 +42,7 @@ abstract class ControllerMapper {
                 .build();
     }
 
+
     public List<UserApi> mapUser(List<User> userList) {
         List<UserApi> userApiList = new LinkedList<>();
         for(User user: userList){
@@ -57,6 +58,7 @@ abstract class ControllerMapper {
                 .reviewId(reviewApi.getReviewId())
                 .reviewRating(reviewApi.getReviewRating())
                 .reviewText(reviewApi.getReviewText())
+                .user(reviewApi.getUser())
                 .build();
     }
 
@@ -65,6 +67,7 @@ abstract class ControllerMapper {
                 .reviewId(review.getReviewId())
                 .reviewRating(review.getReviewRating())
                 .reviewText(review.getReviewText())
+                .user(review.getUser())
                 .build();
     }
 
@@ -89,7 +92,6 @@ abstract class ControllerMapper {
         }
         return reviewApiList;
     }
-
 
 
     ///ADDRESS///

@@ -1,6 +1,7 @@
 package de.nbrownie.jumbleapplication.models;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 
 import javax.persistence.*;
@@ -35,17 +36,25 @@ public class Review {
     @Column(name = "review_rating",  nullable = false)
     private Short reviewRating;
 
+
     //Many reviews can be added to one Jumble Entity
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name="jumble_id")
+    @JoinColumn(name="jumble_id",
+            foreignKey = @ForeignKey(name= "jumble_id_fk"))
     @JsonBackReference
     private Jumble jumble;
 
     //Many reviews can be added by one User Entity
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name="user_id")
-    @JsonBackReference
+    @JoinColumn(name="user_id",
+            foreignKey = @ForeignKey(name= "user_id_fk"))
+    @JsonManagedReference
     private User user;
+
+
+
+
+
 
     @Override
     public int hashCode() {
@@ -65,7 +74,7 @@ public class Review {
 
     @Override
     public String toString() {
-        return "Review: " + reviewText;
+        return "Reviews: " + reviewText;
     }
 }
 
