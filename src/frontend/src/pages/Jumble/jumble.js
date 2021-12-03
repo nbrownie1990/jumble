@@ -1,56 +1,78 @@
-import React, {useEffect, useState} from 'react'
+import React, {useCallback, useEffect, useState} from 'react'
 import { Link } from 'react-router-dom'
-import Star from '../../components/rating'
 import Navbar from '../../components/navbar'
-import Rezension from '../../components/rezension'
-import {getJumbleById} from "../../services/apiService";
+import {getJumbleById, getReviewList} from "../../services/apiService";
 import {useParams} from "react-router";
-import TextField from "../../components/textField";
+import Reviews from "../../components/reviews";
+import StarRating from "../../components/star";
+import Loading from "../../components/loading";
+import MessageTeam from "../../components/messageTeam";
+import YourReview from "../../components/yourReview";
 
 function Jumble() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState();
-  const [address] = useState({})
   const [jumble, setJumble]= useState([]);
+  const [reviewList, setReviewList]= useState([]);
+  const [rating, setRating] = useState(3) // initial rating value
   let { jumbleId } = useParams();
 
 
-
-  useEffect(() => {
-    setLoading(true);
+  const loadDataOnlyOnce = useCallback(() => {
+    setLoading(true)
+    setError();
     getJumbleById(jumbleId)
         .then(jumble => setJumble(jumble))
-        .catch(error => setError(error))
+        .catch(setError)
         .finally(() => setLoading(false))
   },[jumbleId])
 
+  useEffect(() => {
+    loadDataOnlyOnce()
+  }, [loadDataOnlyOnce])
 
-  console.log(jumble.address?.addressStreet)
+  useEffect(() => {
+    setLoading(true);
+    setError();
+    getReviewList()
+        .then(reviewList => setReviewList(reviewList))
+        .catch(setError)
+        .finally(() => setLoading(false))
+  },[])
 
 
-  //console.log(jumble.address[0])
- // console.log(jumble.address[0].main)
-
-
-  const addressToString = address => {
-    return(
-        jumble.address?.addressStreet +
-        ' ' +
-        jumble.address?.addressNumber +
-        ' ' +
-        jumble.address?.addressZip +
-        ' ' +
-        jumble.address?.addressCity
-    )
+  // Catch Rating value
+  const handleRating = (rate) => {
+    setRating(rate)
+    // Some logic
   }
+
+
+  //console.log(jumble.address?.addressStreet)
+  // console.log(jumble.reviewList?.[0].reviewId)
+
+  console.log(jumble)
+  console.log(reviewList)
+
+
+  let array1 = jumble.reviewList
+  let array2 = reviewList
+  let result = array2.filter(o1 => {
+    return array1.some
+    (o2 => o1.reviewId === o2.reviewId)
+  });
+  console.log(result)
+
+
   return (
           <React.Fragment>
+            {loading && <Loading />}
             <Navbar/>
-            <main className="m-md-5 mt-5 mb-5">
-              <section className="container w-100 h-100 mt-5">
-                <div className="container">
-                  { loading &&  <p>Data is loading...</p>}
-                  { error && <p>There was an error loading your data!</p> }
+            {!loading && (
+                <main className="m-md-5 mt-5 mb-5">
+                  <section className="container w-100 h-100 mt-5">
+                    {error &&  <button className="btn"><span className="error badge badge-primary" data-aos="fade-right">{error.response.data.message}</span></button>}
+                    <div className="container">
                   <div key={jumble.jumbleId} className="row ">
                     <div className="col-sm-12">
                       <h1 className="display-1 fs-md-5 fs-lg-6 fs-xl-8 text-light">
@@ -79,25 +101,45 @@ function Jumble() {
                         {/*</div>*/}
 
                         <div className="col-sm-6">
-                          Bewertung: <Star/>
+                          Bewertung:
+
+                          {jumble.reviewList?.length <=0? <p className="lead mt-2">Dieser Jumble wartet noch auf ein Feedback!</p> :
+                          <StarRating
+                              ratingValue={jumble.reviewList?.[0].reviewRating}
+                              //ratingValue= {averageRating}
+                          />}
+
                           <p className="lead mt-2">
                             <strong>Beschreibung: </strong>
                             {jumble.jumbleText}
                           </p>
-                          <TextField
-                              disabled={true}
-                              key={jumble.address?.addressId}
-                              value={addressToString(address)}
-                              readOnly={true}
-                          />
+                          <div key={jumble.address?.addressId}>
+                            <p className="lead mt-2">
+                             {jumble.address?.addressStreet} {' '}
+                             {jumble.address?.addressNumber}
+                            </p>
+                          <p className="lead">
+                                {jumble.address?.addressZip}  {' '}
+                                {jumble.address?.addressCity}
+                          </p>
+                          </div>
                         </div>
                     <div className="col-sm-12">
                       <h4 className="display-6 fw-bolder mt-2">Erfahrungsberichte</h4>
                       <p className="lead">
-                        Hier findest du einige Rezensionen zu diesem Jumble. Erzähl
-                        auch du gerne von deinen Erfahrungen!
+                        Hier geht es um eure Meinung zu diesem Jumble. Erzählt
+                        uns von euren Erfahrungen!
                       </p>
-                      <Rezension/>
+
+                      {result?.length <=0? <MessageTeam />:
+                      <Reviews
+                      result = {result}
+                      /> }
+
+                      <YourReview
+                          handleRating={handleRating}
+                      />
+
                     </div>
                       </div>
                     </div>
@@ -105,7 +147,7 @@ function Jumble() {
                 </div>
               </section>
             </main>
+              )}
           </React.Fragment>
-      )
-}
+  )}
 export default Jumble
