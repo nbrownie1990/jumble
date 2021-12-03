@@ -67,12 +67,10 @@ public class UserService {
         return userRepository.save(existingUser);
     }
 
-    public void deleteUser(Long userId) {
-        if(!userRepository.existsById(userId)) {
-            throw new ResourceNotFoundException(
-                    "User with id " + userId + " does not exists");
-        }
-        userRepository.deleteById(userId);
+    public User deleteUser(Long userId) {
+        User userToDelete = getUserByUserId(userId);
+        userRepository.delete(userToDelete);
+        return userToDelete;
     }
 
 }
