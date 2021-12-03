@@ -32,8 +32,6 @@ server:
 
 #servlet:
 #    context-path: "/"
-#  error:
-#    include-message: always
 
 cloud:
   aws:
