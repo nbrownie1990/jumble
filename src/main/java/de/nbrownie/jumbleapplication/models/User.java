@@ -1,43 +1,38 @@
 package de.nbrownie.jumbleapplication.models;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
+import javax.validation.constraints.NotBlank;
+import java.util.HashSet;
 import java.util.Set;
 
 
-@ToString
-@Setter
-@Getter
+
 @AllArgsConstructor
-@NoArgsConstructor
 @Entity(name = "User")
 @Table(name = "users")
-@Builder(toBuilder = true)
-
 public class User {
-
-    @Column(name = "user_id",  unique = true, nullable = false)
+    @Column(name = "user_id", nullable = false)
     @Id
-    @SequenceGenerator(
-            name = "user_sequence",
-            sequenceName = "user_sequence",
-            allocationSize = 1
-    )
-    @GeneratedValue(
-            generator = "user_sequence",
-            strategy = GenerationType.SEQUENCE
-    )
-    private Long userId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    @SequenceGenerator(
+//            name = "user_sequence",
+//            sequenceName = "user_sequence",
+//            allocationSize = 1
+//    )
+//    @GeneratedValue(
+//            generator = "user_sequence",
+//            strategy = GenerationType.SEQUENCE
+//    )
+    private Long id;
 
-    @Column(name = "user_name", nullable = false, columnDefinition = "TEXT" )
+    @NotBlank
+    @Column(name = "user_name", nullable = false, unique = true)
     private String username;
 
-    @Column(name = "user_email", unique = true)
+    @NotBlank
+    @Column(name = "user_email")
     private String email;
 
     @Column(name = "user_img")
@@ -46,23 +41,33 @@ public class User {
     @Column(name = "user_text", columnDefinition = "TEXT")
     private String userText;
 
+    @NotBlank
     @Column(name = "user_psw")
     private String password;
 
-    @Column(name = "user_role")
-    private String userRole;
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(	name = "user_roles",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id"))
+    private Set<Role> roles = new HashSet<>();
+
+
+
+//    @ManyToMany(fetch = FetchType.EAGER)
+//    @Column(name = "user_role")
+//    private String userRole;
+
+    //One User can add many jumbles
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy="user", fetch = FetchType.EAGER)
+    @JsonBackReference(value="jumbles-user")////ggf ändern
+    private Set<Jumble> jumbleList;
 
 
     //One User can make many reviews
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy="user", fetch = FetchType.EAGER)
-    @JsonBackReference
+    @JsonBackReference(value="user-reviews")////ggf ändern
     private Set<Review> reviewList;
 
-
-    //One User can add many jumbles
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy="user", fetch = FetchType.EAGER)
-    @JsonBackReference
-    private Set<Jumble> jumbleList;
 
     public User deleteJumble(Jumble jumble){
         jumbleList.remove(jumble);
@@ -72,12 +77,58 @@ public class User {
         return this;
     }
 
+    public User() {
+    }
+
+    public User(String username, String email, String password) {
+        this.username = username;
+        this.email = email;
+        this.password = password;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public Set<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
+    }
+
     @Override
     public int hashCode() {
-        if (getUserId() == null){
-            return getClass().hashCode();
-        }
-        return getUserId().hashCode();
+        return getId() == null ? getUsername().hashCode() : getId().hashCode();
     }
 
     @Override
@@ -85,12 +136,12 @@ public class User {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         User that = (User) o;
-        return userId.equals(that.userId);
+        return username.equals(that.username);
     }
 
     @Override
     public String toString() {
-        return username + " " + userText + ", " + userRole;
+        return username + " " + userText;
     }
 }
 

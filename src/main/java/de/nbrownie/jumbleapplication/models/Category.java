@@ -15,7 +15,6 @@ import java.util.Set;
 @Table(name = "categories")
 @Setter
 @Getter
-@Builder(toBuilder = true)
 @AllArgsConstructor
 @NoArgsConstructor
 
@@ -23,15 +22,7 @@ public class Category {
 
     @Column(name = "category_id", unique = true, nullable = false)
     @Id
-    @SequenceGenerator(
-            name = "category_sequence",
-            sequenceName = "category_sequence",
-            allocationSize = 1
-    )
-    @GeneratedValue(
-            strategy = GenerationType.SEQUENCE,
-            generator = "category_sequence"
-    )
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long categoryId;
 
     @Column(name = "category_name", nullable = false)
@@ -44,7 +35,7 @@ public class Category {
     private String categoryImage;
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy="category", fetch = FetchType.EAGER)
-    @JsonBackReference
+    @JsonBackReference(value="category-jumbles") //ggf ändern
     private Set<Jumble> jumbleList;
 
 

@@ -9,25 +9,15 @@ import java.util.Set;
 
 @Entity(name = "Review")
 @Table(name = "reviews")
-@Builder
 @Setter
 @Getter
-@ToString
 @AllArgsConstructor
 @NoArgsConstructor
 public class Review {
 
     @Column(name = "review_id", unique = true, nullable = false)
     @Id
-    @SequenceGenerator(
-            name = "review_sequence",
-            sequenceName = "review_sequence",
-            allocationSize = 1
-    )
-    @GeneratedValue(
-            strategy = GenerationType.SEQUENCE,
-            generator = "review_sequence"
-    )
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long reviewId;
 
     @Column(name = "review_text", columnDefinition = "TEXT")
@@ -36,24 +26,19 @@ public class Review {
     @Column(name = "review_rating",  nullable = false)
     private Short reviewRating;
 
-
     //Many reviews can be added to one Jumble Entity
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="jumble_id",
             foreignKey = @ForeignKey(name= "jumble_id_fk"))
-    @JsonBackReference
+    @JsonBackReference(value="jumble-reviews")
     private Jumble jumble;
 
     //Many reviews can be added by one User Entity
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="user_id",
             foreignKey = @ForeignKey(name= "user_id_fk"))
-    @JsonManagedReference
+    @JsonManagedReference(value="user-reviews")//////ggf ändern
     private User user;
-
-
-
-
 
 
     @Override

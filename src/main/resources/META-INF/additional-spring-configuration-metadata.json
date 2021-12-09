@@ -1,0 +1,8 @@
+{
+  "properties": [
+    {
+      "name": "nbrownie.jumbleapplication.jwtSecret",
+      "type": "java.lang.String",
+      "description": "Description for nbrownie.jumbleapplication.jwtSecret."
+  }
+] }

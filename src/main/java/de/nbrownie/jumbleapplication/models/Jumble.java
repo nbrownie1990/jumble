@@ -12,23 +12,13 @@ import java.util.Set;
 @Table(name = "jumbles")
 @Setter
 @Getter
-@ToString
-@Builder(toBuilder = true)
 @AllArgsConstructor
 @NoArgsConstructor
 public class Jumble {
 
     @Column(name = "jumble_id", unique = true, nullable = false)
     @Id
-    @SequenceGenerator(
-            name = "jumble_sequence",
-            sequenceName = "jumble_sequence",
-            allocationSize = 1
-    )
-    @GeneratedValue(
-            strategy = GenerationType.SEQUENCE,
-            generator = "jumble_sequence"
-    )
+   @GeneratedValue(strategy = GenerationType.AUTO)
     private Long jumbleId;
 
     @Column(name = "jumble_name", nullable = false, columnDefinition = "TEXT" )
@@ -49,32 +39,30 @@ public class Jumble {
     @Column(name = "jumble_website")
     private String jumbleWebsite;
 
-    //Many Jumbles can be added by one user Entity
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name="user_id",
-    foreignKey = @ForeignKey(name= "user_id_fk"))
-    @JsonManagedReference
-    private User user;
-
     //Many Jumbles can be added to one category
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="category_id",
             foreignKey = @ForeignKey(name= "category_id_fk"))
-    @JsonManagedReference
+    @JsonManagedReference(value="category-jumbles") ////ggf ändern
     private Category category;
 
     //One Jumble has its own address
     @OneToOne(cascade= CascadeType.ALL)
     @JoinColumn(name="address_id",
             foreignKey = @ForeignKey(name= "address_id_fk"))
-    @JsonManagedReference
+    @JsonManagedReference(value="address-jumble")
     private Address address;
 
-
+    //Many Jumbles can be added by one user Entity
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name="user_id",
+            foreignKey = @ForeignKey(name= "user_id_fk"))
+    @JsonManagedReference(value="jumbles-user") ////ggf ändern
+    private User user;
 
     //One Jumble can have many reviews
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy="jumble", fetch = FetchType.EAGER)
-    @JsonManagedReference
+    @JsonManagedReference(value="jumble-reviews")
     private Set<Review> reviewList;
 
     public void addReview(Review review){

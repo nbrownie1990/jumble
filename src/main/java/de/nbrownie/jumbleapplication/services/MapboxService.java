@@ -5,14 +5,16 @@
 //import com.mapbox.api.geocoding.v5.models.GeocodingResponse;
 //import de.nbrownie.jumbleapplication.config.MapboxConfigProperties;
 //
+//import de.nbrownie.jumbleapplication.models.Address;
+//import de.nbrownie.jumbleapplication.repo.AddressRepository;
 //import lombok.Getter;
 //import lombok.Setter;
 //import lombok.extern.slf4j.Slf4j;
 //import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.stereotype.Service;
-//import retrofit2.Call;
-//import retrofit2.Callback;
-//import retrofit2.Response;
+////import retrofit2.Call;
+////import retrofit2.Callback;
+////import retrofit2.Response;
 //
 //import javax.persistence.EntityNotFoundException;
 //import java.util.List;
@@ -51,7 +53,7 @@
 //
 //                    coordinates = results.get(0).center().coordinates();
 //
-//                    AddressEntity existingAddress = addressRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Address with id not found"));
+//                    Address existingAddress = addressRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Address with id not found"));
 //                    existingAddress.setLongitude(coordinates.get(0));
 //                    existingAddress.setLatitude(coordinates.get(1));
 //

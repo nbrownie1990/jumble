@@ -10,9 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityNotFoundException;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 
 @Getter
@@ -49,4 +47,9 @@ public class ReviewService {
     public Review getReviewById(Long reviewId) {
         return reviewRepository.findById(reviewId).orElseThrow(() -> new IllegalArgumentException("Reviews not found"));
     }
+
+    public void addReview(Review review) {
+        reviewRepository.save(review);
+    }
+
 }

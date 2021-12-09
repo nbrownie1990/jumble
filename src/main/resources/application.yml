@@ -21,36 +21,33 @@ spring:
     hibernate:
       ddl-auto: update
 
-#  data:
-#    rest:
-#      base-path: /api
-
 server:
   error:
     include-message: always
     include-binding-errors: always
 
-#servlet:
-#    context-path: "/"
+nbrownie:
+  jumbleapplication:
+      jwtSecret: mysecret
+      jwtExpirationMs: 86400000
 
-cloud:
-  aws:
-    credentials:
-      instanceProfile: false
-      useDefaultAwsCredentialsChain: false
-      profileName: nbrownie
 
-    s3:
-      default-bucket:
-      multipart.maxFileSize: 5MB
-      multipart.maxRequestSize: 5MB
-    region:
-      static: eu-central-1
-      auto: false
-#security:
-#  jwt:
-#    secret: ${JWT-SECRET}
-#    expiresAfterMinutes: 30
+#cloud:
+#  aws:
+#    credentials:
+#      instanceProfile: false
+#      useDefaultAwsCredentialsChain: false
+#      profileName: nbrownie
 #
+#    s3:
+#      default-bucket:
+#      multipart.maxFileSize: 5MB
+#      multipart.maxRequestSize: 5MB
+#    region:
+#      static: eu-central-1
+#      auto: false
+#
+
+
 mapbox-client:
   access-token: pk.eyJ1IjoibmJyb3duaWUiLCJhIjoiY2t1aWVhNGhlMDJrZjMwcXoyZWUybDYxZCJ9.HLXmIOmvZtR3uhDR1JofjA

@@ -1,6 +1,5 @@
 package de.nbrownie.jumbleapplication.controllers;
 
-import de.nbrownie.jumbleapplication.exceptions.ResourceNotFoundException;
 import de.nbrownie.jumbleapplication.models.Category;
 import de.nbrownie.jumbleapplication.models.Jumble;
 import de.nbrownie.jumbleapplication.services.CategoryService;
