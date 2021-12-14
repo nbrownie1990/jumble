@@ -1,5 +1,5 @@
 // -- React and related libs
-import React, { useEffect } from 'react'
+import React, {useEffect, useState} from 'react'
 import { Route, Routes } from 'react-router-dom'
 
 // -- Third Party Libs
@@ -21,21 +21,31 @@ import Forgot from './pages/Login/forgot'
 import Reset from './pages/Login/reset'
 import Profile from './pages/Profile/profile'
 import Logout from './pages/Logout/logout'
-import Register from './pages/SignUp/register'
+import Signup from './pages/SignUp/signup'
 import Notfound from './pages/Notfound/notfound'
 import Impressum from './pages/Impressum/impressum'
 import Footer from './components/footer'
 import AddProfile from "./pages/Profile/addProfile";
 import Login from "./pages/Login/login";
+import {getCurrentUser, logout} from "./services/apiService"
 // -- Component Styles
 import './assets/css/style.css'
 
 
 
 function App() {
+//  const [currentUser, setCurrentUser] = useState(undefined);
+
   useEffect(() => {
     AOS.init()
-  })
+    //   const user = getCurrentUser();
+    //
+    //   if (user) {
+    //     setCurrentUser(user);
+    //   }
+    // }, []
+  });
+
 
   return (
     <div className="App">
@@ -46,14 +56,15 @@ function App() {
         <Route path="/jumbles/getall" element={<AllJumbles />} />
         <Route path="/categories/:categoryId" element={<Category />} />
         <Route path="/categories" element={<Categories />} />
-        <Route path="/register" element={<Register />} />
+        <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login/>} />
         <Route path="/forgot" element={<Forgot />} />
         <Route path="/reset" element={<Reset />} />
         <Route path="/logout" element={<Logout />} />
-        <Route path="/user/edit/:userId" element={<EditProfile />} />
+        {/*//current userID??*/}
+        <Route path="/user/edit/:id" element={<EditProfile />} />
         <Route path="/user/new" element={<AddProfile />} />
-        <Route path="/user/:userId" element={<Profile />} />
+        <Route path="/user/:id" element={<Profile />} />
         <Route path="/home" element={<Home />} />
         <Route path="/" element={<Start />} />
         <Route path="/impressum" element={<Impressum />} />

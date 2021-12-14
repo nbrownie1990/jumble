@@ -1,7 +1,13 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import { Link } from 'react-router-dom'
+import {logout} from "../../services/apiService";
 
 const Logout = () => {
+
+  useEffect(() => {
+    logout()
+         },[])
+
   return (
     <main className="d-flex m-5 text-center text-primary min-vh-100">
       <section className="container w-100 p-3 flex-column align-self-center">

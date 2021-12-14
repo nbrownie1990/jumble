@@ -30,6 +30,8 @@ class NavBar extends React.Component {
     document.removeEventListener('scroll', this.listener)
   }
 
+
+
   render() {
     return (
       <Navbar

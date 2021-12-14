@@ -1,7 +1,13 @@
 import axios from 'axios';
 import React from 'react';
+import authHeader from "../auth/AuthHeader";
 
 const baseUrl = `http://localhost:8080/api`
+
+
+const user = JSON.parse(localStorage.getItem('user'));
+axios.defaults.headers['Authorization'] = 'Bearer ' + localStorage.getItem(user.token);
+
 
 // export const getToken = credentials =>
 //   axios
@@ -11,10 +17,53 @@ const baseUrl = `http://localhost:8080/api`
 //
 // const headers = token => ({
 //   headers: {
-//     Authorization: `Bearer ${token}`,
+//     Authorization: `Bearer ${user.token}`,
 //   },
 // })
 //
+
+//////////////////////////////////
+///////////Auth//////////////////
+////////////////////////////////
+export const signup = (username, email, password) => {
+    return axios
+        .post(`${baseUrl}/auth/signup` , {
+        username,
+        email,
+        password
+    }, { headers: {
+        'Content-Type': 'application/json',
+    }}
+    )
+};
+
+export const login = async (username, password) => {
+    return await axios
+        .post(`${baseUrl}/auth/signin`, {
+            username,
+            password
+        }, {
+            headers:{
+                'Access-Control-Allow-Origin': '*',
+                'Content-Type': 'application/json',
+            },
+            withCredentials:true
+        })
+        .then((response) => {
+            if (response.data.token) {
+                localStorage.setItem("user", JSON.stringify(response.data))
+            }
+            return response.data;
+        });
+};
+
+export const logout = () => {
+    return localStorage.removeItem("user");
+};
+
+export const getCurrentUser = () => {
+    return JSON.parse(localStorage.getItem("user"));
+};
 
 
 //////////////////////////////////
@@ -23,7 +72,15 @@ const baseUrl = `http://localhost:8080/api`
 
 export const getAllCategories = async () => {
     return await axios
-       .get(`${baseUrl}/categories/getall`)
+       .get(`${baseUrl}/categories/getall`,
+           {
+               headers:{
+                   'Access-Control-Allow-Origin': '*',
+                   'Content-Type': 'application/json',
+                   authHeader
+               },
+               withCredentials:true
+           })
        .then(response => {
             return response.data;
         });

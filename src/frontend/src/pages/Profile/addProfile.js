@@ -1,36 +1,59 @@
-import React, {useState} from 'react'
+import React, {useCallback, useEffect, useState} from 'react'
 import Navbar from '../../components/navbar'
 import { Link } from 'react-router-dom'
 import ProfileForm from '../../components/profileForm'
 import {initialProfileState} from "../../services/stateService";
 import {useNavigate} from "react-router";
-import {addNewUser} from "../../services/apiService";
+//import {useAuth} from "../../auth/AuthProvider";
+import {addUserProfile, getUserByUserName} from "../../services/apiService";
+import {getCurrentUser} from "../../services/apiService";
+
 
 export default function AddProfile() {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState()
-  const [user, setUser] = useState(initialProfileState)
-  //const { user, token } = useAuth()
+  const [username, setUsername] = useState([])
+  const [email, setEmail] = useState([])
+  const [user, setUser] = useState()
+//  const { token } = useAuth()
   const navigate = useNavigate()
+  const currentUser = getCurrentUser();
 
-  const handleProfileInputChange = event => {
-    setUser({ ...user, [event.target.name]: event.target.value })
+
+  // const loadDataOnlyOnce = useCallback(() => {
+  //   setLoading(true)
+  //   setError()
+  //   getUserByUserName(username, token)
+  //       .then(response => setEmail(response))
+  //       .catch(setError)
+  //       .finally(() => {
+  //         setLoading(false)
+  //       })
+  // }, [token, username])
+  //
+  // useEffect(() => {
+  //   loadDataOnlyOnce()
+  // }, [loadDataOnlyOnce])
+
+  const handleProfileInputChange = e => {
+    setUser({ ...user, [e.target.name]: e.target.value })
   }
-/*
-  const handleSaveNewProfile = event => {
-    event.preventDefault()
-    setLoading(true)
-    setError()
-    addNewUser()
-        .catch(setError)
-        .finally(() => {
-          setLoading(false)
-          //navigate(`/home`)
-        })
-  }
+
+  // const handleSaveNewProfile = e => {
+  //   e.preventDefault()
+  //   setLoading(true)
+  //   setError()
+  //   addUserProfile(username, token)
+  //       .catch(setError)
+  //       .finally(() => {
+  //         setLoading(false)
+  //         navigate(`/home`)
+  //       })
+  // ,[username, token]}
+
   const handleCancel = () => {
-    navigate(`/home`)
-  }*/
+    navigate(`/login`)
+  }
 
   return (
     <React.Fragment>
@@ -61,10 +84,10 @@ export default function AddProfile() {
                 </div>
               </div>
               <ProfileForm
-                  user={user}
+                  user={currentUser}
                   onChange={handleProfileInputChange}
-                 // handleSaveNewProfile={handleSaveNewProfile}
-                 // handleCancel={handleCancel}
+                  //handleSaveNewProfile={handleSaveNewProfile}
+                  handleCancel={handleCancel}
                   readOnly={false}
                   mode="new"
               />

@@ -5,7 +5,6 @@ import { BrowserRouter as Router } from 'react-router-dom'
 import 'font-awesome/css/font-awesome.css'
 import './assets/css/style.css'
 import App from './App'
-
 import reportWebVitals from './reportWebVitals'
 import 'mapbox-gl/dist/mapbox-gl.css'
 
