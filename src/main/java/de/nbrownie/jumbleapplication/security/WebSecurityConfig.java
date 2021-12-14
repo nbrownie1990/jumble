@@ -1,7 +1,9 @@
 package de.nbrownie.jumbleapplication.security;
 
+import de.nbrownie.jumbleapplication.models.Role;
 import de.nbrownie.jumbleapplication.security.jwt.AuthEntryPointJwt;
 import de.nbrownie.jumbleapplication.security.jwt.AuthTokenFilter;
+import de.nbrownie.jumbleapplication.security.services.UserDetailsService;
 import de.nbrownie.jumbleapplication.security.services.UserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -17,6 +19,7 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+
 
 
 @Configuration
@@ -58,11 +61,34 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.cors().and().csrf().disable()
                 .exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
-                .authorizeRequests().antMatchers("/api/auth/**").permitAll()
-                .antMatchers("/api/test/**").permitAll()
-                .antMatchers(HttpMethod.POST, "/api/**").permitAll()
+                .authorizeRequests()
+                .antMatchers("/static/css/**", "/static/js/**", "/static/media/**", "/icons/**")
+                .permitAll()
+                .antMatchers("/", "/login", "/signup", "/logout").permitAll()
+                .antMatchers("/api/auth/**").permitAll()
+                .antMatchers("/api/**").permitAll()
+                .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
+//                .antMatchers(HttpMethod.POST, "/api/auth/signin", "/api/auth/signup").permitAll()
+                //.antMatchers("/logout").hasRole("USER")
+                //.antMatchers("/home").hasAuthority("ROLE_USER")
+                //.antMatchers("/de/**").access("hasRole('user')")
                 .anyRequest().authenticated();
 
+        http.formLogin()
+                .loginPage("/login")
+                .usernameParameter("username")
+                .passwordParameter("password")
+                .loginProcessingUrl("/signin")
+                .successForwardUrl("/home")
+                .failureForwardUrl("/login")
+                .permitAll()
+                .and()
+                .logout()
+                .logoutUrl("/logout")
+                .logoutSuccessUrl("/login?logout")
+                .and()
+                .exceptionHandling()
+                .accessDeniedPage("/login");
         http.addFilterBefore(authenticationJwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
     }
 }

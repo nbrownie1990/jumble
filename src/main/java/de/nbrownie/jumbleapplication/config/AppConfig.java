@@ -82,5 +82,6 @@ public class AppConfig implements WebMvcConfigurer {
             String extension = StringUtils.getFilenameExtension(path);
             return handledExtensions.stream().anyMatch(ext -> ext.equals(extension));
         }
+
     }
 }
