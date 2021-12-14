@@ -1,37 +1,79 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import React, {useRef, useState} from 'react'
+import {Link } from 'react-router-dom'
 import TextField from '../../components/textField'
 import {initialSignUpState} from "../../services/stateService";
 import {useNavigate} from "react-router";
-import {addNewUser} from "../../services/apiService";
-import {useAuth} from "../../auth/AuthProvider";
+import {signup} from "../../services/apiService";
 
+const Signup = (props) => {
+  const navigate = useNavigate();
+  const form = useRef();
 
-export default function Register() {
- // const { login } = useAuth()
-  const navigate = useNavigate()
-  const [credentials, setCredentials] = useState(initialSignUpState)
+  //const [credentials, setCredentials] = useState(initialSignUpState)
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [passwordCheck, setPasswordCheck] = useState('')
+  const [successful, setSuccessful] = useState(false);
+  const [message, setMessage] = useState("");
   const [checkbox, setCheckbox] = useState(false)
   const [error, setError] = useState()
 
-  const handleCredentials = e => {
-    setCredentials({
-      ...credentials,
-      [e.currentTarget.name]: e.currentTarget.value,
-    })
-  }
 
-  // const handleSubmit = e => {
-  //   e.preventDefault()
-  //   setError()
-  //   addNewUser(credentials)
-  //     .then(() => login(credentials))
-  //     .then(() => navigate('/user/new'))
-  //     .catch(error => {
-  //       setError(error)
-  //     })
+  // const handleCredentials = e => {
+  //   setCredentials({
+  //     ...credentials,
+  //     [e.currentTarget.name]: e.currentTarget.value,
+  //   })
   // }
+
+  const onChangeUsername = (e) => {
+    const username = e.target.value;
+    setUsername(username);
+  };
+
+  const onChangeEmail = (e) => {
+    const email = e.target.value;
+    setEmail(email);
+  };
+
+  const onChangePassword = (e) => {
+    const password = e.target.value;
+    setPassword(password);
+  };
+
+  const handleSignup = (e) => {
+    e.preventDefault();
+
+    setMessage("");
+    setSuccessful(false);
+
+    signup(username, email, password)
+          .then(
+              (response) => {
+                setMessage(response.data.message);
+                setSuccessful(true);
+              },
+              (error) => {
+                const resMessage =
+                    (error.response &&
+                        error.response.data &&
+                        error.response.data.message) ||
+                    error.message ||
+                    error.toString();
+
+                setMessage(resMessage);
+                setSuccessful(false);
+              })
+          .finally(
+              () => {
+                //props.history.push("/user/new");
+                navigate("/login")
+                window.location.reload();
+              })
+    };
+
+
 
   const handlePasswordCheck = event => {
     setPasswordCheck(event.target.value)
@@ -40,6 +82,7 @@ export default function Register() {
   const handleToLogin = () => {
     navigate('/login')
   }
+
 
   return (
     <main className="m-md-5 mt-5 mb-5 h-100">
@@ -51,40 +94,41 @@ export default function Register() {
                 <div className="card-body">
                   <h4 className="card-title">Sign Up</h4>
                   <form
-                    as="form"
-                    //onSubmit={() => handleSubmit()}
+                   // as="form"
+                    ref={form}
+                    onSubmit={handleSignup}
                     className="my-login-validation"
                   >
+                    {!successful && (
                     <div className="form-group">
                       <label htmlFor="name">Name</label>
                       <TextField
                         name="username"
                         title="Username"
                         placeholder="Nutzername"
-                        value={credentials.username}
+                        value={username}
                         className="form-control"
-                        onChange={handleCredentials}
-                        required
+                        onChange={onChangeUsername}
+                        required={true}
                       />
-                    </div>
-
-                    <div className="form-group">
+                    </div>)}
+                    {!successful && (
+                      <div className="form-group">
                       <label htmlFor="email">E-Mail Adresse</label>
-                      <TextField
+                        <TextField
                         name="email"
-                        title="Email (optional)*"
+                        title="Email*"
                         placeholder="Email"
-                        value={credentials.email}
+                        value={email}
                         className="form-control"
-                        onChange={handleCredentials}
-                        required
+                        onChange={onChangeEmail}
+                        required={true}
                       />
                       <label className="text-info">
                         * um dein Passwort ggf. zurücksetzen zu können
                       </label>
-                      {error && <p>Deine Emailadresse ist ungültig</p>}
-                    </div>
-
+                    </div>)}
+                    {!successful && (
                     <div className="form-group">
                       <label htmlFor="password">Passwort</label>
                       <TextField
@@ -92,10 +136,10 @@ export default function Register() {
                         type="password"
                         title="Password"
                         placeholder="Passwort"
-                        value={credentials.password}
+                        value={password}
                         className="form-control"
-                        onChange={handleCredentials}
-                        required
+                        onChange={onChangePassword}
+                        required={true}
                         data-eye
                       />
                       <TextField
@@ -105,10 +149,10 @@ export default function Register() {
                         placeholder="Passwort erneut eingeben"
                         title="Retype Password"
                         type="password"
+                        required={true}
                       />
-                      {error && <p>Passwort ist erforderlich</p>}
-                    </div>
-
+                    </div>)}
+                    {!successful && (
                     <div className="form-group">
                       <div className="custom-checkbox custom-control">
                         <input
@@ -125,19 +169,26 @@ export default function Register() {
                           <Link to="/impressum"> Nutzungsbedingungen</Link>
                           {''} zu
                         </label>
-                        {error && (
-                          <p>
-                            Du musst unseren Nutzungsbedingungen zustimmen
-                          </p>
-                        )}
                       </div>
                     </div>
+                      )}
+
+                    {message && (
+                        <div className="form-group">
+                          <div
+                              className={ successful ? "alert alert-success" : "alert alert-danger" }
+                              role="alert"
+                          >
+                            {message}
+                          </div>
+                        </div>
+                    )}
 
                     <div className="form-group text-center m-0">
                       <br />
-                      {credentials.username &&
-                        credentials.password &&
-                        passwordCheck === credentials.password && (
+                      {username &&
+                        password &&
+                        passwordCheck === password && (
                           <button
                               type="submit"
                               name="submit"
@@ -165,3 +216,5 @@ export default function Register() {
     </main>
   )
 }
+
+export default Signup;
