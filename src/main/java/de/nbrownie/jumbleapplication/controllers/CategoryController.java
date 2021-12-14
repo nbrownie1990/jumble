@@ -6,6 +6,7 @@ import de.nbrownie.jumbleapplication.services.CategoryService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -18,11 +19,13 @@ public class CategoryController {
 
     private final CategoryService categoryService;
 
+    @PreAuthorize("hasRole('ROLE_USER')")
     @GetMapping(path = "/getall")
     public List<Category> getAllCategories() {
         return categoryService.getAllCategories();
     }
 
+    @PreAuthorize("hasRole('ROLE_USER')")
     @GetMapping(path = "{categoryId}")
     public Category getCategoryById(
             @PathVariable("categoryId") Long categoryId) {

@@ -6,6 +6,7 @@ import de.nbrownie.jumbleapplication.services.JumbleService;
 import de.nbrownie.jumbleapplication.services.ReviewService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -18,6 +19,7 @@ public class ReviewController {
 
     private final ReviewService reviewService;
 
+    @PreAuthorize("hasRole('ROLE_USER')")
     @GetMapping(path = "getall")
     public List<Review> getAllReviews(){
         if (true) {
@@ -26,6 +28,7 @@ public class ReviewController {
         throw new ResourceNotFoundException("Reviews not found...");
     }
 
+    @PreAuthorize("hasRole('ROLE_USER')")
     @GetMapping(path = "{reviewId}")
     public ResponseEntity<Review> getReviewById(
             @PathVariable("reviewId") Long reviewId) {

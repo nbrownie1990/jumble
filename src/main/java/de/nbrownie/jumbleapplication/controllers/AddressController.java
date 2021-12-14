@@ -3,6 +3,7 @@ package de.nbrownie.jumbleapplication.controllers;
 import de.nbrownie.jumbleapplication.models.Address;
 import de.nbrownie.jumbleapplication.services.AddressService;
 import lombok.AllArgsConstructor;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -16,11 +17,14 @@ public class AddressController {
 
     private final AddressService addressService;
 
+    @PreAuthorize("hasRole('ROLE_USER')")
     @GetMapping(path = "addresses/{addressId}")
     public Address getAddressById(
             @PathVariable Long addressId) {
         return addressService.getAddressByAddressId(addressId);
     }
+
+    @PreAuthorize("hasRole('ROLE_USER')")
     @GetMapping(path = "{jumbleId}/{addressId}")
     public List<Address> getAddressByAddressIdAndJumbleId(
             @PathVariable Long jumbleId, @PathVariable Long addressId) {

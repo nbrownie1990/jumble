@@ -5,6 +5,7 @@ import java.util.List;
 
 import de.nbrownie.jumbleapplication.services.UserService;
 import lombok.AllArgsConstructor;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 
@@ -19,11 +20,13 @@ public class UserController {
 
     private final UserService userService;
 
+    @PreAuthorize("hasRole('ROLE_USER')")
     @GetMapping("getall")
     public List<User> getAllUsers() {
         return userService.getAllUsers();
     }
 
+    @PreAuthorize("hasRole('ROLE_USER')")
     @GetMapping(path = "{userId}")
     public User getUserByUserId(
             @PathVariable Long userId) {
@@ -46,7 +49,7 @@ public class UserController {
 //    }
 //
 //    @PostMapping(value = "register", produces = APPLICATION_JSON_VALUE, consumes = APPLICATION_JSON_VALUE)
-//    public ResponseEntity<UserApi> register(@RequestBody Register user) {
+//    public ResponseEntity<UserApi> register(@RequestBody Signup user) {
 //        User createdUser = userService.createUser(mapUser(user), user.getPassword());
 //        return ResponseEntity.ok(mapUser(createdUser));
 //    }

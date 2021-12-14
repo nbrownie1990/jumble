@@ -7,6 +7,7 @@ import de.nbrownie.jumbleapplication.models.Review;
 import de.nbrownie.jumbleapplication.services.JumbleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -25,11 +26,13 @@ public class JumbleController {
     }
 
     //Get all JumbleApplication
+    @PreAuthorize("hasRole('ROLE_USER')")
     @GetMapping(path="getall")
     public List<Jumble> getAllJumbles() {
         return jumbleService.getAllJumbles();
     }
 
+    @PreAuthorize("hasRole('ROLE_USER')")
     @GetMapping(path = "{jumbleId}")
     public ResponseEntity<Jumble> getJumbleById(
             @PathVariable Long jumbleId) {
@@ -37,11 +40,13 @@ public class JumbleController {
         return ResponseEntity.ok(jumble);
     }
 
+    @PreAuthorize("hasRole('ROLE_USER')")
     @PostMapping(path = "new")
     public void addJumble(@RequestBody Jumble jumble){
         jumbleService.addNewJumble(jumble);
     }
 
+    @PreAuthorize("hasRole('ROLE_USER')")
     @PostMapping(path = "edit/new/{jumbleId}/{reviewId}")
     public void addReview(@PathVariable("jumbleId") Long jumbleId, @RequestBody Review review){
         jumbleService.addReviewToList(jumbleId, review);
