@@ -3,7 +3,7 @@ import {Link } from 'react-router-dom'
 import TextField from '../../components/textField'
 import {initialSignUpState} from "../../services/stateService";
 import {useNavigate} from "react-router";
-import {signup} from "../../services/apiService";
+import {signup} from "../../services/authService";
 
 const Signup = (props) => {
   const navigate = useNavigate();
