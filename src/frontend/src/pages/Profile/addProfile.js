@@ -6,7 +6,7 @@ import {initialProfileState} from "../../services/stateService";
 import {useNavigate} from "react-router";
 //import {useAuth} from "../../auth/AuthProvider";
 import {addUserProfile, getUserByUserName} from "../../services/apiService";
-import {getCurrentUser} from "../../services/apiService";
+import {getCurrentUser} from "../../services/authService";
 
 
 export default function AddProfile() {
@@ -52,7 +52,7 @@ export default function AddProfile() {
   // ,[username, token]}
 
   const handleCancel = () => {
-    navigate(`/login`)
+    navigate(`/home`)
   }
 
   return (
