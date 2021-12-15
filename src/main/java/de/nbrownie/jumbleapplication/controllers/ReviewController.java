@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin("http://localhost:8080/")
+@CrossOrigin(origins = "*", maxAge = 3600, allowedHeaders = "*")
 @AllArgsConstructor
 @RestController
 @RequestMapping(path= "api/reviews")
@@ -19,7 +19,7 @@ public class ReviewController {
 
     private final ReviewService reviewService;
 
-    @PreAuthorize("hasRole('ROLE_USER')")
+    @PreAuthorize("hasRole('USER')")
     @GetMapping(path = "getall")
     public List<Review> getAllReviews(){
         if (true) {
@@ -28,7 +28,7 @@ public class ReviewController {
         throw new ResourceNotFoundException("Reviews not found...");
     }
 
-    @PreAuthorize("hasRole('ROLE_USER')")
+    @PreAuthorize("hasRole('USER')")
     @GetMapping(path = "{reviewId}")
     public ResponseEntity<Review> getReviewById(
             @PathVariable("reviewId") Long reviewId) {

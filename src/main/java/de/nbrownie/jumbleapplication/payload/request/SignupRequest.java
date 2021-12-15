@@ -1,4 +1,6 @@
 package de.nbrownie.jumbleapplication.payload.request;
+import de.nbrownie.jumbleapplication.models.Jumble;
+import de.nbrownie.jumbleapplication.models.Review;
 
 import java.util.Set;
 
@@ -6,19 +8,19 @@ import javax.validation.constraints.*;
 
 public class SignupRequest {
     @NotBlank
-  //  @Size(min = 3, max = 20)
+    @Size(min = 3, max = 20)
     private String username;
 
     @NotBlank
- //   @Size(max = 50)
+    @Size(max = 50)
     @Email
     private String email;
 
-    private Set<String> role;
-
     @NotBlank
- //   @Size(min = 6, max = 40)
+    @Size(min = 6, max = 40)
     private String password;
+
+    private Set<String> role;
 
     public String getUsername() {
         return username;
@@ -51,4 +53,5 @@ public class SignupRequest {
     public void setRole(Set<String> role) {
         this.role = role;
     }
+
 }

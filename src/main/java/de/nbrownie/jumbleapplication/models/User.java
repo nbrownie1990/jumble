@@ -51,17 +51,10 @@ public class User {
             inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles = new HashSet<>();
 
-
-
-//    @ManyToMany(fetch = FetchType.EAGER)
-//    @Column(name = "user_role")
-//    private String userRole;
-
     //One User can add many jumbles
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy="user", fetch = FetchType.EAGER)
     @JsonBackReference(value="jumbles-user")////ggf ändern
     private Set<Jumble> jumbleList;
-
 
     //One User can make many reviews
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy="user", fetch = FetchType.EAGER)
@@ -80,10 +73,16 @@ public class User {
     public User() {
     }
 
-    public User(String username, String email, String password) {
+    public User(String username, String email, String encode) {
+    }
+
+
+    public User(String username, String email, String password, String userImage, String userText) {
         this.username = username;
         this.email = email;
         this.password = password;
+        this.userImage = userImage;
+        this.userText = userText;
     }
 
     public Long getId() {
@@ -110,6 +109,22 @@ public class User {
         this.email = email;
     }
 
+    public String getUserImage() {
+        return userImage;
+    }
+
+    public void setUserImage(String userImage) {
+        this.userImage = userImage;
+    }
+
+    public String getUserText() {
+        return userText;
+    }
+
+    public void setUserText(String userText) {
+        this.userText = userText;
+    }
+
     public String getPassword() {
         return password;
     }
@@ -124,6 +139,22 @@ public class User {
 
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
+    }
+
+    public Set<Review> getReviewList() {
+        return reviewList;
+    }
+
+    public void setReviewList(Set<Review> reviewList) {
+        this.reviewList = reviewList;
+    }
+
+    public Set<Jumble> getJumbleList() {
+        return jumbleList;
+    }
+
+    public void setJumbleList(Set<Jumble> jumbleList) {
+        this.jumbleList = jumbleList;
     }
 
     @Override

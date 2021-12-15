@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin("http://localhost:8080/")
+@CrossOrigin(origins = "*", maxAge = 3600, allowedHeaders = "*")
 @RestController
 //@AllArgsConstructor
 @RequestMapping(path= "api/jumbles")
@@ -26,13 +26,13 @@ public class JumbleController {
     }
 
     //Get all JumbleApplication
-    @PreAuthorize("hasRole('ROLE_USER')")
+    @PreAuthorize("hasRole('USER')")
     @GetMapping(path="getall")
     public List<Jumble> getAllJumbles() {
         return jumbleService.getAllJumbles();
     }
 
-    @PreAuthorize("hasRole('ROLE_USER')")
+    @PreAuthorize("hasRole('USER')")
     @GetMapping(path = "{jumbleId}")
     public ResponseEntity<Jumble> getJumbleById(
             @PathVariable Long jumbleId) {
@@ -40,13 +40,13 @@ public class JumbleController {
         return ResponseEntity.ok(jumble);
     }
 
-    @PreAuthorize("hasRole('ROLE_USER')")
+    @PreAuthorize("hasRole('USER')")
     @PostMapping(path = "new")
     public void addJumble(@RequestBody Jumble jumble){
         jumbleService.addNewJumble(jumble);
     }
 
-    @PreAuthorize("hasRole('ROLE_USER')")
+    @PreAuthorize("hasRole('USER')")
     @PostMapping(path = "edit/new/{jumbleId}/{reviewId}")
     public void addReview(@PathVariable("jumbleId") Long jumbleId, @RequestBody Review review){
         jumbleService.addReviewToList(jumbleId, review);

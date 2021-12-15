@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin("http://localhost:8080/")
+@CrossOrigin(origins = "*", maxAge = 3600, allowedHeaders = "*")
 @AllArgsConstructor
 @RestController
 @RequestMapping(path= "api/categories")
@@ -19,13 +19,13 @@ public class CategoryController {
 
     private final CategoryService categoryService;
 
-    @PreAuthorize("hasRole('ROLE_USER')")
+    @PreAuthorize("hasRole('USER')")
     @GetMapping(path = "/getall")
     public List<Category> getAllCategories() {
         return categoryService.getAllCategories();
     }
 
-    @PreAuthorize("hasRole('ROLE_USER')")
+    @PreAuthorize("hasRole('USER')")
     @GetMapping(path = "{categoryId}")
     public Category getCategoryById(
             @PathVariable("categoryId") Long categoryId) {

@@ -1,5 +1,4 @@
 package de.nbrownie.jumbleapplication.controllers;
-import de.nbrownie.jumbleapplication.models.Jumble;
 import de.nbrownie.jumbleapplication.models.User;
 import java.util.List;
 
@@ -11,8 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import static org.springframework.http.ResponseEntity.ok;
 import static org.springframework.util.MimeTypeUtils.APPLICATION_JSON_VALUE;
-
-@CrossOrigin("http://localhost:8080/")
+@CrossOrigin(origins = "*", maxAge = 3600, allowedHeaders = "*")
 @AllArgsConstructor
 @RestController
 @RequestMapping(path= "api/user")
@@ -20,18 +18,29 @@ public class UserController {
 
     private final UserService userService;
 
-    @PreAuthorize("hasRole('ROLE_USER')")
+    @PreAuthorize("hasRole('USER')")
     @GetMapping("getall")
     public List<User> getAllUsers() {
         return userService.getAllUsers();
     }
 
-    @PreAuthorize("hasRole('ROLE_USER')")
+    @PreAuthorize("hasRole('USER')")
     @GetMapping(path = "{userId}")
     public User getUserByUserId(
             @PathVariable Long userId) {
         return userService.getUserByUserId(userId);
     }
+
+//    @PutMapping(value = "edit/me", produces = APPLICATION_JSON_VALUE, consumes = APPLICATION_JSON_VALUE)
+//    public ResponseEntity<UserApi> updateUser(@AuthenticationPrincipal User authUser, @PathVariable Long userId, @RequestBody UserApi updateUser){
+//        if(updateUser.getUserId().equals(userId)){
+//            User changedUser = userService.updateUser(authUser.getUserId(), mapUser(updateUser));
+//            return ok(mapUser(changedUser));
+//        }
+//        throw new IllegalArgumentException("User and ID does not belong together");
+//    }
+
+
 
 //    @PostMapping(path = "new")
 //    public void addNewUser(@RequestBody User user){
@@ -61,14 +70,7 @@ public class UserController {
 //        return ok(mapUser(createdUser));
 //    }
 //
-//    @PutMapping(value = "edit/{userId}", produces = APPLICATION_JSON_VALUE, consumes = APPLICATION_JSON_VALUE)
-//    public ResponseEntity<UserApi> updateUser(@AuthenticationPrincipal User authUser, @PathVariable Long userId, @RequestBody UserApi updateUser){
-//        if(updateUser.getUserId().equals(userId)){
-//            User changedUser = userService.updateUser(authUser.getUserId(), mapUser(updateUser));
-//            return ok(mapUser(changedUser));
-//        }
-//        throw new IllegalArgumentException("User and ID does not belong together");
-//    }
+
 //
 //    @PutMapping(value="edit/updatePassword", produces = APPLICATION_JSON_VALUE, consumes = APPLICATION_JSON_VALUE)
 //    public ResponseEntity<UserApi> updatePassword(@AuthenticationPrincipal User authUser, @RequestBody PasswordApi password){

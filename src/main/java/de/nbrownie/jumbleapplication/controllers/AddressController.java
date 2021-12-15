@@ -8,8 +8,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
+//@CrossOrigin(origins = "http://localhost:8080/", maxAge = 3600, allowedHeaders = "*")
 
-@CrossOrigin("http://localhost:8080/")
+@CrossOrigin(origins = "*", maxAge = 3600, allowedHeaders = "*")
 @AllArgsConstructor
 @RestController
 @RequestMapping(path= "/api/jumbles")
@@ -17,14 +18,14 @@ public class AddressController {
 
     private final AddressService addressService;
 
-    @PreAuthorize("hasRole('ROLE_USER')")
+    @PreAuthorize("hasRole('USER')")
     @GetMapping(path = "addresses/{addressId}")
     public Address getAddressById(
             @PathVariable Long addressId) {
         return addressService.getAddressByAddressId(addressId);
     }
 
-    @PreAuthorize("hasRole('ROLE_USER')")
+    @PreAuthorize("hasRole('USER')")
     @GetMapping(path = "{jumbleId}/{addressId}")
     public List<Address> getAddressByAddressIdAndJumbleId(
             @PathVariable Long jumbleId, @PathVariable Long addressId) {

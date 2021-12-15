@@ -1,9 +1,7 @@
 package de.nbrownie.jumbleapplication.security;
 
-import de.nbrownie.jumbleapplication.models.Role;
 import de.nbrownie.jumbleapplication.security.jwt.AuthEntryPointJwt;
 import de.nbrownie.jumbleapplication.security.jwt.AuthTokenFilter;
-import de.nbrownie.jumbleapplication.security.services.UserDetailsService;
 import de.nbrownie.jumbleapplication.security.services.UserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -65,30 +63,25 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/static/css/**", "/static/js/**", "/static/media/**", "/icons/**")
                 .permitAll()
                 .antMatchers("/", "/login", "/signup", "/logout").permitAll()
-                .antMatchers("/api/auth/**").permitAll()
                 .antMatchers("/api/**").permitAll()
                 .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
-//                .antMatchers(HttpMethod.POST, "/api/auth/signin", "/api/auth/signup").permitAll()
-                //.antMatchers("/logout").hasRole("USER")
-                //.antMatchers("/home").hasAuthority("ROLE_USER")
-                //.antMatchers("/de/**").access("hasRole('user')")
-                .anyRequest().authenticated();
+//                .antMatchers("/home")
+//                .access("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')");
+                .antMatchers("*")
+                .access("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')");
 
         http.formLogin()
                 .loginPage("/login")
                 .usernameParameter("username")
                 .passwordParameter("password")
                 .loginProcessingUrl("/signin")
-                .successForwardUrl("/home")
                 .failureForwardUrl("/login")
                 .permitAll()
                 .and()
-                .logout()
-                .logoutUrl("/logout")
-                .logoutSuccessUrl("/login?logout")
-                .and()
                 .exceptionHandling()
                 .accessDeniedPage("/login");
-        http.addFilterBefore(authenticationJwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
+
+        http.addFilterBefore(authenticationJwtTokenFilter(),
+                UsernamePasswordAuthenticationFilter.class);
     }
 }
