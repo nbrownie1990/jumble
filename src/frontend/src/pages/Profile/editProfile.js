@@ -13,14 +13,13 @@ export default function EditProfile() {
   const [userName, setUserName] = useState([])
   const [userText, setUserText] = useState([])
 
-  //const { user, token } = useAuth()
   const navigate = useNavigate();
-  let { userId } = useParams();
+  let { id } = useParams();
 
 
   const loadDataOnlyOnce = useCallback(() => {
     setLoading(true)
-    getUserById(userId)
+    getUserById(id)
         .then(user => {
           setUser(user)
         })
@@ -31,7 +30,7 @@ export default function EditProfile() {
         .finally(() => {
           setLoading(false)
         })
-  }, [userId])
+  }, [id])
 
   useEffect(() => {
     loadDataOnlyOnce()
@@ -53,12 +52,12 @@ export default function EditProfile() {
     setUser({ ...user, [event.target.name]: event.target.value })
   }
 
-  const handleSaveProfileChanges = (userId, user) => {
+  const handleSaveProfileChanges = (id, user) => {
     setLoading(true)
-    updateUser(userId, user)
+    updateUser(id, user)
         .then(updatedUser=> {
           setUser(updatedUser)
-          navigate(`/user/edit/${userId}`)
+          navigate(`/user/me`)
         })
         .catch(error => {
           setError(error)
@@ -70,11 +69,11 @@ export default function EditProfile() {
     navigate(`/home`)
   }
 
-  const handleDeleteUser = (userId) => {
+  const handleDeleteUser = (id) => {
     setLoading(true)
-    deleteUser(userId)
+    deleteUser(id)
         .then(deletedUser => {
-          console.log('deleted user with userId: '+ userId)
+          console.log('deleted user with userId: '+ id)
           navigate(`/home`)
         })
         .catch(error => {
@@ -83,7 +82,7 @@ export default function EditProfile() {
         })
   }
 
-  //console.log(user)
+  console.log(user)
   //console.log("UserRole" + user.userRole)
 
   return (
@@ -96,12 +95,20 @@ export default function EditProfile() {
               <div className="col-md-4 border-right">
                 <div className="d-flex flex-column align-items-center text-center p-3 py-5">
                   <div className="img-wrapper">
-                    <img
-                      className="rounded-circle p-md-3 profile-img"
-                      name="userImage"
-                      src={user.userImage}
-                      alt="This is a profile"
-                    />
+
+                    {user.userImage ?
+                        <img
+                            className="rounded-circle p-md-3 profile-img"
+                            name="userImage"
+                            src={user.userImage}
+                            alt="This is a profile"
+                        /> :
+                        <img
+                            className="rounded-circle user-img "
+                            src="https://images.unsplash.com/photo-1608155686393-8fdd966d784d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
+                            alt="Profile"
+                        />
+                    }
                     <Link
                       to={`/user/edit`}
                       className="btn edit-btn"

@@ -1,13 +1,12 @@
 import React from 'react'
 import '../assets/css/style.css'
 import TextArea from "./textArea";
-import Message from "./message";
-import MessageTeam from "./messageTeam";
 import StarRating from "./star";
 
 export default function YourReview({
     handleRating,
-    handleAddRating,
+    handleAddReview,
+    review,
     result
 }){
 
@@ -27,7 +26,7 @@ export default function YourReview({
         </div>
         <div className="mt-5 text-center">
         <button
-        //onClick={() =>handleAddRating()}
+              onClick={() =>handleAddReview(review)}
               className="btn btn-primary profile-button"
               type="button"
              >

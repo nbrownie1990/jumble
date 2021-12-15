@@ -8,7 +8,6 @@ mode,
 user,
 handleProfileInputChange,
 handleEditProfile,
-handleSaveNewProfile,
 handleSaveProfileChanges,
 handleCancel,
 handleDeleteUser,
@@ -51,6 +50,7 @@ readOnly,
                 </span>
                 </div>
 
+                {/*Passwort : Hier muss noch ein double-check o.ä. eingefügt werden*/}
                 <div className="col-md-12">
                   <label className="labels">Passwort:</label>
                   <TextField
@@ -82,42 +82,42 @@ readOnly,
                       value={user.userText}
                       onChange={handleProfileInputChange}/>
                   <div className="mt-5 text-center">
-                    {mode === 'new' && (
-                        <button
-                            className="btn btn-primary profile-button mb-5 m-3"
-                            type="button"
-                            onClick={() => handleSaveNewProfile(user.userId)}
-                        >
-                          <i className="fas fa-save"></i> Save Profile
-                        </button>
-                    )}
-                    {readOnly && (
-                        <button
-                            className="btn btn-primary profile-button mb-5 m-3"
-                            type="button"
-                            onClick={() => handleEditProfile(user.userId)}
-                        >
-                          <i className="fas fa-pen"></i> Edit Profile
-                        </button>
-                    )}
-                    {mode === 'edit' && (
+                    {/*{mode === 'new' && (*/}
+                    {/*    <button*/}
+                    {/*        className="btn btn-primary profile-button mb-5 m-3"*/}
+                    {/*        type="button"*/}
+                    {/*       // onClick={() => handleSaveProfile(user.username)}*/}
+                    {/*    >*/}
+                    {/*      <i className="fas fa-save"></i> Save Profile*/}
+                    {/*    </button>*/}
+                    {/*)}*/}
+                    {/*{readOnly && (*/}
+                    {/*    <button*/}
+                    {/*        className="btn btn-primary profile-button mb-5 m-3"*/}
+                    {/*        type="button"*/}
+                    {/*        onClick={() => handleEditProfile(user)}*/}
+                    {/*    >*/}
+                    {/*      <i className="fas fa-pen"></i> Edit Profile*/}
+                    {/*    </button>*/}
+                    {/*)}*/}
+                    {/*{mode === 'edit' && (*/}
                         <>
                           <button
                               className="btn btn-primary profile-button mb-5 m-3"
                               type="button"
-                              onClick={() => handleSaveProfileChanges(user.userId)}
+                              onClick={() => handleSaveProfileChanges(user)}
                           >
                             <i className="fas fa-save"></i> Save Profile
                           </button>
                           <button
                               className="btn btn-warning mb-5 m-3"
                               type="button"
-                              onClick={() => handleDeleteUser(user.userId)}
+                              onClick={() => handleDeleteUser(user)}
                           >
                             <i className="fas fa-trash"></i> Delete Profile
                           </button>
                         </>
-                    )}
+                    {/*)}*/}
                     <button
                         type="button"
                         className="btn btn-outline-primary"
