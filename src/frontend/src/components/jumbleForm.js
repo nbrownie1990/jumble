@@ -10,6 +10,7 @@ export default function JumbleForm({
   mode,
   jumble,
   address,
+  categories,
   handleJumbleInputChange,
   handleEditJumble,
   handleSaveNewJumble,
@@ -25,11 +26,19 @@ export default function JumbleForm({
         <div className="col-md-6">
           <div className="d-flex flex-column align-items-center text-center p-3 py-5">
             <div className="img-wrapper mt-5 ">
-              <img
-                className="rounded-circle jumble-img"
-                src={jumble.jumbleImage}
-                alt="This is a jumble"
-              />
+              {jumble.jumbleImage ?
+                  <img
+                      className="rounded-circle jumble-img"
+                      src={jumble.jumbleImage}
+                      alt="This is a jumble"
+                  />
+                  :
+                  <img
+                      className="rounded-circle jumble-img"
+                      src="https://www.biunsinnorden.de/mediadb/cache/800x480/schanzenflohmarkt_1200x720_c_cartelx.jpg"
+                      alt="This is a jumble"
+                  />
+              }
               <Link
                 to={`/jumbles/edit`}
                 className="btn edit-btn"
@@ -84,6 +93,7 @@ export default function JumbleForm({
                 <br />
                 <Select
                   name="category"
+                  categories={categories}
                   value={jumble.category}
                   onChange={handleJumbleInputChange}
                   readOnly={readOnly}
@@ -150,7 +160,7 @@ export default function JumbleForm({
               <button
                 className="btn btn-primary profile-button mb-5 m-3"
                 type="button"
-                onClick={() => handleSaveNewJumble()}
+                onClick={(e) => handleSaveNewJumble(e, jumble)}
               >
                 <i className="fas fa-save"></i> Save Jumble
               </button>

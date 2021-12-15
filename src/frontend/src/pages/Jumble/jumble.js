@@ -1,7 +1,7 @@
 import React, {useCallback, useEffect, useState} from 'react'
 import { Link } from 'react-router-dom'
 import Navbar from '../../components/navbar'
-import {getJumbleById, getReviewList} from "../../services/apiService";
+import {addReview, getJumbleById, getReviewList} from "../../services/apiService";
 import {useParams} from "react-router";
 import Reviews from "../../components/reviews";
 import StarRating from "../../components/star";
@@ -14,6 +14,7 @@ function Jumble() {
   const [error, setError] = useState();
   const [jumble, setJumble]= useState([]);
   const [reviewList, setReviewList]= useState([]);
+  const [review, setReview]= useState([]);
   const [rating, setRating] = useState(3) // initial rating value
   let { jumbleId } = useParams();
 
@@ -47,6 +48,30 @@ function Jumble() {
     // Some logic
   }
 
+  // Catch Rating value
+  const handleAddReview= () => {
+    const reviewList = [...jumble.reviewList, review]
+    setJumble({ ...jumble, reviewList: reviewList})
+      addReview(jumbleId, review)
+          .then(setJumble)
+          .catch(setError)
+          .finally(() => {
+            setLoading(false)
+          })
+  }
+
+  // const handleDeleteReview = () => {
+  //   setLoading(true)
+  //   setError()
+  //   deleteReview(jumbleId, reviewId)
+  //       .then(() => getJumbleById(jumbleId))
+  //       .then(dto => setJumble(dto))
+  //       .catch(setError)
+  //       .finally(() => {
+  //         setLoading(false)
+  //         resetReviewList()
+  //       })
+  // }
 
   //console.log(jumble.address?.addressStreet)
   // console.log(jumble.reviewList?.[0].reviewId)
@@ -71,7 +96,7 @@ function Jumble() {
             {!loading && (
                 <main className="m-md-5 mt-5 mb-5">
                   <section className="container w-100 h-100 mt-5">
-                    {error &&  <button className="btn"><span className="error badge badge-primary" data-aos="fade-right">{error.response.data.message}</span></button>}
+                    {error &&  <span className="error badge bg-primary text-white" data-aos="fade-right"> {error.response.data.message}</span>}
                     <div className="container">
                   <div key={jumble.jumbleId} className="row ">
                     <div className="col-sm-12">
@@ -138,6 +163,7 @@ function Jumble() {
 
                       <YourReview
                           handleRating={handleRating}
+                          handleAddReview={handleAddReview}
                       />
 
                     </div>
