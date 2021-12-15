@@ -3,64 +3,57 @@ import { useNavigate } from 'react-router'
 import Navbar from '../../components/navbar'
 import JumbleForm from '../../components/jumbleForm'
 import {initialJumbleState, initialAddressState, jumbleCategoryOptions} from "../../services/stateService";
-import Error from "../../components/error";
+import {addNewJumble, getAllCategories} from "../../services/apiService";
 
 
 export default function AddJumble() {
   const navigate = useNavigate();
   const [jumble, setJumble, setJumbleId] = useState([]);
   const [address, setAddress] = useState([]);
+  const [categories, setCategories] = useState([]);
   const [error, setError] = useState();
   const [loading, setLoading] = useState(false)
 
-    const handleJumbleInputChange = event => {
-    setJumble({ ...jumble, [event.target.name]: event.target.value })
-    setAddress({ ...address, [event.target.name]: event.target.value })
+    const handleJumbleInputChange = e => {
+    setJumble({ ...jumble, [e.target.name]: e.target.value })
+    setAddress({ ...address, [e.target.name]: e.target.value })
   }
 
-  useEffect(() => {
-      // POST request using fetch inside useEffect React hook
-      const handleSaveNewJumble = {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ title: 'Wenn das mal klappt...' })
-      };
-      fetch('/api/jumbles/new', handleSaveNewJumble)
-          .then(response => response.json())
-          .then(data => setJumbleId(data.id));
+    useEffect(() => {
+        setLoading(true);
+        getAllCategories()
+            .then(categories => setCategories(categories))
+            .catch(error => setError(error))
+            .finally(() => setLoading(false))
+    },[])
 
-      //empty dependency array means this effect will only run once (like componentDidMount in classes)
-  }, []);
+    const handleSaveNewJumble = (e, jumble) => {
+        e.preventDefault()
+        addNewJumble(jumble)
+                .catch(setError)
+                .finally(() => {
+                    setLoading(false)
+                    navigate('/home')
+                })
+    }
 
-    //
-    // const handleSaveNewJumble = event => {
-    //     event.preventDefault();
-    //
-    //     setLoading(true)
-    //     const requestOptions = {
-    //         method: 'POST',
-    //         headers: { 'Content-Type': 'application/json' },
-    //         body: JSON.stringify({ title: 'Wenn das mal klappt...' })
-    //     };
-    //     fetch('/api/jumbles/new', requestOptions)
-    //         .then(response => response.json())
-    //         .then(data => setJumbleId(data.id))
-    //
-    //         .catch(setError)
-    //         .finally(() => {
-    //             setLoading(false)
-    //         })
-    // }
-
-  // const handleSaveFailed = errorInfo => {
-  //   alert(JSON.stringify(errorInfo, null, 2));
-  // };
+   const handleSaveFailed = errorInfo => {
+     alert(JSON.stringify(errorInfo, null, 2));
+   };
 
   const handleCancel = () => {
     navigate('/home')
   }
 
-  return (
+    if (loading) {
+        return <p className="container w-100 h-100 mt-5" >Data is loading...</p>;
+    }
+
+    if (error || !Array.isArray(categories)) {
+        return <p className="container w-100 h-100 mt-5" >There was an error loading your data!</p>;
+    }
+
+    return (
     <>
       <Navbar />
       <main className="m-md-5 m-2 mt-5 mb-5">
@@ -69,14 +62,14 @@ export default function AddJumble() {
             <JumbleForm
               jumble={jumble}
               address={address}
+              categories={categories}
               handleJumbleInputChange={handleJumbleInputChange}
-              //handleSaveNewJumble={handleSaveNewJumble}
-              //handleSaveFailed={handleSaveFailed}
+              handleSaveNewJumble={handleSaveNewJumble}
+              handleSaveFailed={handleSaveFailed}
               handleCancel={handleCancel}
               readOnly={false}
               mode="new"
             />
-            {error && <Error>ERROR-WARNING o.O!</Error>}
           </div>
         </section>
       </main>
