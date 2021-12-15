@@ -27,24 +27,24 @@ import Impressum from './pages/Impressum/impressum'
 import Footer from './components/footer'
 import AddProfile from "./pages/Profile/addProfile";
 import Login from "./pages/Login/login";
-import {getCurrentUser, logout} from "./services/apiService"
+import {getCurrentUser, logout} from "./services/authService"
 // -- Component Styles
 import './assets/css/style.css'
+import MyProfile from "./pages/Profile/myProfile";
 
 
 
 function App() {
-//  const [currentUser, setCurrentUser] = useState(undefined);
+const [currentUser, setCurrentUser] = useState(undefined);
 
   useEffect(() => {
-    AOS.init()
-    //   const user = getCurrentUser();
-    //
-    //   if (user) {
-    //     setCurrentUser(user);
-    //   }
-    // }, []
-  });
+    //AOS.init()
+      const user = getCurrentUser();
+
+      if (user) {
+        setCurrentUser(user);
+      }
+    }, [])
 
 
   return (
@@ -61,10 +61,11 @@ function App() {
         <Route path="/forgot" element={<Forgot />} />
         <Route path="/reset" element={<Reset />} />
         <Route path="/logout" element={<Logout />} />
-        {/*//current userID??*/}
-        <Route path="/user/edit/:id" element={<EditProfile />} />
-        <Route path="/user/new" element={<AddProfile />} />
+        {/*addProfile evtl rausnehmen*/}
+        {/*<Route path="/user/new" element={<AddProfile />} />*/}
         <Route path="/user/:id" element={<Profile />} />
+        <Route path="/user/edit/:id" element={<EditProfile/>} />
+        <Route path="/user/me" element={<MyProfile/>} />
         <Route path="/home" element={<Home />} />
         <Route path="/" element={<Start />} />
         <Route path="/impressum" element={<Impressum />} />
