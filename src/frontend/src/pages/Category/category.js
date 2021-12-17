@@ -42,11 +42,11 @@ function Category() {
                 <NavBar />
                  <main className="m-md-5 mt-5 mb-5">
                    <section className="container w-100 min-vh-100 px-lg-5 mt-5">
-                     <div className="sidebar h-100 p-0 ">
+                     <div className="p-0 text-center">
                          { loading &&  <p>Data is loading...</p>}
                          { error && <p>There was an error loading your data!</p> }
-                         <div key={category.categoryId} className="col-sm-8 mb-5">
-                               <div className="card h-100">
+                         <div key={category.categoryId} className="col-12 mb-5">
+                               <div className="card w-50">
                                    <img
                                        className="card-img-top"
                                        src={category.categoryImage}
