@@ -5,7 +5,7 @@ import React from 'react'
 //wird evtl. später ersetzt durch mapcomponent
 
 mapboxgl.accessToken =
-  'pk.eyJ1IjoibmJyb3duaWUiLCJhIjoiY2t1aWVhNGhlMDJrZjMwcXoyZWUybDYxZCJ9.HLXmIOmvZtR3uhDR1JofjA'
+  'pk.eyJ1IjoibmJyb3duaWUiLCJhIjoiY2t4YTgzdHFwMGVzbDJwbXduamIwcjVobyJ9.1dvOHUtZhQCG2BBl7rkjtg'
 
 const data = [
   {
