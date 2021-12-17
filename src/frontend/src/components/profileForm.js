@@ -25,6 +25,7 @@ readOnly,
                 <div className="col-md-12">
                   <label className="labels">Nutzername:</label>
                   <TextField
+                      class="font-weight-bold h1"
                       disabled={readOnly}
                       title="Nutzername"
                       name="username"
@@ -120,7 +121,7 @@ readOnly,
                     {/*)}*/}
                     <button
                         type="button"
-                        className="btn btn-outline-primary"
+                        className="btn btn-outline-primary mb-5 m-3"
                         onClick={() => handleCancel()}
                     >
                       Cancel
