@@ -58,7 +58,7 @@ class NavBar extends React.Component {
 
               <Nav.Link href="/user/me">Profile</Nav.Link>
 
-              <Nav.Link href="/logout">Logout</Nav.Link>
+              <Nav.Link href="/logoutnow">Logout</Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>
