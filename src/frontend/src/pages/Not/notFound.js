@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const Notfound = () => {
+const NotFound = () => {
   return (
     <main className="d-flex m-md-5 mt-5 mb-5 min-vh-100">
       <section className="container w-100 p-3 flex-column align-self-center">
@@ -32,4 +32,4 @@ const Notfound = () => {
   )
 }
 
-export default Notfound
+export default NotFound
