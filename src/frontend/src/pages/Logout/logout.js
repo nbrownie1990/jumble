@@ -1,12 +1,16 @@
 import React, {useEffect} from 'react'
 import { Link } from 'react-router-dom'
-import {logout} from "../../services/authService";
+import {getCurrentUser, logout} from "../../services/authService";
 
 const Logout = () => {
 
   useEffect(() => {
-    logout()
-         },[])
+      const user = getCurrentUser();
+      if (user) {
+          logout(user);
+      }
+  }, [])
+
 
   return (
     <main className="d-flex m-5 text-center text-primary min-vh-100">
