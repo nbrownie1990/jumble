@@ -39,15 +39,15 @@ export default function JumbleForm({
                       alt="This is a jumble"
                   />
               }
-              <Link
-                to={`/jumbles/edit`}
-                className="btn edit-btn"
-                type="button"
-                data-toggle="tooltip"
-                title="Edit"
-              >
-                <i className="fas fa-pen ps-2 pb-1"></i>
-              </Link>
+              {/*<Link*/}
+              {/*  to={`/jumbles/edit`}*/}
+              {/*  className="btn edit-btn"*/}
+              {/*  type="button"*/}
+              {/*  data-toggle="tooltip"*/}
+              {/*  title="Edit"*/}
+              {/*>*/}
+              {/*  <i className="fas fa-pen ps-2 pb-1"></i>*/}
+              {/*</Link>*/}
             </div>
             <span className="font-weight-bold mt-2 mb-3">Bild des Jumbles</span>
 
@@ -194,7 +194,7 @@ export default function JumbleForm({
             )}
             <button
               type="button"
-              className="btn btn-outline-primary"
+              className="btn btn-outline-primary mb-5 m-3"
               onClick={() => handleCancel()}
             >
               Cancel
