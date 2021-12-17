@@ -27,12 +27,10 @@ public class User {
 //    )
     private Long id;
 
-    @NotBlank
     @Column(name = "user_name", nullable = false, unique = true)
     private String username;
 
-    @NotBlank
-    @Column(name = "user_email")
+    @Column(name = "user_email", nullable = false)
     private String email;
 
     @Column(name = "user_img")
@@ -41,8 +39,7 @@ public class User {
     @Column(name = "user_text", columnDefinition = "TEXT")
     private String userText;
 
-    @NotBlank
-    @Column(name = "user_psw")
+    @Column(name = "user_psw", nullable = false)
     private String password;
 
     @ManyToMany(fetch = FetchType.EAGER)
@@ -73,7 +70,10 @@ public class User {
     public User() {
     }
 
-    public User(String username, String email, String encode) {
+    public User(String username, String email, String password) {
+        this.username = username;
+        this.email = email;
+        this.password = password;
     }
 
 

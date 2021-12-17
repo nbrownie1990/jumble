@@ -2,7 +2,6 @@ package de.nbrownie.jumbleapplication.security.services;
 
 import de.nbrownie.jumbleapplication.models.User;
 import de.nbrownie.jumbleapplication.repo.UserRepository;
-import de.nbrownie.jumbleapplication.security.services.UserDetailsImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
