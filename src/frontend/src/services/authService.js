@@ -57,6 +57,9 @@ export const getCurrentUser = () => {
     return JSON.parse(localStorage.getItem("user"));
 };
 
+
+
+
 // const user = JSON.parse(localStorage.getItem('user'));
 // axios.defaults.headers['Authorization'] = 'Bearer ' + localStorage.getItem(user.token);
 

@@ -7,9 +7,7 @@ import {signup} from "../../services/authService";
 
 const Signup = (props) => {
   const navigate = useNavigate();
-  const form = useRef();
 
-  //const [credentials, setCredentials] = useState(initialSignUpState)
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -18,8 +16,9 @@ const Signup = (props) => {
   const [message, setMessage] = useState("");
   const [checkbox, setCheckbox] = useState(false)
   const [error, setError] = useState()
+  //const [credentials, setCredentials] = useState(initialSignUpState)
 
-
+//To-Do: Try out following shortcut:
   // const handleCredentials = e => {
   //   setCredentials({
   //     ...credentials,
@@ -68,8 +67,8 @@ const Signup = (props) => {
           .finally(
               () => {
                 //props.history.push("/user/new");
+                //window.location.reload();
                 navigate("/login")
-                window.location.reload();
               })
     };
 
@@ -94,8 +93,6 @@ const Signup = (props) => {
                 <div className="card-body">
                   <h4 className="card-title">Sign Up</h4>
                   <form
-                   // as="form"
-                    ref={form}
                     onSubmit={handleSignup}
                     className="my-login-validation"
                   >

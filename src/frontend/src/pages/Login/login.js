@@ -6,7 +6,7 @@ import {useNavigate} from "react-router";
 import {login} from "../../services/authService";
 
 const Login = (props) => {
-  const form = useRef();
+ // const form = useRef();
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -81,7 +81,7 @@ const Login = (props) => {
                     className="form-signin my-login-validation" method="post" action="/login"
                     //onSubmit={() => handleSubmit()}
                     onSubmit={handleLogin}
-                    ref={form}
+                 //   ref={form}
                   >
                     <div className="form-group">
                       <label htmlFor="username" className="sr-only">Nutzername</label>
@@ -131,9 +131,9 @@ const Login = (props) => {
                         >
                           Remember Me
                         </label>
-                        <Link className="nav-link" to="/forgot">
-                          Passwort vergessen?
-                        </Link>
+                        {/*<Link className="nav-link" to="/forgot">*/}
+                        {/*  Passwort vergessen?*/}
+                        {/*</Link>*/}
                       </div>
                     </div>
 
