@@ -127,10 +127,10 @@ export const deleteReview = (jumbleId, reviewId) =>
 //         .post(`${baseUrl}/user/register`, credentials)
 //         .then(response => response.data)
 
-export const addUserProfile = (username) =>
-    axios
-        .post(`${baseUrl}/user/new`, username )
-        .then(response => response.data)
+// export const addUserProfile = (username) =>
+//     axios
+//         .post(`${baseUrl}/user/new`, username )
+//         .then(response => response.data)
 
 /////////////////////////////
 ////Profile bzw User GET////
