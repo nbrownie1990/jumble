@@ -5,22 +5,28 @@ import StarRating from "./star";
 const JumbleList = props => {
     const { items, onItemSelected} = props
 
-
   return (
              <div className="container">
                  {items.map(item => (
                  <div key={item.jumbleId} className="card m-2">
                  <div className="card-body">
                  <div className="row">
-                      <div className="col-6">
-                         <h5 className="text-primary text-start align-self-start">
+                     <div className="col-3 d-flex align-items-center">
+                         <img src={item.jumbleImage} className="img-fluid rounded-start" />
+                     </div>
+                      <div className="col-4 p-0">
+                         <h5 className="text-primary text-start align-self-start mb-0">
                             {item.jumbleName}
                          </h5>
-                {/*<p className="m-0 py-2 text-muted text-start">*/}
-                {/*  {item.jumbleAddress.toString()}*/}
-                {/*</p>*/}
+                    <p className="m-0 py-2 text-muted text-start" key={item.address?.addressId}>
+                        {item.address?.addressStreet} {' '}
+                         {item.address?.addressNumber}
+                        <br/>
+                         {item.address?.addressZip}{' '}
+                         {item.address?.addressCity}{' '}
+                    </p>
                 </div>
-                <div className="col-6 text-end">
+                <div className="col-5 text-end">
                  <StarRating />
                       <Link
                         to={`/jumbles/${item.jumbleId}`}

@@ -43,8 +43,8 @@ function Category() {
                      <div className="p-0 text-center">
                          { loading &&  <p>Data is loading...</p>}
                          { error && <p>There was an error loading your data!</p> }
-                         <div key={category.categoryId} className="col-12 mb-5">
-                               <div className="card w-50">
+                         <div key={category.categoryId} className="d-flex justify-content-center" >
+                               <div className="card w-50 mb-5">
                                    <img
                                        className="card-img-top"
                                        src={category.categoryImage}
@@ -76,9 +76,9 @@ function Category() {
                            items={filtered}
                           />
                      </div>
-                       <span>
+                       {/*<span>*/}
 
-                          </span>
+                       {/*   </span>*/}
                    </section>
                  </main>
       </React.Fragment>

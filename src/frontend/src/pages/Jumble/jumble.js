@@ -104,7 +104,7 @@ function Jumble() {
                         {jumble.jumbleName}
                       </h1>
                       <div className="row ">
-                        <div className="col-sm-6 align-self-center img-wrapper mt-5">
+                        <div className="col-sm-6 align-self-center position-relative img-wrapper mt-2">
                           <img
                               className="rounded-circle jumble-img"
                               src={jumble.jumbleImage}
@@ -112,7 +112,7 @@ function Jumble() {
                           />
                           <Link
                               to={`/jumbles/edit/${jumbleId}`}
-                              className="btn edit-btn"
+                              className="btn edit-btn position-absolute top-40 start-50"
                               type="button"
                               data-toggle="tooltip"
                               title="Edit"
