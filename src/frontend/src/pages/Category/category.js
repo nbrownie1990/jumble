@@ -4,11 +4,9 @@ import JumbleList from "../../components/jumbleList";
 import {Link} from "react-router-dom";
 import {getAllJumbles, getCategoryById} from "../../services/apiService";
 import NavBar from "../../components/navbar";
-import {useAuth} from "../../auth/AuthProvider";
 
 
 function Category() {
- //   const { user, token } = useAuth()
     const [category, setCategory] = useState([]);
     const [jumbles, setJumbles] = useState([]);
     const [loading, setLoading] = useState(false);

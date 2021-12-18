@@ -1,6 +1,6 @@
 // -- React and related libs
 import React, {useEffect, useState} from 'react'
-import {BrowserRouter, Redirect, Route, Routes} from 'react-router-dom'
+import {Route, Routes} from 'react-router-dom'
 
 // -- Third Party Libs
 import AOS from 'aos'
@@ -29,8 +29,7 @@ import NotFound from './pages/Not/notFound'
 import NotAllowed from "./pages/Not/notAllowed"
 import Login from "./pages/Login/login"
 import {getCurrentUser} from "./services/authService"
-import ProtectedRoute from "./auth/ProtectedRoute";
-import AuthProvider from "./auth/AuthProvider";
+import ProtectedRoutes from "./auth/ProtectedRoutes";
 
 // -- Component Styles
 import './assets/css/style.css'
@@ -57,17 +56,19 @@ const [currentUser, setCurrentUser] = useState(undefined);
           <Route path="/impressum" element={<Impressum />} />
           <Route path="/logoutnow" element={<Logout />} />
           <Route path="/notallowed" element={<NotAllowed />}/>
-          <Route path="/jumbles/edit/:jumbleId" element={<EditJumble/>}/>
-          <Route path="/jumbles/:jumbleId" element={<Jumble />} />
-          <Route path="/jumbles/new" element={<AddJumble />} />
-          <Route path="/jumbles/getall" element={<AllJumbles />} />
-          <Route path="/categories/:categoryId" element={<Category />} />
-          <Route path="/categories" element={<Categories />} />
-          <Route path="/user/:id" element={<Profile />} />
-          <Route path="/user/edit/:id" element={<EditProfile/>} />
-          <Route path="/user/me" element={<MyProfile/>} />
-          <Route path="/home" element={<Home />} />
-          <Route path="*" element={<NotFound />} />
+          <Route element={<ProtectedRoutes/>}>
+            <Route path="/jumbles/edit/:jumbleId" element={<EditJumble/>}/>
+            <Route path="/jumbles/:jumbleId" element={<Jumble />} />
+            <Route path="/jumbles/new" element={<AddJumble />} />
+            <Route path="/jumbles/getall" element={<AllJumbles />} />
+            <Route path="/categories/:categoryId" element={<Category />} />
+            <Route path="/categories" element={<Categories />} />
+            <Route path="/user/:id" element={<Profile />} />
+            <Route path="/user/edit/:id" element={<EditProfile/>} />
+            <Route path="/user/me" element={<MyProfile/>} />
+            <Route path="/home" element={<Home />} />
+            <Route path="*" element={<NotFound />} />
+          </Route>
       </Routes>
       <Footer />
     </div>
