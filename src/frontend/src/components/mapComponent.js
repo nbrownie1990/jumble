@@ -460,7 +460,7 @@ class MapComponent extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <div className="container-fluid text-primary" data-aos="fade-up">
+        <div className="container-fluid text-primary">
           <div className="card">
             <div
               id="map"
