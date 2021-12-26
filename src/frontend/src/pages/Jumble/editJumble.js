@@ -18,7 +18,7 @@ export default function EditJumble() {
   const [jumble, setJumble] = useState([]);
   const [address, setAddress] = useState([]);
   let { jumbleId } = useParams();
-  let  addressId = jumble.address?.addressId;
+  let  addressId  = jumble.address?.addressId;
 
     useEffect(() => {
         setLoading(true);
@@ -28,14 +28,15 @@ export default function EditJumble() {
             .finally(() => setLoading(false))
     },[jumbleId])
 
+
     useEffect(() => {
-        let addressId = jumble.address.addressId;
         setLoading(true);
         getAddressById(addressId)
             .then(address => setAddress(address))
             .catch(error => setError(error))
             .finally(() => setLoading(false))
-    },[jumbleId, addressId])
+    },[addressId])
+
 
     useEffect(() => {
         setLoading(true);
@@ -63,17 +64,17 @@ export default function EditJumble() {
             })
     }
 
-    const handleSaveAddressChanges = (addressId, address) => {
-        setLoading(true)
-        updateJumbleAddress(addressId, address)
-            .then(updatedAddress=> {
-                setAddress(updatedAddress)
-            })
-            .catch(error => {
-                setError(error)
-                setLoading(false)
-            })
-    }
+    // const handleSaveAddressChanges = (addressId, address) => {
+    //     setLoading(true)
+    //     updateJumbleAddress(addressId, address)
+    //         .then(updatedAddress=> {
+    //             setAddress(updatedAddress)
+    //         })
+    //         .catch(error => {
+    //             setError(error)
+    //             setLoading(false)
+    //         })
+    // }
 
   const handleCancel = () => {
     navigate('/home')
