@@ -4,7 +4,7 @@ import React from 'react'
 export default function AddressForm({
   handleJumbleInputChange,
   readOnly,
-  address
+  jumble
 }){
 
 
@@ -13,7 +13,7 @@ export default function AddressForm({
       <TextField
         name="addressStreet"
         type="text"
-        value={address.addressStreet}
+        value={jumble.address?.addressStreet}
         onChange={handleJumbleInputChange}
         title="Straße"
         disabled={readOnly}
@@ -22,7 +22,7 @@ export default function AddressForm({
       <TextField
         name="addressNumber"
         type="text"
-        value={address.addressNumber}
+        value={jumble.address?.addressNumber}
         onChange={handleJumbleInputChange}
         title="Hausnummer"
         disabled={readOnly}
@@ -31,7 +31,7 @@ export default function AddressForm({
       <TextField
         name="addressZip"
         type="text"
-        value={address.addressZip}
+        value={jumble.address?.addressZip}
         onChange={handleJumbleInputChange}
         title="Postleitzahl"
         disabled={readOnly}
@@ -41,7 +41,7 @@ export default function AddressForm({
       <TextField
         name="addressCity"
         type="text"
-        value={address.addressCity}
+        value={jumble.address?.addressCity}
         onChange={handleJumbleInputChange}
         title="Stadt"
         disabled={readOnly}
@@ -49,7 +49,7 @@ export default function AddressForm({
       <TextField
         name="addressCountry"
         type="text"
-        value={address.addressCountry}
+        value={jumble.address?.addressCountry}
         onChange={handleJumbleInputChange}
         title="Land"
         disabled={readOnly}

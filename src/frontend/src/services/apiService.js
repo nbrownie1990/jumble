@@ -30,8 +30,8 @@ export const getAllJumbles = async () => {
         });
 }
 
-export const getJumbleById = async (jumbleId) => {
-    return await axios
+export const getJumbleById = (jumbleId) => {
+    return axios
         .get(`${baseUrl}/jumbles/${jumbleId}`)
         .then(response => {
             return response.data;

@@ -10,7 +10,6 @@ import Dropzone from "./dropzone";
 export default function JumbleForm({
   mode,
   jumble,
-  address,
   categories,
   handleJumbleInputChange,
   handleEditJumble,
@@ -107,7 +106,7 @@ export default function JumbleForm({
                 <label className="labels">Jumble-Adresse</label>
                 <AddressForm
                   name="address"
-                  address={address}
+                  jumble={jumble}
                   handleJumbleInputChange={handleJumbleInputChange}
                   handleSaveAddressChanges={handleSaveAddressChanges}
                   handleSaveNewJumble={handleSaveNewJumble}
@@ -162,7 +161,7 @@ export default function JumbleForm({
               <button
                 className="btn btn-primary profile-button mb-5 mb-md-2 m-3"
                 type="button"
-                onClick={() => handleSaveNewJumble(jumble, address)}
+                onClick={() => handleSaveNewJumble(jumble)}
               >
                 <i className="fas fa-save"></i> Save Jumble
               </button>
