@@ -1,6 +1,7 @@
 package de.nbrownie.jumbleapplication.controllers;
 
 import de.nbrownie.jumbleapplication.models.Address;
+import de.nbrownie.jumbleapplication.models.Jumble;
 import de.nbrownie.jumbleapplication.services.AddressService;
 import lombok.AllArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -25,12 +26,20 @@ public class AddressController {
         return addressService.getAddressByAddressId(addressId);
     }
 
+//    @PreAuthorize("hasRole('USER')")
+//    @GetMapping(path = "{jumbleId}/{addressId}")
+//    public List<Address> getAddressByAddressIdAndJumbleId(
+//            @PathVariable Long jumbleId, @PathVariable Long addressId) {
+//        return addressService.getAddressByAddressIdAndJumbleId(jumbleId, addressId);
+//    }
+
     @PreAuthorize("hasRole('USER')")
-    @GetMapping(path = "{jumbleId}/{addressId}")
-    public List<Address> getAddressByAddressIdAndJumbleId(
-            @PathVariable Long jumbleId, @PathVariable Long addressId) {
-        return addressService.getAddressByAddressIdAndJumbleId(jumbleId, addressId);
+    @PostMapping(path = "{jumbleId}/newaddress")
+    public void addNewAddress(@RequestBody Address address){
+        addressService.addNewAddress(address);
     }
+
+
 }
 
 //    @GetMapping(value="address/find/{username}/{addressId}", produces = APPLICATION_JSON_VALUE)
@@ -42,10 +51,7 @@ public class AddressController {
 //        return ok(mapAddress(addressEntity));
 //    }
 
-//    @PostMapping
-//    public void addNewAddress(@Validated @RequestBody Address address) {
-//        addressService.addNewAddress(address);
-//    }
+
 //
 //    @DeleteMapping(path = "{addressId}")
 //    public void deleteAddress(

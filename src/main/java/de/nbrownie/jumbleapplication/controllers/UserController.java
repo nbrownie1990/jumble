@@ -1,4 +1,5 @@
 package de.nbrownie.jumbleapplication.controllers;
+import de.nbrownie.jumbleapplication.models.Jumble;
 import de.nbrownie.jumbleapplication.models.User;
 import java.util.List;
 
@@ -13,7 +14,7 @@ import static org.springframework.util.MimeTypeUtils.APPLICATION_JSON_VALUE;
 @CrossOrigin(origins = "*", maxAge = 3600, allowedHeaders = "*")
 @AllArgsConstructor
 @RestController
-@RequestMapping(path= "api/user")
+@RequestMapping(path= "api/users")
 public class UserController {
 
     private final UserService userService;
@@ -25,29 +26,24 @@ public class UserController {
     }
 
     @PreAuthorize("hasRole('USER')")
-    @GetMapping(path = "{userId}")
+    @GetMapping(path = "{id}")
     public User getUserByUserId(
-            @PathVariable Long userId) {
-        return userService.getUserByUserId(userId);
+            @PathVariable Long id) {
+        return userService.getUserByUserId(id);
     }
 
-//    @PutMapping(value = "edit/me", produces = APPLICATION_JSON_VALUE, consumes = APPLICATION_JSON_VALUE)
-//    public ResponseEntity<UserApi> updateUser(@AuthenticationPrincipal User authUser, @PathVariable Long userId, @RequestBody UserApi updateUser){
-//        if(updateUser.getUserId().equals(userId)){
-//            User changedUser = userService.updateUser(authUser.getUserId(), mapUser(updateUser));
-//            return ok(mapUser(changedUser));
-//        }
-//        throw new IllegalArgumentException("User and ID does not belong together");
-//    }
-
+    @PreAuthorize("hasRole('USER')")
+    @PutMapping(path = "edit/{id}")
+    public void updateUser(@PathVariable("id") Long id, @RequestBody User updateUser) {
+        userService.updateUser(id, updateUser);
+    }
 
 
 //    @PostMapping(path = "new")
 //    public void addNewUser(@RequestBody User user){
 //        userService.addNewUser(user);
 //    }
-    
-//
+
 //    @GetMapping(path = "{username}", produces = APPLICATION_JSON_VALUE)
 //    public ResponseEntity<UserApi> getUserByUserName(@AuthenticationPrincipal User authUser, @PathVariable String username){
 //        if (authUser.getUsername().equals(username) || authUser.getUserRole().equals("admin")) {
@@ -69,9 +65,7 @@ public class UserController {
 //        User createdUser = userService.addNewProfile(username, user);
 //        return ok(mapUser(createdUser));
 //    }
-//
 
-//
 //    @PutMapping(value="edit/updatePassword", produces = APPLICATION_JSON_VALUE, consumes = APPLICATION_JSON_VALUE)
 //    public ResponseEntity<UserApi> updatePassword(@AuthenticationPrincipal User authUser, @RequestBody PasswordApi password){
 //        authService.checkPassword(password.getPassword());
@@ -80,16 +74,11 @@ public class UserController {
 //        return ok(mapUser(updatedUser));
 //    }
 
-//    @DeleteMapping(path = "edit/delete/{userId}")
-//    public void deleteUser(
-//            @PathVariable Long userId) {
-//        userService.deleteUser(userId);
-//    }
+    @DeleteMapping(path = "edit/{id}/delete")
+    public void deleteUser(
+            @PathVariable Long id) {
+        userService.deleteUser(id);
+    }
 
-//    @DeleteMapping(value = "edit/delete/{userId}", produces = APPLICATION_JSON_VALUE)
-//    public ResponseEntity<UserApi> deleteUser(@PathVariable Long userId) {
-//        User deletedUser = userService.deleteUser(userId);
-//        return ok(mapUser(deletedUser));
-//    }
 }
     

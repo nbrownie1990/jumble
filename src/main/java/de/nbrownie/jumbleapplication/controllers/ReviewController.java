@@ -37,7 +37,6 @@ public class ReviewController {
     }
 
 
-
 //   @GetMapping("/{id}")
 //   public ResponseEntity<Category> GetCategoryById(@PathVariable Long id) {
 //        CategoryEntity categoryEntity = CategoryService.GetCategoryById(id)
