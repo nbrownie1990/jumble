@@ -5,6 +5,7 @@ import TextField from './textField'
 import TextArea from './textArea'
 import AddressForm from './addressForm'
 import Select from './select'
+import Dropzone from "./dropzone";
 
 export default function JumbleForm({
   mode,
@@ -26,6 +27,7 @@ export default function JumbleForm({
         <div className="col-md-6">
           <div className="d-flex flex-column align-items-center text-center p-3 py-5">
             <div className="img-wrapper mt-5 ">
+              <Dropzone/>
               {jumble.jumbleImage ?
                   <img
                       className="rounded-circle jumble-img"
@@ -108,9 +110,9 @@ export default function JumbleForm({
                   address={address}
                   handleJumbleInputChange={handleJumbleInputChange}
                   handleSaveAddressChanges={handleSaveAddressChanges}
-                  //handleSaveNewJumble={handleSaveNewJumble}
-                  handleDeleteJumble={handleDeleteJumble}
-                  handleCancel={handleCancel}
+                  handleSaveNewJumble={handleSaveNewJumble}
+                 // handleDeleteJumble={handleDeleteJumble}
+                 // handleCancel={handleCancel}
                   readOnly={false}
                 />
               </div>
@@ -119,7 +121,7 @@ export default function JumbleForm({
                 <DateField
                   name="jumbleDate"
                   title="Termin"
-                  type="date"
+                  type="text"
                   value={jumble.jumbleDate}
                   onChange={handleJumbleInputChange}
                   disabled={readOnly}
@@ -147,7 +149,7 @@ export default function JumbleForm({
                 <TextField
                   name="jumbleWebsite"
                   title="Website"
-                  type="url"
+                  type="text"
                   value={jumble.jumbleWebsite}
                   onChange={handleJumbleInputChange}
                   disabled={readOnly}
@@ -158,35 +160,26 @@ export default function JumbleForm({
           <div className="mt-2 mt-md-5 text-center">
             {mode === 'new' && (
               <button
-                className="btn btn-primary profile-button mb-5 m-3"
+                className="btn btn-primary profile-button mb-5 mb-md-2 m-3"
                 type="button"
-                onClick={(e) => handleSaveNewJumble(e, jumble)}
+                onClick={() => handleSaveNewJumble(jumble, address)}
               >
                 <i className="fas fa-save"></i> Save Jumble
-              </button>
-            )}
-            {readOnly && (
-              <button
-                className="btn btn-primary profile-button mb-5 m-3"
-                type="button"
-                onClick={() => handleEditJumble(jumble)}
-              >
-                <i className="fas fa-pen"></i> Edit Jumble
               </button>
             )}
             {mode === 'edit' && (
               <>
                 <button
-                  className="btn btn-primary profile-button mb-5 m-3"
+                  className="btn btn-primary profile-button mb-5 mb-md-2 m-3"
                   type="button"
-                  onClick={() => handleSaveJumbleChanges()}
+                  onClick={() => handleSaveJumbleChanges(jumble.jumbleId, jumble)}
                 >
                   <i className="fas fa-save"></i> Save Jumble
                 </button>
                 <button
-                  className="btn btn-warning mb-5 m-3"
                   type="button"
-                  onClick={() => handleDeleteJumble()}
+                  className="btn btn-warning mb-5 mb-md-2 m-3"
+                  onClick={() => handleDeleteJumble(jumble.jumbleId)}
                 >
                   <i className="fas fa-trash"></i> Delete Jumble
                 </button>
@@ -194,7 +187,7 @@ export default function JumbleForm({
             )}
             <button
               type="button"
-              className="btn btn-outline-primary mb-5 m-3"
+              className="btn btn-outline-primary mb-5 mb-md-2 m-3"
               onClick={() => handleCancel()}
             >
               Cancel

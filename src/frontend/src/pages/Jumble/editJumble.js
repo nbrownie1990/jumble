@@ -4,7 +4,7 @@ import { useParams, useNavigate } from 'react-router'
 import Navbar from '../../components/navbar'
 import JumbleForm from '../../components/jumbleForm'
 import {
-    deleteJumble, getAddressById,
+    deleteJumble, deleteUser, getAddressById, getAllCategories,
     getJumbleById,
     updateJumble,
     updateJumbleAddress
@@ -14,10 +14,11 @@ export default function EditJumble() {
   const navigate = useNavigate();
   const [error, setError] = useState();
   const [loading, setLoading] = useState(false);
+  const [categories, setCategories] = useState([]);
   const [jumble, setJumble] = useState([]);
   const [address, setAddress] = useState([]);
   let { jumbleId } = useParams();
-  let  addressId  = jumble.address?.addressId;
+  let  addressId = jumble.address?.addressId;
 
     useEffect(() => {
         setLoading(true);
@@ -28,13 +29,21 @@ export default function EditJumble() {
     },[jumbleId])
 
     useEffect(() => {
+        let addressId = jumble.address.addressId;
         setLoading(true);
         getAddressById(addressId)
             .then(address => setAddress(address))
             .catch(error => setError(error))
             .finally(() => setLoading(false))
-    },[addressId])
+    },[jumbleId, addressId])
 
+    useEffect(() => {
+        setLoading(true);
+        getAllCategories()
+            .then(categories => setCategories(categories))
+            .catch(error => setError(error))
+            .finally(() => setLoading(false))
+    },[])
 
   const handleJumbleInputChange = event => {
     setJumble({ ...jumble, [event.target.name]: event.target.value })
@@ -46,7 +55,7 @@ export default function EditJumble() {
         updateJumble(jumbleId, jumble)
             .then(updatedJumble=> {
                 setJumble(updatedJumble)
-                navigate(`/jumbles/edit/${jumbleId}`)
+                navigate(`/jumbles/${jumbleId}`)
             })
             .catch(error => {
                 setError(error)
@@ -59,7 +68,6 @@ export default function EditJumble() {
         updateJumbleAddress(addressId, address)
             .then(updatedAddress=> {
                 setAddress(updatedAddress)
-               navigate(`/jumbles/edit/${jumbleId}`)
             })
             .catch(error => {
                 setError(error)
@@ -74,8 +82,9 @@ export default function EditJumble() {
     const handleDeleteJumble = (jumbleId) => {
         setLoading(true)
         deleteJumble(jumbleId)
-            .then(deletedJumble => {
-                console.log('deleted jumble with jumbleId: '+ jumbleId +' and addressId:' + addressId)
+            .then(jumble => {
+                console.log('deleted jumble with jumbleId: '+ jumbleId)
+                //setJumble(jumble => jumble.jumbleId !== jumbleId)
                 navigate(`/home`)
             })
             .catch(error => {
@@ -83,8 +92,6 @@ export default function EditJumble() {
                 setLoading(false)
             })
     }
-
-    console.log(jumble)
 
     return (
       <React.Fragment>
@@ -95,9 +102,10 @@ export default function EditJumble() {
               <JumbleForm
                 jumble={jumble}
                 address={address}
+                categories={categories}
                 handleJumbleInputChange={handleJumbleInputChange}
                 handleSaveJumbleChanges={handleSaveJumbleChanges}
-                handleSaveAddressChanges={handleSaveAddressChanges}
+               // handleSaveAddressChanges={handleSaveAddressChanges}
                 handleCancel={handleCancel}
                 handleDeleteJumble={handleDeleteJumble}
                 readOnly={false}

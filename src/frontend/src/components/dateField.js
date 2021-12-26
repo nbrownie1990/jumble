@@ -11,12 +11,12 @@ export default function DateField({
   return (
     <React.Fragment>
       <input
-        type="date"
+        //type="date"
         className="form-control"
         placeholder={placeholder}
         value={value}
         onChange={onChange}
-        dateformat="dd/MM/yyyy"
+        //dateformat="dd/MM/yyyy"
         name={name}
         disabled={readOnly}
       />

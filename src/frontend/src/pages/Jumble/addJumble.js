@@ -3,7 +3,8 @@ import { useNavigate } from 'react-router'
 import Navbar from '../../components/navbar'
 import JumbleForm from '../../components/jumbleForm'
 import {initialJumbleState, initialAddressState, jumbleCategoryOptions} from "../../services/stateService";
-import {addNewJumble, getAllCategories} from "../../services/apiService";
+import {addNewAddress, addNewJumble, getAllCategories} from "../../services/apiService";
+import {signup} from "../../services/authService";
 
 
 export default function AddJumble() {
@@ -27,9 +28,9 @@ export default function AddJumble() {
             .finally(() => setLoading(false))
     },[])
 
-    const handleSaveNewJumble = (e, jumble) => {
-        e.preventDefault()
-        addNewJumble(jumble)
+    const handleSaveNewJumble = (jumble, address) => {
+        addNewJumble(jumble, address)
+            .then(address => addNewAddress(address))
                 .catch(setError)
                 .finally(() => {
                     setLoading(false)

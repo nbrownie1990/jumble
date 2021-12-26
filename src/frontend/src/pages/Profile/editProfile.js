@@ -72,9 +72,10 @@ export default function EditProfile() {
   const handleDeleteUser = (id) => {
     setLoading(true)
     deleteUser(id)
-        .then(deletedUser => {
-          console.log('deleted user with userId: '+ id)
-          navigate(`/home`)
+        .then(user => {
+          console.log('Lösche Nutzer mit ID: '+ user.id)
+          //setUser(user => user.id !== id)
+          navigate(`/`)
         })
         .catch(error => {
           setError(error)
@@ -91,39 +92,9 @@ export default function EditProfile() {
       <main className="m-md-5 m-3 mt-5 mb-5">
         <section className="container w-100 h-100 p-0 mt-5">
           <div className="container rounded bg-white">
-            <div className="row">
-              <div className="col-md-4 border-right">
-                <div className="d-flex flex-column align-items-center text-center p-3 py-5">
-                  <div className="img-wrapper">
 
-                    {user.userImage ?
-                        <img
-                            className="rounded-circle p-md-3 profile-img"
-                            name="userImage"
-                            src={user.userImage}
-                            alt="This is a profile"
-                        /> :
-                        <img
-                            className="rounded-circle user-img "
-                            src="https://images.unsplash.com/photo-1608155686393-8fdd966d784d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
-                            alt="Profile"
-                        />
-                    }
-                    <Link
-                      to={`/user/edit`}
-                      className="btn edit-btn"
-                      type="button"
-                      data-toggle="tooltip"
-                      title="Edit"
-                    >
-                      <i className="fas fa-pen ps-2 pb-1"></i>
-                    </Link>
-                  </div>
-                  <span className="font-weight-bold">{user.username}</span>
-                </div>
-              </div>
-              { loading &&  <p>Data is loading...</p>}
-              { error && <p>There was an error loading your data!</p> }
+              {/*{ loading &&  <p>Data is loading...</p>}*/}
+              {/*{ error && <p>There was an error loading your data!</p> }*/}
               <ProfileForm
                   user={user}
                   handleProfileInputChange={handleProfileInputChange}
@@ -133,7 +104,6 @@ export default function EditProfile() {
                   readOnly={false}
                   mode="edit"
               />
-            </div>
           </div>
         </section>
       </main>
