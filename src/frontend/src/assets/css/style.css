@@ -22974,4 +22974,8 @@ footer {
   height: 20rem;
 }
 
+.category-container {
+  text-align: -webkit-center;
+}
+
 /*# sourceMappingURL=style.css.map */

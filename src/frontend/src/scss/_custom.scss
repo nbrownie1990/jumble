@@ -8,12 +8,13 @@ $dark-salmon: #e46965;
 $light-plum: #ff6469;
 $dark-plum: #be4362;
 $red: #dc2f27;
+$success: rgba(39, 220, 75, 0.62);
 
 //BUTTON THEMES
 $theme-colors: (
   'primary': $dark-indigo,
   'secondary': $dark-salmon,
-  'success': $light-salmon,
+  'success': $success,
   'info': $light-indigo,
   'warning': $red,
   'danger': $light-plum,
