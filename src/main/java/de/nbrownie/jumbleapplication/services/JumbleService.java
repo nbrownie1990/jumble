@@ -1,10 +1,7 @@
 package de.nbrownie.jumbleapplication.services;
 
 import de.nbrownie.jumbleapplication.exceptions.UnauthorizedUserException;
-import de.nbrownie.jumbleapplication.models.Address;
-import de.nbrownie.jumbleapplication.models.Jumble;
-import de.nbrownie.jumbleapplication.models.Review;
-import de.nbrownie.jumbleapplication.models.User;
+import de.nbrownie.jumbleapplication.models.*;
 import de.nbrownie.jumbleapplication.repo.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -74,7 +71,7 @@ public class JumbleService {
 //        return jumbleRepository.save(jumble);
 //    }
 
-    public Jumble updateJumble(Long jumbleId, Jumble changedJumble) {
+    public Jumble updateJumble(Long jumbleId, RequestUpdateJumble changedJumble) {
         Jumble existingJumble = jumbleRepository.findById(jumbleId).orElseThrow(() -> new EntityNotFoundException("Jumble not found"));
 //        if (!existingJumble.getUser().getId().equals(id)) {
 //            throw new UnauthorizedUserException("Jumble can only be updated by its owner");

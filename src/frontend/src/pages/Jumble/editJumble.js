@@ -37,6 +37,11 @@ export default function EditJumble() {
   }
 
     const handleSaveJumbleChanges = (jumbleId, jumble) => {
+        let updatedCategory = categories.filter(c => {return c.categoryName === jumble.category})
+        if (updatedCategory.length === 1) {
+            jumble.category = updatedCategory[0] }
+        console.log(jumble)
+
         setLoading(true)
         updateJumble(jumbleId, jumble)
             .then(updatedJumble=> {

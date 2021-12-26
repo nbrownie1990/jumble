@@ -3,6 +3,7 @@ package de.nbrownie.jumbleapplication.controllers;
 
 
 import de.nbrownie.jumbleapplication.models.Jumble;
+import de.nbrownie.jumbleapplication.models.RequestUpdateJumble;
 import de.nbrownie.jumbleapplication.models.Review;
 import de.nbrownie.jumbleapplication.services.JumbleService;
 import de.nbrownie.jumbleapplication.services.ReviewService;
@@ -54,7 +55,7 @@ public class JumbleController {
 
     @PreAuthorize("hasRole('USER')")
     @PutMapping(path = "edit/{jumbleId}")
-    public void updateJumble(@PathVariable("jumbleId") Long jumbleId, @RequestBody Jumble updateJumble){
+    public void updateJumble(@PathVariable("jumbleId") Long jumbleId, @RequestBody RequestUpdateJumble updateJumble){
         jumbleService.updateJumble(jumbleId, updateJumble);
     }
 

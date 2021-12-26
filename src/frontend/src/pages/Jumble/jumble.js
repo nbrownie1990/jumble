@@ -149,7 +149,6 @@ function Jumble() {
                                   alt="This is a jumble"
                               />
                           }
-                          {jumble.user?.id === currentUser.id &&
                               <Link
                                   to={`/jumbles/edit/${jumbleId}`}
                                   className="btn edit-btn position-absolute top-40 start-50"
@@ -159,7 +158,7 @@ function Jumble() {
                               >
                                 <i className="fas fa-pen ps-2 pb-1"></i>
                               </Link>
-                          }
+
                         </div>
 
                         <div className="col-sm-6">
