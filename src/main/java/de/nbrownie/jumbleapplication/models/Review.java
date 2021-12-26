@@ -1,6 +1,7 @@
 package de.nbrownie.jumbleapplication.models;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 
@@ -38,6 +39,7 @@ public class Review {
     @JoinColumn(name="user_id",
             foreignKey = @ForeignKey(name= "user_id_fk"))
     @JsonManagedReference(value="user-reviews")//////ggf ändern
+    @JsonIgnore ///ggf löschen
     private User user;
 
 

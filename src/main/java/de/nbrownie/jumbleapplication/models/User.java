@@ -149,6 +149,13 @@ public class User {
         this.reviewList = reviewList;
     }
 
+//    ///versuch
+//    public void setReviewList(Set<Review> reviewList) {
+//        reviewList.forEach(review -> review.setUser(this));
+//        this.reviewList = reviewList;
+//    }
+
+
     public Set<Jumble> getJumbleList() {
         return jumbleList;
     }
@@ -157,6 +164,11 @@ public class User {
         this.jumbleList = jumbleList;
     }
 
+    ///versuch
+//    public void setJumbleList(Set<Jumble> jumbleList) {
+//        jumbleList.forEach(jumble -> jumble.setUser(this));
+//        this.jumbleList = jumbleList;
+//    }
     @Override
     public int hashCode() {
         return getId() == null ? getUsername().hashCode() : getId().hashCode();

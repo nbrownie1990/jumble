@@ -5,6 +5,9 @@ import { Rating } from 'react-simple-star-rating'
 export default function StarRating({
 handleRating,
 ratingValue,
+    onClick,
+    readonly,
+tooltipArray,
 reviewList,
 }){
      // const showAverageRating = (reviewList) => {
@@ -23,7 +26,10 @@ reviewList,
             <Rating
                // averageRating={averageRating}
                 handleRating={handleRating}
-                ratingValue={ratingValue} /* Rating Props */
+                ratingValue={ratingValue}
+                onClick={onClick}
+                tooltipArray={tooltipArray}
+                readonly={readonly}
             />
         </div>
     )

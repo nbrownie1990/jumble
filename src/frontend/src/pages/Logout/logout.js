@@ -19,7 +19,7 @@ const Logout = () => {
         <h2>You are successfully logged-out.</h2>
         <h3>Come back soon! </h3>
         <h6>
-          Or maybe now? <Link to="/login">Login</Link>
+          Or maybe now? <Link to="/login" className="text-white">Login</Link>
         </h6>
       </section>
     </main>

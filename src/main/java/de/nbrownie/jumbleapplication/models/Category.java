@@ -38,6 +38,11 @@ public class Category {
     @JsonBackReference(value="category-jumbles") //ggf ändern
     private Set<Jumble> jumbleList;
 
+//    ///versuch
+//    public void setJumbleList(Set<Jumble> jumbleList) {
+//        jumbleList.forEach(jumble -> jumble.setCategory(this));
+//        this.jumbleList = jumbleList;
+//    }
 
     public void addJumble(Jumble jumble){
         jumbleList.add(jumble);

@@ -2,6 +2,8 @@ package de.nbrownie.jumbleapplication.services;
 
 import de.nbrownie.jumbleapplication.exceptions.UnauthorizedUserException;
 import de.nbrownie.jumbleapplication.models.Address;
+import de.nbrownie.jumbleapplication.models.Jumble;
+import de.nbrownie.jumbleapplication.models.Review;
 import de.nbrownie.jumbleapplication.repo.AddressRepository;
 import de.nbrownie.jumbleapplication.repo.JumbleRepository;
 import lombok.Getter;
@@ -10,8 +12,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityNotFoundException;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -69,15 +73,20 @@ public class AddressService {
         return addressRepository.save(existingAddress);
     }
 
-
-    public Optional<Address> getAddressByJumbleId(Long jumbleId){
-            return addressRepository.getAddressByJumbleId(jumbleId);
+    public void addNewAddress(Address newAddress) {
+////       User user = userRepository.getUserByUserId(userId).orElseThrow(() -> new EntityNotFoundException("User not found"));
+////        newJumble.setUser(user);
+        addressRepository.save(newAddress);
     }
+
 
     public List<Address> getAddressByAddressIdAndJumbleId(Long jumbleId, Long addressId){
         return addressRepository.getAddressByAddressIdAndJumbleId(jumbleId, addressId);
     }
 
+//  public Optional<Address> getAddressByJumbleId(Long jumbleId){
+//       return addressRepository.getAddressByJumbleId(jumbleId);
+//    }
 
 //    public void deleteAddress(Long addressId) {
 //        if(!addressRepository.existsById(addressId)) {

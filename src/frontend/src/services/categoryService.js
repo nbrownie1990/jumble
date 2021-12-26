@@ -3,7 +3,7 @@ export const categories = [
     _id: '5b21ca3eeb7f6fbccd471818',
     name: 'Flea Markets',
     description:
-      'Der Flohmarkt ist nämlich ein Markt für den Handel mit gebrauchten Waren jeder Art die man auch Trödel nennt, alte Möbelstücke, Bücher, Briefmarken, Kleidung Spielzeug - auf einem Flohmarkt gibt es alles!',
+      'Der Flohmarkt ist ein Markt für den Handel mit gebrauchten Waren jeder Art die man auch Trödel nennt, alte Möbelstücke, Bücher, Briefmarken, Kleidung Spielzeug - auf einem Flohmarkt gibt es alles!',
   },
   {
     _id: '5b21ca3eeb7f6fbccd471814',

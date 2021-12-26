@@ -2,9 +2,7 @@ import axios from 'axios';
 
 const baseUrl = `http://localhost:8080/api`
 
-//////////////////////////////////
-///////////Category//////////////////
-////////////////////////////////
+// --------------------------------- Category -------------------------------------------
 
 export const getAllCategories = async () => {
     return await axios
@@ -22,9 +20,8 @@ export const getCategoryById = async (categoryId) => {
         });
 }
 
-//////////////////////////////////
-///////////Jumble//////////////////
-////////////////////////////////
+// --------------------------------- Jumble -------------------------------------------
+
 export const getAllJumbles = async () => {
     return await axios
         .get(`${baseUrl}/jumbles/getall`)
@@ -41,23 +38,38 @@ export const getJumbleById = async (jumbleId) => {
         });
 }
 
-export const addNewJumble = async (jumble) => {
+export const addNewJumble = async (jumble, address) => {
     return await axios
-        .post(`${baseUrl}/jumbles/new`, jumble)
+        .post(`${baseUrl}/jumbles/new`, {jumble, address},
+    {
+        headers:{
+            'Access-Control-Allow-Origin': '*',
+            'Content-Type': 'application/json',
+        },
+        withCredentials:true,
+    })
         .then(response => {
             return response.data;
         });
 }
 
-export const updateJumble = async (jumbleId, jumble) => {
+export const updateJumble = async (jumbleId, jumble, address) => {
     return await axios
-        .put(`${baseUrl}/jumbles/edit/${jumbleId}`, jumble)
+        .put(`${baseUrl}/jumbles/edit/${jumbleId}`, jumble, address)
         .then(response => {
             return response.data;
         });
 }
 
-/////////// START Address//////////////////
+export const deleteJumble = async(jumbleId) => {
+    return await axios
+        .delete(`${baseUrl}/jumbles/edit/${jumbleId}/delete`)
+        .then(response => {
+            return response.data;
+        });
+}
+
+// --------------------------------- Address -------------------------------------------
 export const getAddressById = async (addressId) => {
     return await axios
         .get(`${baseUrl}/jumbles/addresses/${addressId}`)
@@ -72,50 +84,52 @@ export const addNewAddress = (address) =>
         .then(response => response.data)
 
 
-export const updateJumbleAddress = async (jumbleId, address) => {
+export const updateJumbleAddress = async (jumbleId, addressId, address) => {
     return await axios
-        .put(`${baseUrl}/jumbles/edit/${jumbleId}`, address)
+        .put(`${baseUrl}/jumbles/edit/${jumbleId}/${addressId}`, address)
         .then(response => {
             return response.data;
         });
 }
 
-export const updateJumbleAndAddress = async(jumbleId, jumble, address) => {
+// export const updateJumbleAndAddress = async(jumbleId, jumble, address) => {
+//     return await axios
+//         .put(`${baseUrl}/jumbles/edit/${jumbleId}`, jumble, address)
+//         .then(response => {
+//             return response.data;
+//         });
+//}
+
+
+// --------------------------------- Reviews -------------------------------------------
+
+export const getReviewById = async (reviewId) => {
     return await axios
-        .put(`${baseUrl}/jumbles/edit/${jumbleId}`, jumble, address)
+        .get(`${baseUrl}/reviews/${reviewId}`)
         .then(response => {
             return response.data;
         });
 }
 
-///////////END Address//////////////////
-export const deleteJumble = async(jumbleId) => {
-    return await axios
-        .delete(`${baseUrl}/jumbles/edit/delete/${jumbleId}`)
-        .then(response => {
-            return response.data;
-        });
-}
-///////////////////////////////////
-///////////Reviews//////////////////
-////////////////////////////////
 export const getReviewList = () =>
   axios
     .get(`/api/reviews/getall`)
    // .then(checkStatus)
     .then(response => response.data)
 
-export const addReview = (jumbleId, reviewId, review) =>
+
+export const addReview = (jumbleId, review) =>
   axios
     .post(
-      `${baseUrl}/jumbles/edit/new/${jumbleId}/${reviewId}`,
-      review
+      `${baseUrl}/jumbles/edit/${jumbleId}/newreview`,
+        review
     )
     .then(response => response.data)
 
+
 export const deleteReview = (jumbleId, reviewId) =>
   axios
-    .delete(`${baseUrl}/jumbles/edit/delete/${jumbleId}/${reviewId}`)
+    .delete(`${baseUrl}/jumbles/edit/${jumbleId}/delete/${reviewId}`)
     .then(response => response.data)
 
 //////////////////////////////////
@@ -132,12 +146,11 @@ export const deleteReview = (jumbleId, reviewId) =>
 //         .post(`${baseUrl}/user/new`, username )
 //         .then(response => response.data)
 
-/////////////////////////////
-////Profile bzw User GET////
-///////////////////////////
+// --------------------------------- User -------------------------------------------
+
 export const getUserByUserName = async (username) => {
     return await axios
-        .get(`${baseUrl}/user/${username}`)
+        .get(`${baseUrl}/users/${username}`)
         .then(response => {
             return response.data;
         });
@@ -145,7 +158,7 @@ export const getUserByUserName = async (username) => {
 
 export const getUserById = async (id) => {
     return await axios
-        .get(`${baseUrl}/user/${id}`)
+        .get(`${baseUrl}/users/${id}`)
         .then(response => {
             return response.data;
         });
@@ -153,18 +166,19 @@ export const getUserById = async (id) => {
 
 export const updateUser = async (id, user) => {
     return await axios
-        .put(`${baseUrl}/user/edit/${id}`, user)
+        .put(`${baseUrl}/users/edit/${id}`, user)
         .then(response => {
             return response.data;
         });
 }
 
-export const deleteUser = async (username) => {
+export const deleteUser = async (id) => {
     return await axios
-        .delete(`${baseUrl}/user/edit/delete/${username}`)
+        .delete(`${baseUrl}/users/edit/${id}/delete`)
         .then(response => {
+            localStorage.removeItem("user");
             return response.data;
-        });
+        })
 }
 
 // export const updatePassword = (passwords) =>
@@ -269,3 +283,4 @@ export const deleteUser = async (username) => {
 //             return response.data;
 //         });
 // }
+

@@ -1,8 +1,8 @@
 export const initialSignUpState = {
-    userId: null,
     username: '',
     email: '',
     password: '',
+    passwordCheck:'',
 }
 
 export const initialLoginState = {

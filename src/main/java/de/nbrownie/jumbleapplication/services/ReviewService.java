@@ -52,4 +52,9 @@ public class ReviewService {
         reviewRepository.save(review);
     }
 
+    public Review deleteReview(Long jumbleId, Long reviewId) {
+        Review reviewToDelete = getReviewById(reviewId);
+        reviewRepository.delete(reviewToDelete);
+        return reviewToDelete;
+    }
 }

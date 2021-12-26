@@ -59,7 +59,7 @@ function Category() {
                            </div>
                            </div>
                          <div className="heading"><h1>Category: {category.categoryName} </h1>
-                          { filtered.length === 0 ? <p className="m-2">There are no jumbles for this category in the database</p>
+                          { filtered.length === 0 ? <p className="m-2">There are no jumbles for this category in the database. <br/><a href={'/jumbles/new'} className="text-white">Add a Jumble!</a></p>
                              : <p className="m-2"> Showing {filtered.length} Jumbles in the database.</p> }
                          <Link
                              to={`/jumbles/getall`}

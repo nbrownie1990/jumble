@@ -8,6 +8,9 @@ import StarRating from "./star";
 export default function Reviews({
     handleRating,
     handleAddRating,
+    jumbleId,
+    currentUser,
+    handleDeleteReview,
     result
 }){
 
@@ -15,7 +18,11 @@ export default function Reviews({
         <>{result &&
         <div className="rez container">
             <Message
-                result={result} />
+                result={result}
+                currentUser={currentUser}
+                handleDeleteReview = {handleDeleteReview}
+                jumbleId={jumbleId}
+            />
           </div>}
             <MessageTeam />
            </>

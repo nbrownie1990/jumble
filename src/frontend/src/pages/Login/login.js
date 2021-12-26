@@ -1,68 +1,83 @@
-import React, {useRef, useState} from 'react'
-import { Link } from 'react-router-dom'
+import React, {useEffect, useState} from 'react'
 import TextField from '../../components/textField'
-import {initialLoginState} from "../../services/stateService";
 import {useNavigate} from "react-router";
 import {login} from "../../services/authService";
 
 const Login = (props) => {
- // const form = useRef();
-
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [message, setMessage] = useState("");
-  const [error, setError] = useState()
+  const initialLoginState = {
+    username: '',
+    password: '',
+  }
   const navigate = useNavigate()
+  const [message, setMessage] = useState("");
+  const [successful, setSuccessful] = useState(false);
+  const [formValue, setFormValue] = useState(initialLoginState)
+  const [formError, setFormError] = useState({})
+  const [isSubmit, setIsSubmit] = useState(false)
 
-  const onChangeUsername = (e) => {
-    const username = e.target.value;
-    setUsername(username);
+  const handleChange = (e) => {
+    const {name, value} = e.target;
+    setFormValue({ ...formValue, [name]: value})
+  }
+
+  useEffect(()=>{
+    console.log(formError)
+    if(Object.keys(formError).length === 0 && isSubmit){
+      console.log(formValue)
+    }
+  }, [formError])
+
+  const validate = (values) => {
+    const error = {};
+    if (!values.username){
+      error.username = "Nutzername ist erforderlich!";
+    }
+    if (!values.password){
+      error.password = "Passwort ist erforderlich!";
+    }
+    return error;
   };
 
-  const onChangePassword = (e) => {
-    const password = e.target.value;
-    setPassword(password);
-  };
-
-  // const handleCredentials = e => {
-  //   setCredentials({
-  //     ...credentials,
-  //     [e.currentTarget.name]: e.currentTarget.value
-  //   })
-  // }
-
-  // const handleSubmit = event => {
-  //   event.preventDefault()
-  //   setError()
-  //   addNewUser(credentials)
-  //     //  .then(() => login(credentials))
-  //       .then(() => navigate('/home'))
-  //       .catch(error => {
-  //         setError(error)
-  //       })
-  // }
-  ///////////////
-  const handleLogin = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-
     setMessage("");
-    setLoading(true);
-
-    login(username, password)
-         .then(() => navigate('/home'))
-          .catch(error => {
-            const resMessage =
-                (error.response &&
-                    error.response.data &&
-                    error.response.data.message) ||
-                error.message ||
-                error.toString();
-            setLoading(false);
-            setMessage(resMessage);
+    setFormError(validate(formValue));
+      login(formValue.username, formValue.password)
+        .then(response => {
+            console.log(response)
+        })
+          .then(() => {
+            setIsSubmit(true);
+            navigate('/home')
           })
-         .finally(() => window.location.reload);
-  };
+        .catch((error) => {
+          console.log(error.response.data.status)
+          if(error.response.data.status === 400 || error.response.data.status === 401){
+            return setMessage(error.response.data.message)
+          }
+          setIsSubmit(false);
+        })
+  }
+
+  // const handleLogin = (e) => {
+  //   e.preventDefault();
+  //
+  //   setMessage("");
+  //   setLoading(true);
+  //   login(username, password)
+  //        .then(() => navigate('/home'))
+  //         .catch(error => {
+  //           const resMessage =
+  //               (error.response &&
+  //                   error.response.data &&
+  //                   error.response.data.message) ||
+  //               error.message ||
+  //               error.toString();
+  //           setLoading(false);
+  //           setMessage(resMessage);
+  //         })
+  //        .finally(() => window.location.reload);
+  // };
 
   const handleToSignUp = () => {
     navigate('/signup');
@@ -79,24 +94,22 @@ const Login = (props) => {
                   <h4 className="card-title">Login</h4>
                   <form
                     className="form-signin my-login-validation" method="post" action="/login"
-                    //onSubmit={() => handleSubmit()}
-                    onSubmit={handleLogin}
-                 //   ref={form}
+                    onSubmit={handleSubmit}
                   >
                     <div className="form-group">
                       <label htmlFor="username" className="sr-only">Nutzername</label>
                       <TextField
                         id="username"
                         placeholder="Nutzername"
-                        value={username}
-                        onChange={onChangeUsername}
+                        value={formValue.username}
+                        onChange={handleChange}
                         name="username"
                         type="text"
                         className="form-control"
                         required=""
                         autoFocus=""
                       />
-                      {error && <p>Email ungültig</p>}
+                      <p className="text-warning">{formError.username}</p>
                     </div>
 
                     <div className="form-group mt-3">
@@ -104,17 +117,15 @@ const Login = (props) => {
                       <TextField
                         id="password"
                         placeholder="Password"
-                        value={password}
-                        onChange={onChangePassword}
+                        value={formValue.password}
+                        onChange={handleChange}
                         type="password"
                         name="password"
                         className="form-control"
                         required=""
                         data-eye
                       />
-                      <div className="invalid-feedback">
-                        Password ist erforderlich
-                      </div>
+                      <p className="text-warning">{formError.password}</p>
                     </div>
 
                     <div className="form-group mt-2">
@@ -131,11 +142,24 @@ const Login = (props) => {
                         >
                           Remember Me
                         </label>
+                        {/*Todo: Passwort vergessen*/}
                         {/*<Link className="nav-link" to="/forgot">*/}
                         {/*  Passwort vergessen?*/}
                         {/*</Link>*/}
                       </div>
                     </div>
+
+                    {Object.keys(formError).length !== 0 && message && (
+                        <div className="form-group">
+                          <div role="alert" className="alert alert-danger">
+                            <h4 className="alert-heading">Oh no!</h4>
+                            Das hat leider nicht geklappt.
+                            Bitte beachte die Hinweise.
+                            {message}
+                          </div>
+                        </div>
+                    )}
+
 
                     <div className="form-group text-center m-0">
                       <br />
@@ -147,13 +171,6 @@ const Login = (props) => {
                         Login
                       </button>
                     </div>
-                    {message && (
-                        <div className="form-group">
-                          <div className="alert alert-danger lead" role="alert">
-                            {message}
-                          </div>
-                        </div>
-                    )}
                   </form>
                     <div className="mt-4 text-center">
                       Noch keinen Account?

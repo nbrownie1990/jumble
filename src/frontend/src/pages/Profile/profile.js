@@ -2,12 +2,15 @@ import React, {useEffect, useState} from 'react'
 import Navbar from '../../components/navbar'
 import {useNavigate, useParams} from "react-router";
 import {getUserById} from "../../services/apiService";
+import {Link} from "react-router-dom";
+import {getCurrentUser} from "../../services/authService";
 
 const Profile = () => {
   const [user, setUser] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState();
   let { id } = useParams();
+  let currentUser = getCurrentUser()
 
   useEffect(() => {
     setLoading(true);
@@ -51,6 +54,17 @@ const Profile = () => {
                         <p className="m-0 py-2 text-muted ">{user.userText}</p>
                        :  <p className="m-0 py-2 text-muted ">Dieses Profil hat noch keine Beschreibung.</p>
                        }
+                      {user.id === currentUser.id &&
+                          <Link
+                              to={`/user/edit/${user.id}`}
+                              className="btn btn-outline-light edit-btn m-2"
+                              type="button"
+                              data-toggle="tooltip"
+                              title="Bearbeiten"
+                          >
+                            <i className="fas fa-pen ps-2 pb-1"></i>
+                          </Link>
+                      }
                     </div>
                   </div>
                 </div>

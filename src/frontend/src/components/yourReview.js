@@ -6,16 +6,19 @@ import StarRating from "./star";
 export default function YourReview({
     handleRating,
     handleAddReview,
+    jumbleId,
     review,
+    rating,
     result
 }){
 
     return (
-        <>
+            <form as="form" className="row">
            <div className="form-group col-md-12 mt-5">
       <h5>Bewerte diesen Jumble:</h5>
                <StarRating
-                  // onClick={() =>handleRating(rating)}
+                   readonly={rating > 0}
+                   onClick={() =>handleRating(rating)}
                />
      <TextArea
       className="form-control rounded-3"
@@ -26,14 +29,14 @@ export default function YourReview({
         </div>
         <div className="mt-5 text-center">
         <button
-              onClick={() =>handleAddReview(review)}
+              onClick={() =>handleAddReview(jumbleId, review)}
               className="btn btn-primary profile-button"
               type="button"
              >
           Hinzufügen
         </button>
          </div>
-           </>
+            </form>
      )
  }
 
