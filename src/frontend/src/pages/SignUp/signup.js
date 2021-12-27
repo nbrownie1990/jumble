@@ -6,27 +6,17 @@ import {signup} from "../../services/authService";
 
 const Signup = (props) => {
   const navigate = useNavigate();
-  const initialSignUpState = {
-    username: '',
-    email: '',
-    password: '',
-    passwordCheck:'',
-  }
   const [successful, setSuccessful] = useState(false);
   const [message, setMessage] = useState("");
   const [checkbox, setCheckbox] = useState(false)
   const [formValue, setFormValue] = useState(initialSignUpState)
   const [formError, setFormError] = useState({})
   const [isSubmit, setIsSubmit] = useState(false)
-
-
-  const handleChange =  (e) => {
-    const {name, value} = e.target;
-    setFormValue({ ...formValue, [name]: value})
-  }
-
-  const handleToLogin = () => {
-    navigate('/login')
+  const initialSignUpState = {
+    username: '',
+    email: '',
+    password: '',
+    passwordCheck:'',
   }
 
   useEffect(()=>{
@@ -88,6 +78,14 @@ const Signup = (props) => {
                 })
   }
 
+  const handleChange =  (e) => {
+    const {name, value} = e.target;
+    setFormValue({ ...formValue, [name]: value})
+  }
+
+  const handleToLogin = () => {
+    navigate('/login')
+  }
   return (
     <main className="m-md-5 mt-5 mb-5 h-100">
       <section className="container w-100 h-100 px-4 px-lg-5 mt-5">

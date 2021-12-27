@@ -2,15 +2,15 @@ import React, { useState, useEffect } from 'react'
 import {getAllJumbles} from "../../services/apiService";
 import JumbleList from "../../components/jumbleList";
 import Navbar from '../../components/navbar'
+import Loading from "../../components/loading";
 
 
 function AllJumbles() {
     const [jumbles, setJumbles] = useState([]);
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
     const [error, setError] = useState();
 
     useEffect(() => {
-        setLoading(true);
         getAllJumbles()
             .then(jumbles => setJumbles(jumbles))
             .catch(error => setError(error))
@@ -19,7 +19,9 @@ function AllJumbles() {
 
   return (
       <React.Fragment>
-        <Navbar />
+          {loading && <Loading />}
+          <Navbar />
+          {!loading && (
           <main className="m-md-5 m-2 mt-5 mb-5">
               <section className="container w-100 h-100 px-4 px-lg-5 mt-5">
                   { loading &&  <p>Data is loading...</p>}
@@ -30,7 +32,7 @@ function AllJumbles() {
                  />
              </div>
               </section>
-   </main>
+   </main>)}
 </React.Fragment>
   )
 }

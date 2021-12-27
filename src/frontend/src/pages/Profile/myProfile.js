@@ -1,34 +1,34 @@
 import React, {useEffect, useState} from 'react'
 import Navbar from '../../components/navbar'
 import { Link } from 'react-router-dom'
-import {useNavigate, useParams} from "react-router";
 import {getCurrentUser} from "../../services/authService";
-import {getAllCategories, getUserById} from "../../services/apiService";
+import {getUserById} from "../../services/apiService";
+import Loading from "../../components/loading";
 
 const MyProfile = () => {
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState();
   const [user, setUser] = useState([]);
 
   useEffect(() => {
     let currentUser = getCurrentUser();
     let id = currentUser.id
-    setLoading(true);
     getUserById(id)
         .then(user => {setUser(user)})
         .catch(error => setError(error))
         .finally(() => setLoading(false))
   },[])
 
-  {/*{ loading &&  <p>Data is loading...</p>}*/}
-  {/*{ error && <p>There was an error loading your data!</p> }*/}
 
   return (
-    <React.Fragment>
-      <Navbar />
+      <React.Fragment>
+        {loading && <Loading />}
+        <Navbar />
+        {!loading && (
       <main className="m-md-5 mt-5 mb-5">
         <section className="container w-100 h-100">
           <div className="container">
+            { error && <p>There was an error loading your data!</p> }
             <div className="row">
               <div className="d-flex flex-column align-items-center text-center">
                 <div key={user.id} className="col-12 mt-5 ">
@@ -70,7 +70,7 @@ const MyProfile = () => {
             </div>
           </div>
         </section>
-      </main>
+      </main>)}
     </React.Fragment>
   )
 }

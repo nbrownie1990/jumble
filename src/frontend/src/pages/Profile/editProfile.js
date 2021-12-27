@@ -1,28 +1,24 @@
 import React, {useCallback, useEffect, useState} from 'react'
 import Navbar from '../../components/navbar'
-import {Link} from 'react-router-dom'
 import ProfileForm from '../../components/profileForm'
 import {useNavigate, useParams} from "react-router";
 import {deleteUser, getUserById, updateUser, updateUserText} from "../../services/apiService";
+import Loading from "../../components/loading";
 
 export default function EditProfile() {
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(true)
   const [error, setError] = useState()
   const [user, setUser] = useState([])
   const [userEmail, setUserEmail] = useState([])
   const [userName, setUserName] = useState([])
   const [userText, setUserText] = useState([])
-
   const navigate = useNavigate();
   let { id } = useParams();
 
 
   const loadDataOnlyOnce = useCallback(() => {
-    setLoading(true)
     getUserById(id)
-        .then(user => {
-          setUser(user)
-        })
+        .then(user => {setUser(user)})
         .then(user => setUserName(user.username))
         .then(user => setUserEmail(user.email))
         .then(user => setUserText(user.userText))
@@ -35,17 +31,6 @@ export default function EditProfile() {
   useEffect(() => {
     loadDataOnlyOnce()
   }, [loadDataOnlyOnce])
-
-
-
-  // useEffect(() => {
-  //   setLoading(true);
-  //   getUserById(userId)
-  //       .then(user => setUser(user))
-  //       .catch(error => setError(error))
-  //       .finally(() => setLoading(false))
-  // },[userId])
-
 
 
   const handleProfileInputChange = event => {
@@ -84,17 +69,16 @@ export default function EditProfile() {
   }
 
   console.log(user)
-  //console.log("UserRole" + user.userRole)
 
   return (
-    <React.Fragment>
-      <Navbar />
+      <React.Fragment>
+          {loading && <Loading />}
+          <Navbar />
+          {!loading && (
       <main className="m-md-5 m-3 mt-5 mb-5">
         <section className="container w-100 h-100 p-0 mt-5">
           <div className="container rounded bg-white">
-
-              {/*{ loading &&  <p>Data is loading...</p>}*/}
-              {/*{ error && <p>There was an error loading your data!</p> }*/}
+              { error && <p>There was an error loading your data!</p> }
               <ProfileForm
                   user={user}
                   handleProfileInputChange={handleProfileInputChange}
@@ -106,7 +90,7 @@ export default function EditProfile() {
               />
           </div>
         </section>
-      </main>
+      </main>)}
     </React.Fragment>
   )
 }

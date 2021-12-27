@@ -4,30 +4,28 @@ import JumbleList from "../../components/jumbleList";
 import {Link} from "react-router-dom";
 import {getAllJumbles, getCategoryById} from "../../services/apiService";
 import NavBar from "../../components/navbar";
+import Loading from "../../components/loading";
+import Navbar from "../../components/navbar";
 
 
-function Category() {
+export default function Category() {
+    let { categoryId } = useParams();
     const [category, setCategory] = useState([]);
     const [jumbles, setJumbles] = useState([]);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState();
-    let { categoryId } = useParams();
 
     useEffect(() => {
-        setLoading(true);
         getCategoryById(categoryId)
             .then(category => setCategory(category))
             .catch(error => setError(error))
-            .finally(() => setLoading(false))
-    },[categoryId])
 
-    useEffect(() => {
-        setLoading(true);
         getAllJumbles()
             .then(jumbles => setJumbles(jumbles))
             .catch(error => setError(error))
             .finally(() => setLoading(false))
-    },[])
+    },[categoryId])
+
 
 
      var filtered = categoryId
@@ -37,11 +35,12 @@ function Category() {
 
   return (
       <React.Fragment>
-                <NavBar />
+          {loading && <Loading />}
+          <Navbar />
+          {!loading && (
                  <main className="m-md-5 mt-5 mb-5">
                    <section className="container w-100 min-vh-100 px-lg-5 mt-5">
                      <div className="p-0 text-center">
-                         { loading &&  <p>Data is loading...</p>}
                          { error && <p>There was an error loading your data!</p> }
                          <div key={category.categoryId} className="d-flex justify-content-center" >
                                <div className="card w-50 mb-5">
@@ -80,8 +79,8 @@ function Category() {
 
                        {/*   </span>*/}
                    </section>
-                 </main>
+                 </main>)}
       </React.Fragment>
 )
 }
-export default Category
+

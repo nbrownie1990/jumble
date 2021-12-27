@@ -5,6 +5,7 @@ import JumbleForm from '../../components/jumbleForm'
 import {initialJumbleState, initialAddressState, jumbleCategoryOptions} from "../../services/stateService";
 import {addNewAddress, addNewJumble, getAllCategories} from "../../services/apiService";
 import {signup} from "../../services/authService";
+import Loading from "../../components/loading";
 
 
 export default function AddJumble() {
@@ -13,7 +14,7 @@ export default function AddJumble() {
   const [address, setAddress] = useState([]);
   const [categories, setCategories] = useState([]);
   const [error, setError] = useState();
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(true)
 
     const handleJumbleInputChange = e => {
     setJumble({ ...jumble, [e.target.name]: e.target.value })
@@ -21,7 +22,6 @@ export default function AddJumble() {
   }
 
     useEffect(() => {
-        setLoading(true);
         getAllCategories()
             .then(categories => setCategories(categories))
             .catch(error => setError(error))
@@ -56,7 +56,9 @@ export default function AddJumble() {
 
     return (
     <>
-      <Navbar />
+        {loading && <Loading />}
+        <Navbar />
+        {!loading && (
       <main className="m-md-5 m-2 mt-5 mb-5">
         <section className="container w-100 h-100 px-lg-5 mt-5">
           <div className="container rounded bg-white p-md-5">
@@ -73,7 +75,7 @@ export default function AddJumble() {
             />
           </div>
         </section>
-      </main>
+      </main>)}
     </>
   )
 }

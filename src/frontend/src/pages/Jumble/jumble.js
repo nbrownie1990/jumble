@@ -19,7 +19,7 @@ import YourReview from "../../components/yourReview";
 
 function Jumble() {
   const navigate = useNavigate();
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState();
   const [jumble, setJumble]= useState([]);
   const [reviewList, setReviewList]= useState([]);
@@ -29,27 +29,16 @@ function Jumble() {
   const currentUser = getCurrentUser();
 
 
-  const loadDataOnlyOnce = useCallback(() => {
-    setLoading(true)
-    setError();
+  useEffect(() => {
     getJumbleById(jumbleId)
         .then(jumble => setJumble(jumble))
         .catch(setError)
-        .finally(() => setLoading(false))
-  },[jumbleId])
 
-  useEffect(() => {
-    loadDataOnlyOnce()
-  }, [loadDataOnlyOnce])
-
-  useEffect(() => {
-    setLoading(true);
-    setError();
     getReviewList()
         .then(reviewList => setReviewList(reviewList))
         .catch(setError)
         .finally(() => setLoading(false))
-  },[])
+  },[jumbleId])
 
 
   // Catch Rating value
@@ -60,13 +49,14 @@ function Jumble() {
 
   // Catch Rating value
   const handleAddReview= (jumbleId, review) => {
-    setLoading(true)
     setError();
+
     getJumbleById(jumbleId)
         .then()
     const reviewList = [...jumble.reviewList, review]
     setJumble({ ...jumble, reviewList: reviewList})
-      addReview(jumbleId, review)
+
+    addReview(jumbleId, review)
           .then(setJumble)
           .catch(setError)
           .finally(() => {

@@ -12,9 +12,9 @@ import {
 import Loading from "../../components/loading";
 
 export default function EditJumble() {
-    let { jumbleId } = useParams();
-    const navigate = useNavigate();
-    const [error, setError] = useState();
+  let { jumbleId } = useParams();
+  const navigate = useNavigate();
+  const [error, setError] = useState();
   const [loading, setLoading] = useState(true);
   const [categories, setCategories] = useState([]);
   const [jumble, setJumble] = useState([]);
@@ -54,12 +54,11 @@ export default function EditJumble() {
             })
     }
 
-
   const handleCancel = () => {
     navigate('/home')
   }
 
-    const handleDeleteJumble = (jumbleId) => {
+  const handleDeleteJumble = (jumbleId) => {
         setLoading(true)
         deleteJumble(jumbleId)
             .then(jumble => {

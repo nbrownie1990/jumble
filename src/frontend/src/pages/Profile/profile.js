@@ -4,16 +4,16 @@ import {useNavigate, useParams} from "react-router";
 import {getUserById} from "../../services/apiService";
 import {Link} from "react-router-dom";
 import {getCurrentUser} from "../../services/authService";
+import Loading from "../../components/loading";
 
 const Profile = () => {
   const [user, setUser] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState();
   let { id } = useParams();
   let currentUser = getCurrentUser()
 
   useEffect(() => {
-    setLoading(true);
     getUserById(id)
         .then(user => setUser(user))
         .catch(error => setError(error))
@@ -21,8 +21,10 @@ const Profile = () => {
   },[id])
 
   return (
-    <React.Fragment>
-      <Navbar />
+      <React.Fragment>
+        {loading && <Loading />}
+        <Navbar />
+        {!loading && (
       <main className="m-md-5 mt-5 mb-5">
         <section className="container w-100 h-100">
           { loading &&  <p>Data is loading...</p>}
@@ -72,7 +74,7 @@ const Profile = () => {
             </div>
           </div>
         </section>
-      </main>
+      </main>)}
     </React.Fragment>
   )
 }
