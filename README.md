@@ -11,14 +11,10 @@ Das Jumble-Projekt erarbeite ich, um Erfahrungen in den Bereichen CI-CD-Pipeline
 ### Learning Path / Skills for this Project
 
 - [x] In diesem Projekt wurden ein Idee entwickelt, ein entsprechendes Mock-Up und Use-Cases erstellt.
-- [x] Das Projekt wird mit Git und den folgenden Branches versioniert.
-  - main — Eine Darstellung der Codebasis, die derzeit in Produktion ist, deren Commits den gesamten Flow durchlaufen und nach der Überprüfung nach der  
-     Veröffentlichung zusammengeführt wurden.
-  - develop — Alle Feature-Branches werden in dieser Branch zusammengeführt. Hier laufen automatisierte Tests und Releases für
-    Entwicklungsressourcen über CI/CD-Pipelines.
-  - features — Jede Änderung, die in die nächste Version aufgenommen werden soll.
+- [x] Das Projekt wird mit Git versioniert.
+- [x] Die PostgreSQL-Datenbank läuft über ein Docker-Image
+- [x] Für User-Uploads wird der Firebase-Storage verwendet
 - [x] Das Projekt nutzt ein Docker-Image und läuft über eine CI-CD-Pipeline via Github-Actions. https://www.youtube.com/watch?v=R8_veQiYBjI
-- [x] Das TDD-Projekt enthält automatisierte Unit-Tests und Integration-Test, die vor dem Code geschrieben werden.
 - [x] Das Projekt beinhaltet Security-Features.
 
 ### 👨🏽‍💻 Tech Stack
@@ -104,21 +100,32 @@ Du kannst dich bei Jumble einloggen und die Jumbles mit Sternen bewerten, um and
   | `DELETE /api/user/edit/{userId}`                                  | Yes     | `OWNER`(todo)               | 
   
 
-### 📝  User Stories && Learning
+### 📝  User Stories & Learnings
 
 - [x] User kann sich ein Profil erstellen (Learnings: Password-Validation, Authentication)
 - [x] User kann Profil bearbeiten (Learnings: Password-Validation, Authentication)
 - [x] User kann Profil löschen
 - [x] User kann Jumbles für die Community erstellen
 - [x] User kann Jumbles für die Community bearbeiten und löschen
-- [x] User kann Bilder hochladen (Learnings: How to upload to Firebase Storage 
+- [x] User kann Bilder hochladen (Learnings: How to upload to Firebase Storage)
 - [x] User kann Jumbles, nach Kategorien sortiert, finden
-  
-### 📚 Was habe ich außerdem gelernt? 
+- [x] User kann eine Liste aller Jumbles einsehen
 
-- ✔ Implement Bootstrap and modify it via Sass, tried out Styled Components
-- ✔ Custom Hooks to manage Storage and Firestore
-- ✔ Design a Wireframe with Figma:  <a href="https://www.figma.com/file/fFAz3ql0dams5Xqsq6an8L/Jumble-Mockup?node-id=33%3A444">Figma-Link</a>
+### 📚 Was habe ich außerdem gelernt? 
+- ✔ Implementierung und Customizing von Bootstrap via Sass (auch kurz Styled Components ausprobiert)
+- ✔ Arbeiten mit Spring Boot und React, MapBox-Api, RESTful APIs, axios
+- ✔ Arbeiten mit relationalen Datenbanken und Cloud-Storage
+- ✔ Git-Commits via tig (cli-tool)
+- ✔ Authorisierung & Authentifizierung
+- ✔ Nur einen Port nutzen, indem Frontend über den Static-Ordner von Spring Boot eingebunden wird
+- ✔ Ein Wireframe mit Figma erstellen:  <a href="https://www.figma.com/file/fFAz3ql0dams5Xqsq6an8L/Jumble-Mockup?node-id=33%3A444">Figma-Link</a>
+
+### 📚 Reflexion 
+- Ein TDD-Projekt mit automatisierten Unit-Tests und Integration-Test wäre schöner
+- Es hätte eine strukturierte Versionierung über unterschiedliche Branches geben sollen, wie z.B.:
+  ◦	main — Eine Darstellung der Codebasis, die derzeit in Produktion ist, deren Commits den gesamten Flow  durchlaufen und nach der Überprüfung nach der Veröffentlichung zusammengeführt werden.
+	◦	develop — Alle Feature-Branches werden in dieser Branch zusammengeführt. Hier laufen automatisierte Tests und Releases für Entwicklungsressourcen über CI/CD-Pipelines.
+	◦	features — Jede Änderung, die in die nächste Version aufgenommen werden soll.
 
 
 ### 🚀 To-Dos & Ausblick
