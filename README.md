@@ -73,7 +73,7 @@ Du kannst dich bei Jumble einloggen und die Jumbles mit Sternen bewerten, um and
 │   │   │   ├── repo         # Repository-layer
 │   │   │   ├── security     # Security, JWT
 │   |   |   └── services     # Backend Service-layer
-│   |   └── resources        # Universal code
+│   |   └── resources        # application.yml
 |   |
 │   └── test                 # Test folder
 |
@@ -81,7 +81,7 @@ Du kannst dich bei Jumble einloggen und die Jumbles mit Sternen bewerten, um and
 │   ├── classes              # copy of build via pom.xml
 │   └── jar-file             # Served in a jar
 ├── ....                     # Other stuff
-└── docker.                  # docker file
+└── docker                   # docker file
 ```
   
 
@@ -96,13 +96,14 @@ Du kannst dich bei Jumble einloggen und die Jumbles mit Sternen bewerten, um and
   | `DELETE /api/jumbles/edit/{jumbleId}`                             | Yes     | `OWNER`(todo)               |
   | `POST /api/jumbles/{jumbleId}/{reviewId}`                         | Yes     | `USER`                      |
   | `GET /api/categories`  (all Categories)                           | Yes     | `USER`                      |
-  | `GET /api/categories/{categoryId}` (one Category)                 | Yes     | `USER                       |
+  | `GET /api/categories/{categoryId}` (one Category)                 | Yes     | `USER`                      |
   | `POST /api/user/signup`                                           | No      |                             |
   | `POST /api/user/login `                                           | No      |                             |
   | `GET /api/user/{userId}`                                          | Yes     | `OWNER`(todo)               |
   | `PUT /api/user/edit/{userId}`                                     | Yes     | `OWNER`(todo)               |
   | `DELETE /api/user/edit/{userId}`                                  | Yes     | `OWNER`(todo)               | 
   
+
 ### 📝  User Stories && Learning
 
 - [x] User kann sich ein Profil erstellen (Learnings: Password-Validation, Authentication)
@@ -111,14 +112,13 @@ Du kannst dich bei Jumble einloggen und die Jumbles mit Sternen bewerten, um and
 - [x] User kann Jumbles für die Community erstellen
 - [x] User kann Jumbles für die Community bearbeiten und löschen
 - [x] User kann Bilder hochladen (Learnings: How to upload to Firebase Storage 
-
-- [x] User kann Jumbles nach Kategorien sortiert finden
+- [x] User kann Jumbles, nach Kategorien sortiert, finden
   
 ### 📚 Was habe ich außerdem gelernt? 
 
-✔ Implement Bootstrap and modify it via Sass, tried out Styled Components
-✔ Custom Hooks to manage Storage and Firestore
-✔ Design a Wireframe with Figma:  <a href="https://www.figma.com/file/fFAz3ql0dams5Xqsq6an8L/Jumble-Mockup?node-id=33%3A444">Figma-Link</a>
+- ✔ Implement Bootstrap and modify it via Sass, tried out Styled Components
+- ✔ Custom Hooks to manage Storage and Firestore
+- ✔ Design a Wireframe with Figma:  <a href="https://www.figma.com/file/fFAz3ql0dams5Xqsq6an8L/Jumble-Mockup?node-id=33%3A444">Figma-Link</a>
 
 
 ### 🚀 To-Dos & Ausblick
