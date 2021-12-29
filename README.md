@@ -14,7 +14,7 @@ Das Jumble-Projekt erarbeite ich, um Erfahrungen in den Bereichen CI-CD-Pipeline
 - [x] Das Projekt wird mit Git versioniert.
 - [x] Die PostgreSQL-Datenbank läuft über ein Docker-Image
 - [x] Für User-Uploads wird der Firebase-Storage verwendet
-- [x] Das Projekt nutzt ein Docker-Image und läuft über eine CI-CD-Pipeline via Github-Actions. https://www.youtube.com/watch?v=R8_veQiYBjI
+- [x] Das Projekt nutzt ein Docker-Image und läuft über eine CI-CD-Pipeline via Github-Actions.
 - [x] Das Projekt beinhaltet Security-Features.
 
 ### 👨🏽‍💻 Tech Stack
@@ -123,9 +123,9 @@ Du kannst dich bei Jumble einloggen und die Jumbles mit Sternen bewerten, um and
 ### 📚 Reflexion 
 - Ein TDD-Projekt mit automatisierten Unit-Tests und Integration-Test wäre schöner
 - Es hätte eine strukturierte Versionierung über unterschiedliche Branches geben sollen, wie z.B.:
-  ◦	main — Eine Darstellung der Codebasis, die derzeit in Produktion ist, deren Commits den gesamten Flow  durchlaufen und nach der Überprüfung nach der Veröffentlichung zusammengeführt werden.
-	◦	develop — Alle Feature-Branches werden in dieser Branch zusammengeführt. Hier laufen automatisierte Tests und Releases für Entwicklungsressourcen über CI/CD-Pipelines.
-	◦	features — Jede Änderung, die in die nächste Version aufgenommen werden soll.
+	 - main — Eine Darstellung der Codebasis, die derzeit in Produktion ist, deren Commits den gesamten Flow  durchlaufen und nach der Überprüfung nach der Veröffentlichung zusammengeführt werden.
+	- develop — Alle Feature-Branches werden in dieser Branch zusammengeführt. Hier laufen automatisierte Tests und Releases für Entwicklungsressourcen über CI/CD-Pipelines.
+	- features — Jede Änderung, die in die nächste Version aufgenommen werden soll.
 
 
 ### 🚀 To-Dos & Ausblick
