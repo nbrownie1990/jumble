@@ -21,24 +21,21 @@ Das Jumble-Projekt erarbeite ich, um Erfahrungen in den Bereichen CI-CD-Pipeline
   - features — Jede Änderung, die in die nächste Version aufgenommen werden soll.
 - [x] Das Projekt nutzt ein Docker-Image und läuft über eine CI-CD-Pipeline via Github-Actions. https://www.youtube.com/watch?v=R8_veQiYBjI
 - [x] Das TDD-Projekt enthält automatisierte Unit-Tests und Integration-Test, die vor dem Code geschrieben werden.
-- [x] Das Projekt beinhaltet Security-Features .
+- [x] Das Projekt beinhaltet Security-Features.
 
 ### Tech Stack
 
 Built with:
 
-- Node.js
+- Spring-Boot
 - React v16
-- Axios
-- Sass
-- Express
-- RESTful API
+- Node.js
+- Sass und Bootstrap
+- Axios, RESTful API
 - MapBox-API
-- Babel
-- MongoDB
-- Mongoose
-- JTW
-- Heroku
+- JWT (Bearer Token, Local Storage Authentication)
+- PostgreSQL
+- Firebase.io
 
 ## Die App- "Jumble"
 
@@ -52,6 +49,44 @@ Du kannst dich bei Jumble einloggen und die Jumbles mit Sternen bewerten, um and
 
 ## Application Structure
 
+```  
+  .
+
+├── src                      # Static public assets and uploads
+│   ├── frontend             # Client side code
+│   |   ├── build            # result of npm run build
+│   |   ├── public           # Static public assets and uploads
+│   |   ├── src              # Frontend src
+│   │   │   ├── assets       # CSS and images
+│   │   │   ├── auth         # authorization
+│   │   │   ├── components   # React components
+│   │   │   ├── pages        # pages/views
+│   │   │   ├── scss         # Sass compile bootstrap & custom stylses
+│   |   |   └── services     # Frontend Service-layer, axios apiService
+│   |   ├── server           # Server side code
+│   |   └── shared           # Universal code
+|   |
+│   ├── main                 # Server side code
+│   |   ├── java             # 
+│   │   │   ├── config       # Configuration WebMvc, JPA, MapBoxAPI
+│   │   │   ├── controller   # RESTful API
+│   │   │   ├── exception    # Handeling Exceptions
+│   │   │   ├── model        # Models
+│   │   │   ├── payload      # Payload-Requests, Response
+│   │   │   ├── repo         # Repository-layer
+│   │   │   ├── security     # Security, JWT
+│   |   |   └── services     # Backend Service-layer
+│   |   └── resources        # Universal code
+|   |
+│   └── test                 # Store root folder
+|
+├── target                   # Application target folder
+│   ├── classes              # copy of build via pom.xml
+│   └── jar-file             # Served in a jar
+├── theme                    # Theme as a local package
+└── process.json             # pm2 process file
+```
+  
 ```
 .
 ├── config                   # Project and build configurations
