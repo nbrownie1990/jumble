@@ -45,10 +45,9 @@ Darunter z.B. Flohmärkte, Second-Hand-Shops, Kleider-Tausch-Partys, FoodSharing
 Du kannst dich bei Jumble einloggen und die Jumbles mit Sternen bewerten, um anderen Nutzern zu helfen.
 (Zielgruppe, Segment: junge Menschen denen Nachhaltigkeit am Herzen liegt. z.B. Studierende)
 
-## Application Structure
+### Application Structure
 
 ```  
-  .
 
 ├── src                      # Static public assets and uploads
 │   ├── frontend             # Client side code
@@ -61,8 +60,8 @@ Du kannst dich bei Jumble einloggen und die Jumbles mit Sternen bewerten, um and
 │   │   │   ├── pages        # pages/views
 │   │   │   ├── scss         # Sass compile bootstrap & custom stylses
 │   |   |   └── services     # Frontend Service-layer, axios apiService
-│   |   ├── server           # Server side code
-│   |   └── shared           # Universal code
+│   |   ├── .gitignore       # .gitignore-file 
+│   |   └── package.json     # third-party overview
 |   |
 │   ├── main                 # Server side code
 │   |   ├── java             # 
@@ -76,7 +75,7 @@ Du kannst dich bei Jumble einloggen und die Jumbles mit Sternen bewerten, um and
 │   |   |   └── services     # Backend Service-layer
 │   |   └── resources        # Universal code
 |   |
-│   └── test                 # Store root folder
+│   └── test                 # Test folder
 |
 ├── target                   # Application target folder
 │   ├── classes              # copy of build via pom.xml
@@ -90,40 +89,57 @@ Du kannst dich bei Jumble einloggen und die Jumbles mit Sternen bewerten, um and
 
   | Endpoint                                                          | Secured | Roles                       |
   | ----------------------------------------------------------------- | ------- | --------------------------- |
-  | `GET /api/jumbles/getall`  (all)                                  | No      |                             |
-  | `GET /api/jumbles/{jumbleId}` (one)                               | No      |                             |
-  | `POST /api/jumbles/new`                                           | No      |                             |
-  | `PUT /api/jumbles/edit/{jumbleId}`                                | Yes     | `OWNER`                     |
-  | `DELETE /api/jumbles/edit/{jumbleId}`                             | Yes     | `OWNER`                     |
-  | `POST /api/jumbles/{jumbleId}/{rezensionsId}`                     | Yes     | `USER`                      |
-  | `GET /api/categories`  (all Categories)                           | No      |                             |
-  | `GET /api/categories/{categoryId}` (one Category)                     | No      |                             |
-  | `POST /api/user/signup`                                           | Yes     | `OWNER` and `USER`          |
-  | `GET /api/user/{userId}`                                          | Yes     | `OWNER` and `USER`          |
-  | `PUT /api/user/edit/{userId}`                                     | Yes     | `OWNER`                     |
-  | `DELETE /api/user/edit/{userId}`                                  | Yes     | `OWNER`                     | 
+  | `GET /api/jumbles/getall`  (all)                                  | Yes     | `USER`.                     |
+  | `GET /api/jumbles/{jumbleId}` (one)                               | Yes     | `USER`                      |
+  | `POST /api/jumbles/new`                                           | Yes     | `USER`                      |
+  | `PUT /api/jumbles/edit/{jumbleId}`                                | Yes     | `OWNER`(todo)               |
+  | `DELETE /api/jumbles/edit/{jumbleId}`                             | Yes     | `OWNER`(todo)               |
+  | `POST /api/jumbles/{jumbleId}/{reviewId}`                         | Yes     | `USER`                      |
+  | `GET /api/categories`  (all Categories)                           | Yes     | `USER`                      |
+  | `GET /api/categories/{categoryId}` (one Category)                 | Yes     | `USER                       |
+  | `POST /api/user/signup`                                           | No      |                             |
+  | `POST /api/user/login `                                           | No      |                             |
+  | `GET /api/user/{userId}`                                          | Yes     | `OWNER`(todo)               |
+  | `PUT /api/user/edit/{userId}`                                     | Yes     | `OWNER`(todo)               |
+  | `DELETE /api/user/edit/{userId}`                                  | Yes     | `OWNER`(todo)               | 
   
-### User Stories && Learning
+### 📝  User Stories && Learning
 
 - [x] User kann sich ein Profil erstellen (Learnings: Password-Validation, Authentication)
 - [x] User kann Profil bearbeiten (Learnings: Password-Validation, Authentication)
+- [x] User kann Profil löschen
 - [x] User kann Jumbles für die Community erstellen
-- [x] User kann Jumbles für die Community bearbeiten
+- [x] User kann Jumbles für die Community bearbeiten und löschen
 - [x] User kann Bilder hochladen (Learnings: How to upload to Firebase Storage 
 
 - [x] User kann Jumbles nach Kategorien sortiert finden
   
-## 📚 Was habe ich außerdem gelernt? 
+### 📚 Was habe ich außerdem gelernt? 
 
 ✔ Implement Bootstrap and modify it via Sass, tried out Styled Components
 ✔ Custom Hooks to manage Storage and Firestore
+✔ Design a Wireframe with Figma:  <a href="https://www.figma.com/file/fFAz3ql0dams5Xqsq6an8L/Jumble-Mockup?node-id=33%3A444">Figma-Link</a>
 
-## 🚀 To-Dos & Ausblick
+
+### 🚀 To-Dos & Ausblick
+- Alle PUT, POST, DELETES funktionieren (Profile, Jumble, Images, Addresses, Categories, Review)
+- Star-Component
+- Docker Container 
+- Github Actions CI-CD-Pipeline
+- deployen über firebase
+- CI-CD-Pipeline (Github-Actions)
+- Sprache vereinheitlichen (kein denglish)
+- Tests
+- Form Validation (Jumbles, Login, Profile)
+- Map-Component
 - [ ] User kann Jumbles auf der Cluster-Map finden
-- [ ] User kann sein Passwort ändern
+- [ ] User kann Nutzernamen und Passwort ändern / Achtung Password-Hashing
 - [ ] User kann Jumbles über die Suchbar suchen
 - [ ] User kann Jumbles bewerten und kommentieren
+- [ ] User kann seine Bewertungen löschen
 - [ ] Routing-Validation
+- [ ] Authorization: Admin kann Kategorien erstellen, User können nur selbst erstellte Jumbles bearbeiten...
+
 
 Comments:
 ESLint implementieren? https://www.youtube.com/watch?v=St1YSNoB36Y
@@ -137,12 +153,6 @@ This project is under the MIT license.
 Made with 💖 by nbrownie1990 
   
   
-</td>
-   <td><img src="public/appOverview.gif" alt="animated app overview"> <br> <br>
-  <a href="https://www.figma.com/file/fFAz3ql0dams5Xqsq6an8L/Jumble-Mockup?node-id=33%3A444">Figma-Link</a>
-  </td>
- </tr>
-</table>
 
 # Getting Started with Create React App
 
