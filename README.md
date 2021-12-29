@@ -1,8 +1,6 @@
 # Jumble - the right place for your stuff
 
 ![MIT](https://img.shields.io/badge/license-MIT-blue.svg)
-![CI](https://github.com/nbrownie1990/jumble/workflows/Build%20and%20deploy/badge.svg)
-[![](https://img.shields.io/docker/image-size/nbrownie/jumble)](https://hub.docker.com/r/nbrownie/jumble)
 
 <table border="0" >
  <tr>
