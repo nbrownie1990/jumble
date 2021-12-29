@@ -23,7 +23,7 @@ Das Jumble-Projekt erarbeite ich, um Erfahrungen in den Bereichen CI-CD-Pipeline
 - [x] Das TDD-Projekt enthält automatisierte Unit-Tests und Integration-Test, die vor dem Code geschrieben werden.
 - [x] Das Projekt beinhaltet Security-Features.
 
-### Tech Stack
+### 👨🏽‍💻 Tech Stack
 
 Built with:
 
@@ -37,7 +37,7 @@ Built with:
 - PostgreSQL
 - Firebase.io
 
-## Die App- "Jumble"
+## 🔥 Die App- "Jumble"
 
 Du willst wieder Platz in der eigenen Wohnung und dabei etwas Gutes tun?
 Mit Jumble kannst du Informationen darüber erhalten, wo du dein Ausrangiertes in deiner Nähe abgeben kannst.
@@ -83,35 +83,11 @@ Du kannst dich bei Jumble einloggen und die Jumbles mit Sternen bewerten, um and
 ├── target                   # Application target folder
 │   ├── classes              # copy of build via pom.xml
 │   └── jar-file             # Served in a jar
-├── theme                    # Theme as a local package
-└── process.json             # pm2 process file
+├── ....                     # Other stuff
+└── docker.                  # docker file
 ```
   
-```
-.
-├── config                   # Project and build configurations
-├── dist                     # Distribution folder
-├── locales                  # Text files
-├── logs                     # Log files
-├── public                   # Static public assets and uploads
-│   ├── admin                # Dashboard index.html
-│   ├── admin-assets         # Dashboard assets
-│   └── content              # Store root folder
-|
-├── scripts                  # Shell scripts for theme install/export
-├── src                      # Application source code
-│   ├── admin                # Dashboard application
-│   │   └── client           # Client side code
-│   ├── api                  # REST API
-│   │   └── server           # Server side code
-│   ├── store                # Store application
-│   |   ├── client             # Client side code
-│   |   ├── server             # Server side code
-│   |   └── shared             # Universal code
-│   └── index.js             # Server application start point
-├── theme                    # Theme as a local package
-└── process.json             # pm2 process file
-```
+
 ### Api Endpoints
 
   | Endpoint                                                          | Secured | Roles                       |
@@ -129,20 +105,40 @@ Du kannst dich bei Jumble einloggen und die Jumbles mit Sternen bewerten, um and
   | `PUT /api/user/edit/{userId}`                                     | Yes     | `OWNER`                     |
   | `DELETE /api/user/edit/{userId}`                                  | Yes     | `OWNER`                     | 
   
-### User Stories
+### User Stories && Learning
 
-- [x] User kann sich ein Profil erstellen (Learnings: Password-Validation, Authentication & Authorization)
-- [x] User kann Jumbles auf der Cluster-Map finden
-- [x] User kann Jumbles bewerten und kommentieren
-- [x] User kann Jumbles für die Community erstellen und bearbeiten
+- [x] User kann sich ein Profil erstellen (Learnings: Password-Validation, Authentication)
+- [x] User kann Profil bearbeiten (Learnings: Password-Validation, Authentication)
+- [x] User kann Jumbles für die Community erstellen
+- [x] User kann Jumbles für die Community bearbeiten
+- [x] User kann Bilder hochladen (Learnings: How to upload to Firebase Storage 
 
-## Ausblick
+- [x] User kann Jumbles nach Kategorien sortiert finden
+  
+## 📚 Was habe ich außerdem gelernt? 
 
-Die App wird stetig weiterentwickelt und ich lerne jeden Tag dazu :)
+✔ Implement Bootstrap and modify it via Sass, tried out Styled Components
+✔ Custom Hooks to manage Storage and Firestore
+
+## 🚀 To-Dos & Ausblick
+- [ ] User kann Jumbles auf der Cluster-Map finden
+- [ ] User kann sein Passwort ändern
+- [ ] User kann Jumbles über die Suchbar suchen
+- [ ] User kann Jumbles bewerten und kommentieren
+- [ ] Routing-Validation
 
 Comments:
 ESLint implementieren? https://www.youtube.com/watch?v=St1YSNoB36Y
 
+  
+Die App wird stetig weiterentwickelt und ich lerne jeden Tag dazu :)
+
+📝 License
+This project is under the MIT license. 
+
+Made with 💖 by nbrownie1990 
+  
+  
 </td>
    <td><img src="public/appOverview.gif" alt="animated app overview"> <br> <br>
   <a href="https://www.figma.com/file/fFAz3ql0dams5Xqsq6an8L/Jumble-Mockup?node-id=33%3A444">Figma-Link</a>
