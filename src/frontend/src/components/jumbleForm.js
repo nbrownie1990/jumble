@@ -5,14 +5,16 @@ import TextField from './textField'
 import TextArea from './textArea'
 import AddressForm from './addressForm'
 import Select from './select'
-import Dropzone from "./dropzone";
+import ImageDropzone from "./imageDropzone";
 
 export default function JumbleForm({
   mode,
-  jumble,
+  onDrop,
+  jumble, setJumble, url, setUrl,
   categories,
   handleJumbleInputChange,
-  handleEditJumble,
+  handleAddressInputChange,
+  handleImageInputChange,
   handleSaveNewJumble,
   handleSaveJumbleChanges,
   handleSaveAddressChanges,
@@ -26,31 +28,16 @@ export default function JumbleForm({
         <div className="col-md-6">
           <div className="d-flex flex-column align-items-center text-center p-3 py-5">
             <div className="img-wrapper mt-5 ">
-              <Dropzone/>
-              {jumble.jumbleImage ?
-                  <img
-                      className="rounded-circle jumble-img"
-                      src={jumble.jumbleImage}
-                      alt="This is a jumble"
-                  />
-                  :
-                  <img
-                      className="rounded-circle jumble-img"
-                      src="https://www.biunsinnorden.de/mediadb/cache/800x480/schanzenflohmarkt_1200x720_c_cartelx.jpg"
-                      alt="This is a jumble"
-                  />
-              }
-              {/*<Link*/}
-              {/*  to={`/jumbles/edit`}*/}
-              {/*  className="btn edit-btn"*/}
-              {/*  type="button"*/}
-              {/*  data-toggle="tooltip"*/}
-              {/*  title="Edit"*/}
-              {/*>*/}
-              {/*  <i className="fas fa-pen ps-2 pb-1"></i>*/}
-              {/*</Link>*/}
+              <ImageDropzone
+                  jumble={jumble}
+                  setJumble={setJumble}
+                  url={url}
+                  setUrl={setUrl}
+                  onDrop={onDrop}
+                  handleImageInputChange={handleImageInputChange}
+                  mode="jumble"/>
             </div>
-            <span className="font-weight-bold mt-2 mb-3">Bild des Jumbles</span>
+            <span className="font-weight-bold mt-2 mb-3">{jumble.jumbleName}</span>
 
             <label className="labels">Beschreibung</label>
             <TextArea
@@ -74,7 +61,12 @@ export default function JumbleForm({
         <div className="col-md-6 ">
           <div className="p-md-3 py-5">
             <div className="d-flex justify-content-between align-items-center mb-3">
+              {mode === 'new' && (
               <h2 className="text-right">Erstelle ein Jumble</h2>
+              )}
+              {mode === 'edit' && (
+                  <h2 className="text-right">Bearbeite das Jumble</h2>
+              )}
             </div>
             <div className="row mt-2">
               <div className="col-md-12">
@@ -108,6 +100,7 @@ export default function JumbleForm({
                   name="address"
                   jumble={jumble}
                   handleJumbleInputChange={handleJumbleInputChange}
+                  handleAddressInputChange={handleAddressInputChange}
                   handleSaveAddressChanges={handleSaveAddressChanges}
                   handleSaveNewJumble={handleSaveNewJumble}
                  // handleDeleteJumble={handleDeleteJumble}

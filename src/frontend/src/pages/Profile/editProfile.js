@@ -2,16 +2,14 @@ import React, {useCallback, useEffect, useState} from 'react'
 import Navbar from '../../components/navbar'
 import ProfileForm from '../../components/profileForm'
 import {useNavigate, useParams} from "react-router";
-import {deleteUser, getUserById, updateUser, updateUserText} from "../../services/apiService";
+import {deleteUser, getUserById, updateUser } from "../../services/apiService";
 import Loading from "../../components/loading";
 
 export default function EditProfile() {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState()
+  const [url, setUrl] = useState("")
   const [user, setUser] = useState([])
-  const [userEmail, setUserEmail] = useState([])
-  const [userName, setUserName] = useState([])
-  const [userText, setUserText] = useState([])
   const navigate = useNavigate();
   let { id } = useParams();
 
@@ -19,9 +17,6 @@ export default function EditProfile() {
   const loadDataOnlyOnce = useCallback(() => {
     getUserById(id)
         .then(user => {setUser(user)})
-        .then(user => setUserName(user.username))
-        .then(user => setUserEmail(user.email))
-        .then(user => setUserText(user.userText))
         .catch(setError)
         .finally(() => {
           setLoading(false)
@@ -33,9 +28,15 @@ export default function EditProfile() {
   }, [loadDataOnlyOnce])
 
 
-  const handleProfileInputChange = event => {
-    setUser({ ...user, [event.target.name]: event.target.value })
-  }
+
+    function handleImageInputChange (url) {
+        if (url) {
+            setUser({...user, userImage: url})
+            console.log(user)
+        } else if(user.userImage) {
+            setUser({...user, userImage: user.userImage});
+        }
+    }
 
   const handleSaveProfileChanges = (id, user) => {
     setLoading(true)
@@ -49,6 +50,11 @@ export default function EditProfile() {
           setLoading(false)
         })
   }
+
+    const handleProfileInputChange = (event, url) => {
+        setUser({ ...user, [event.target.name]: event.target.value })
+        if (url){  setUser({...user, userImage: url}) }
+    }
 
   const handleCancel = () => {
     navigate(`/home`)
@@ -78,15 +84,18 @@ export default function EditProfile() {
       <main className="m-md-5 m-3 mt-5 mb-5">
         <section className="container w-100 h-100 p-0 mt-5">
           <div className="container rounded bg-white">
-              { error && <p>There was an error loading your data!</p> }
+              {/*{ error && <p>There was an error loading your data!</p> }*/}
               <ProfileForm
                   user={user}
+                  setUser={setUser}
+                  url={url}
+                  setUrl={setUrl}
+                  handleImageInputChanges={handleImageInputChange}
                   handleProfileInputChange={handleProfileInputChange}
                   handleSaveProfileChanges={handleSaveProfileChanges}
                   handleDeleteUser={handleDeleteUser}
                   handleCancel={handleCancel}
                   readOnly={false}
-                  mode="edit"
               />
           </div>
         </section>

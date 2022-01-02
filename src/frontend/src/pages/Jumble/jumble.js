@@ -21,11 +21,11 @@ function Jumble() {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState();
-  const [jumble, setJumble]= useState([]);
-  const [reviewList, setReviewList]= useState([]);
-  const [review, setReview]= useState([]);
+  const [jumble, setJumble] = useState([]);
+  const [reviewList, setReviewList] = useState([]);
+  const [review, setReview] = useState([]);
   const [rating, setRating] = useState(3) // initial rating value
-  let { jumbleId } = useParams();
+  let {jumbleId} = useParams();
   const currentUser = getCurrentUser();
 
 
@@ -38,8 +38,17 @@ function Jumble() {
         .then(reviewList => setReviewList(reviewList))
         .catch(setError)
         .finally(() => setLoading(false))
-  },[jumbleId])
+  }, [jumbleId])
 
+
+  // useEffect(() => {
+  //   let array1 = jumble.reviewList
+  //   let array2 = reviewList
+  //   let result = array2.filter(o1 => {
+  //     return array1.some(o2 => o1.reviewId === o2.reviewId)
+  //   });
+  //   console.log(result)
+  // },[])
 
   // Catch Rating value
   const handleRating = (rating) => {
@@ -48,34 +57,35 @@ function Jumble() {
   }
 
   // Catch Rating value
-  const handleAddReview= (jumbleId, review) => {
+  const handleAddReview = (jumbleId, review) => {
     setError();
 
     getJumbleById(jumbleId)
         .then()
     const reviewList = [...jumble.reviewList, review]
-    setJumble({ ...jumble, reviewList: reviewList})
+    setJumble({...jumble, reviewList: reviewList})
 
     addReview(jumbleId, review)
-          .then(setJumble)
-          .catch(setError)
-          .finally(() => {
-            setLoading(false)
-          })
+        .then(setJumble)
+        .catch(setError)
+        .finally(() => {
+          setLoading(false)
+        })
   }
   const handleDeleteReview = (jumbleId, reviewId) => {
     setLoading(true)
     //getReviewById(reviewId)
-       // .then(reviewId =>
-              deleteReview(jumbleId, reviewId)
+    // .then(reviewId =>
+    deleteReview(jumbleId, reviewId)
         //)
         //.then(() => getJumbleById(jumbleId))
         //.then(updatedJumble => setJumble(updatedJumble))
         .catch(error => {
-          setError(error)})
+          setError(error)
+        })
         .finally(() => {
-              setLoading(false)
-              console.log('deleted review with reviewId: '+ reviewId)
+          setLoading(false)
+          console.log('deleted review with reviewId: ' + reviewId)
         })
   }
   // const handleDeleteReview = (jumbleId, reviewId) => {
@@ -93,14 +103,14 @@ function Jumble() {
   // }
 
   //console.log(jumble.address?.addressStreet)
-  // console.log(jumble.reviewList?.[0].reviewId)
-  console.log(currentUser)
-  console.log(jumble.user?.id)
+  //console.log(jumble.reviewList?.[0].reviewId)
+  // console.log(currentUser)
+  // console.log(jumble.user?.id)
 
   console.log(jumble)
-  console.log(reviewList)
+  //console.log(reviewList)
 
-
+///TODO: Bugfix -> als funktion umschreiben:
   let array1 = jumble.reviewList
   let array2 = reviewList
   let result = array2.filter(o1 => {
@@ -166,14 +176,15 @@ function Jumble() {
                             <strong>Beschreibung: </strong>
                             {jumble.jumbleText}
                           </p>
+
                           <div key={jumble.address?.addressId}>
                             <p className="lead mt-2">
                              {jumble.address?.addressStreet} {' '}
                              {jumble.address?.addressNumber}
                             </p>
                           <p className="lead">
-                                {jumble.address?.addressZip}  {' '}
-                                {jumble.address?.addressCity}
+                             {jumble.address?.addressZip}  {' '}
+                             {jumble.address?.addressCity}
                           </p>
                           </div>
                         </div>

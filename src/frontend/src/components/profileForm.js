@@ -3,14 +3,13 @@ import TextArea from './textArea'
 import React, {useState} from 'react'
 import {Popup} from "react-easy-popup";
 import 'react-easy-popup/dist/react-easy-popup.min.css';
-import {Link} from "react-router-dom";
-import Dropzone from "./dropzone";
+import ImageDropzone from "./imageDropzone";
 
 
 export default function ProfileForm({
-user,
+user, setUser, url, setUrl,
 handleProfileInputChange,
-handleEditProfile,
+handleImageInputChange,
 handleSaveProfileChanges,
 handleCancel,
 handleDeleteUser,
@@ -26,29 +25,14 @@ readOnly,
       <div className="col-md-6">
           <div className="d-flex flex-column align-items-center text-center p-3 py-5">
             <div className="img-wrapper">
-              <Dropzone/>
-              {user.userImage ?
-                  <img
-                      className="rounded-circle p-md-3 profile-img"
-                      name="userImage"
-                      src={user.userImage}
-                      alt="This is a profile"
-                  /> :
-                  <img
-                      className="rounded-circle user-img "
-                      src="https://images.unsplash.com/photo-1608155686393-8fdd966d784d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
-                      alt="Profile"
-                  />
-              }
-              {/*<Link*/}
-              {/*    to={`/user/edit`}*/}
-              {/*    className="btn edit-btn"*/}
-              {/*    type="button"*/}
-              {/*    data-toggle="tooltip"*/}
-              {/*    title="Edit"*/}
-              {/*>*/}
-              {/*  <i className="fas fa-pen ps-2 pb-1"></i>*/}
-              {/*</Link>*/}
+              <ImageDropzone
+                  url={url}
+                  setUrl={setUrl}
+                  user={user}
+                  setUser={setUser}
+                  mode="user"
+                  handleImageInputChange={handleImageInputChange}
+              />
             </div>
             <span className="font-weight-bold h1">{user.username}</span>
           </div>
@@ -56,21 +40,6 @@ readOnly,
 
         <div className="col-md-6 d-flex flex-column p-3 py-5">
         <h2 className="text-right px-4">Edit your profile</h2>
-
-        {/*<div className="row mt-2">*/}
-              {/*  <div className="col-md-12">*/}
-              {/*    <label className="labels">Nutzername:</label>*/}
-              {/*    <TextField*/}
-              {/*        class="font-weight-bold h1"*/}
-              {/*        disabled={readOnly}*/}
-              {/*        title="Nutzername"*/}
-              {/*        name="username"*/}
-              {/*        type="text"*/}
-              {/*        value={user.username}*/}
-              {/*        onChange={handleProfileInputChange}*/}
-              {/*    />*/}
-              {/*  </div>*/}
-              {/*</div>*/}
               <div className="row mt-3">
                 <div className="col-md-10 px-4">
                   <label className="labels">E-Mail:</label>
@@ -86,12 +55,11 @@ readOnly,
                 </span>
                 </div>
 
-                {/*Passwort : Hier muss noch ein double-check o.ä. eingefügt werden*/}
+                {/* TODO: Passwort : Hier muss noch ein double-check o.ä. eingefügt werden*/}
                 <div className="col-md-10 px-4">
-                  <label className="labels">Passwort:</label>
+                  <label className="labels text-red">Hier entsteht noch die Möglichkeit ein Passwort zu ändern:</label>
                   <TextField
                       title="Passwort"
-                      disabled={readOnly}
                       name="password"
                       type="password"
                       value={user.password}

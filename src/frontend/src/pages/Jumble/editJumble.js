@@ -1,23 +1,31 @@
-import React, { useState} from 'react'
+import React, {useCallback, useState} from 'react'
 import { useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router'
 import Navbar from '../../components/navbar'
 import JumbleForm from '../../components/jumbleForm'
 import {
-    deleteJumble, deleteUser, getAddressById, getAllCategories,
+    deleteJumble,
+    deleteUser,
+    getAddressById,
+    getAllCategories,
     getJumbleById,
     updateJumble,
-    updateJumbleAddress
+    updateJumbleAddress, updateJumbleImage
 } from "../../services/apiService";
 import Loading from "../../components/loading";
+import {getDownloadURL, uploadBytes, ref, uploadBytesResumable} from 'firebase/storage';
+import {storage} from '../../services/firebase';
 
 export default function EditJumble() {
-  let { jumbleId } = useParams();
-  const navigate = useNavigate();
-  const [error, setError] = useState();
-  const [loading, setLoading] = useState(true);
-  const [categories, setCategories] = useState([]);
-  const [jumble, setJumble] = useState([]);
+    let {jumbleId} = useParams();
+    const navigate = useNavigate();
+    const [error, setError] = useState();
+    const [url, setUrl] = useState(() => null)
+    const [loading, setLoading] = useState(true);
+    const [categories, setCategories] = useState([]);
+    const [jumble, setJumble] = useState([]);
+    const [jumbleImage, setJumbleImage] = useState([])
+
 
     useEffect(() => {
         getAllCategories()
@@ -26,24 +34,53 @@ export default function EditJumble() {
 
         getJumbleById(jumbleId)
             .then(jumble => {
-                setJumble(jumble)})
+                setJumble(jumble)
+            })
             .catch(error => setError(error))
             .finally(() => setLoading(false))
-    },[jumbleId])
+    }, [jumbleId])
 
 
-  const handleJumbleInputChange = event => {
-    setJumble({ ...jumble, [event.target.name]: event.target.value })
-  }
+    const handleAddressInputChange = event => {
+        setJumble({...jumble.address, [event.target.name]: event.target.value})
+    }
 
-    const handleSaveJumbleChanges = (jumbleId, jumble) => {
+    const onDrop = (acceptedFiles) => {
+        const file = acceptedFiles[0];
+        console.log(file)
+        if (!file) return;
+        //const imageUrl = [];
+        const fileRef = ref(storage, "jumbles/" + 'jumbleId.' + jumble.jumbleId + '.png');
+        const snapshot = uploadBytes(fileRef, file);
+        const userPhoto = getDownloadURL(fileRef)
+            .then((url) => {
+                setUrl(url)
+                //      imageUrl.push(url)
+            })
+            .then((url) => {
+                handleImageInputChange(url)
+            })
+        return url;
+        alert("Bild ist hochgeladen! Sobald du rechts vom Bild auf speichern gehst, wird es aktualisiert...")
+    }
+
+    const handleImageInputChange = (url) => {
+        if (url) {
+            setJumble({...jumble, jumbleImage: url})
+            console.log(jumble)
+        }
+    }
+
+  const handleJumbleInputChange = (event) => {
+        setJumble({ ...jumble, [event.target.name]: event.target.value})
+    }
+
+  const handleSaveJumbleChanges = (jumbleId, jumble) => {
         let updatedCategory = categories.filter(c => {return c.categoryName === jumble.category})
         if (updatedCategory.length === 1) {
             jumble.category = updatedCategory[0] }
-        console.log(jumble)
 
-        setLoading(true)
-        updateJumble(jumbleId, jumble)
+        updateJumble(jumbleId, jumble, jumble.category, jumble.address)
             .then(updatedJumble=> {
                 setJumble(updatedJumble)
                 navigate(`/jumbles/${jumbleId}`)
@@ -52,10 +89,6 @@ export default function EditJumble() {
                 setError(error)
                 setLoading(false)
             })
-    }
-
-  const handleCancel = () => {
-    navigate('/home')
   }
 
   const handleDeleteJumble = (jumbleId) => {
@@ -72,6 +105,9 @@ export default function EditJumble() {
             })
     }
 
+    const handleCancel = () => {
+        navigate('/home')
+    }
 
     return (
       <React.Fragment>
@@ -83,18 +119,24 @@ export default function EditJumble() {
             <div className="container rounded bg-white p-md-5">
               <JumbleForm
                 jumble={jumble}
+                setJumble={setJumble}
+                url={url}
+                setUrl={setUrl}
+                onDrop={onDrop}
+                mode="edit"
                 categories={categories}
+                handleImageInputChange={handleImageInputChange}
+                handleAddressInputChange={handleAddressInputChange}
                 handleJumbleInputChange={handleJumbleInputChange}
                 handleSaveJumbleChanges={handleSaveJumbleChanges}
-               // handleSaveAddressChanges={handleSaveAddressChanges}
                 handleCancel={handleCancel}
                 handleDeleteJumble={handleDeleteJumble}
                 readOnly={false}
-                mode="edit"
               />
             </div>
           </section>
-        </main>)}
+        </main>
+          )}
       </React.Fragment>
     )
 }
