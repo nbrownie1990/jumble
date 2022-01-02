@@ -53,9 +53,9 @@ export const addNewJumble = async (jumble, address) => {
         });
 }
 
-export const updateJumble = async (jumbleId, jumble, address) => {
+export const updateJumble = async (jumbleId, jumble, category, address) => {
     return await axios
-        .put(`${baseUrl}/jumbles/edit/${jumbleId}`, jumble, address)
+        .put(`${baseUrl}/jumbles/edit/${jumbleId}`, {jumble, category, address})
         .then(response => {
             return response.data;
         });
@@ -171,6 +171,19 @@ export const updateUser = async (id, user) => {
             return response.data;
         });
 }
+
+//
+// export const uploadProfileImage = async (id) => {
+//     return await axios
+//         .post(`${baseUrl}/file/${id}/profileimage`, formData,
+//             {headers: {
+//                 "Content-Type": "multipart/form-data"
+//                 }})
+//         .then(response => {
+//             return response.data;
+//         });
+// }
+
 
 export const deleteUser = async (id) => {
     return await axios

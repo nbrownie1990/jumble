@@ -1,19 +1,16 @@
 package de.nbrownie.jumbleapplication.services;
 
-import de.nbrownie.jumbleapplication.exceptions.UnauthorizedUserException;
 import de.nbrownie.jumbleapplication.models.*;
+import de.nbrownie.jumbleapplication.payload.request.RequestUpdateJumble;
 import de.nbrownie.jumbleapplication.repo.*;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import javax.persistence.EntityNotFoundException;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Optional;
 import java.util.Set;
 
 @Getter

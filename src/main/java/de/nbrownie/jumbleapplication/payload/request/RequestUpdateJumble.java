@@ -1,5 +1,9 @@
-package de.nbrownie.jumbleapplication.models;
+package de.nbrownie.jumbleapplication.payload.request;
 
+import de.nbrownie.jumbleapplication.models.Address;
+import de.nbrownie.jumbleapplication.models.Category;
+import de.nbrownie.jumbleapplication.models.Review;
+import de.nbrownie.jumbleapplication.models.User;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

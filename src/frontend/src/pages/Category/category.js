@@ -3,7 +3,6 @@ import {useParams} from "react-router";
 import JumbleList from "../../components/jumbleList";
 import {Link} from "react-router-dom";
 import {getAllJumbles, getCategoryById} from "../../services/apiService";
-import NavBar from "../../components/navbar";
 import Loading from "../../components/loading";
 import Navbar from "../../components/navbar";
 
