@@ -20,6 +20,10 @@ spring:
           time_zone: UTC
     hibernate:
       ddl-auto: update
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
 
 server:
   error:
@@ -31,22 +35,6 @@ nbrownie:
       jwtSecret: mysecret
       jwtExpirationMs: 86400000
 
-
-#cloud:
-#  aws:
-#    credentials:
-#      instanceProfile: false
-#      useDefaultAwsCredentialsChain: false
-#      profileName: nbrownie
-#
-#    s3:
-#      default-bucket:
-#      multipart.maxFileSize: 5MB
-#      multipart.maxRequestSize: 5MB
-#    region:
-#      static: eu-central-1
-#      auto: false
-#
 
 
 mapbox-client:
