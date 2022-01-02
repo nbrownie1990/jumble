@@ -20,6 +20,7 @@ const Profile = () => {
         .finally(() => setLoading(false))
   },[id])
 
+  console.log(user)
   return (
       <React.Fragment>
         {loading && <Loading />}

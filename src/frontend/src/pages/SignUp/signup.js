@@ -5,6 +5,12 @@ import {useNavigate} from "react-router";
 import {signup} from "../../services/authService";
 
 const Signup = (props) => {
+  const initialSignUpState = {
+    username: '',
+    email: '',
+    password: '',
+    passwordCheck:'',
+  }
   const navigate = useNavigate();
   const [successful, setSuccessful] = useState(false);
   const [message, setMessage] = useState("");
@@ -12,19 +18,29 @@ const Signup = (props) => {
   const [formValue, setFormValue] = useState(initialSignUpState)
   const [formError, setFormError] = useState({})
   const [isSubmit, setIsSubmit] = useState(false)
-  const initialSignUpState = {
-    username: '',
-    email: '',
-    password: '',
-    passwordCheck:'',
-  }
 
-  useEffect(()=>{
-    console.log(formError)
-    if(Object.keys(formError).length === 0 && isSubmit){
-      console.log(formValue)
-    }
-  }, [formError])
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setMessage("");
+    setSuccessful(false);
+    setFormError(validate(formValue));
+    signup(formValue.username, formValue.email, formValue.password)
+        .then((response) => {
+          setMessage(response.data.message);
+          setSuccessful(true);
+          setIsSubmit(true)
+        })
+        .catch((error) => {
+          const resMessage =(error.response && error.response.data &&
+                  error.response.data.message)
+              || error.message || error.toString();
+
+          setMessage(resMessage);
+          setSuccessful(false);
+          setIsSubmit(false);
+        })
+  }
 
   const validate = (values) => {
     const error = {};
@@ -55,28 +71,13 @@ const Signup = (props) => {
     return error;
   };
 
+  useEffect(()=>{
+    console.log(formError)
+    if(Object.keys(formError).length === 0 && isSubmit){
+      console.log(formValue)
+    }
+  }, [formError])
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setMessage("");
-    setSuccessful(false);
-    setFormError(validate(formValue));
-    signup(formValue.username, formValue.email, formValue.password)
-        .then((response) => {
-              setMessage(response.data.message);
-              setSuccessful(true);
-              setIsSubmit(true)
-        })
-        .catch((error) => {
-                const resMessage =(error.response && error.response.data &&
-                      error.response.data.message)
-                      || error.message || error.toString();
-
-                setMessage(resMessage);
-                setSuccessful(false);
-                setIsSubmit(false);
-                })
-  }
 
   const handleChange =  (e) => {
     const {name, value} = e.target;
