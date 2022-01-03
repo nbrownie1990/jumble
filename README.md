@@ -138,6 +138,8 @@ Du kannst dich bei Jumble einloggen und die Jumbles mit Sternen bewerten, um and
 - Sprache vereinheitlichen (kein denglish)
 - Tests
 - Form Validation (Jumbles, Login, Profile)
+- Resize Image uploads
+- Change Data Types (Datepicker etc.)
 - Map-Component
 - [ ] User kann Jumbles auf der Cluster-Map finden
 - [ ] User kann Nutzernamen und Passwort ändern / Achtung Password-Hashing
