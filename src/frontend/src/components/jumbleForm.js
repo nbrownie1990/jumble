@@ -13,11 +13,8 @@ export default function JumbleForm({
   jumble, setJumble, url, setUrl,
   categories,
   handleJumbleInputChange,
-  handleAddressInputChange,
-  handleImageInputChange,
   handleSaveNewJumble,
   handleSaveJumbleChanges,
-  handleSaveAddressChanges,
   handleCancel,
   handleDeleteJumble,
   readOnly,
@@ -34,7 +31,7 @@ export default function JumbleForm({
                   url={url}
                   setUrl={setUrl}
                   onDrop={onDrop}
-                  handleImageInputChange={handleImageInputChange}
+                  handleJumbleInputChange={handleJumbleInputChange}
                   mode="jumble"/>
             </div>
             <span className="font-weight-bold mt-2 mb-3">{jumble.jumbleName}</span>
@@ -100,8 +97,6 @@ export default function JumbleForm({
                   name="address"
                   jumble={jumble}
                   handleJumbleInputChange={handleJumbleInputChange}
-                  handleAddressInputChange={handleAddressInputChange}
-                  handleSaveAddressChanges={handleSaveAddressChanges}
                   handleSaveNewJumble={handleSaveNewJumble}
                  // handleDeleteJumble={handleDeleteJumble}
                  // handleCancel={handleCancel}

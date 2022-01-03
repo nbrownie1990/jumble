@@ -2,7 +2,7 @@ import TextField from './textField'
 import React from 'react'
 
 export default function AddressForm({
-  handleAddressInputChange,
+    handleJumbleInputChange,
   readOnly,
   jumble
 }){
@@ -14,7 +14,7 @@ export default function AddressForm({
         name="addressStreet"
         type="text"
         value={jumble.address?.addressStreet}
-        onChange={handleAddressInputChange}
+        onChange={handleJumbleInputChange}
         title="Straße"
         disabled={readOnly}
         //rules={[{required: true, message: 'Please enter a address'}]}
@@ -23,7 +23,7 @@ export default function AddressForm({
         name="addressNumber"
         type="text"
         value={jumble.address?.addressNumber}
-        onChange={handleAddressInputChange}
+        onChange={handleJumbleInputChange}
         title="Hausnummer"
         disabled={readOnly}
         //rules={[{required: true, message: 'Please enter the street number'}]}
@@ -32,7 +32,7 @@ export default function AddressForm({
         name="addressZip"
         type="text"
         value={jumble.address?.addressZip}
-        onChange={handleAddressInputChange}
+        onChange={handleJumbleInputChange}
         title="Postleitzahl"
         disabled={readOnly}
         //rules={[{required: true, message: 'Please enter zip code'}]}
@@ -42,7 +42,7 @@ export default function AddressForm({
         name="addressCity"
         type="text"
         value={jumble.address?.addressCity}
-        onChange={handleAddressInputChange}
+        onChange={handleJumbleInputChange}
         title="Stadt"
         disabled={readOnly}
       />
@@ -50,7 +50,7 @@ export default function AddressForm({
         name="addressCountry"
         type="text"
         value={jumble.address?.addressCountry}
-        onChange={handleAddressInputChange}
+        onChange={handleJumbleInputChange}
         title="Land"
         disabled={readOnly}
       />

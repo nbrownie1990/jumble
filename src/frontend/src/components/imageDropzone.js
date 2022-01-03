@@ -32,6 +32,7 @@ export default function ImageDropzone(
     const {getRootProps, getInputProps, isDragActive } = useDropzone({
         onDrop,
         noClick: true,
+        name: "jumbleImage",
         noKeyboard: true,
         accept: "image/*"
     });
@@ -40,7 +41,8 @@ export default function ImageDropzone(
         <div className="container">
             <div {...getRootProps({
                 className: 'dropzone',
-                 })}>
+                name: "jumbleImage"
+            })}>
                 <input {...getInputProps()} />
                 {isDragActive ? (
                     <h3 className="btn btn-success">Yepp!</h3>
@@ -51,7 +53,9 @@ export default function ImageDropzone(
                         type="button"
                         data-toggle="tooltip"
                         title="Save"
-                        onClick={() => handleImageInputChange(url)}
+                        onClick={() => setJumble({...jumble, jumbleImage: url})}
+
+                    //onClick={() => handleJumbleInputChange(url)}
                 >
                     <i className="fas fa-save ps-2 pb-1"></i>
                 </button>

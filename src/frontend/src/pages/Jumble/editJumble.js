@@ -24,7 +24,6 @@ export default function EditJumble() {
     const [loading, setLoading] = useState(true);
     const [categories, setCategories] = useState([]);
     const [jumble, setJumble] = useState([]);
-    const [jumbleImage, setJumbleImage] = useState([])
 
 
     useEffect(() => {
@@ -41,50 +40,39 @@ export default function EditJumble() {
     }, [jumbleId])
 
 
-    const handleAddressInputChange = event => {
-        setJumble({...jumble.address, [event.target.name]: event.target.value})
-    }
-
+//Image Dropzone
     const onDrop = (acceptedFiles) => {
         const file = acceptedFiles[0];
         console.log(file)
         if (!file) return;
-        //const imageUrl = [];
         const fileRef = ref(storage, "jumbles/" + 'jumbleId.' + jumble.jumbleId + '.png');
         const snapshot = uploadBytes(fileRef, file);
         const userPhoto = getDownloadURL(fileRef)
             .then((url) => {
                 setUrl(url)
-                //      imageUrl.push(url)
             })
-            .then((url) => {
-                handleImageInputChange(url)
-            })
-        return url;
         alert("Bild ist hochgeladen! Sobald du rechts vom Bild auf speichern gehst, wird es aktualisiert...")
     }
 
-    const handleImageInputChange = (url) => {
-        if (url) {
-            setJumble({...jumble, jumbleImage: url})
-            console.log(jumble)
-        }
-    }
 
-  const handleJumbleInputChange = (event) => {
-        setJumble({ ...jumble, [event.target.name]: event.target.value})
+    const handleJumbleInputChange = (event) => {
+        setJumble(
+            {...jumble,
+                address: {...jumble.address, [event.target.name]: event.target.value },
+                [event.target.name]: event.target.value});
     }
 
   const handleSaveJumbleChanges = (jumbleId, jumble) => {
+      setLoading(true)
         let updatedCategory = categories.filter(c => {return c.categoryName === jumble.category})
         if (updatedCategory.length === 1) {
             jumble.category = updatedCategory[0] }
-
-        updateJumble(jumbleId, jumble, jumble.category, jumble.address)
-            .then(updatedJumble=> {
-                setJumble(updatedJumble)
-                navigate(`/jumbles/${jumbleId}`)
-            })
+      console.log(jumble)
+     updateJumble(jumbleId, jumble)
+          .then(changedJumble=> {
+                 setJumble(changedJumble)
+                 navigate(`/jumbles/${jumbleId}`)
+             })
             .catch(error => {
                 setError(error)
                 setLoading(false)
@@ -125,8 +113,6 @@ export default function EditJumble() {
                 onDrop={onDrop}
                 mode="edit"
                 categories={categories}
-                handleImageInputChange={handleImageInputChange}
-                handleAddressInputChange={handleAddressInputChange}
                 handleJumbleInputChange={handleJumbleInputChange}
                 handleSaveJumbleChanges={handleSaveJumbleChanges}
                 handleCancel={handleCancel}

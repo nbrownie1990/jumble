@@ -72,6 +72,7 @@ function Jumble() {
           setLoading(false)
         })
   }
+
   const handleDeleteReview = (jumbleId, reviewId) => {
     setLoading(true)
     //getReviewById(reviewId)
@@ -107,7 +108,7 @@ function Jumble() {
   // console.log(currentUser)
   // console.log(jumble.user?.id)
 
-  console.log(jumble)
+  //console.log(jumble)
   //console.log(reviewList)
 
 ///TODO: Bugfix -> als funktion umschreiben:
