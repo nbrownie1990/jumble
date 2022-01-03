@@ -7,9 +7,8 @@ import ImageDropzone from "./imageDropzone";
 
 
 export default function ProfileForm({
-user, setUser, url, setUrl,
+user, setUser, url, setUrl, onDrop,
 handleProfileInputChange,
-handleImageInputChange,
 handleSaveProfileChanges,
 handleCancel,
 handleDeleteUser,
@@ -26,12 +25,13 @@ readOnly,
           <div className="d-flex flex-column align-items-center text-center p-3 py-5">
             <div className="img-wrapper">
               <ImageDropzone
+                  onDrop={onDrop}
                   url={url}
                   setUrl={setUrl}
                   user={user}
                   setUser={setUser}
                   mode="user"
-                  handleImageInputChange={handleImageInputChange}
+                  handleProfileInputChange={handleProfileInputChange}
               />
             </div>
             <span className="font-weight-bold h1">{user.username}</span>

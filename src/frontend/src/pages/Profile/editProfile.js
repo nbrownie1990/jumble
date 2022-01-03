@@ -4,6 +4,8 @@ import ProfileForm from '../../components/profileForm'
 import {useNavigate, useParams} from "react-router";
 import {deleteUser, getUserById, updateUser } from "../../services/apiService";
 import Loading from "../../components/loading";
+import {getDownloadURL, ref, uploadBytes} from "firebase/storage";
+import {storage} from "../../services/firebase";
 
 export default function EditProfile() {
   const [loading, setLoading] = useState(true)
@@ -27,16 +29,17 @@ export default function EditProfile() {
     loadDataOnlyOnce()
   }, [loadDataOnlyOnce])
 
-
-
-    function handleImageInputChange (url) {
-        if (url) {
-            setUser({...user, userImage: url})
-            console.log(user)
-        } else if(user.userImage) {
-            setUser({...user, userImage: user.userImage});
-        }
+    const onDrop = (acceptedFiles) => {
+        const file = acceptedFiles[0];
+        console.log(file)
+        if (!file) return;
+        const fileRef = ref(storage, "users/" + 'id.' + user.id + '.png');
+        const snapshot = uploadBytes(fileRef, file);
+        const userPhoto = getDownloadURL(fileRef)
+            .then((url) => {setUrl(url)})
+        alert("Bild ist hochgeladen! Sobald du rechts vom Bild auf speichern gehst, wird es aktualisiert...")
     }
+
 
   const handleSaveProfileChanges = (id, user) => {
     setLoading(true)
@@ -50,11 +53,10 @@ export default function EditProfile() {
           setLoading(false)
         })
   }
+    const handleProfileInputChange = (event) => {
+    setUser({...user, [event.target.name]: event.target.value});
+ }
 
-    const handleProfileInputChange = (event, url) => {
-        setUser({ ...user, [event.target.name]: event.target.value })
-        if (url){  setUser({...user, userImage: url}) }
-    }
 
   const handleCancel = () => {
     navigate(`/home`)
@@ -88,9 +90,9 @@ export default function EditProfile() {
               <ProfileForm
                   user={user}
                   setUser={setUser}
+                  onDrop={onDrop}
                   url={url}
                   setUrl={setUrl}
-                  handleImageInputChanges={handleImageInputChange}
                   handleProfileInputChange={handleProfileInputChange}
                   handleSaveProfileChanges={handleSaveProfileChanges}
                   handleDeleteUser={handleDeleteUser}
