@@ -1,8 +1,6 @@
 # Jumble - the right place for your stuff
 
 ![MIT](https://img.shields.io/badge/license-MIT-blue.svg)
-![CI](https://github.com/nbrownie1990/jumble/workflows/Build%20and%20deploy/badge.svg)
-[![](https://img.shields.io/docker/image-size/nbrownie/jumble)](https://hub.docker.com/r/nbrownie/jumble)
 
 <table border="0" >
  <tr>
@@ -13,34 +11,27 @@ Das Jumble-Projekt erarbeite ich, um Erfahrungen in den Bereichen CI-CD-Pipeline
 ### Learning Path / Skills for this Project
 
 - [x] In diesem Projekt wurden ein Idee entwickelt, ein entsprechendes Mock-Up und Use-Cases erstellt.
-- [x] Das Projekt wird mit Git und den folgenden Branches versioniert.
-  - main — Eine Darstellung der Codebasis, die derzeit in Produktion ist, deren Commits den gesamten Flow durchlaufen und nach der Überprüfung nach der  
-     Veröffentlichung zusammengeführt wurden.
-  - develop — Alle Feature-Branches werden in dieser Branch zusammengeführt. Hier laufen automatisierte Tests und Releases für
-    Entwicklungsressourcen über CI/CD-Pipelines.
-  - features — Jede Änderung, die in die nächste Version aufgenommen werden soll.
-- [x] Das Projekt nutzt ein Docker-Image und läuft über eine CI-CD-Pipeline via Github-Actions. https://www.youtube.com/watch?v=R8_veQiYBjI
-- [x] Das TDD-Projekt enthält automatisierte Unit-Tests und Integration-Test, die vor dem Code geschrieben werden.
-- [x] Das Projekt beinhaltet Security-Features .
+- [x] Das Projekt wird mit Git versioniert.
+- [x] Die PostgreSQL-Datenbank läuft über ein Docker-Image
+- [x] Für User-Uploads wird der Firebase-Storage verwendet
+- [x] Das Projekt nutzt ein Docker-Image und läuft über eine CI-CD-Pipeline via Github-Actions.
+- [x] Das Projekt beinhaltet Security-Features.
 
-### Tech Stack
+### 👨🏽‍💻 Tech Stack
 
 Built with:
 
-- Node.js
+- Spring-Boot
 - React v16
-- Axios
-- Sass
-- Express
-- RESTful API
+- Node.js
+- Sass und Bootstrap
+- Axios, RESTful API
 - MapBox-API
-- Babel
-- MongoDB
-- Mongoose
-- JTW
-- Heroku
+- JWT (Bearer Token, Local Storage Authentication)
+- PostgreSQL
+- Firebase.io
 
-## Die App- "Jumble"
+## 🔥 Die App- "Jumble"
 
 Du willst wieder Platz in der eigenen Wohnung und dabei etwas Gutes tun?
 Mit Jumble kannst du Informationen darüber erhalten, wo du dein Ausrangiertes in deiner Nähe abgeben kannst.
@@ -50,70 +41,127 @@ Darunter z.B. Flohmärkte, Second-Hand-Shops, Kleider-Tausch-Partys, FoodSharing
 Du kannst dich bei Jumble einloggen und die Jumbles mit Sternen bewerten, um anderen Nutzern zu helfen.
 (Zielgruppe, Segment: junge Menschen denen Nachhaltigkeit am Herzen liegt. z.B. Studierende)
 
-## Application Structure
+### Application Structure
 
-```
-.
-├── config                   # Project and build configurations
-├── dist                     # Distribution folder
-├── locales                  # Text files
-├── logs                     # Log files
-├── public                   # Static public assets and uploads
-│   ├── admin                # Dashboard index.html
-│   ├── admin-assets         # Dashboard assets
-│   └── content              # Store root folder
+```  
+
+├── src                      # Static public assets and uploads
+│   ├── frontend             # Client side code
+│   |   ├── build            # result of npm run build
+│   |   ├── public           # Static public assets and uploads
+│   |   ├── src              # Frontend src
+│   │   │   ├── assets       # CSS and images
+│   │   │   ├── auth         # authorization
+│   │   │   ├── components   # React components
+│   │   │   ├── pages        # pages/views
+│   │   │   ├── scss         # Sass compile bootstrap & custom stylses
+│   |   |   └── services     # Frontend Service-layer, axios apiService
+│   |   ├── .gitignore       # .gitignore-file 
+│   |   └── package.json     # third-party overview
+|   |
+│   ├── main                 # Server side code
+│   |   ├── java             # 
+│   │   │   ├── config       # Configuration WebMvc, JPA, MapBoxAPI
+│   │   │   ├── controller   # RESTful API
+│   │   │   ├── exception    # Handeling Exceptions
+│   │   │   ├── model        # Models
+│   │   │   ├── payload      # Payload-Requests, Response
+│   │   │   ├── repo         # Repository-layer
+│   │   │   ├── security     # Security, JWT
+│   |   |   └── services     # Backend Service-layer
+│   |   └── resources        # application.yml
+|   |
+│   └── test                 # Test folder
 |
-├── scripts                  # Shell scripts for theme install/export
-├── src                      # Application source code
-│   ├── admin                # Dashboard application
-│   │   └── client           # Client side code
-│   ├── api                  # REST API
-│   │   └── server           # Server side code
-│   ├── store                # Store application
-│   |   ├── client             # Client side code
-│   |   ├── server             # Server side code
-│   |   └── shared             # Universal code
-│   └── index.js             # Server application start point
-├── theme                    # Theme as a local package
-└── process.json             # pm2 process file
+├── target                   # Application target folder
+│   ├── classes              # copy of build via pom.xml
+│   └── jar-file             # Served in a jar
+├── ....                     # Other stuff
+└── docker                   # docker file
 ```
+  
+
 ### Api Endpoints
 
   | Endpoint                                                          | Secured | Roles                       |
   | ----------------------------------------------------------------- | ------- | --------------------------- |
-  | `GET /api/jumbles/getall`  (all)                                  | No      |                             |
-  | `GET /api/jumbles/{jumbleId}` (one)                               | No      |                             |
-  | `POST /api/jumbles/new`                                           | No      |                             |
-  | `PUT /api/jumbles/edit/{jumbleId}`                                | Yes     | `OWNER`                     |
-  | `DELETE /api/jumbles/edit/{jumbleId}`                             | Yes     | `OWNER`                     |
-  | `POST /api/jumbles/{jumbleId}/{rezensionsId}`                     | Yes     | `USER`                      |
-  | `GET /api/categories`  (all Categories)                           | No      |                             |
-  | `GET /api/categories/{categoryId}` (one Category)                     | No      |                             |
-  | `POST /api/user/signup`                                           | Yes     | `OWNER` and `USER`          |
-  | `GET /api/user/{userId}`                                          | Yes     | `OWNER` and `USER`          |
-  | `PUT /api/user/edit/{userId}`                                     | Yes     | `OWNER`                     |
-  | `DELETE /api/user/edit/{userId}`                                  | Yes     | `OWNER`                     | 
+  | `GET /api/jumbles/getall`  (all)                                  | Yes     | `USER`.                     |
+  | `GET /api/jumbles/{jumbleId}` (one)                               | Yes     | `USER`                      |
+  | `POST /api/jumbles/new`                                           | Yes     | `USER`                      |
+  | `PUT /api/jumbles/edit/{jumbleId}`                                | Yes     | `OWNER`(todo)               |
+  | `DELETE /api/jumbles/edit/{jumbleId}`                             | Yes     | `OWNER`(todo)               |
+  | `POST /api/jumbles/{jumbleId}/{reviewId}`                         | Yes     | `USER`                      |
+  | `GET /api/categories`  (all Categories)                           | Yes     | `USER`                      |
+  | `GET /api/categories/{categoryId}` (one Category)                 | Yes     | `USER`                      |
+  | `POST /api/user/signup`                                           | No      |                             |
+  | `POST /api/user/login `                                           | No      |                             |
+  | `GET /api/user/{userId}`                                          | Yes     | `OWNER`(todo)               |
+  | `PUT /api/user/edit/{userId}`                                     | Yes     | `OWNER`(todo)               |
+  | `DELETE /api/user/edit/{userId}`                                  | Yes     | `OWNER`(todo)               | 
   
-### User Stories
 
-- [x] User kann sich ein Profil erstellen (Learnings: Password-Validation, Authentication & Authorization)
-- [x] User kann Jumbles auf der Cluster-Map finden
-- [x] User kann Jumbles bewerten und kommentieren
-- [x] User kann Jumbles für die Community erstellen und bearbeiten
+### 📝  User Stories & Learnings
 
-## Ausblick
+- [x] User kann sich ein Profil erstellen (Learnings: Password-Validation, Authentication)
+- [x] User kann Profil bearbeiten (Learnings: Password-Validation, Authentication)
+- [x] User kann Profil löschen
+- [x] User kann Jumbles für die Community erstellen
+- [x] User kann Jumbles für die Community bearbeiten und löschen
+- [x] User kann Bilder hochladen (Learnings: How to upload to Firebase Storage)
+- [x] User kann Jumbles, nach Kategorien sortiert, finden
+- [x] User kann eine Liste aller Jumbles einsehen
 
-Die App wird stetig weiterentwickelt und ich lerne jeden Tag dazu :)
+### 📚 Was habe ich außerdem gelernt? 
+- ✔ Implementierung und Customizing von Bootstrap via Sass (auch kurz Styled Components ausprobiert)
+- ✔ Arbeiten mit Spring Boot und React, MapBox-Api, RESTful APIs, axios
+- ✔ Arbeiten mit relationalen Datenbanken und Cloud-Storage
+- ✔ Git-Commits via tig (cli-tool)
+- ✔ Authorisierung & Authentifizierung
+- ✔ Nur einen Port nutzen, indem Frontend über den Static-Ordner von Spring Boot eingebunden wird
+- ✔ Ein Wireframe mit Figma erstellen:  <a href="https://www.figma.com/file/fFAz3ql0dams5Xqsq6an8L/Jumble-Mockup?node-id=33%3A444">Figma-Link</a>
+
+### 📚 Reflexion 
+- Ein TDD-Projekt mit automatisierten Unit-Tests und Integration-Test wäre schöner
+- Es hätte eine strukturierte Versionierung über unterschiedliche Branches geben sollen, wie z.B.:
+	 - main — Eine Darstellung der Codebasis, die derzeit in Produktion ist, deren Commits den gesamten Flow  durchlaufen und nach der Überprüfung nach der Veröffentlichung zusammengeführt werden.
+	- develop — Alle Feature-Branches werden in dieser Branch zusammengeführt. Hier laufen automatisierte Tests und Releases für Entwicklungsressourcen über CI/CD-Pipelines.
+	- features — Jede Änderung, die in die nächste Version aufgenommen werden soll.
+
+
+### 🚀 To-Dos & Ausblick
+- Alle PUT, POST, DELETES funktionieren (Profile, Jumble, Images, Addresses, Categories, Review)
+- Star-Component
+- Docker Container 
+- Github Actions CI-CD-Pipeline
+- deployen über firebase
+- CI-CD-Pipeline (Github-Actions)
+- Sprache vereinheitlichen (kein denglish)
+- Tests
+- Form Validation (Jumbles, Login, Profile)
+- Resize Image uploads
+- Change Data Types (Datepicker etc.)
+- Map-Component
+- [ ] User kann Jumbles auf der Cluster-Map finden
+- [ ] User kann Nutzernamen und Passwort ändern / Achtung Password-Hashing
+- [ ] User kann Jumbles über die Suchbar suchen
+- [ ] User kann Jumbles bewerten und kommentieren
+- [ ] User kann seine Bewertungen löschen
+- [ ] Routing-Validation
+- [ ] Authorization: Admin kann Kategorien erstellen, User können nur selbst erstellte Jumbles bearbeiten...
+
 
 Comments:
 ESLint implementieren? https://www.youtube.com/watch?v=St1YSNoB36Y
 
-</td>
-   <td><img src="public/appOverview.gif" alt="animated app overview"> <br> <br>
-  <a href="https://www.figma.com/file/fFAz3ql0dams5Xqsq6an8L/Jumble-Mockup?node-id=33%3A444">Figma-Link</a>
-  </td>
- </tr>
-</table>
+  
+Die App wird stetig weiterentwickelt und ich lerne jeden Tag dazu :)
+
+📝 License
+This project is under the MIT license. 
+
+Made with 💖 by nbrownie1990 
+  
+  
 
 # Getting Started with Create React App
 
