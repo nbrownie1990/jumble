@@ -9,13 +9,13 @@ import {storage} from "../../services/firebase";
 
 
 export default function AddJumble() {
-  const navigate = useNavigate();
-  const [jumble, setJumble] = useState([]);
-  const [address, setAddress] = useState([]);
-  const [categories, setCategories] = useState([]);
-  const [url, setUrl] = useState(() => null)
-  const [error, setError] = useState();
-  const [loading, setLoading] = useState(true)
+    const navigate = useNavigate();
+    const [jumble, setJumble] = useState([]);
+    const [address, setAddress] = useState([]);
+    const [categories, setCategories] = useState([]);
+    const [url, setUrl] = useState(() => null)
+    const [error, setError] = useState();
+    const [loading, setLoading] = useState(true)
 
 
     useEffect(() => {
@@ -23,21 +23,25 @@ export default function AddJumble() {
             .then(categories => setCategories(categories))
             .catch(error => setError(error))
             .finally(() => setLoading(false))
-    },[])
+    }, [])
 
     const handleJumbleInputChange = (event) => {
-        if(!jumble.address) {setJumble({...jumble, [event.target.name]: event.target.value})}
-        else {setAddress({...jumble.address, [event.target.name]: event.target.value})
-    }}
+      setJumble({...jumble, [event.target.name]: event.target.value});
+      setAddress({...jumble.address, [event.target.name]: event.target.value});
+      console.log(jumble)
+      console.log(address)
+    }
 
 
-    const handleSaveNewJumble = (jumble, address) => {
+//    const handleSaveNewJumble = (jumble, address) => {
+
+        const handleSaveNewJumble = (jumble) => {
         setLoading(true)
         let updatedCategory = categories.filter(c => {return c.categoryName === jumble.category})
         if (updatedCategory.length === 1) {
             jumble.category = updatedCategory[0] }
 
-        addNewJumble(jumble, address)
+        addNewJumble(jumble)
             .catch(setError)
             .finally(() => {
                             setLoading(false)
