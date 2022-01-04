@@ -2,9 +2,11 @@ package de.nbrownie.jumbleapplication.controllers;
 
 
 
+import de.nbrownie.jumbleapplication.models.Address;
 import de.nbrownie.jumbleapplication.models.Jumble;
 import de.nbrownie.jumbleapplication.models.Review;
-import de.nbrownie.jumbleapplication.payload.request.RequestUpdateJumble;
+import de.nbrownie.jumbleapplication.payload.request.UpdateJumbleRequest;
+import de.nbrownie.jumbleapplication.services.AddressService;
 import de.nbrownie.jumbleapplication.services.JumbleService;
 import de.nbrownie.jumbleapplication.services.ReviewService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,9 +15,6 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Set;
-
-import static org.springframework.util.MimeTypeUtils.APPLICATION_JSON_VALUE;
 
 @CrossOrigin(origins = "*", maxAge = 3600, allowedHeaders = "*")
 @RestController
@@ -24,13 +23,14 @@ import static org.springframework.util.MimeTypeUtils.APPLICATION_JSON_VALUE;
 public class JumbleController {
 
     private final JumbleService jumbleService;
+    private final AddressService addressService;
     private final ReviewService reviewService;
 
     @Autowired
-    public JumbleController(JumbleService jumbleService, ReviewService reviewService) {
+    public JumbleController(JumbleService jumbleService, AddressService addressService, ReviewService reviewService) {
         this.jumbleService = jumbleService;
+        this.addressService = addressService;
         this.reviewService = reviewService;
-
     }
 
     @PreAuthorize("hasRole('USER')")
@@ -49,13 +49,19 @@ public class JumbleController {
 
     @PreAuthorize("hasRole('USER')")
     @PostMapping(path = "new")
-    public void addJumble(@RequestBody Jumble jumble){
-        jumbleService.addNewJumble(jumble);
+    public void addNewJumble(@RequestBody Jumble newJumble, Address newAddress)
+    {jumbleService.addNewJumble(newJumble, newAddress);
     }
+
+//    @PreAuthorize("hasRole('USER')")
+//    @PostMapping(path = "new")
+//    public void addJumble(@RequestBody Jumble jumble){
+//        jumbleService.addNewJumble(jumble);
+//    }
 
     @PreAuthorize("hasRole('USER')")
     @PutMapping(path = "edit/{jumbleId}")
-    public void updateJumble(@PathVariable("jumbleId") Long jumbleId, @RequestBody RequestUpdateJumble updateJumble){
+    public void updateJumble(@PathVariable("jumbleId") Long jumbleId, @RequestBody UpdateJumbleRequest updateJumble){
         jumbleService.updateJumble(jumbleId, updateJumble);
     }
 

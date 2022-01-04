@@ -39,21 +39,24 @@ public class AddressService {
         return addressRepository.getAddressByAddressId(addressId).orElseThrow(() -> new IllegalArgumentException("Address not found"));
     }
 
-    public boolean addressExists(Address existingAddress, Address addressToCheck) {
-        if (existingAddress.getAddressStreet().equals(addressToCheck.getAddressStreet())
-                && existingAddress.getAddressNumber().equals(addressToCheck.getAddressNumber())
-                && existingAddress.getAddressZip().equals(addressToCheck.getAddressZip())
-                && existingAddress.getAddressCity().equals(addressToCheck.getAddressCity()))
-            return true;
-        return false;
-}
+    public Address addNewAddress(Address newAddress){
+        // User user = userRepository.getUserByUserId(id).orElseThrow(() -> new EntityNotFoundException("User not found"));
+        Address address = new Address();
+        address.setAddressStreet(newAddress.getAddressStreet());
+        address.setAddressNumber(newAddress.getAddressNumber());
+        address.setAddressZip(newAddress.getAddressZip());
+        address.setAddressCity(newAddress.getAddressCity());
+        address.setAddressCountry(newAddress.getAddressCountry());
+        // address.setUser(user);
+        //address.setJumble(newAddress.getJumbleDate());
+        return addressRepository.save(address);
+    }
 
     public Address updateAddress(Long addressId, Long jumbleId, Address changedAddress) {
         Address existingAddress = addressRepository.getAddressByAddressId(addressId).orElseThrow(() -> new EntityNotFoundException("Address not found"));
         if (!existingAddress.getJumble().getJumbleId().equals(jumbleId)){
             throw new UnauthorizedUserException("Address can only be updated by its owner in its jumble");
         }
-
         if (changedAddress.getAddressStreet() != null && !changedAddress.getAddressStreet().equals(existingAddress.getAddressStreet())) {
             existingAddress.setAddressStreet(changedAddress.getAddressStreet());
         }
@@ -69,24 +72,8 @@ public class AddressService {
         if (changedAddress.getAddressCountry() != null && !changedAddress.getAddressCountry().equals(existingAddress.getAddressCountry())) {
             existingAddress.setAddressCountry(changedAddress.getAddressCountry());
         }
-
         return addressRepository.save(existingAddress);
     }
-
-    public void addNewAddress(Address newAddress) {
-////       User user = userRepository.getUserByUserId(userId).orElseThrow(() -> new EntityNotFoundException("User not found"));
-////        newJumble.setUser(user);
-        addressRepository.save(newAddress);
-    }
-
-
-    public List<Address> getAddressByAddressIdAndJumbleId(Long jumbleId, Long addressId){
-        return addressRepository.getAddressByAddressIdAndJumbleId(jumbleId, addressId);
-    }
-
-//  public Optional<Address> getAddressByJumbleId(Long jumbleId){
-//       return addressRepository.getAddressByJumbleId(jumbleId);
-//    }
 
 //    public void deleteAddress(Long addressId) {
 //        if(!addressRepository.existsById(addressId)) {
@@ -96,8 +83,18 @@ public class AddressService {
 //        addressRepository.deleteById(addressId);
 //    }
 
-}
 //////////////
+    //for mapbox:
+    public boolean addressExists(Address existingAddress, Address addressToCheck) {
+        if (existingAddress.getAddressStreet().equals(addressToCheck.getAddressStreet())
+                && existingAddress.getAddressNumber().equals(addressToCheck.getAddressNumber())
+                && existingAddress.getAddressZip().equals(addressToCheck.getAddressZip())
+                && existingAddress.getAddressCity().equals(addressToCheck.getAddressCity()))
+            return true;
+        return false;
+    }
+
+}
 
 
 

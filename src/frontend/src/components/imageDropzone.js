@@ -35,8 +35,6 @@ export default function ImageDropzone(
                             title="Save"
                             onClick= {mode === 'user' ? ( () => setUser({...user, userImage: url}))
                                      : (() => setJumble({...jumble, jumbleImage: url}))}
-
-                        //onClick={() => handleJumbleInputChange(url)}
                     >
                         <i className="fas fa-save ps-2 pb-1"></i>
                     </button>

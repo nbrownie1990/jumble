@@ -15,7 +15,7 @@ import java.util.Set;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public class RequestUpdateJumble {
+public class UpdateJumbleRequest {
 
     private Long jumbleId;
 
@@ -51,7 +51,7 @@ public class RequestUpdateJumble {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        RequestUpdateJumble that = (RequestUpdateJumble) o;
+        UpdateJumbleRequest that = (UpdateJumbleRequest) o;
         return jumbleId.equals(that.jumbleId);
     }
 

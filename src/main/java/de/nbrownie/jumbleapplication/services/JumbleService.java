@@ -1,7 +1,7 @@
 package de.nbrownie.jumbleapplication.services;
 
 import de.nbrownie.jumbleapplication.models.*;
-import de.nbrownie.jumbleapplication.payload.request.RequestUpdateJumble;
+import de.nbrownie.jumbleapplication.payload.request.UpdateJumbleRequest;
 import de.nbrownie.jumbleapplication.repo.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -41,11 +41,11 @@ public class JumbleService {
         return jumbleRepository.getJumbleByJumbleId(jumbleId).orElseThrow(() -> new IllegalArgumentException("JumbleApplication not found"));
     }
 
-    public Jumble addNewJumble(Jumble newJumble) {
+ //   public Jumble addNewJumble(Jumble newJumble) {
 //       User user = userRepository.getUserByUserId(userId).orElseThrow(() -> new EntityNotFoundException("User not found"));
 //        newJumble.setUser(user);
-         return jumbleRepository.save(newJumble);
-    }
+//         return jumbleRepository.save(newJumble);
+ //   }
 
 //versuch:
 //    public ResponseEntity<String> addNewJumble(@RequestBody List<Jumble> newJumble) {
@@ -54,26 +54,33 @@ public class JumbleService {
 //    }
 
 
-//    public Jumble createJumble(JumbleRequest jumbleRequest){
-//        User user = userRepository.findById(jumbleRequest.id);
-//        Jumble jumble = new Jumble();
-//        jumble.setJumbleName(jumbleRequest.jumbleName);
-//        jumble.setJumbleTime(jumbleRequest.jumbleTime);
-//        jumble.setJumbleImage(jumbleRequest.jumbleImage);
-//        jumble.setJumbleText(jumbleRequest.jumbleText);
-//        jumble.setJumbleWebsite(jumbleRequest.jumbleWebsite);
-//        jumble.setJumbleDate(jumbleRequest.jumbleDate);
-//        jumble.setUser(user);
-//
-//        return jumbleRepository.save(jumble);
-//    }
+    public Jumble addNewJumble(Jumble newJumble, Address newAddress){
+        // User user = userRepository.getUserByUserId(id).orElseThrow(() -> new EntityNotFoundException("User not found"));
+        Jumble jumble = new Jumble();
+        jumble.setJumbleName(newJumble.getJumbleName());
+        jumble.setJumbleTime(newJumble.getJumbleTime());
+        jumble.setJumbleImage(newJumble.getJumbleImage());
+        jumble.setJumbleText(newJumble.getJumbleText());
+        jumble.setJumbleWebsite(newJumble.getJumbleWebsite());
+        jumble.setJumbleDate(newJumble.getJumbleDate());
+        jumble.setCategory(newJumble.getCategory());
+        Address address = new Address();
+        address.setAddressStreet(newAddress.getAddressStreet());
+        address.setAddressNumber(newAddress.getAddressNumber());
+        address.setAddressZip(newAddress.getAddressZip());
+        address.setAddressCity(newAddress.getAddressCity());
+        address.setAddressCountry(newAddress.getAddressCountry());
 
-    public Jumble updateJumble(Long jumbleId, RequestUpdateJumble changedJumble) {
+       jumble.setAddress(address);
+       // jumble.setUser(user);
+        return jumbleRepository.save(jumble);
+    }
+
+    public Jumble updateJumble(Long jumbleId, UpdateJumbleRequest changedJumble) {
         Jumble existingJumble = jumbleRepository.findById(jumbleId).orElseThrow(() -> new EntityNotFoundException("Jumble not found"));
 //        if (!existingJumble.getUser().getId().equals(id)) {
 //            throw new UnauthorizedUserException("Jumble can only be updated by its owner");
 //        }
-
         if (changedJumble.getJumbleImage() != null && !changedJumble.getJumbleImage().equals(existingJumble.getJumbleImage())) {
             existingJumble.setJumbleImage(changedJumble.getJumbleImage());
         }

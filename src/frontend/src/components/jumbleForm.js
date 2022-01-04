@@ -32,7 +32,8 @@ export default function JumbleForm({
                   setUrl={setUrl}
                   onDrop={onDrop}
                   handleJumbleInputChange={handleJumbleInputChange}
-                  mode="jumble"/>
+                  mode="jumble"
+              />
             </div>
             <span className="font-weight-bold mt-2 mb-3">{jumble.jumbleName}</span>
 
@@ -97,9 +98,6 @@ export default function JumbleForm({
                   name="address"
                   jumble={jumble}
                   handleJumbleInputChange={handleJumbleInputChange}
-                  handleSaveNewJumble={handleSaveNewJumble}
-                 // handleDeleteJumble={handleDeleteJumble}
-                 // handleCancel={handleCancel}
                   readOnly={false}
                 />
               </div>
@@ -149,7 +147,7 @@ export default function JumbleForm({
               <button
                 className="btn btn-primary profile-button mb-5 mb-md-2 m-3"
                 type="button"
-                onClick={() => handleSaveNewJumble(jumble)}
+                onClick={() => handleSaveNewJumble(jumble, jumble.address)}
               >
                 <i className="fas fa-save"></i> Save Jumble
               </button>

@@ -33,12 +33,12 @@ public class AddressController {
 //        return addressService.getAddressByAddressIdAndJumbleId(jumbleId, addressId);
 //    }
 
+
     @PreAuthorize("hasRole('USER')")
-    @PostMapping(path = "{jumbleId}/newaddress")
+    @PostMapping(path = "new/newaddress")
     public void addNewAddress(@RequestBody Address address){
         addressService.addNewAddress(address);
     }
-
 
 }
 

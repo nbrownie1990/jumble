@@ -67,16 +67,16 @@ export default function EditJumble() {
         let updatedCategory = categories.filter(c => {return c.categoryName === jumble.category})
         if (updatedCategory.length === 1) {
             jumble.category = updatedCategory[0] }
-      console.log(jumble)
+
      updateJumble(jumbleId, jumble)
-          .then(changedJumble=> {
-                 setJumble(changedJumble)
+         .then(
+             //changedJumble=> {
+              //   setJumble(changedJumble)
                  navigate(`/jumbles/${jumbleId}`)
-             })
-            .catch(error => {
-                setError(error)
-                setLoading(false)
-            })
+             //}
+             )
+         .catch(error => setError(error))
+         .finally(setLoading(false))
   }
 
   const handleDeleteJumble = (jumbleId) => {

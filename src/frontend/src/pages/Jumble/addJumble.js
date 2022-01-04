@@ -2,24 +2,21 @@ import React, {useEffect, useState} from 'react'
 import { useNavigate } from 'react-router'
 import Navbar from '../../components/navbar'
 import JumbleForm from '../../components/jumbleForm'
-import {initialJumbleState, initialAddressState, jumbleCategoryOptions} from "../../services/stateService";
 import {addNewAddress, addNewJumble, getAllCategories} from "../../services/apiService";
-import {signup} from "../../services/authService";
 import Loading from "../../components/loading";
+import {getDownloadURL, ref, uploadBytes} from "firebase/storage";
+import {storage} from "../../services/firebase";
 
 
 export default function AddJumble() {
   const navigate = useNavigate();
-  const [jumble, setJumble, setJumbleId] = useState([]);
+  const [jumble, setJumble] = useState([]);
   const [address, setAddress] = useState([]);
   const [categories, setCategories] = useState([]);
+  const [url, setUrl] = useState(() => null)
   const [error, setError] = useState();
   const [loading, setLoading] = useState(true)
 
-    const handleJumbleInputChange = e => {
-    setJumble({ ...jumble, [e.target.name]: e.target.value })
-    setAddress({ ...address, [e.target.name]: e.target.value })
-  }
 
     useEffect(() => {
         getAllCategories()
@@ -28,14 +25,52 @@ export default function AddJumble() {
             .finally(() => setLoading(false))
     },[])
 
+    const handleJumbleInputChange = (event) => {
+        if(!jumble.address) {setJumble({...jumble, [event.target.name]: event.target.value})}
+        else {setAddress({...jumble.address, [event.target.name]: event.target.value})
+    }}
+
+
     const handleSaveNewJumble = (jumble, address) => {
+        setLoading(true)
+        let updatedCategory = categories.filter(c => {return c.categoryName === jumble.category})
+        if (updatedCategory.length === 1) {
+            jumble.category = updatedCategory[0] }
+
         addNewJumble(jumble, address)
-            .then(address => addNewAddress(address))
-                .catch(setError)
-                .finally(() => {
-                    setLoading(false)
-                    navigate('/home')
-                })
+            .catch(setError)
+            .finally(() => {
+                            setLoading(false)
+                            navigate('/home')
+                        })
+        // addNewJumble(jumble)
+        //     //.then(jumble => setJumble(jumble))
+        //     .then(jumble => console.log(jumble))
+        //     .catch(setError)
+        //
+        // addNewAddress(address)
+        //     //.then(address => setAddress(address))
+        //     .then(address => console.log(address))
+        //     .catch(setError)
+        //         .finally(() => {
+        //             setLoading(false)
+        //             navigate('/home')
+        //         })
+    }
+
+
+//Image Dropzone
+    const onDrop = (acceptedFiles) => {
+        const file = acceptedFiles[0];
+        console.log(file)
+        if (!file) return;
+        const fileRef = ref(storage, "jumbles/" + 'new' + '.png');
+        const snapshot = uploadBytes(fileRef, file);
+        const userPhoto = getDownloadURL(fileRef)
+            .then((url) => {
+                setUrl(url)
+            })
+        alert("Bild ist hochgeladen! Sobald du rechts vom Bild auf speichern gehst, wird es aktualisiert...")
     }
 
    const handleSaveFailed = errorInfo => {
@@ -64,7 +99,10 @@ export default function AddJumble() {
           <div className="container rounded bg-white p-md-5">
             <JumbleForm
               jumble={jumble}
-              address={address}
+              setJumble={setJumble}
+              onDrop={onDrop}
+              url={url}
+              setUrl={setUrl}
               categories={categories}
               handleJumbleInputChange={handleJumbleInputChange}
               handleSaveNewJumble={handleSaveNewJumble}

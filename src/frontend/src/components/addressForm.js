@@ -2,11 +2,10 @@ import TextField from './textField'
 import React from 'react'
 
 export default function AddressForm({
-    handleJumbleInputChange,
+  handleJumbleInputChange,
   readOnly,
   jumble
 }){
-
 
   return (
     <>
