@@ -7,17 +7,17 @@ import {
   deleteReview,
   getJumbleById,
   getReviewById,
-  getReviewList
+  getReviewList, getUserById
 } from "../../services/apiService";
 import {getCurrentUser} from "../../services/authService";
 import Navbar from '../../components/navbar'
 import Reviews from "../../components/reviews";
-import StarRating from "../../components/star";
+import StarRating from "../../components/starRating";
 import Loading from "../../components/loading";
-import MessageTeam from "../../components/messageTeam";
+import JumbleTeamMessage from "../../components/jumbleTeamMessage";
 import YourReview from "../../components/yourReview";
 
-function Jumble() {
+export default function Jumble() {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState();
@@ -25,9 +25,9 @@ function Jumble() {
   const [reviewList, setReviewList] = useState([]);
   const [review, setReview] = useState([]);
   const [rating, setRating] = useState(3) // initial rating value
+  const [result, setResult] = useState([]);
   let {jumbleId} = useParams();
   const currentUser = getCurrentUser();
-
 
   useEffect(() => {
     getJumbleById(jumbleId)
@@ -41,54 +41,50 @@ function Jumble() {
   }, [jumbleId])
 
 
-  // useEffect(() => {
-  //   let array1 = jumble.reviewList
-  //   let array2 = reviewList
-  //   let result = array2.filter(o1 => {
-  //     return array1.some(o2 => o1.reviewId === o2.reviewId)
-  //   });
-  //   console.log(result)
-  // },[])
 
-  // Catch Rating value
+
+  const handleReviewInputChange = (event) => {
+    setReview({...review, [event.target.name]: event.target.value});
+  }
+
   const handleRating = (rating) => {
     setRating(rating)
-    // Some logic
+    // Some logic to update Rating
   }
 
   // Catch Rating value
-  const handleAddReview = (jumbleId, review) => {
-    setError();
+  //const handleAddReview = (jumbleId, review) => {
+  // setError();
 
-    getJumbleById(jumbleId)
-        .then()
-    const reviewList = [...jumble.reviewList, review]
-    setJumble({...jumble, reviewList: reviewList})
+  // getJumbleById(jumbleId)
+  // const reviewList = [...jumble.reviewList, review]
+  // setJumble({...jumble, reviewList: reviewList})
 
-    addReview(jumbleId, review)
-        .then(setJumble)
-        .catch(setError)
-        .finally(() => {
-          setLoading(false)
-        })
-  }
+  // addReview(jumbleId, review)
+  //     .then(setJumble)
+  //     .catch(setError)
+  //     .finally(() => {
+  //       setLoading(false)
+  //   })
+  // }
 
-  const handleDeleteReview = (jumbleId, reviewId) => {
-    setLoading(true)
-    //getReviewById(reviewId)
-    // .then(reviewId =>
-    deleteReview(jumbleId, reviewId)
-        //)
-        //.then(() => getJumbleById(jumbleId))
-        //.then(updatedJumble => setJumble(updatedJumble))
-        .catch(error => {
-          setError(error)
-        })
-        .finally(() => {
-          setLoading(false)
-          console.log('deleted review with reviewId: ' + reviewId)
-        })
-  }
+  //const handleDeleteReview = (jumbleId, reviewId) => {
+  //setLoading(true)
+  //getReviewById(reviewId)
+  // .then(reviewId =>
+  //deleteReview(jumbleId, reviewId)
+  //)
+  //.then(() => getJumbleById(jumbleId))
+  //.then(updatedJumble => setJumble(updatedJumble))
+  //       .catch(error => {
+  //         setError(error)
+  //       })
+  //       .finally(() => {
+  //         setLoading(false)
+  //         console.log('deleted review with reviewId: ' + reviewId)
+  //       })
+  // }
+
   // const handleDeleteReview = (jumbleId, reviewId) => {
   //   setLoading(true)
   //   setError()
@@ -111,13 +107,33 @@ function Jumble() {
   //console.log(jumble)
   //console.log(reviewList)
 
-///TODO: Bugfix -> als funktion umschreiben:
-  let array1 = jumble.reviewList
-  let array2 = reviewList
-  let result = array2.filter(o1 => {
-    return array1.some(o2 => o1.reviewId === o2.reviewId)
-  });
-  console.log(result)
+
+///TODO: Bugfix "TypeError: Cannot read properties of undefined (reading 'some')"
+//   let array1 = jumble.reviewList
+//   let array2 = reviewList
+//   let result = array2.filter(o1 => {
+//     return array1.some(o2 => o1.reviewId === o2.reviewId)
+//   });
+//   console.log(result)
+  //filter whole reviewList to find reviews with jumbleId
+
+//First try to bugfix ...auch hier erscheint der fehler
+//grund: (all-)reviewlist braucht ladezeit --> async await??
+  useEffect(() => {
+    handleFilterJumbleReviews(jumble, reviewList)
+    console.log(jumble)
+    console.log(reviewList)
+  }, [jumble, reviewList]);
+
+  const handleFilterJumbleReviews = useCallback((jumble, reviewList) => {
+    let jumbleReviews = jumble.reviewList
+    let allReviews = reviewList
+    setResult(allReviews
+        .filter(allRev => {return jumbleReviews
+        .some(jumRev => allRev.reviewId === jumRev.reviewId)
+        }))
+  }, [jumble, reviewList])
+
 
 
   return (
@@ -196,16 +212,17 @@ function Jumble() {
                         uns von euren Erfahrungen!
                       </p>
 
-                      {result?.length <=0? <MessageTeam />:
+                      {result?.length <=0? <JumbleTeamMessage />:
                       <Reviews
                       result = {result}
                       jumbleId={jumbleId}
                       currentUser={currentUser}
-                      handleDeleteReview = {handleDeleteReview}
+                     // handleDeleteReview = {handleDeleteReview}
                       /> }
                       <YourReview
+                          handleReviewInputChange={handleReviewInputChange}
                           handleRating={handleRating}
-                          handleAddReview={handleAddReview}
+                       //   handleAddReview={handleAddReview}
                           jumbleId={jumbleId}
                       />
                     </div>
@@ -218,4 +235,4 @@ function Jumble() {
               )}
           </React.Fragment>
   )}
-export default Jumble
+
