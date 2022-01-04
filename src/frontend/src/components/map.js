@@ -2,7 +2,7 @@ import ReactDom from 'react-dom'
 import mapboxgl from 'mapbox-gl'
 import React from 'react'
 
-//wird evtl. später ersetzt durch mapcomponent
+//aktuell nicht implementiert => Codeschnipsel evtl. noch für "MapComponent" verwertbar
 
 mapboxgl.accessToken =
   'pk.eyJ1IjoibmJyb3duaWUiLCJhIjoiY2t4YTgzdHFwMGVzbDJwbXduamIwcjVobyJ9.1dvOHUtZhQCG2BBl7rkjtg'

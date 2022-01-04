@@ -1,9 +1,9 @@
 import React from 'react'
 import '../assets/css/style.css'
 import TextArea from "./textArea";
-import Message from "./message";
-import MessageTeam from "./messageTeam";
-import StarRating from "./star";
+import ReviewMessage from "./reviewMessage";
+import JumbleTeamMessage from "./jumbleTeamMessage";
+import StarRating from "./starRating";
 
 export default function Reviews({
     handleRating,
@@ -17,14 +17,14 @@ export default function Reviews({
     return (
         <>{result &&
         <div className="rez container">
-            <Message
+            <ReviewMessage
                 result={result}
                 currentUser={currentUser}
                 handleDeleteReview = {handleDeleteReview}
                 jumbleId={jumbleId}
             />
           </div>}
-            <MessageTeam />
+            <JumbleTeamMessage />
            </>
      )
  }

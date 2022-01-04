@@ -1,6 +1,7 @@
 import axios from "axios";
 import authHeader from "../auth/AuthHeader";
 
+//Component to test the authorization
 const baseUrl = `http://localhost:8080/api/test`
 
 export const getPublicContent = () => {

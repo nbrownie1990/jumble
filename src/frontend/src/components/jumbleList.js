@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import StarRating from "./star";
+import StarRating from "./starRating";
 
 const JumbleList = props => {
     const { items, onItemSelected} = props

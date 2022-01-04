@@ -2,14 +2,13 @@ import React from 'react'
 import ReactMapGL, {Marker} from 'react-map-gl'
 import 'mapbox-gl/dist/mapbox-gl.css';
 import mapboxgl from 'mapbox-gl';
-// import { getJumbles } from '../services/featureService'
-// import { getCategories} from '../services/categoryService'
 
 // eslint-disable-next-line import/no-webpack-loader-syntax
 mapboxgl.workerClass = require('worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker').default;
 
 mapboxgl.accessToken =
   'pk.eyJ1IjoibmJyb3duaWUiLCJhIjoiY2t4YTgzdHFwMGVzbDJwbXduamIwcjVobyJ9.1dvOHUtZhQCG2BBl7rkjtg'
+
 
 const jumbles = {
   type: 'FeatureCollection',
@@ -18,14 +17,10 @@ const jumbles = {
       type: 'Feature',
       geometry: {
         type: 'Point',
-        coordinates: [-77.034084142948, 38.909671288923],
+        coordinates: [9.995682, 53.531086],
       },
       properties: {
         name: 'Flohschanze',
-        category: {
-          _id: '5b21ca3eeb7f6fbccd471878',
-          categoryname: 'Flea Markets',
-        },
         address: 'Fake-Street 123',
         postalCode: '20005',
         openingDate: '28.02.21',
@@ -38,14 +33,10 @@ const jumbles = {
       type: 'Feature',
       geometry: {
         type: 'Point',
-        coordinates: [-77.049766, 38.900772],
+        coordinates: [9.996681, 53.557085],
       },
       properties: {
-        name: 'Bibi-Land',
-        category: {
-          _id: '5b21ca3eeb7f6fbccd471818',
-          categoryname: 'Flea Markets',
-        },
+        name: 'Flohschanze2',
         address: 'Fake-Street 123',
         postalCode: '20005',
         openingDate: '28.02.21',
@@ -58,14 +49,10 @@ const jumbles = {
       type: 'Feature',
       geometry: {
         type: 'Point',
-        coordinates: [-77.043929, 38.910525],
+        coordinates: [9.993583, 53.551587],
       },
       properties: {
-        name: 'Lulu-Land',
-        category: {
-          _id: '5b21ca3eeb7f6fbccd471819',
-          categoryname: 'Flea Markets',
-        },
+        name: 'Flohschanze3',
         address: 'Fake-Street 123',
         postalCode: '20005',
         openingDate: '28.02.21',
@@ -78,14 +65,10 @@ const jumbles = {
       type: 'Feature',
       geometry: {
         type: 'Point',
-        coordinates: [-77.0672, 38.90516896],
+        coordinates: [9.992682, 53.581086],
       },
       properties: {
-        name: 'Lego-Land',
-        category: {
-          _id: '1b21ca3eeb7f6fbccd471818',
-          categoryname: 'Flea Markets',
-        },
+        name: 'SecondHand-Land',
         address: 'Fake-Street 123',
         postalCode: '20005',
         openingDate: '28.02.21',
@@ -98,14 +81,10 @@ const jumbles = {
       type: 'Feature',
       geometry: {
         type: 'Point',
-        coordinates: [-77.002583742142, 38.887041080933],
+        coordinates: [9.999662, 53.551016],
       },
       properties: {
-        name: 'Lili-Land',
-        category: {
-          _id: '3b21ca3eeb7f6fbccd471818',
-          categoryname: 'Flea Markets',
-        },
+        name: 'Flohschanze',
         address: 'Fake-Street 123',
         postalCode: '20005',
         openingDate: '28.02.21',
@@ -118,14 +97,10 @@ const jumbles = {
       type: 'Feature',
       geometry: {
         type: 'Point',
-        coordinates: [-76.933492720127, 38.99225245786],
+        coordinates: [9.923681, 53.551975],
       },
       properties: {
-        name: 'Lou-Land',
-        category: {
-          _id: '2b21ca3eeb7f6fbccd471818',
-          categoryname: 'Flea Markets',
-        },
+        name: 'Flohschanze5',
         address: 'Fake-Street 123',
         postalCode: '20005',
         openingDate: '28.02.21',
@@ -138,14 +113,10 @@ const jumbles = {
       type: 'Feature',
       geometry: {
         type: 'Point',
-        coordinates: [-77.097083330154, 38.980979],
+        coordinates: [9.923642, 53.551076],
       },
       properties: {
-        name: 'Live-Land',
-        category: {
-          _id: '4b21ca3eeb7f6fbccd471818',
-          categoryname: 'Flea Markets',
-        },
+        name: 'Flohschanze6',
         address: 'Fake-Street 123',
         postalCode: '20005',
         openingDate: '28.02.21',
@@ -158,14 +129,10 @@ const jumbles = {
       type: 'Feature',
       geometry: {
         type: 'Point',
-        coordinates: [-77.359425054188, 38.958058116661],
+        coordinates: [9.994632, 53.551099],
       },
       properties: {
-        name: 'Leio-Land',
-        category: {
-          _id: '7h21ca3eeb7f6fbccd471818',
-          categoryname: 'Flea Markets',
-        },
+        name: 'Flohschanze7',
         address: 'Fake-Street 123',
         postalCode: '20005',
         openingDate: '28.02.21',
@@ -178,14 +145,10 @@ const jumbles = {
       type: 'Feature',
       geometry: {
         type: 'Point',
-        coordinates: [-77.10853099823, 38.880100922392],
+        coordinates: [9.983685, 53.551946],
       },
       properties: {
-        name: 'Papa-Land',
-        category: {
-          _id: '9b21ca3eeb7f6fbccd471818',
-          categoryname: 'Flea Markets',
-        },
+        name: 'Flohschanze8',
         address: 'Fake-Street 123',
         postalCode: '20005',
         openingDate: '28.02.21',
@@ -198,14 +161,10 @@ const jumbles = {
       type: 'Feature',
       geometry: {
         type: 'Point',
-        coordinates: [-75.28784, 40.008008],
+        coordinates: [9.997622, 53.551926],
       },
       properties: {
-        name: 'Liop-Land',
-        category: {
-          _id: '8b21ca3eeb7f6fbccd471818',
-          categoryname: 'Flea Markets',
-        },
+        name: 'FoodSharing-Point',
         address: 'Fake-Street 123',
         postalCode: '20005',
         openingDate: '28.02.21',
@@ -218,14 +177,10 @@ const jumbles = {
       type: 'Feature',
       geometry: {
         type: 'Point',
-        coordinates: [-75.20121216774, 39.954030175164],
+        coordinates: [9.992689, 53.551012],
       },
       properties: {
-        name: 'Uff-Land',
-        category: {
-          _id: '7b21ca3eeb7f6fbccd471818',
-          categoryname: 'Flea Markets',
-        },
+        name: 'FoodSharing-Point3',
         address: 'Fake-Street 123',
         postalCode: '20005',
         openingDate: '28.02.21',
@@ -238,14 +193,10 @@ const jumbles = {
       type: 'Feature',
       geometry: {
         type: 'Point',
-        coordinates: [-77.043959498405, 38.903883387232],
+        coordinates: [9.993785, 53.551082],
       },
       properties: {
-        name: 'Lele-Land',
-        category: {
-          _id: '6b21ca3eeb7f6fbccd471818',
-          categoryname: 'Flea Markets',
-        },
+        name: 'FoodSharing-Point15',
         address: 'Fake-Street 123',
         postalCode: '20005',
         openingDate: '28.02.21',
@@ -274,7 +225,7 @@ class MapComponent extends React.Component {
     const map = new mapboxgl.Map({
       container: 'map',
       style: 'mapbox://styles/nbrownie/ckur58op823es17k99ugvww0z',
-      center: [-77.034084142948, 38.909671288923],
+      center: [9.993682, 53.551086],
       zoom: 13,
       scrollZoom: false,
     })
@@ -406,6 +357,7 @@ class MapComponent extends React.Component {
         button.type = 'button'
         button.title = 'Details'
         button.innerHTML = 'Details'
+    //    button.onclick = `navigate('/jumbles/${jumbleId}')`
 
         /**
          * Listen to the element and when it is clicked, do four things:

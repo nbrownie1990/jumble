@@ -4,7 +4,7 @@ import DateField from './dateField'
 import TextField from './textField'
 import TextArea from './textArea'
 import AddressForm from './addressForm'
-import Select from './select'
+import SelectField from './selectField'
 import ImageDropzone from "./imageDropzone";
 
 export default function JumbleForm({
@@ -82,7 +82,7 @@ export default function JumbleForm({
               <div className="col-md-12">
                 <label className="labels mt-3">Jumble-Category</label>
                 <br />
-                <Select
+                <SelectField
                   name="category"
                   categories={categories}
                   value={jumble.category}
@@ -147,7 +147,9 @@ export default function JumbleForm({
               <button
                 className="btn btn-primary profile-button mb-5 mb-md-2 m-3"
                 type="button"
-                onClick={() => handleSaveNewJumble(jumble, jumble.address)}
+                onClick={() => handleSaveNewJumble(jumble)}
+
+                  // onClick={() => handleSaveNewJumble(jumble, jumble.address)}
               >
                 <i className="fas fa-save"></i> Save Jumble
               </button>

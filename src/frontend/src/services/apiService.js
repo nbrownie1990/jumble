@@ -38,20 +38,36 @@ export const getJumbleById = (jumbleId) => {
         });
 }
 
-export const addNewJumble = async (jumble, address) => {
+
+export const addNewJumble = async (jumble) => {
     return await axios
-        .post(`${baseUrl}/jumbles/new`, {jumble, address},
-    {
-        headers:{
-            'Access-Control-Allow-Origin': '*',
-            'Content-Type': 'application/json',
-        },
-        withCredentials:true,
-    })
+        .post(`${baseUrl}/jumbles/new`, {jumble},
+            {
+                headers:{
+                    'Access-Control-Allow-Origin': '*',
+                    'Content-Type': 'application/json',
+                },
+                withCredentials:true,
+            })
         .then(response => {
             return response.data;
         });
 }
+
+// export const addNewJumble = async (jumble, address) => {
+//     return await axios
+//         .post(`${baseUrl}/jumbles/new`, {jumble, address},
+//     {
+//         headers:{
+//             'Access-Control-Allow-Origin': '*',
+//             'Content-Type': 'application/json',
+//         },
+//         withCredentials:true,
+//     })
+//         .then(response => {
+//             return response.data;
+//         });
+// }
 
 export const updateJumble = async(jumbleId, jumble) => {
     return await axios

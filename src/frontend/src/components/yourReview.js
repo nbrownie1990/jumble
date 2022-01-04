@@ -1,11 +1,12 @@
 import React from 'react'
 import '../assets/css/style.css'
 import TextArea from "./textArea";
-import StarRating from "./star";
+import StarRating from "./starRating";
 
 export default function YourReview({
     handleRating,
     handleAddReview,
+    handleReviewInputChange,
     jumbleId,
     review,
     rating,
@@ -25,6 +26,7 @@ export default function YourReview({
        rows="5"
       title="Wie sind deine Erfahrungen mit diesem Jumble?"
        name="reviewText"
+      onChange={handleReviewInputChange}
        />
         </div>
         <div className="mt-5 text-center">
