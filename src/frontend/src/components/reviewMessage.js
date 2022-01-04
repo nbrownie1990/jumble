@@ -1,9 +1,9 @@
 import React from 'react'
 import 'react-datepicker/dist/react-datepicker.css'
-import StarRating from "./star";
+import StarRating from "./starRating";
 import {Link} from "react-router-dom";
 
-const Message = ({jumbleId, result, currentUser, handleDeleteReview}) => {
+const ReviewMessage = ({jumbleId, result, currentUser, handleDeleteReview}) => {
 
   return (
         <div className="chat w-100">
@@ -53,4 +53,4 @@ const Message = ({jumbleId, result, currentUser, handleDeleteReview}) => {
     </div>
   )
 }
-export default Message
+export default ReviewMessage

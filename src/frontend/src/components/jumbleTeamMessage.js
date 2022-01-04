@@ -2,7 +2,7 @@ import React from 'react'
 import 'react-datepicker/dist/react-datepicker.css'
 
 
-export default function MessageTeam({
+export default function JumbleTeamMessage({
   value,
   name,
   readOnly,

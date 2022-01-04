@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react'
 
-export default function Select({
+export default function SelectField({
   title,
   onChange,
   name,
