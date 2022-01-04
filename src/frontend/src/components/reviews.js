@@ -1,13 +1,9 @@
 import React from 'react'
 import '../assets/css/style.css'
-import TextArea from "./textArea";
 import ReviewMessage from "./reviewMessage";
 import JumbleTeamMessage from "./jumbleTeamMessage";
-import StarRating from "./starRating";
 
 export default function Reviews({
-    handleRating,
-    handleAddRating,
     jumbleId,
     currentUser,
     handleDeleteReview,
