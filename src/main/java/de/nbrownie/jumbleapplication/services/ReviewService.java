@@ -10,7 +10,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityNotFoundException;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 
 @Getter
@@ -48,8 +50,33 @@ public class ReviewService {
         return reviewRepository.findById(reviewId).orElseThrow(() -> new IllegalArgumentException("Reviews not found"));
     }
 
-    public void addReview(Review review) {
+    public void addReview(Review review){
         reviewRepository.save(review);
+    }
+
+//   public Jumble addNewJumbleWithReviewList(Jumble jumble, Set<Review> newReviewList) {
+//         Jumble jumble = jumbleRepository.getJumbleByJumbleId(jumbleId).orElseThrow(() -> new EntityNotFoundException("Jumble not found"));;
+//        return addReviewList(jumble, newReviewList);
+//    }
+
+    public Jumble addReviewList(Long jumbleId, Set<Review> reviewList) {
+        Jumble jumble = jumbleRepository.getJumbleByJumbleId(jumbleId).orElseThrow(() -> new EntityNotFoundException("Jumble not found"));
+        Set<Review> createdReviewList = new HashSet<>();
+        for (Review review : reviewList) {
+            review.setJumble(jumble);
+            createdReviewList.add(review);
+        }
+        jumble.setReviewList(createdReviewList);
+        return jumbleRepository.save(jumble);
+    }
+
+    public void addReviewToList(Long jumbleId, Review newReview) {
+        Jumble existingJumble = jumbleRepository.getJumbleByJumbleId(jumbleId).orElseThrow(() -> new EntityNotFoundException("Jumble not found"));
+//        if (!existingJumble.getUser().getUserId().equals(userId)) {
+//            throw new UnauthorizedUserException("Jumble can only be updated by owner of jumble");
+//        }
+        existingJumble.addReview(newReview);
+        jumbleRepository.save(existingJumble);
     }
 
     public Review deleteReview(Long jumbleId, Long reviewId) {
@@ -57,4 +84,19 @@ public class ReviewService {
         reviewRepository.delete(reviewToDelete);
         return reviewToDelete;
     }
+
+// oder: //    public Review deleteReview(Long jumbleId, Long reviewId) {
+//       // userRepository.getUserByUserId(userId).orElseThrow(() -> new UnauthorizedUserException("User can only delete own review"));
+//        Review existingReview = reviewRepository.getReviewByReviewId(reviewId).orElseThrow(() -> new EntityNotFoundException("Reviews not found"));
+//        Jumble jumble = jumbleRepository.getJumbleByJumbleId(jumbleId).orElseThrow(() -> new EntityNotFoundException("Jumble not found"));
+//        if (!existingReview.getJumble().getJumbleId().equals(jumbleId)) {
+//            throw new IllegalArgumentException("JumbleId and reviewId do not fit");
+//        }
+//        jumbleRepository.save(jumble.removeReview(existingReview));
+//
+//        return existingReview;
+//    }
+//}
+
+
 }

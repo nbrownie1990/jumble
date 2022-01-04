@@ -1,6 +1,8 @@
 package de.nbrownie.jumbleapplication.services;
 
 import de.nbrownie.jumbleapplication.models.*;
+import de.nbrownie.jumbleapplication.payload.request.CreateAddressRequest;
+import de.nbrownie.jumbleapplication.payload.request.CreateJumbleRequest;
 import de.nbrownie.jumbleapplication.payload.request.UpdateJumbleRequest;
 import de.nbrownie.jumbleapplication.repo.*;
 import lombok.Getter;
@@ -9,9 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityNotFoundException;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 @Getter
 @Setter
@@ -24,13 +24,17 @@ public class JumbleService {
     private ReviewRepository reviewRepository;
     private UserRepository userRepository;
 
+    private AddressService addressService;
+
     @Autowired
-    public JumbleService(JumbleRepository jumbleRepository, AddressRepository addressRepository, CategoryRepository categoryRepository, ReviewRepository reviewRepository, UserRepository userRepository) {
+    public JumbleService(JumbleRepository jumbleRepository, AddressRepository addressRepository, CategoryRepository categoryRepository, ReviewRepository reviewRepository, UserRepository userRepository, AddressService addressService ) {
         this.jumbleRepository = jumbleRepository;
         this.addressRepository = addressRepository;
         this.categoryRepository = categoryRepository;
         this.reviewRepository = reviewRepository;
         this.userRepository = userRepository;
+
+        this.addressService= addressService;
     }
 
     public List<Jumble> getAllJumbles() {
@@ -41,22 +45,12 @@ public class JumbleService {
         return jumbleRepository.getJumbleByJumbleId(jumbleId).orElseThrow(() -> new IllegalArgumentException("JumbleApplication not found"));
     }
 
- //   public Jumble addNewJumble(Jumble newJumble) {
-//       User user = userRepository.getUserByUserId(userId).orElseThrow(() -> new EntityNotFoundException("User not found"));
-//        newJumble.setUser(user);
-//         return jumbleRepository.save(newJumble);
- //   }
 
-//versuch:
-//    public ResponseEntity<String> addNewJumble(@RequestBody List<Jumble> newJumble) {
-//        jumbleRepository.saveAll(newJumble);
-//        return ResponseEntity.ok("newJumble");
-//    }
-
-
-    public Jumble addNewJumble(Jumble newJumble, Address newAddress){
+    public Jumble addNewJumble(CreateJumbleRequest newJumble ){
+                               //CreateAddressRequest newAddress){
         // User user = userRepository.getUserByUserId(id).orElseThrow(() -> new EntityNotFoundException("User not found"));
         Jumble jumble = new Jumble();
+        // jumble.setUser(user);
         jumble.setJumbleName(newJumble.getJumbleName());
         jumble.setJumbleTime(newJumble.getJumbleTime());
         jumble.setJumbleImage(newJumble.getJumbleImage());
@@ -64,17 +58,21 @@ public class JumbleService {
         jumble.setJumbleWebsite(newJumble.getJumbleWebsite());
         jumble.setJumbleDate(newJumble.getJumbleDate());
         jumble.setCategory(newJumble.getCategory());
-        Address address = new Address();
-        address.setAddressStreet(newAddress.getAddressStreet());
-        address.setAddressNumber(newAddress.getAddressNumber());
-        address.setAddressZip(newAddress.getAddressZip());
-        address.setAddressCity(newAddress.getAddressCity());
-        address.setAddressCountry(newAddress.getAddressCountry());
 
-       jumble.setAddress(address);
-       // jumble.setUser(user);
+        Address address = new Address();
+        address.setAddressStreet(newJumble.getAddressStreet());
+        address.setAddressNumber(newJumble.getAddressNumber());
+        address.setAddressZip(newJumble.getAddressZip());
+        address.setAddressCity(newJumble.getAddressCity());
+        jumble.setAddress(address);
+        /////Create new Address
+       // Address address = addressService.addNewAddress(newAddress);
+        //address.setJumble(jumble);
+       // jumble.setAddress(address);
+        /////Add empty ReviewList?
         return jumbleRepository.save(jumble);
     }
+
 
     public Jumble updateJumble(Long jumbleId, UpdateJumbleRequest changedJumble) {
         Jumble existingJumble = jumbleRepository.findById(jumbleId).orElseThrow(() -> new EntityNotFoundException("Jumble not found"));
@@ -136,47 +134,6 @@ public class JumbleService {
         return jumbleToDelete;
     }
 
-
-/////////REVIEW SECTION////////
-
-//    public Jumble addNewJumbleWithReviewList(Jumble newJumble, Set<Review> newReviewList) {
-//        Jumble createdJumble = addNewJumble(newJumble);
-//        return addReviewList(createdJumble, newReviewList);
-//    }
-
-    public Jumble addReviewList(Jumble jumble, Set<Review> reviewList) {
-        Set<Review> createdReviewList = new HashSet<>();
-        for (Review review : reviewList) {
-            review.setJumble(jumble);
-            createdReviewList.add(review);
-        }
-        jumble.setReviewList(createdReviewList);
-        return jumbleRepository.save(jumble);
-    }
-
-    public void addReviewToList(Long jumbleId, Review newReview) {
-        Jumble existingJumble = jumbleRepository.getJumbleByJumbleId(jumbleId).orElseThrow(() -> new EntityNotFoundException("Jumble not found"));
-//        if (!existingJumble.getUser().getUserId().equals(userId)) {
-//            throw new UnauthorizedUserException("Jumble can only be updated by owner of jumble");
-//        }
-        existingJumble.addReview(newReview);
-        jumbleRepository.save(existingJumble);
-    }
-
-
-//    public Review deleteReview(Long jumbleId, Long reviewId) {
-//       // userRepository.getUserByUserId(userId).orElseThrow(() -> new UnauthorizedUserException("User can only delete own review"));
-//        Review existingReview = reviewRepository.getReviewByReviewId(reviewId).orElseThrow(() -> new EntityNotFoundException("Reviews not found"));
-//        Jumble jumble = jumbleRepository.getJumbleByJumbleId(jumbleId).orElseThrow(() -> new EntityNotFoundException("Jumble not found"));
-//        if (!existingReview.getJumble().getJumbleId().equals(jumbleId)) {
-//            throw new IllegalArgumentException("JumbleId and reviewId do not fit");
-//        }
-//        jumbleRepository.save(jumble.removeReview(existingReview));
-//
-//        return existingReview;
-//    }
-//}
-//
 
 ///////SEARCHBAR SECTION////////
 
