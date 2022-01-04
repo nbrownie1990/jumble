@@ -4,6 +4,7 @@ import de.nbrownie.jumbleapplication.exceptions.UnauthorizedUserException;
 import de.nbrownie.jumbleapplication.models.Address;
 import de.nbrownie.jumbleapplication.models.Jumble;
 import de.nbrownie.jumbleapplication.models.Review;
+import de.nbrownie.jumbleapplication.payload.request.CreateAddressRequest;
 import de.nbrownie.jumbleapplication.repo.AddressRepository;
 import de.nbrownie.jumbleapplication.repo.JumbleRepository;
 import lombok.Getter;
@@ -39,16 +40,17 @@ public class AddressService {
         return addressRepository.getAddressByAddressId(addressId).orElseThrow(() -> new IllegalArgumentException("Address not found"));
     }
 
-    public Address addNewAddress(Address newAddress){
+    public Address addNewAddress(CreateAddressRequest newAddress){
         // User user = userRepository.getUserByUserId(id).orElseThrow(() -> new EntityNotFoundException("User not found"));
+        //Jumble jumble = jumbleRepository.getJumbleByJumbleId()
         Address address = new Address();
         address.setAddressStreet(newAddress.getAddressStreet());
         address.setAddressNumber(newAddress.getAddressNumber());
         address.setAddressZip(newAddress.getAddressZip());
         address.setAddressCity(newAddress.getAddressCity());
         address.setAddressCountry(newAddress.getAddressCountry());
+        //address.setJumble(jumble);
         // address.setUser(user);
-        //address.setJumble(newAddress.getJumbleDate());
         return addressRepository.save(address);
     }
 

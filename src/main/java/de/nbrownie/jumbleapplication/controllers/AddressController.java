@@ -2,6 +2,7 @@ package de.nbrownie.jumbleapplication.controllers;
 
 import de.nbrownie.jumbleapplication.models.Address;
 import de.nbrownie.jumbleapplication.models.Jumble;
+import de.nbrownie.jumbleapplication.payload.request.CreateAddressRequest;
 import de.nbrownie.jumbleapplication.services.AddressService;
 import lombok.AllArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -33,13 +34,11 @@ public class AddressController {
 //        return addressService.getAddressByAddressIdAndJumbleId(jumbleId, addressId);
 //    }
 
-
     @PreAuthorize("hasRole('USER')")
     @PostMapping(path = "new/newaddress")
-    public void addNewAddress(@RequestBody Address address){
-        addressService.addNewAddress(address);
+    public void addNewAddress(@RequestBody CreateAddressRequest newAddress){
+        addressService.addNewAddress(newAddress);
     }
-
 }
 
 //    @GetMapping(value="address/find/{username}/{addressId}", produces = APPLICATION_JSON_VALUE)
@@ -52,7 +51,6 @@ public class AddressController {
 //    }
 
 
-//
 //    @DeleteMapping(path = "{addressId}")
 //    public void deleteAddress(
 //            @PathVariable("addressId") Long addressId) {
