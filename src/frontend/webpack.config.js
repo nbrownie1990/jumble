@@ -1,15 +1,20 @@
 const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin")
+const HtmlWebpackPlugin = require("html-webpack-plugin")
+
 module.exports ={
     mode: 'none',
-    devtool: 'inline-source-map',
+    devtool: 'source-map',
     entry: "./src/App.js",
     output: {
         filename: "bundlejumble.js",
-        path: path.resolve(__dirname,"dist")
+        path: path.resolve(__dirname,"build", "static", "js")
     },
     plugins: [
-        new MiniCssExtractPlugin({filename: "[name].[css]"})
+        new MiniCssExtractPlugin({filename: "[name].[css]"}),
+        new HtmlWebpackPlugin({
+            template: "./template.html"
+        })
     ],
     module:{
         rules:[
@@ -19,6 +24,13 @@ module.exports ={
                     loader: 'babel-loader'
                 },
                 exclude: /node_modules/,
+            },
+            {
+                test: /\.js$/,
+                enforce: "pre",
+                use: {
+                    loader: 'source-map-loader'
+                },
             },
             {
                 test: /\.html$/,

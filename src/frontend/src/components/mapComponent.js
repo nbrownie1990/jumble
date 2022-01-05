@@ -6,9 +6,7 @@ import mapboxgl from 'mapbox-gl';
 // eslint-disable-next-line import/no-webpack-loader-syntax
 mapboxgl.workerClass = require('worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker').default;
 
-mapboxgl.accessToken =
-  'pk.eyJ1IjoibmJyb3duaWUiLCJhIjoiY2t4YTgzdHFwMGVzbDJwbXduamIwcjVobyJ9.1dvOHUtZhQCG2BBl7rkjtg'
-
+mapboxgl.accessToken = `${process.env.REACT_APP_MAPBOX}`
 
 const jumbles = {
   type: 'FeatureCollection',
