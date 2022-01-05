@@ -350,15 +350,6 @@
 								<arguments>run build</arguments>
 							</configuration>
 						</execution>
-						<execution>
-							<id>npm run webpack</id>
-							<goals>
-								<goal>npm</goal>
-							</goals>
-							<configuration>
-								<arguments>run webpack</arguments>
-							</configuration>
-						</execution>
 					</executions>
 				</plugin>
 					<plugin>

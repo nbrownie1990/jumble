@@ -26,13 +26,15 @@ export default function AddJumble() {
     }, [])
 
     const handleJumbleInputChange = (event) => {
-        ///setJumble( jumble => {...jumble, [event.target.name]: event.target.value});
-      setJumble({...jumble, [event.target.name]: event.target.value});
-      setAddress({...jumble.address, [event.target.name]: event.target.value});
-      console.log(jumble)
-      console.log(address)
+      setJumble(jumble => ({...jumble, [event.target.name]: event.target.value}));
+     // setJumble({...jumble, [event.target.name]: event.target.value});
+    //  setAddress({...jumble.address, [event.target.name]: event.target.value});
+     // console.log(address)
     }
 
+    useEffect(() =>{
+        console.log(jumble)
+    }, [jumble])
 
 //    const handleSaveNewJumble = (jumble, address) => {
 
