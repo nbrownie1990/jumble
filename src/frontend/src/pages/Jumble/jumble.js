@@ -2,12 +2,9 @@ import React, {useCallback, useEffect, useState} from 'react'
 import {useNavigate, useParams} from "react-router";
 import { Link } from 'react-router-dom'
 import {
-  addReview,
-  deleteJumble,
   deleteReview,
   getJumbleById,
-  getReviewById,
-  getReviewList, getUserById
+  getReviewList
 } from "../../services/apiService";
 import {getCurrentUser} from "../../services/authService";
 import Navbar from '../../components/navbar'
@@ -16,16 +13,17 @@ import StarRating from "../../components/starRating";
 import Loading from "../../components/loading";
 import JumbleTeamMessage from "../../components/jumbleTeamMessage";
 import YourReview from "../../components/yourReview";
+import Error from "../../components/error";
 
 export default function Jumble() {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState();
+  const [allReviews, setAllReviews] = useState([]);
   const [jumble, setJumble] = useState([]);
-  const [reviewList, setReviewList] = useState([]);
+  const [jumbleReviewList, setJumbleReviewList] = useState([]);
   const [review, setReview] = useState([]);
-  const [rating, setRating] = useState(3) // initial rating value
-  const [result, setResult] = useState([]);
+  const [ratingValue, setRatingValue] = useState() // initial rating value
   let {jumbleId} = useParams();
   const currentUser = getCurrentUser();
 
@@ -35,7 +33,7 @@ export default function Jumble() {
         .catch(setError)
 
     getReviewList()
-        .then(reviewList => setReviewList(reviewList))
+        .then(allReviews => setAllReviews(allReviews))
         .catch(setError)
         .finally(() => setLoading(false))
   }, [jumbleId])
@@ -43,23 +41,14 @@ export default function Jumble() {
 
 
 
-  const handleReviewInputChange = (event) => {
-    setReview({...review, [event.target.name]: event.target.value});
-  }
+//----------------Review Section-----------
 
-  const handleRating = (rating) => {
-    setRating(rating)
-    // Some logic to update Rating
-  }
-
-  // Catch Rating value
+//TODO: --Add Review--Funktioniert aktuell nicht
   //const handleAddReview = (jumbleId, review) => {
   // setError();
-
   // getJumbleById(jumbleId)
-  // const reviewList = [...jumble.reviewList, review]
-  // setJumble({...jumble, reviewList: reviewList})
-
+  // const allReviews = [...jumble.reviewList, review]
+  // setJumble({...jumble, allReviews: allReviews})
   // addReview(jumbleId, review)
   //     .then(setJumble)
   //     .catch(setError)
@@ -68,82 +57,91 @@ export default function Jumble() {
   //   })
   // }
 
-  //const handleDeleteReview = (jumbleId, reviewId) => {
-  //setLoading(true)
-  //getReviewById(reviewId)
-  // .then(reviewId =>
-  //deleteReview(jumbleId, reviewId)
-  //)
-  //.then(() => getJumbleById(jumbleId))
-  //.then(updatedJumble => setJumble(updatedJumble))
-  //       .catch(error => {
-  //         setError(error)
-  //       })
-  //       .finally(() => {
-  //         setLoading(false)
-  //         console.log('deleted review with reviewId: ' + reviewId)
-  //       })
+  //TODO: --Add Review--Funktioniert aktuell nicht
+  const handleReviewInputChange = (event) => {
+    setReview({...review, [event.target.name]: event.target.value});
+  }
+
+  const handleNewRating = (reviewRating) => {
+    setRatingValue(reviewRating)
+    // Some logic to update Rating Average reduce
+  }
+
+
+// const showAverageRating = (reviewList) => {
+  //    if (reviewList && reviewList.reviewRating) {
+  //        let reviewListArray = reviewList && reviewList.reviewRating;
+  //        let total = [];
+  //        let length = reviewListArray.length;
+  //
+  //        reviewListArray.map((r) => total.push(r.reviewRating));
+  //        let totalReduced = total.reduce((p, n) => p + n, 0);
+  //        let averageRating = totalReduced / length;
+  //    }
+  /// Alternative:?
+  // function average(array) {
+  //   return array.reduce((a, b) => (a + b)) / array.length;
   // }
 
-  // const handleDeleteReview = (jumbleId, reviewId) => {
-  //   setLoading(true)
-  //   setError()
-  //   deleteReview(jumbleId, reviewId)
-  //       .then(() => getJumbleById(jumbleId))
-  //       .then(jumble => setJumble(jumble))
-  //       .catch(setError)
-  //       .finally(() => {
-  //         setLoading(false)
-  //         //resetReviewList()
-  //         navigate(`/jumbles/${jumbleId}`)
-  //       })
-  // }
+  //TODO: --Delete Review--Funktioniert aktuell nicht
+  const handleDeleteReviewFromList = (reviewId, jumbleReviewList, jumble) => {
+    setLoading(true)
+    // let newList = jumbleReviewList
+    // newList.splice(reviewId,1)
+    // setJumbleReviewList([...newList])
+    deleteReview(reviewId)
+        .then(() => getJumbleById(jumble.jumbleId))
+        .then(dto => setJumble(dto))
+     .catch(error => {setError(error)})
+     .finally(() => {
+          setLoading(false)
+        let newList = jumbleReviewList
+        newList.splice(reviewId,1)
+        setJumbleReviewList([...newList])
+        })
+  }
 
-  //console.log(jumble.address?.addressStreet)
-  //console.log(jumble.reviewList?.[0].reviewId)
-  // console.log(currentUser)
-  // console.log(jumble.user?.id)
 
-  //console.log(jumble)
-  //console.log(reviewList)
+
 
 
 ///TODO: Bugfix "TypeError: Cannot read properties of undefined (reading 'some')"
+//grund: (all-)reviewlist braucht ladezeit --> async await??
+
+//-------filter whole reviewList to find reviews with jumbleId-----
 //   let array1 = jumble.reviewList
 //   let array2 = reviewList
-//   let result = array2.filter(o1 => {
+//   let jumbleReviewList = array2.filter(o1 => {
 //     return array1.some(o2 => o1.reviewId === o2.reviewId)
 //   });
-//   console.log(result)
-  //filter whole reviewList to find reviews with jumbleId
+//   console.log(jumbleReviewList)
 
-//First try to bugfix ...auch hier erscheint der fehler
-//grund: (all-)reviewlist braucht ladezeit --> async await??
+//Erster versuch ...auch hier erscheint der fehler
+//grund: getJumble und getAllReviews braucht ladezeit --> async await??
   useEffect(() => {
-    handleFilterJumbleReviews(jumble, reviewList)
-    console.log(jumble)
-    console.log(reviewList)
-  }, [jumble, reviewList]);
+    setLoading(true)
+    filterJumbleReviewList(jumble, allReviews)
+    if (error) setError(error)
+    setLoading(false)
+  }, [jumble, allReviews]);
 
-  const handleFilterJumbleReviews = useCallback((jumble, reviewList) => {
+  const filterJumbleReviewList = useCallback((jumble, allReviews) => {
     let jumbleReviews = jumble.reviewList
-    let allReviews = reviewList
-    setResult(allReviews
+    let totalList = allReviews
+    setJumbleReviewList(totalList
         .filter(allRev => {return jumbleReviews
         .some(jumRev => allRev.reviewId === jumRev.reviewId)
         }))
-  }, [jumble, reviewList])
-
-
+  }, [jumble, allReviews])
 
   return (
           <React.Fragment>
             {loading && <Loading />}
+            {error && !loading && <Error/>}
             <Navbar/>
             {!loading && (
                 <main className="m-md-5 mt-5 mb-5">
                   <section className="container w-100 h-100 mt-5">
-                    {/*{error &&  <span className="error badge bg-primary text-white" data-aos="fade-right"> {error.response.data.message}</span>}*/}
                     <div className="container">
                   <div key={jumble.jumbleId} className="row ">
                     <div className="col-sm-12">
@@ -185,8 +183,8 @@ export default function Jumble() {
                               :
                           <StarRating
                               ratingValue={jumble.reviewList?.[0].reviewRating}
-                              readOnly={true}
                               //ratingValue= {averageRating}
+                              readOnly={true}
                           />
                           }
                           <p className="lead mt-2">
@@ -212,16 +210,16 @@ export default function Jumble() {
                         uns von euren Erfahrungen!
                       </p>
 
-                      {result?.length <=0? <JumbleTeamMessage />:
+                      {jumbleReviewList?.length <=0? <JumbleTeamMessage />:
                       <Reviews
-                      result = {result}
-                      jumbleId={jumbleId}
+                      jumbleReviewList = {jumbleReviewList}
+                      jumble={jumble}
                       currentUser={currentUser}
-                     // handleDeleteReview = {handleDeleteReview}
+                      handleDeleteReviewFromList = {handleDeleteReviewFromList}
                       /> }
                       <YourReview
                           handleReviewInputChange={handleReviewInputChange}
-                          handleRating={handleRating}
+                          handleNewRating={handleNewRating}
                        //   handleAddReview={handleAddReview}
                           jumbleId={jumbleId}
                       />
@@ -236,3 +234,7 @@ export default function Jumble() {
           </React.Fragment>
   )}
 
+//console.log(jumble.address?.addressStreet)
+//console.log(jumble.reviewList?.[0].reviewId)
+// console.log(currentUser)
+// console.log(jumble.user?.id)

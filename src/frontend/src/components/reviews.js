@@ -4,20 +4,20 @@ import ReviewMessage from "./reviewMessage";
 import JumbleTeamMessage from "./jumbleTeamMessage";
 
 export default function Reviews({
-    jumbleId,
+    jumble,
     currentUser,
-    handleDeleteReview,
-    result
+    handleDeleteReviewFromList,
+    jumbleReviewList
 }){
 
     return (
-        <>{result &&
+        <>{jumbleReviewList &&
         <div className="rez container">
             <ReviewMessage
-                result={result}
+                jumbleReviewList={jumbleReviewList}
                 currentUser={currentUser}
-                handleDeleteReview = {handleDeleteReview}
-                jumbleId={jumbleId}
+                handleDeleteReviewFromList = {handleDeleteReviewFromList}
+                jumble={jumble}
             />
           </div>}
             <JumbleTeamMessage />

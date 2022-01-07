@@ -3,21 +3,21 @@ import 'react-datepicker/dist/react-datepicker.css'
 import StarRating from "./starRating";
 import {Link} from "react-router-dom";
 
-const ReviewMessage = ({jumbleId, result, currentUser, handleDeleteReview}) => {
+const ReviewMessage = ({jumble, currentUser, jumbleReviewList, handleDeleteReviewFromList}) => {
 
   return (
         <div className="chat w-100">
-            {result && result.map(list => (
-        <div key={list.reviewId} className="mine messages">
+            {jumbleReviewList && jumbleReviewList.map(({reviewId, reviewRating, reviewText, user}) => (
+        <div key={reviewId} className="mine messages">
             <div className="message last row">
-              { list.user.id === currentUser.id &&
+              { user.id === currentUser.id &&
                   <div className="col-sm-12 m-0 text-end">
                     <button
                         type="button"
                         className="btn"
                         data-toggle="tooltip"
                         title="Bewertung löschen"
-                        onClick={() => handleDeleteReview(jumbleId, list.reviewId)}
+                        onClick={() => handleDeleteReviewFromList(reviewId, jumbleReviewList, jumble)}
                     >
                       <i className="fas fa-times"></i>
                     </button>
@@ -26,10 +26,10 @@ const ReviewMessage = ({jumbleId, result, currentUser, handleDeleteReview}) => {
                 <div className="row g-3 mt-0">
                     <div className="col-sm-2">
                        <Link
-                           to={`/user/${list.user.id}`}>
+                           to={`/user/${user.id}`}>
                        <img
                         className="rounded-circle m-2"
-                        src={list.user.userImage}
+                        src={user.userImage}
                         width="50"
                         alt="This is a user"
                         />
@@ -38,14 +38,15 @@ const ReviewMessage = ({jumbleId, result, currentUser, handleDeleteReview}) => {
                     <div className="col-sm-1 m-2">
                     </div>
                     <div className="col-sm-8">
-                        Bewertung von {list.user.username}:
+                        Bewertung von {user.username}:
                         <StarRating
-                         ratingValue= {list.reviewRating}
+                            readonly={true}
+                            ratingValue= {reviewRating}
                         />
                     </div>
                 </div>
                     <div className="col-12">
-                        {list.reviewText}
+                        {reviewText}
                     </div>
             </div>
         </div>

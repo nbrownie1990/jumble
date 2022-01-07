@@ -4,23 +4,24 @@ import TextArea from "./textArea";
 import StarRating from "./starRating";
 
 export default function YourReview({
-    handleRating,
+    handleNewRating,
     handleAddReview,
+    ratingValue,
     handleReviewInputChange,
     jumbleId,
     review,
-    rating,
-    result
-}){
 
+}){
     return (
             <form as="form" className="row">
            <div className="form-group col-md-12 mt-5">
       <h5>Bewerte diesen Jumble:</h5>
-               <StarRating
-                   readonly={rating > 0}
-                   onClick={() =>handleRating(rating)}
-               />
+                   <StarRating
+                       name="reviewRating"
+                       ratingValue={ratingValue}
+                       readonly={ratingValue > 0}
+                       onClick={() => handleNewRating(ratingValue)}
+                   />
      <TextArea
       className="form-control rounded-3"
        rows="5"
