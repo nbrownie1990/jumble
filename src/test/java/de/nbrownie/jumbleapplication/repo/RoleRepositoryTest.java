@@ -8,7 +8,7 @@ class RoleRepositoryTest {
 
     @Test
     void itShouldFindRoleByName() {
-        //GIVE
+        //GIVEN
         //WHEN
         //THEN
     }

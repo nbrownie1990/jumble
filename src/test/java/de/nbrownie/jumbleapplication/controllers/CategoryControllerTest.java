@@ -8,14 +8,14 @@ class CategoryControllerTest {
 
     @Test
     void itShouldGetAllCategories() {
-        //GIVE
+        //GIVEN
         //WHEN
         //THEN
     }
 
     @Test
     void itShouldGetCategoryById() {
-        //GIVE
+        //GIVEN
         //WHEN
         //THEN
     }

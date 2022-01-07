@@ -8,35 +8,35 @@ class UserRepositoryTest {
 
     @Test
     void itShouldFindUserByUsername() {
-        //GIVE
+        //GIVEN
         //WHEN
         //THEN
     }
 
     @Test
     void itShouldCheckIfUserExistsByUsername() {
-        //GIVE
+        //GIVEN
         //WHEN
         //THEN
     }
 
     @Test
     void itShouldCheckIfUserExistsByEmail() {
-        //GIVE
+        //GIVEN
         //WHEN
         //THEN
     }
 
     @Test
     void itShouldGetUserByUserId() {
-        //GIVE
+        //GIVEN
         //WHEN
         //THEN
     }
 
     @Test
     void itShouldGetUserByUserName() {
-        //GIVE
+        //GIVEN
         //WHEN
         //THEN
     }

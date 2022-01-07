@@ -8,14 +8,14 @@ class AddressControllerTest {
 
     @Test
     void itShouldGetAddressById() {
-        //GIVE
+        //GIVEN
         //WHEN
         //THEN
     }
 
     @Test
     void itShouldAddNewAddress() {
-        //GIVE
+        //GIVEN
         //WHEN
         //THEN
     }

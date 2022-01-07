@@ -8,14 +8,14 @@ class ReviewRepositoryTest {
 
     @Test
     void itShouldFindReviewByUser() {
-        //GIVE
+        //GIVEN
         //WHEN
         //THEN
     }
 
     @Test
     void itShouldFindReviewByJumble() {
-        //GIVE
+        //GIVEN
         //WHEN
         //THEN
     }

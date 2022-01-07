@@ -7,12 +7,15 @@ import static org.junit.jupiter.api.Assertions.*;
 class JumbleRepositoryTest {
 
     @Test
-    void getJumbleByJumbleId() {
+    void itShouldGetJumbleByJumbleId() {
+        //GIVEN
+        //WHEN
+        //THEN
     }
 
     @Test
     void itShouldGetJumbleByJumbleName() {
-        //GIVE
+        //GIVEN
         //WHEN
         //THEN
     }

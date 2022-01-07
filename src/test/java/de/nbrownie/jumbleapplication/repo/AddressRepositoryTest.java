@@ -8,21 +8,21 @@ class AddressRepositoryTest {
 
     @Test
     void itShouldGetAddressByAddressId() {
-        //GIVE
+        //GIVEN
         //WHEN
         //THEN
     }
 
     @Test
     void itShouldGetAddressByJumbleName() {
-        //GIVE
+        //GIVEN
         //WHEN
         //THEN
     }
 
     @Test
     void itShouldGetAddressByAddressIdAndJumbleId() {
-        //GIVE
+        //GIVEN
         //WHEN
         //THEN
     }

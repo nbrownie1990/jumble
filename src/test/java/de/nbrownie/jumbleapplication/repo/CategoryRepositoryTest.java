@@ -8,7 +8,7 @@ class CategoryRepositoryTest {
 
     @Test
     void itShouldGetCategoryByCategoryId() {
-        //GIVE
+        //GIVEN
         //WHEN
         //THEN
     }

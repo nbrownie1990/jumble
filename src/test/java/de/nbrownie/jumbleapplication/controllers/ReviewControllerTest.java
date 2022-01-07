@@ -8,21 +8,21 @@ class ReviewControllerTest {
 
     @Test
     void itShouldGetAllReviews() {
-        //GIVE
+        //GIVEN
         //WHEN
         //THEN
     }
 
     @Test
     void itShouldGetReviewById() {
-        //GIVE
+        //GIVEN
         //WHEN
         //THEN
     }
 
     @Test
     void itShouldDeleteReview() {
-        //GIVE
+        //GIVEN
         //WHEN
         //THEN
     }

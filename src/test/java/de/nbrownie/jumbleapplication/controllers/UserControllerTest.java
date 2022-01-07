@@ -8,28 +8,28 @@ class UserControllerTest {
 
     @Test
     void itShouldGetAllUsers() {
-        //GIVE
+        //GIVEN
         //WHEN
         //THEN
     }
 
     @Test
     void idShouldGetUserByUserId() {
-        //GIVE
+        //GIVEN
         //WHEN
         //THEN
     }
 
     @Test
     void itShouldUpdateUser() {
-        //GIVE
+        //GIVEN
         //WHEN
         //THEN
     }
 
     @Test
     void itShouldDeleteUser() {
-        //GIVE
+        //GIVEN
         //WHEN
         //THEN
     }

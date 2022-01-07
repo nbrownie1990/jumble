@@ -8,28 +8,28 @@ class AddressServiceTest {
 
     @Test
     void itShouldGetAddressByAddressId() {
-        //GIVE
+        //GIVEN
         //WHEN
         //THEN
     }
 
     @Test
     void itShouldAddNewAddress() {
-        //GIVE
+        //GIVEN
         //WHEN
         //THEN
     }
 
     @Test
     void itShouldUpdateAddress() {
-        //GIVE
+        //GIVEN
         //WHEN
         //THEN
     }
 
     @Test
     void itShouldCheckIfAddressExists() {
-        //GIVE
+        //GIVEN
         //WHEN
         //THEN
     }
