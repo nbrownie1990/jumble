@@ -6,7 +6,7 @@ export default function SearchBar({}) {
       <input
         className="form-control me-2"
         type="search"
-        placeholder="Search Adresses or Jumbles"
+        placeholder="Search Jumbles"
         aria-label="Search"
       />
       <button className="btn btn-primary" type="submit">
