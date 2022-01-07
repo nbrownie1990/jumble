@@ -79,7 +79,7 @@ public class ReviewService {
         jumbleRepository.save(existingJumble);
     }
 
-    public Review deleteReview(Long jumbleId, Long reviewId) {
+    public Review deleteReview(Long reviewId) {
         Review reviewToDelete = getReviewById(reviewId);
         reviewRepository.delete(reviewToDelete);
         return reviewToDelete;

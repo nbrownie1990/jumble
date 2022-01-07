@@ -36,7 +36,11 @@ public class ReviewController {
         return ResponseEntity.ok(review);
     }
 
-
+    @PreAuthorize("hasRole('USER')")
+    @DeleteMapping(path = "edit/delete/{reviewId}")
+    public void deleteReview(@PathVariable Long reviewId) {
+        reviewService.deleteReview(reviewId);
+    }
 
 
 //   @GetMapping("/{id}")

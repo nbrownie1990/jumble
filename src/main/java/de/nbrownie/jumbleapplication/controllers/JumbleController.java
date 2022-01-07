@@ -77,7 +77,7 @@ public class JumbleController {
         jumbleService.updateJumble(jumbleId, updateJumble);
     }
 
-    @PreAuthorize("hasRole('USER')")
+    
     @DeleteMapping(path = "edit/{jumbleId}/delete")
     public void deleteJumble(
             @PathVariable Long jumbleId) {
@@ -105,10 +105,10 @@ public class JumbleController {
         reviewService.addReviewToList(jumbleId, newReview);
     }
 
-    @DeleteMapping(path = "edit/{jumbleId}/delete/{reviewId}")
-    public void deleteReview(@PathVariable Long jumbleId, @PathVariable Long reviewId)  {
-        reviewService.deleteReview(jumbleId, reviewId);
-    }
+//    @DeleteMapping(path = "edit/{jumbleId}/delete/{reviewId}")
+//    public void deleteReview(@PathVariable Long jumbleId, @PathVariable Long reviewId)  {
+//        reviewService.deleteReview(jumbleId, reviewId);
+//    }
 
 //oder: //    @DeleteMapping(value = "edit/delete/{jumbleId}/{reviewId}", produces = APPLICATION_JSON_VALUE)
 //    public ResponseEntity<ReviewApi> deleteReview(@PathVariable Long jumbleId, @PathVariable Long reviewId) {
