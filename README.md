@@ -30,6 +30,8 @@ Built with:
 - JWT (Bearer Token, Local Storage Authentication)
 - PostgreSQL
 - Firebase.io
+- <a href= "https://miro.com/app/board/uXjVOXKtP3w=/?invite_link_id=877146530729">UML und ERM - Ausschnitt via Miro-Board </a>
+- <a href="https://www.figma.com/file/fFAz3ql0dams5Xqsq6an8L/Jumble-Mockup?node-id=33%3A444">Wireframe via Figma</a>
 
 ## 🔥 Die App- "Jumble"
 
@@ -118,7 +120,7 @@ Du kannst dich bei Jumble einloggen und die Jumbles mit Sternen bewerten, um and
 - ✔ Git-Commits via tig (cli-tool)
 - ✔ Authorisierung & Authentifizierung
 - ✔ Nur einen Port nutzen, indem Frontend über den Static-Ordner von Spring Boot eingebunden wird
-- ✔ Ein Wireframe mit Figma erstellen:  <a href="https://www.figma.com/file/fFAz3ql0dams5Xqsq6an8L/Jumble-Mockup?node-id=33%3A444">Figma-Link</a>
+- ✔ Ein Wireframe mit Figma erstellen und UML und ERM mit Miro
 
 ### 📚 Reflexion 
 - Ein TDD-Projekt mit automatisierten Unit-Tests und Integration-Test wäre schöner
@@ -130,7 +132,7 @@ Du kannst dich bei Jumble einloggen und die Jumbles mit Sternen bewerten, um and
 
 ### 🚀 To-Dos & Ausblick
 - Alle PUT, POST, DELETES funktionieren (Profile, Jumble, Images, Addresses, Categories, Review)
-- Star-Component
+- Star-Component	 
 - Docker Container 
 - Github Actions CI-CD-Pipeline
 - deployen über firebase
