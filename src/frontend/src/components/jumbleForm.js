@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { Link } from 'react-router-dom'
 import DateField from './dateField'
 import TextField from './textField'
@@ -6,6 +6,8 @@ import TextArea from './textArea'
 import AddressForm from './addressForm'
 import SelectField from './selectField'
 import ImageDropzone from "./imageDropzone";
+import {Popup} from "react-easy-popup";
+import 'react-easy-popup/dist/react-easy-popup.min.css';
 
 export default function JumbleForm({
   mode,
@@ -19,6 +21,8 @@ export default function JumbleForm({
   handleDeleteJumble,
   readOnly,
 }) {
+  const [visible, setVisible] = useState(false);
+
   return (
     <>
       <form as="form" className="row">
@@ -101,6 +105,8 @@ export default function JumbleForm({
                   readOnly={false}
                 />
               </div>
+
+{/*TODO: implement Datepicker and configure Backend Date-Format: toLocalDateString()*/}
               <div className="col-md-12">
                 <label className="labels">Termin</label>
                 <DateField
@@ -163,13 +169,26 @@ export default function JumbleForm({
                 >
                   <i className="fas fa-save"></i> Save Jumble
                 </button>
-                <button
-                  type="button"
-                  className="btn btn-warning mb-5 mb-md-2 m-3"
-                  onClick={() => handleDeleteJumble(jumble.jumbleId)}
-                >
-                  <i className="fas fa-trash"></i> Delete Jumble
-                </button>
+                <button className="btn btn-warning mb-5 mb-md-2 m-3"
+                        type="button"
+                        onClick={() => setVisible(true)}>
+                  <i className="fas fa-trash"></i> Delete Jumble</button>
+                <Popup maskClosable visible={visible} position="center"
+                       onClose={() => setVisible(false)}>
+                  <div className="m-5">
+                   Möchtest du diesen Jumble wirklich unwideruflich löschen?
+                    <div className="m-5">
+                      <button
+                          className="btn btn-warning mb-5 m-3 mb-md-2"
+                          type="button"
+                          onClick={() => handleDeleteJumble(jumble.jumbleId)}
+                      >
+                        <i className="fas fa-trash"></i>
+                        Delete Jumble
+                      </button>
+                    </div>
+                  </div>
+                </Popup>
               </>
             )}
             <button

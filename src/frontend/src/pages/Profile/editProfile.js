@@ -15,6 +15,7 @@ export default function EditProfile() {
   const navigate = useNavigate();
   let { id } = useParams();
 
+//TODO:Validation nur wenn currentUser.id == id darf Seite betreten werden
 
   const loadDataOnlyOnce = useCallback(() => {
     getUserById(id)
@@ -67,7 +68,6 @@ export default function EditProfile() {
     deleteUser(id)
         .then(user => {
           console.log('Lösche Nutzer mit ID: '+ user.id)
-          //setUser(user => user.id !== id)
           navigate(`/`)
         })
         .catch(error => {
@@ -75,8 +75,6 @@ export default function EditProfile() {
           setLoading(false)
         })
   }
-
-  console.log(user)
 
   return (
       <React.Fragment>

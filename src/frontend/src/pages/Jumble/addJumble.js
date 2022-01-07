@@ -88,9 +88,6 @@ export default function AddJumble() {
     navigate('/home')
   }
 
-    if (loading) {
-        return <p className="container w-100 h-100 mt-5" >Data is loading...</p>;
-    }
 
     if (error || !Array.isArray(categories)) {
         return <p className="container w-100 h-100 mt-5" >There was an error loading your data!</p>;

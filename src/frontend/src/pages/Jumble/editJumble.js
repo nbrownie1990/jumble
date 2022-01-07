@@ -5,15 +5,12 @@ import Navbar from '../../components/navbar'
 import JumbleForm from '../../components/jumbleForm'
 import {
     deleteJumble,
-    deleteUser,
-    getAddressById,
     getAllCategories,
     getJumbleById,
     updateJumble,
-    updateJumbleAddress, updateJumbleImage
 } from "../../services/apiService";
 import Loading from "../../components/loading";
-import {getDownloadURL, uploadBytes, ref, uploadBytesResumable} from 'firebase/storage';
+import {getDownloadURL, uploadBytes, ref} from 'firebase/storage';
 import {storage} from '../../services/firebase';
 
 export default function EditJumble() {
@@ -25,6 +22,7 @@ export default function EditJumble() {
     const [categories, setCategories] = useState([]);
     const [jumble, setJumble] = useState([]);
 
+//TODO:Validation nur wenn currentUser.id == jumble.user.id darf Seite betreten werden
 
     useEffect(() => {
         getAllCategories()
@@ -54,7 +52,7 @@ export default function EditJumble() {
         alert("Bild ist hochgeladen! Sobald du rechts vom Bild auf speichern gehst, wird es aktualisiert...")
     }
 
-
+//TODO: Funktioniert aktuell nicht (addresse, image...)
     const handleJumbleInputChange = (event) => {
         setJumble(
             {...jumble,
@@ -62,7 +60,8 @@ export default function EditJumble() {
                 [event.target.name]: event.target.value});
     }
 
-  const handleSaveJumbleChanges = (jumbleId, jumble) => {
+//TODO: Funktioniert aktuell nicht (addresse, image...)
+    const handleSaveJumbleChanges = (jumbleId, jumble) => {
       setLoading(true)
         let updatedCategory = categories.filter(c => {return c.categoryName === jumble.category})
         if (updatedCategory.length === 1) {
@@ -79,12 +78,12 @@ export default function EditJumble() {
          .finally(setLoading(false))
   }
 
+//TODO: Funktioniert aktuell nicht
   const handleDeleteJumble = (jumbleId) => {
         setLoading(true)
         deleteJumble(jumbleId)
             .then(jumble => {
-                console.log('deleted jumble with jumbleId: '+ jumbleId)
-                //setJumble(jumble => jumble.jumbleId !== jumbleId)
+                console.log('Lösche Jumble mit ID: '+ jumble.jumbleId)
                 navigate(`/home`)
             })
             .catch(error => {

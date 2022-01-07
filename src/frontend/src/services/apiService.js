@@ -77,6 +77,7 @@ export const updateJumble = async(jumbleId, jumble) => {
         });
 }
 
+
 export const deleteJumble = async(jumbleId) => {
     return await axios
         .delete(`${baseUrl}/jumbles/edit/${jumbleId}/delete`)
@@ -145,9 +146,9 @@ export const addReview = (jumbleId, review) =>
     .then(response => response.data)
 
 
-export const deleteReview = (jumbleId, reviewId) =>
+export const deleteReview = (reviewId) =>
   axios
-    .delete(`${baseUrl}/jumbles/edit/${jumbleId}/delete/${reviewId}`)
+    .delete(`${baseUrl}/reviews/edit/delete/${reviewId}`)
     .then(response => response.data)
 
 // --------------------------------- User -------------------------------------------
