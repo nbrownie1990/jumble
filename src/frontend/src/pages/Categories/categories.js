@@ -2,6 +2,8 @@ import React, {useEffect, useState} from 'react'
 import Navbar from '../../components/navbar'
 import CategoryGroup from '../../components/categoryGroup'
 import { getAllCategories} from "../../services/apiService";
+import Loading from "../../components/loading";
+import Error from "../../components/error";
 
 function Categories() {
   const [jumbles] = useState([]);
@@ -20,16 +22,17 @@ function Categories() {
 
     return (
         <React.Fragment>
-          <Navbar />
+            {loading && <Loading />}
+            {error && !loading && <Error/>}
+            <Navbar/>
+            {!loading && (
           <main className="m-md-5 m-2 mt-5 mb-5">
             <section className="container w-100 h-100 px-4 px-lg-5 mt-5">
-                { loading &&  <p>Data is loading...</p>}
-                { error  && <p>There was an error loading your data!</p> }
                 <CategoryGroup
                   items={categories}
               />
             </section>
-          </main>
+          </main>)}
         </React.Fragment>
     )
   }

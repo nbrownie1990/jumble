@@ -57,7 +57,6 @@ export default function Jumble() {
   //   })
   // }
 
-  //TODO: --Add Review--Funktioniert aktuell nicht
   const handleReviewInputChange = (event) => {
     setReview({...review, [event.target.name]: event.target.value});
   }
@@ -100,8 +99,6 @@ export default function Jumble() {
         setJumbleReviewList([...newList])
         })
   }
-
-
 
 
 

@@ -65,10 +65,10 @@ export default function JumbleForm({
           </div>
         </div>
 
-        <div className="col-md-6 ">
+        <div className="col-md-6 px-4">
           <div className="p-md-3 py-5">
             <div className="row mt-2">
-              <div className="col-md-12">
+              <div className="col-11 m-2">
                 <label className="labels">Jumble-Name</label>
                 <TextField
                   name="jumbleName"
@@ -80,7 +80,7 @@ export default function JumbleForm({
                   rules={[{required: true, message: 'Please enter jumble name'}]}
                 />
               </div>
-              <div className="col-md-12">
+              <div className="col-11 m-2">
                 <label className="labels mt-3">Jumble-Category</label>
                 <br />
                 <SelectField
@@ -93,7 +93,7 @@ export default function JumbleForm({
               </div>
             </div>
             <div className="row mt-3">
-              <div className="col-md-10 col-8 m-2">
+              <div className="col-11 m-2">
                 <label className="labels">Jumble-Adresse</label>
                 <AddressForm
                   name="address"
@@ -104,7 +104,7 @@ export default function JumbleForm({
               </div>
 
 {/*TODO: implement Datepicker and configure Backend Date-Format: toLocalDateString()*/}
-              <div className="col-md-12">
+              <div className="col-11 m-2">
                 <label className="labels">Termin</label>
                 <DateField
                   name="jumbleDate"
@@ -118,7 +118,7 @@ export default function JumbleForm({
                   Wann findet das nächste Jumble statt?
                 </span>
               </div>
-              <div className="col-md-12">
+              <div className="col-11 m-2">
                 <label className="labels">Öffnungszeiten</label>
                 <TextField
                   name="jumbleTime"
@@ -132,7 +132,7 @@ export default function JumbleForm({
                   Wie sind die Öffnungszeiten des Jumbles?
                 </span>
               </div>
-              <div className="col-md-12">
+              <div className="col-11 m-2">
                 <label className="labels"> Website</label>
                 <TextField
                   name="jumbleWebsite"
