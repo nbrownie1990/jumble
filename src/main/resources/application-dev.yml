@@ -1,10 +1,40 @@
-server.error.include-message=always
-server.error.include-binding-errors=always
+spring:
+    profiles:
+      active: dev
+    application:
+      name: jumbleapplication
+    datasource:
+#      Heroku https://dashboard.heroku.com/apps/jumbles/deploy/heroku-git
+      url: jdbc:postgresql://tnvtqmfzoqlosy:f6f0fc4e17a766691bb2401e9814b6f863187060b65f240c7f6274f33c118757@ec2-54-217-232-239.eu-west-1.compute.amazonaws.com:5432/dboftl4ofsno6j
+      username: tnvtqmfzoqlosy
+      password: f6f0fc4e17a766691bb2401e9814b6f863187060b65f240c7f6274f33c118757
+      driver-class-name: org.postgresql.Driver
+    jpa:
+      generate-ddl: true
+      open-in-view: false
+      show-sql: true
+      properties:
+        hibernate:
+          format_sql: true
+          dialect: org.hibernate.dialect.PostgreSQLDialect
+          jdbc:
+            time_zone: UTC
+      hibernate:
+        ddl-auto: update
+    servlet:
+      multipart:
+        max-file-size: 100MB
+        max-request-size: 100MB
 
-//spring.datasource.url=jdbc:postgresql://aa9320n4muma7h.celswdmxhcr1.eu-west-1.rds.amazonaws.com:5432/amigoscode
-spring.datasource.username=postgres
-spring.datasource.password=mysecretpassword
-spring.jpa.hibernate.ddl-auto=update
-spring.jpa.show-sql=true
-spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
-spring.jpa.properties.hibernate.format_sql=true
+  server:
+    error:
+      include-message: always
+      include-binding-errors: always
+
+  nbrownie:
+    jumbleapplication:
+      jwtSecret: mysecret
+      jwtExpirationMs: 86400000
+
+  mapbox-client:
+    access-token: pk.eyJ1IjoibmJyb3duaWUiLCJhIjoiY2t4YTgzdHFwMGVzbDJwbXduamIwcjVobyJ9.1dvOHUtZhQCG2BBl7rkjtg

@@ -32,8 +32,8 @@ server:
 
 nbrownie:
   jumbleapplication:
-      jwtSecret: mysecret
-      jwtExpirationMs: 86400000
+    jwtSecret: mysecret
+    jwtExpirationMs: 86400000
 
 mapbox-client:
   access-token: pk.eyJ1IjoibmJyb3duaWUiLCJhIjoiY2t4YTgzdHFwMGVzbDJwbXduamIwcjVobyJ9.1dvOHUtZhQCG2BBl7rkjtg
