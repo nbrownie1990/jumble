@@ -44,6 +44,25 @@ Darunter z.B. Flohmärkte, Second-Hand-Shops, Kleider-Tausch-Partys, FoodSharing
 Du kannst dich bei Jumble einloggen und die Jumbles mit Sternen bewerten, um anderen Nutzern zu helfen.
 (Zielgruppe, Segment: junge Menschen denen Nachhaltigkeit am Herzen liegt. z.B. Studierende)
 
+### Requirements to get the Project running on your machine
+- Java 16
+- maven
+- mapbox-token (https://www.mapbox.com/)
+- Docker to run postgreSQL database
+- npm
+	 
+### Steps to get the Project running on your machine
+1. clone project from github by execute:
+```  
+git clone git@github.com:nbrownie1990/jumble.git
+```  
+2.start docker with postgreSQL database by:
+```  
+docker-compose up -d --remove-orphans
+```  	 
+
+.............
+	 
 ### Application Structure
 
 ```  
