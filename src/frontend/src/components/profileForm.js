@@ -23,6 +23,7 @@ readOnly,
       <form as="form" className="row">
       <div className="col-md-6">
           <div className="d-flex flex-column align-items-center text-center p-3 py-5">
+                <h2 className="text-right mt-5 mt-md-0">Bearbeite dein Profil</h2>
             <div className="img-wrapper">
               <ImageDropzone
                   onDrop={onDrop}
@@ -38,10 +39,9 @@ readOnly,
           </div>
         </div>
 
-        <div className="col-md-6 d-flex flex-column p-3 py-5">
-        <h2 className="text-right px-4">Edit your profile</h2>
+        <div className="col-md-6 d-flex p-3 py-md-5">
               <div className="row mt-3">
-                <div className="col-md-10 px-4">
+                <div className="col-md-10 px-4 mt-md-5">
                   <label className="labels">E-Mail:</label>
                   <TextField
                       title="Email"
@@ -57,7 +57,7 @@ readOnly,
 
 {/* TODO: Passwort : Hier muss noch ein double-check o.ä. eingefügt werden*/}
                 <div className="col-md-10 px-4">
-                  <label className="labels text-red">Hier entsteht noch die Möglichkeit ein Passwort zu ändern:</label>
+                  <label className="labels text-warning">Hier entsteht noch die Möglichkeit ein Passwort zu ändern:</label>
                   <TextField
                       title="Passwort"
                       name="password"
@@ -78,7 +78,7 @@ readOnly,
                   <TextArea
                       rows="10"
                       disabled={readOnly}
-                      title="Erzähl etwas von dir"
+                      title="Erzähl uns etwas von dir"
                       name="userText"
                       type="text"
                       value={user.userText}

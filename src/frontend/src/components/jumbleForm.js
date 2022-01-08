@@ -27,7 +27,13 @@ export default function JumbleForm({
     <>
       <form as="form" className="row">
         <div className="col-md-6">
-          <div className="d-flex flex-column align-items-center text-center p-3 py-5">
+          <div className="d-flex flex-column align-items-center text-center p-3">
+                {mode === 'new' && (
+                <h2 className="text-right mt-5 mt-md-0">Erstelle ein Jumble</h2>
+                )}
+                {mode === 'edit' && (
+                    <h2 className="text-right mt-5 mt-md-0">Bearbeite das Jumble</h2>
+                )}
             <div className="img-wrapper mt-5 ">
               <ImageDropzone
                   jumble={jumble}
@@ -40,11 +46,10 @@ export default function JumbleForm({
               />
             </div>
             <span className="font-weight-bold mt-2 mb-3">{jumble.jumbleName}</span>
-
             <label className="labels">Beschreibung</label>
             <TextArea
               name="jumbleText"
-              placeholder=" Bitte beschreibe diesen Jumble"
+              placeholder="Bitte beschreibe diesen Jumble"
               type="text"
               rows="5"
               value={jumble.jumbleText}
@@ -62,14 +67,6 @@ export default function JumbleForm({
 
         <div className="col-md-6 ">
           <div className="p-md-3 py-5">
-            <div className="d-flex justify-content-between align-items-center mb-3">
-              {mode === 'new' && (
-              <h2 className="text-right">Erstelle ein Jumble</h2>
-              )}
-              {mode === 'edit' && (
-                  <h2 className="text-right">Bearbeite das Jumble</h2>
-              )}
-            </div>
             <div className="row mt-2">
               <div className="col-md-12">
                 <label className="labels">Jumble-Name</label>
