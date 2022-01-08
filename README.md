@@ -26,6 +26,7 @@ Built with:
 - Node.js
 - Sass und Bootstrap
 - Axios, RESTful API
+- JUnit5, AssertJ, Mockito, H2-DB for Testing
 - MapBox-API
 - JWT (Bearer Token, Local Storage Authentication)
 - PostgreSQL
