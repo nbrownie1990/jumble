@@ -1,34 +1,38 @@
-//package de.nbrownie.jumbleapplication.repo;
-//
-//import org.junit.jupiter.api.AfterEach;
-//import org.junit.jupiter.api.Test;
-//import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-//
-//import static org.junit.jupiter.api.Assertions.*;
-//
-//@DataJpaTest
-//class JumbleRepositoryTest {
-//
-//    @Autowired
-//    private JumbleRepository underTest;
-//
-//    @AfterEach
-//    void tearDown(){
-//        underTest.deleteAll();
-//    }
-//
-//    @Test
-//    void itShouldGetJumbleByJumbleId() {
-//        //GIVEN
-//        //WHEN
-//        //THEN
-//    }
-//
-//    @Test
-//    void itShouldGetJumbleByJumbleName() {
-//        //GIVEN
-//        //WHEN
-//        //THEN
-//    }
-//}
+package de.nbrownie.jumbleapplication.repo;
+
+import de.nbrownie.jumbleapplication.models.ERole;
+import de.nbrownie.jumbleapplication.models.Role;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+
+import java.util.Optional;
+
+import static org.junit.jupiter.api.Assertions.assertFalse;
+
+@DataJpaTest
+class JumbleRepositoryTest {
+
+    @Autowired
+    private RoleRepository roleRepository;
+
+    @AfterEach
+    void tearDown() {
+        roleRepository.deleteAll();
+    }
+
+    @Test
+    void createAddressTest() {
+        //GIVEN
+        Role role = new Role();
+        role.setName(ERole.ROLE_USER);
+
+        //WHEN
+        roleRepository.save(role);
+
+        //THEN
+        Optional<Role> result = roleRepository.findByName(ERole.ROLE_USER);
+        assertFalse(result.isEmpty());
+    }
+}
