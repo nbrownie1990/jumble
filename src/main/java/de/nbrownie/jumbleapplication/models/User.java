@@ -58,15 +58,6 @@ public class User {
     @JsonBackReference(value="user-reviews")////ggf ändern
     private Set<Review> reviewList;
 
-
-    public User deleteJumble(Jumble jumble){
-        jumbleList.remove(jumble);
-        jumble.setUser(null);
-        jumble.setAddress(null);
-        jumble.setReviewList(null);
-        return this;
-    }
-
     public User() {
     }
 

@@ -129,7 +129,8 @@ public class JumbleService {
 
     public Jumble deleteJumble(Long jumbleId) {
         Jumble jumbleToDelete = getJumbleById(jumbleId);
-        jumbleRepository.delete(jumbleToDelete);
+        jumbleRepository.deleteJumbleByJumbleId(jumbleId);
+        addressRepository.deleteAddressById(jumbleToDelete.getAddress().getAddressId());
         return jumbleToDelete;
     }
 
