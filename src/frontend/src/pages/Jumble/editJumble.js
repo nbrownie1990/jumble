@@ -52,7 +52,6 @@ export default function EditJumble() {
         alert("Bild ist hochgeladen! Sobald du rechts vom Bild auf speichern gehst, wird es aktualisiert...")
     }
 
-//TODO: Funktioniert aktuell nicht (addresse, image...)
     const handleJumbleInputChange = (event) => {
         setJumble(
             {...jumble,
@@ -60,7 +59,6 @@ export default function EditJumble() {
                 [event.target.name]: event.target.value});
     }
 
-//TODO: Funktioniert aktuell nicht (addresse, image...)
     const handleSaveJumbleChanges = (jumbleId, jumble) => {
       setLoading(true)
         let updatedCategory = categories.filter(c => {return c.categoryName === jumble.category})
@@ -69,10 +67,10 @@ export default function EditJumble() {
 
      updateJumble(jumbleId, jumble)
          .then(
-             //changedJumble=> {
-              //   setJumble(changedJumble)
+             changedJumble=> {
+              setJumble(changedJumble)
                  navigate(`/jumbles/${jumbleId}`)
-             //}
+             }
              )
          .catch(error => setError(error))
          .finally(setLoading(false))

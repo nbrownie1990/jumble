@@ -71,7 +71,7 @@ export const addNewJumble = async (jumble) => {
 
 export const updateJumble = async(jumbleId, jumble) => {
     return await axios
-        .put(`${baseUrl}/jumbles/edit/${jumbleId}`, {jumble}) //category, address
+        .put(`${baseUrl}/jumbles/edit/${jumbleId}`, jumble)
         .then(response => {
             return response.data;
         });
