@@ -46,31 +46,34 @@ public class JumbleService {
     }
 
 
-    public Jumble addNewJumble(CreateJumbleRequest newJumble ){
+    public Jumble addNewJumble(CreateJumbleRequest createNewJumbleRequest ){
                                //CreateAddressRequest newAddress){
         // User user = userRepository.getUserByUserId(id).orElseThrow(() -> new EntityNotFoundException("User not found"));
         Jumble jumble = new Jumble();
         // jumble.setUser(user);
-        jumble.setJumbleName(newJumble.getJumbleName());
-        jumble.setJumbleTime(newJumble.getJumbleTime());
-        jumble.setJumbleImage(newJumble.getJumbleImage());
-        jumble.setJumbleText(newJumble.getJumbleText());
-        jumble.setJumbleWebsite(newJumble.getJumbleWebsite());
-        jumble.setJumbleDate(newJumble.getJumbleDate());
-        jumble.setCategory(newJumble.getCategory());
+        jumble.setJumbleName(createNewJumbleRequest.getJumbleName());
+        jumble.setJumbleTime(createNewJumbleRequest.getJumbleTime());
+        jumble.setJumbleImage(createNewJumbleRequest.getJumbleImage());
+        jumble.setJumbleText(createNewJumbleRequest.getJumbleText());
+        jumble.setJumbleWebsite(createNewJumbleRequest.getJumbleWebsite());
+        jumble.setJumbleDate(createNewJumbleRequest.getJumbleDate());
 
-        Address address = new Address();
-        address.setAddressStreet(newJumble.getAddressStreet());
-        address.setAddressNumber(newJumble.getAddressNumber());
-        address.setAddressZip(newJumble.getAddressZip());
-        address.setAddressCity(newJumble.getAddressCity());
-        jumble.setAddress(address);
-        /////Create new Address
-       // Address address = addressService.addNewAddress(newAddress);
-        //address.setJumble(jumble);
-       // jumble.setAddress(address);
-        /////Add empty ReviewList?
+        jumble.setCategory(createNewJumbleRequest.getCategory());
+
+        Address addressFromDB = addressService.addNewAddress(makeAddress(createNewJumbleRequest));
+
+        jumble.setAddress(addressFromDB);
+
         return jumbleRepository.save(jumble);
+    }
+
+    private Address makeAddress(CreateJumbleRequest createNewJumbleRequest) {
+        Address address = new Address();
+        address.setAddressStreet(createNewJumbleRequest.getAddressStreet());
+        address.setAddressNumber(createNewJumbleRequest.getAddressNumber());
+        address.setAddressZip(createNewJumbleRequest.getAddressZip());
+        address.setAddressCity(createNewJumbleRequest.getAddressCity());
+        return address;
     }
 
 

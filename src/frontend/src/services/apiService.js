@@ -41,7 +41,7 @@ export const getJumbleById = (jumbleId) => {
 
 export const addNewJumble = async (jumble) => {
     return await axios
-        .post(`${baseUrl}/jumbles/new`, {jumble},
+        .post(`${baseUrl}/jumbles/new`, jumble,
             {
                 headers:{
                     'Access-Control-Allow-Origin': '*',

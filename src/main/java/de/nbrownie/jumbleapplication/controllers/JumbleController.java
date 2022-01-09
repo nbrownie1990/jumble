@@ -52,8 +52,9 @@ public class JumbleController {
 
     @PreAuthorize("hasRole('USER')")
     @PostMapping(path = "new")
-    public void addNewJumble(@RequestBody CreateJumbleRequest newJumble)
-    {jumbleService.addNewJumble(newJumble);}
+    public void addNewJumble(@RequestBody CreateJumbleRequest newJumble) {
+        jumbleService.addNewJumble(newJumble);
+    }
     //   public void addNewJumble(@RequestBody CreateJumbleRequest newJumble, CreateAddressRequest newAddress)
     //  {jumbleService.addNewJumble(newJumble, newAddress);}
 

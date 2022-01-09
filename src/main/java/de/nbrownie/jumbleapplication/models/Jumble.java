@@ -51,7 +51,7 @@ public class Jumble {
     private Category category;
 
     //One Jumble has its own address
-    @OneToOne(cascade= CascadeType.ALL, orphanRemoval = true)
+    @OneToOne(cascade= CascadeType.MERGE, orphanRemoval = true)
     @JoinColumn(name="address_id",
             foreignKey = @ForeignKey(name= "address_id_fk"))
     @JsonManagedReference(value="address-jumble")

@@ -54,6 +54,10 @@ public class AddressService {
         return addressRepository.save(address);
     }
 
+    public Address addNewAddress(Address newAddress) {
+        return addressRepository.save(newAddress);
+    }
+
     public Address updateAddress(Long addressId, Long jumbleId, Address changedAddress) {
         Address existingAddress = addressRepository.getAddressByAddressId(addressId).orElseThrow(() -> new EntityNotFoundException("Address not found"));
         if (!existingAddress.getJumble().getJumbleId().equals(jumbleId)){
