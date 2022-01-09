@@ -1,11 +1,12 @@
 import React, {useEffect, useState} from 'react'
-import { useNavigate } from 'react-router'
+import {useNavigate} from 'react-router'
 import Navbar from '../../components/navbar'
 import JumbleForm from '../../components/jumbleForm'
-import {addNewAddress, addNewJumble, getAllCategories} from "../../services/apiService";
+import {addNewJumble, getAllCategories} from "../../services/apiService";
 import Loading from "../../components/loading";
 import {getDownloadURL, ref, uploadBytes} from "firebase/storage";
 import {storage} from "../../services/firebase";
+import {getCurrentUser} from "../../services/authService";
 
 
 export default function AddJumble() {
@@ -16,8 +17,6 @@ export default function AddJumble() {
     const [url, setUrl] = useState(() => null)
     const [error, setError] = useState();
     const [loading, setLoading] = useState(true)
-
-
     useEffect(() => {
         getAllCategories()
             .then(categories => setCategories(categories))
@@ -27,9 +26,6 @@ export default function AddJumble() {
 
     const handleJumbleInputChange = (event) => {
       setJumble(jumble => ({...jumble, [event.target.name]: event.target.value}));
-     // setJumble({...jumble, [event.target.name]: event.target.value});
-    //  setAddress({...jumble.address, [event.target.name]: event.target.value});
-     // console.log(address)
     }
 
     useEffect(() =>{
@@ -40,9 +36,14 @@ export default function AddJumble() {
 
         const handleSaveNewJumble = (jumble) => {
         setLoading(true)
+        jumble.userId = getCurrentUser()["id"];
         let updatedCategory = categories.filter(c => {return c.categoryName === jumble.category})
         if (updatedCategory.length === 1) {
             jumble.category = updatedCategory[0] }
+
+        if (!jumble.hasOwnProperty("category")) {
+            jumble.category = categories[0]
+        }
 
         addNewJumble(jumble)
             .catch(setError)

@@ -58,7 +58,7 @@ public class Jumble {
     private Address address;
 
     //Many Jumbles can be added by one user Entity
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(cascade= CascadeType.MERGE, fetch = FetchType.EAGER)
     @JoinColumn(name="user_id",
             foreignKey = @ForeignKey(name= "user_id_fk"))
     @JsonManagedReference(value="jumbles-user") ////ggf ändern

@@ -1,7 +1,7 @@
 package de.nbrownie.jumbleapplication.services;
 
-import de.nbrownie.jumbleapplication.models.*;
-import de.nbrownie.jumbleapplication.payload.request.CreateAddressRequest;
+import de.nbrownie.jumbleapplication.models.Address;
+import de.nbrownie.jumbleapplication.models.Jumble;
 import de.nbrownie.jumbleapplication.payload.request.CreateJumbleRequest;
 import de.nbrownie.jumbleapplication.payload.request.UpdateJumbleRequest;
 import de.nbrownie.jumbleapplication.repo.*;
@@ -46,11 +46,9 @@ public class JumbleService {
     }
 
 
-    public Jumble addNewJumble(CreateJumbleRequest createNewJumbleRequest ){
-                               //CreateAddressRequest newAddress){
-        // User user = userRepository.getUserByUserId(id).orElseThrow(() -> new EntityNotFoundException("User not found"));
+    public Jumble addNewJumble(CreateJumbleRequest createNewJumbleRequest) {
         Jumble jumble = new Jumble();
-        // jumble.setUser(user);
+
         jumble.setJumbleName(createNewJumbleRequest.getJumbleName());
         jumble.setJumbleTime(createNewJumbleRequest.getJumbleTime());
         jumble.setJumbleImage(createNewJumbleRequest.getJumbleImage());
@@ -60,9 +58,10 @@ public class JumbleService {
 
         jumble.setCategory(createNewJumbleRequest.getCategory());
 
-        Address addressFromDB = addressService.addNewAddress(makeAddress(createNewJumbleRequest));
+        jumble.setUser(userRepository.getUserByUserId(createNewJumbleRequest.getUserId())
+                .orElseThrow(() -> new EntityNotFoundException("User not found")));
 
-        jumble.setAddress(addressFromDB);
+        jumble.setAddress(addressService.addNewAddress(makeAddress(createNewJumbleRequest)));
 
         return jumbleRepository.save(jumble);
     }

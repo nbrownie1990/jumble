@@ -13,7 +13,8 @@ import javax.validation.constraints.*;
 @NoArgsConstructor
 public class CreateJumbleRequest {
 
-   // @NotBlank
+
+    // @NotBlank
     private Long jumbleId;
 
     //@NotBlank
@@ -45,7 +46,7 @@ public class CreateJumbleRequest {
     private String addressCity;
 
 
-    //private User user;
+    private Long userId;
 
     //private Set<Review> reviewList;
 
@@ -146,11 +147,13 @@ public class CreateJumbleRequest {
         this.addressCity = addressCity;
     }
 
-//    public User getUser() {
-//        return user;
-//    }
-//
-//    public void setUser(User user) {this.user = user;}
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
 
    // public Set<Review> getReviewList() {return this.reviewList;}
 
