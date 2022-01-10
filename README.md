@@ -8,32 +8,32 @@
 
 Das Jumble-Projekt erarbeite ich, um Erfahrungen in den Bereichen CI-CD-Pipelines, Container, CRUD-Operations und Arbeiten mit einer Datenbank zu sammeln. Gestartet habe ich im Oktober 2021 und diese Idee entwickelt, das Konzept erarbeitet, ein Mock-Up mit dem Tool "Figma" erstellt und anschließend programmiert. Es kamen die Technologien zum Einsatz, die ich mir die letzten Monaten autodidaktisch angeigenet habe bzw. weiterhin aneigne.
 
-### Learning Path / Skills for this Project
-
-- [x] In diesem Projekt wurden ein Idee entwickelt, ein entsprechendes Mock-Up und Use-Cases erstellt.
-- [x] Das Projekt wird mit Git versioniert.
-- [x] Die PostgreSQL-Datenbank läuft über ein Docker-Image
-- [x] Für User-Uploads wird der Firebase-Storage verwendet
-- [x] Das Projekt nutzt ein Docker-Image und läuft über eine CI-CD-Pipeline via Github-Actions.
-- [x] Das Projekt beinhaltet Security-Features.
-
 ### 👨🏽‍💻 Tech Stack
 
 Built with:
 
 - Spring-Boot
-- React v16
-- Node.js
+- React v16 (Hooks)
 - Sass und Bootstrap
 - Axios, RESTful API
-- JUnit5, Mockito, H2-DB for Testing
-- MapBox-API
-- Firebase-Storage for User-Images
-- Production: Heroku PostgreSQL-Database
-- Local: PostgreSQL with Docker
+- PostgreSQL
 - JWT (Bearer Token, Local Storage Authentication)
+- JUnit5, Mockito, H2-DB for Testing
+- Firebase-Storage for User-Images
+- MapBox-API
+- Ebenfalls verwendet: Postman, DBeaver, Mockaroo
 - <a href= "https://miro.com/app/board/uXjVOXKtP3w=/?invite_link_id=877146530729">ERM via Miro-Board </a>
 - <a href="https://www.figma.com/file/fFAz3ql0dams5Xqsq6an8L/Jumble-Mockup?node-id=33%3A444">Wireframe via Figma</a>
+
+### Learning Path / Skills for this Project
+
+- [x] In diesem Projekt wurden ein Idee entwickelt, ein entsprechendes Mock-Up, ERM-Modell und Use-Cases (s.u) erstellt.
+- [x] Das Projekt wird mit Git versioniert.
+- [x] Das Frontend und Backend laufen gemeinsam in einem jar-File (Spring Boot, UI via static-folder)
+- [x] Die lokale PostgreSQL-Datenbank läuft über ein Docker-Image, in Produktion über Heroku.
+- [x] Für User-Image-Uploads wird der Firebase-Storage verwendet
+- [x] Das Projekt beinhaltet Security-Features (Authentication via Local-Storage JWT)
+- [x] Das Projekt läuft über eine CI-CD-Pipeline via Github-Actions.
 
 ## 🔥 Die App- "Jumble"
 
@@ -42,9 +42,8 @@ Mit Jumble kannst du Informationen darüber erhalten, wo du dein Ausrangiertes i
 
 Auf der Startseite bekommst du den Überblick mithilfe einer Map, die die verschiedenen Orte ("Jumbles") in deiner Nähe anzeigt.
 Darunter z.B. Flohmärkte, Second-Hand-Shops, Kleider-Tausch-Partys, FoodSharing/Fairteiler, Kleiderspenden (DRK-Container & Online-Angebote).
-Du kannst dich bei Jumble einloggen und die Jumbles mit Sternen bewerten, um anderen Nutzern zu helfen.
-(Zielgruppe, Segment: junge Menschen denen Nachhaltigkeit am Herzen liegt. z.B. Studierende)
-
+Du kannst dich bei Jumble einloggen, dein Profil einrichten, Jumbles nach Kategorien sortieren, erstellen und bewerten.
+	 
 ### Requirements to get the Project running on your machine
 - Java 16
 - maven
