@@ -27,7 +27,7 @@ Built with:
 
 ### Learning Path / Skills for this Project
 
-- [x] In diesem Projekt wurden ein Idee entwickelt, ein entsprechendes Mock-Up, ERM-Modell und Use-Cases (s.u) erstellt.
+- [x] In diesem Projekt wurden ein Idee entwickelt, ein entsprechendes Wireframe, ERM-Modell und Use-Cases (s.u) erstellt.
 - [x] Das Projekt wird mit Git versioniert.
 - [x] Das Frontend und Backend laufen gemeinsam in einem jar-File (Spring Boot, UI via static-folder)
 - [x] Die lokale PostgreSQL-Datenbank läuft über ein Docker-Image, in Produktion über Heroku.
@@ -47,7 +47,6 @@ Du kannst dich bei Jumble einloggen, dein Profil einrichten, Jumbles nach Katego
 ### Requirements to get the Project running on your machine
 - Java 16
 - maven
-- mapbox-token (https://www.mapbox.com/)
 - Docker to run postgreSQL database
 - npm
 	 
@@ -124,23 +123,36 @@ docker-compose up -d --remove-orphans
 
 ### 📝  User Stories & Learnings
 
-- [x] User kann sich ein Profil erstellen (Learnings: Password-Validation, Authentication)
-- [x] User kann Profil bearbeiten (Learnings: Password-Validation, Authentication)
-- [x] User kann Profil löschen
-- [x] User kann Jumbles für die Community erstellen
-- [x] User kann Jumbles für die Community bearbeiten und löschen
-- [x] User kann Bilder hochladen (Learnings: How to upload to Firebase Storage)
+- [x] User kann sich Registrieren, Einloggen und ein Profil erstellen (Learnings: Password-Validation, Authentication)
+- [x] User kann Profil bearbeiten und löschen
+- [x] User kann Jumbles für die Community erstellen, bearbeiten und löschen (RESTful-API)
+- [x] User kann Bilder hochladen (Learnings: Firebase Storage)
 - [x] User kann Jumbles, nach Kategorien sortiert, finden
 - [x] User kann eine Liste aller Jumbles einsehen
+
+### 🚀 To-Dos, offene Features & Ausblick
+- Deployen, Docker Container, CI-CD-Pipeline (Github-Actions), Gif-Vorschau
+- [ ] Map-Component mit Datenbank verknüpfen, aktuell nur Mock-Daten
+- [ ] Testen, testen, testen
+- [ ] Datentypen verändern (z.B. Date, Datepicker etc.)
+- [ ] User kann Jumbles bewerten(Star-Rating) und kommentieren
+- [ ] User kann seine Bewertungen löschen
+- [ ] User kann Nutzernamen und Passwort ändern / Achtung Password-Hashing
+- [ ] User kann Jumbles über die Suchbar suchen
+- [ ] User kann Jumbles auf der Cluster-Map finden
+- [ ] Validation(Jumbles, Login, Profile), Routing-Validation & Authorization(aktuell kann jeder alles bearbeiten)
+- [ ] Authorization: Admin kann Kategorien erstellen, User können nur selbst erstellte Jumbles bearbeiten...
+- [ ] UX/UI verbessern (Resize Image-Uploads,Responsivness, Sprache vereinheitlichen...)
+
 
 ### 📚 Was habe ich außerdem gelernt? 
 - ✔ Implementierung und Customizing von Bootstrap via Sass (auch kurz Styled Components ausprobiert)
 - ✔ Arbeiten mit Spring Boot und React, MapBox-Api, RESTful APIs, axios
-- ✔ Arbeiten mit relationalen Datenbanken und Cloud-Storage
+- ✔ Arbeiten mit relationalen Datenbanken, Cloud-Storage, Heroku
 - ✔ Git-Commits via tig (cli-tool)
 - ✔ Authorisierung & Authentifizierung
 - ✔ Nur einen Port nutzen, indem Frontend über den Static-Ordner von Spring Boot eingebunden wird
-- ✔ Ein Wireframe mit Figma erstellen und UML-Modell & ERM-Modell mit Miro
+- ✔ Ein Wireframe mit Figma erstellen und ein UML-Modell & ERM-Modell mit Miro
 
 ### 📚 Reflexion 
 - Ein TDD-Projekt mit automatisierten Unit-Tests und Integration-Test wäre schöner
@@ -148,28 +160,6 @@ docker-compose up -d --remove-orphans
 	 - main — Eine Darstellung der Codebasis, die derzeit in Produktion ist, deren Commits den gesamten Flow  durchlaufen und nach der Überprüfung nach der Veröffentlichung zusammengeführt werden.
 	- develop — Alle Feature-Branches werden in dieser Branch zusammengeführt. Hier laufen automatisierte Tests und Releases für Entwicklungsressourcen über CI/CD-Pipelines.
 	- features — Jede Änderung, die in die nächste Version aufgenommen werden soll.
-
-
-### 🚀 To-Dos & Ausblick
-- Alle PUT, POST, DELETES funktionieren (Profile, Jumble, Images, Addresses, Categories, Review)
-- Star-Component	 
-- Docker Container 
-- Github Actions CI-CD-Pipeline
-- deployen über firebase
-- CI-CD-Pipeline (Github-Actions)
-- Sprache vereinheitlichen (kein denglish)
-- Tests
-- Form Validation (Jumbles, Login, Profile)
-- Resize Image uploads
-- Change Data Types (Datepicker etc.)
-- Map-Component
-- [ ] User kann Jumbles auf der Cluster-Map finden
-- [ ] User kann Nutzernamen und Passwort ändern / Achtung Password-Hashing
-- [ ] User kann Jumbles über die Suchbar suchen
-- [ ] User kann Jumbles bewerten und kommentieren
-- [ ] User kann seine Bewertungen löschen
-- [ ] Routing-Validation
-- [ ] Authorization: Admin kann Kategorien erstellen, User können nur selbst erstellte Jumbles bearbeiten...
 
 Die App wird stetig weiterentwickelt und ich lerne jeden Tag dazu :)
 
