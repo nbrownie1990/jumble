@@ -26,12 +26,13 @@ Built with:
 - Node.js
 - Sass und Bootstrap
 - Axios, RESTful API
-- JUnit5, AssertJ, Mockito, H2-DB for Testing
+- JUnit5, Mockito, H2-DB for Testing
 - MapBox-API
+- Firebase-Storage for User-Images
+- Production: Heroku PostgreSQL-Database
+- Local: PostgreSQL with Docker
 - JWT (Bearer Token, Local Storage Authentication)
-- PostgreSQL
-- Firebase.io
-- <a href= "https://miro.com/app/board/uXjVOXKtP3w=/?invite_link_id=877146530729">UML und ERM - Ausschnitt via Miro-Board </a>
+- <a href= "https://miro.com/app/board/uXjVOXKtP3w=/?invite_link_id=877146530729">ERM via Miro-Board </a>
 - <a href="https://www.figma.com/file/fFAz3ql0dams5Xqsq6an8L/Jumble-Mockup?node-id=33%3A444">Wireframe via Figma</a>
 
 ## 🔥 Die App- "Jumble"
@@ -140,7 +141,7 @@ docker-compose up -d --remove-orphans
 - ✔ Git-Commits via tig (cli-tool)
 - ✔ Authorisierung & Authentifizierung
 - ✔ Nur einen Port nutzen, indem Frontend über den Static-Ordner von Spring Boot eingebunden wird
-- ✔ Ein Wireframe mit Figma erstellen und UML und ERM mit Miro
+- ✔ Ein Wireframe mit Figma erstellen und UML-Modell & ERM-Modell mit Miro
 
 ### 📚 Reflexion 
 - Ein TDD-Projekt mit automatisierten Unit-Tests und Integration-Test wäre schöner
