@@ -1,4 +1,4 @@
-# Jumble - the right place for your stuff
+# 🌈 Capstone-Project: "Jumble - the right place for your stuff"
 
 ![MIT](https://img.shields.io/badge/license-MIT-blue.svg)
 
@@ -128,7 +128,7 @@ docker-compose up -d --remove-orphans
 - [x] User kann Jumbles, nach Kategorien sortiert, finden
 - [x] User kann eine Liste aller Jumbles einsehen
 
-### 🚀 To-Dos, offene Features & Ausblick
+### 📌 To-Dos, offene Features & Ausblick
 - Deployen, Docker Container, CI-CD-Pipeline (Github-Actions), Gif-Vorschau
 - [ ] Map-Component mit Datenbank verknüpfen, aktuell nur Mock-Daten
 - [ ] Testen, testen, testen
@@ -152,7 +152,7 @@ docker-compose up -d --remove-orphans
 - ✔ Nur einen Port nutzen, indem Frontend über den Static-Ordner von Spring Boot eingebunden wird
 - ✔ Ein Wireframe mit Figma erstellen und ein UML-Modell & ERM-Modell mit Miro
 
-### 📚 Reflexion 
+### 📓  Reflexion 
 - Ein TDD-Projekt mit automatisierten Unit-Tests und Integration-Test wäre schöner
 - Es hätte eine strukturierte Versionierung über unterschiedliche Branches geben sollen, wie z.B.:
 	 - main — Eine Darstellung der Codebasis, die derzeit in Produktion ist, deren Commits den gesamten Flow  durchlaufen und nach der Überprüfung nach der Veröffentlichung zusammengeführt werden.
