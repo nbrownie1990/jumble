@@ -59,26 +59,6 @@ const Login = (props) => {
         })
   }
 
-  // const handleLogin = (e) => {
-  //   e.preventDefault();
-  //
-  //   setMessage("");
-  //   setLoading(true);
-  //   login(username, password)
-  //        .then(() => navigate('/home'))
-  //         .catch(error => {
-  //           const resMessage =
-  //               (error.response &&
-  //                   error.response.data &&
-  //                   error.response.data.message) ||
-  //               error.message ||
-  //               error.toString();
-  //           setLoading(false);
-  //           setMessage(resMessage);
-  //         })
-  //        .finally(() => window.location.reload);
-  // };
-
   const handleToSignUp = () => {
     navigate('/signup');
   }
@@ -192,22 +172,3 @@ const Login = (props) => {
 }
 export default Login;
 
-
-// <body cz-shortcut-listen="true">
-// <div className="container">
-//   <form className="form-signin" method="post" action="/login">
-//     <h2 className="form-signin-heading">Please sign in</h2>
-//     <p>
-//       <label htmlFor="username" className="sr-only">Username</label>
-//       <input type="text" id="username" name="username" className="form-control" placeholder="Username" required=""
-//              autoFocus="">
-//     </p>
-//     <p>
-//       <label htmlFor="password" className="sr-only">Password</label>
-//       <input type="password" id="password" name="password" className="form-control" placeholder="Password" required="">
-//     </p>
-//     <input name="_csrf" type="hidden" value="559b2031-7a1f-4fa5-810a-da808d01d84b">
-//       <button className="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-//   </form>
-// </div>
-// </body>

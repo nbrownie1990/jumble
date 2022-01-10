@@ -103,18 +103,7 @@ export default function Jumble() {
 
 
 ///TODO: Bugfix "TypeError: Cannot read properties of undefined (reading 'some')"
-//grund: (all-)reviewlist braucht ladezeit --> async await??
 
-//-------filter whole reviewList to find reviews with jumbleId-----
-//   let array1 = jumble.reviewList
-//   let array2 = reviewList
-//   let jumbleReviewList = array2.filter(o1 => {
-//     return array1.some(o2 => o1.reviewId === o2.reviewId)
-//   });
-//   console.log(jumbleReviewList)
-
-//Erster versuch ...auch hier erscheint der fehler
-//grund: getJumble und getAllReviews braucht ladezeit --> async await??
   useEffect(() => {
     setLoading(true)
     filterJumbleReviewList(jumble, allReviews)

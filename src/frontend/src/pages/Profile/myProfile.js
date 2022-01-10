@@ -28,7 +28,6 @@ const MyProfile = () => {
       <main className="m-md-5 mt-5 mb-5">
         <section className="container w-100 h-100">
           <div className="container">
-            { error && <p>There was an error loading your data!</p> }
             <div className="row">
               <div className="d-flex flex-column align-items-center text-center">
                 <div key={user.id} className="col-12 mt-5 ">

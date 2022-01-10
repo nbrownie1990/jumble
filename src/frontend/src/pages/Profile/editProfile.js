@@ -84,7 +84,6 @@ export default function EditProfile() {
       <main className="m-md-5 m-3 mt-5 mb-5">
         <section className="container w-100 h-100 p-0 mt-5">
           <div className="container rounded bg-white">
-              {/*{ error && <p>There was an error loading your data!</p> }*/}
               <ProfileForm
                   user={user}
                   setUser={setUser}

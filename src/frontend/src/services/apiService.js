@@ -54,20 +54,6 @@ export const addNewJumble = async (jumble) => {
         });
 }
 
-// export const addNewJumble = async (jumble, address) => {
-//     return await axios
-//         .post(`${baseUrl}/jumbles/new`, {jumble, address},
-//     {
-//         headers:{
-//             'Access-Control-Allow-Origin': '*',
-//             'Content-Type': 'application/json',
-//         },
-//         withCredentials:true,
-//     })
-//         .then(response => {
-//             return response.data;
-//         });
-// }
 
 export const updateJumble = async(jumbleId, jumble) => {
     return await axios
@@ -95,13 +81,6 @@ export const getAddressById = async (addressId) => {
         });
 }
 
-export const addNewAddress = async (address) =>{
-return await axios
-        .post(`/api/jumbles/new/newaddress`, {address})
-        .then(response => {
-            return response.data
-        });
-}
 
 export const updateJumbleAddress = async (jumbleId, addressId, address) => {
     return await axios
@@ -110,14 +89,6 @@ export const updateJumbleAddress = async (jumbleId, addressId, address) => {
             return response.data;
         });
 }
-
-// export const updateJumbleAndAddress = async(jumbleId, jumble, address) => {
-//     return await axios
-//         .put(`${baseUrl}/jumbles/edit/${jumbleId}`, jumble, address)
-//         .then(response => {
-//             return response.data;
-//         });
-//}
 
 
 // --------------------------------- Reviews -------------------------------------------

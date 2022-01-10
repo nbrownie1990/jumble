@@ -12,7 +12,6 @@ import {getCurrentUser} from "../../services/authService";
 export default function AddJumble() {
     const navigate = useNavigate();
     const [jumble, setJumble] = useState([]);
-    const [address, setAddress] = useState([]);
     const [categories, setCategories] = useState([]);
     const [url, setUrl] = useState(() => null)
     const [error, setError] = useState();
@@ -32,9 +31,7 @@ export default function AddJumble() {
         console.log(jumble)
     }, [jumble])
 
-//    const handleSaveNewJumble = (jumble, address) => {
-
-        const handleSaveNewJumble = (jumble) => {
+     const handleSaveNewJumble = (jumble) => {
         setLoading(true)
         jumble.userId = getCurrentUser()["id"];
         let updatedCategory = categories.filter(c => {return c.categoryName === jumble.category})
@@ -51,19 +48,6 @@ export default function AddJumble() {
                             setLoading(false)
                             navigate('/home')
                         })
-        // addNewJumble(jumble)
-        //     //.then(jumble => setJumble(jumble))
-        //     .then(jumble => console.log(jumble))
-        //     .catch(setError)
-        //
-        // addNewAddress(address)
-        //     //.then(address => setAddress(address))
-        //     .then(address => console.log(address))
-        //     .catch(setError)
-        //         .finally(() => {
-        //             setLoading(false)
-        //             navigate('/home')
-        //         })
     }
 
 

@@ -5,10 +5,7 @@ const useAuth = () => {
     const user = getCurrentUser();
     return user
 };
-// const useAuth = () => {
-//     const user = {loggedIn: false};
-//     return user && user.loggedIn;
-// };
+
 const ProtectedRoutes = () => {
     const isAuth = useAuth();
     return isAuth ? <Outlet/> : <Navigate to="/notallowed" />

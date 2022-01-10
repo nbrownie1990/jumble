@@ -74,9 +74,6 @@ export default function Category() {
                            items={filtered}
                           />
                      </div>
-                       {/*<span>*/}
-
-                       {/*   </span>*/}
                    </section>
                  </main>)}
       </React.Fragment>

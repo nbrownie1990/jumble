@@ -3,7 +3,6 @@ import { Rating } from 'react-simple-star-rating'
 
 //https://github.com/awran5/react-simple-star-rating
 export default function StarRating({
-initialValue,
 ratingValue,
     onClick,
     readonly,
