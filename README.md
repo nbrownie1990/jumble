@@ -6,11 +6,9 @@
  <tr>
 <h2>Über das Projekt</h2>
 
-Das Jumble-Projekt erarbeite ich, um Erfahrungen in den Bereichen CI-CD-Pipelines, Container, CRUD-Operations und Arbeiten mit einer Datenbank zu sammeln. Gestartet habe ich im Oktober 2021 und diese Idee entwickelt, das Konzept erarbeitet, ein Mock-Up mit dem Tool "Figma" erstellt und anschließend programmiert. Es kamen die Technologien zum Einsatz, die ich mir die letzten Monaten autodidaktisch angeigenet habe bzw. weiterhin aneigne.
+Das Jumble-Projekt erarbeite ich, um Erfahrungen in den Bereichen CI-CD-Pipelines, Container, CRUD-Operations und Arbeiten mit einer Datenbank zu sammeln. Gestartet habe ich im Oktober 2021 und diese Idee entwickelt, das Konzept erarbeitet, ein Wireframe mit dem Tool "Figma" erstellt und anschließend programmiert. Es kamen die Technologien zum Einsatz, die ich mir die letzten Monaten autodidaktisch angeigenet habe bzw. weiterhin aneigne.
 
-### 👨🏽‍💻 Tech Stack
-
-Built with:
+### 👨🏽‍💻 Built with Tech Stack:
 
 - Spring-Boot
 - React v16 (Hooks)
