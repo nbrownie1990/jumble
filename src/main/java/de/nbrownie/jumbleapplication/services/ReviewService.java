@@ -32,14 +32,14 @@ public class ReviewService {
         this.userRepository = userRepository;
     }
 
-    public List<Review> findAllForUser(Long userId) {
+    public List<Review> findReviewListByUserId(Long userId) {
         User user = userRepository.getUserByUserId(userId).orElseThrow(() -> new EntityNotFoundException("User not found"));
-        return reviewRepository.findByUser(user);
+        return reviewRepository.findReviewListByUser(user);
     }
 
-    public List<Review> findAllForJumble(Long jumbleId) {
+    public List<Review> findReviewListByJumbleId(Long jumbleId) {
         Jumble jumble = jumbleRepository.getJumbleByJumbleId(jumbleId).orElseThrow(() -> new EntityNotFoundException("Jumble not found"));
-        return reviewRepository.findByJumble(jumble);
+        return reviewRepository.findReviewListByJumble(jumble);
     }
 
     public List<Review> getAllReviews() {

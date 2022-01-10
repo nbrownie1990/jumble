@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react'
 import {useParams} from "react-router";
 import JumbleList from "../../components/jumbleList";
 import {Link} from "react-router-dom";
-import {getAllJumbles, getCategoryById} from "../../services/apiService";
+import {getAllJumbles, getCategoryById, getJumblesByCategoryId} from "../../services/apiService";
 import Loading from "../../components/loading";
 import Navbar from "../../components/navbar";
 
@@ -19,17 +19,12 @@ export default function Category() {
             .then(category => setCategory(category))
             .catch(error => setError(error))
 
-        getAllJumbles()
+        getJumblesByCategoryId(categoryId)
             .then(jumbles => setJumbles(jumbles))
             .catch(error => setError(error))
             .finally(() => setLoading(false))
     },[categoryId])
 
-
-
-     var filtered = categoryId
-         ? jumbles.filter(jumble => jumble.category.categoryId == categoryId)
-         : jumbles
 
 
   return (
@@ -57,8 +52,8 @@ export default function Category() {
                            </div>
                            </div>
                          <div className="heading"><h1>Category: {category.categoryName} </h1>
-                          { filtered.length === 0 ? <p className="m-2">There are no jumbles for this category in the database. <br/><a href={'/jumbles/new'} className="text-white">Add a Jumble!</a></p>
-                             : <p className="m-2"> Showing {filtered.length} Jumbles in the database.</p> }
+                          { jumbles.length === 0 ? <p className="m-2">There are no jumbles for this category in the database. <br/><a href={'/jumbles/new'} className="text-white">Add a Jumble!</a></p>
+                             : <p className="m-2"> Showing {jumbles.length} Jumbles in the database.</p> }
                          <Link
                              to={`/jumbles/getall`}
                              className="btn btn-primary"
@@ -71,7 +66,7 @@ export default function Category() {
                          </Link>
                          </div>
                            <JumbleList
-                           items={filtered}
+                           items={jumbles}
                           />
                      </div>
                    </section>

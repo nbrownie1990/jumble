@@ -2,6 +2,7 @@ package de.nbrownie.jumbleapplication.controllers;
 
 
 
+import de.nbrownie.jumbleapplication.exceptions.ResourceNotFoundException;
 import de.nbrownie.jumbleapplication.models.Address;
 import de.nbrownie.jumbleapplication.models.Jumble;
 import de.nbrownie.jumbleapplication.models.Review;
@@ -40,6 +41,15 @@ public class JumbleController {
     @GetMapping(path="getall")
     public List<Jumble> getAllJumbles() {
         return jumbleService.getAllJumbles();
+    }
+
+    @PreAuthorize("hasRole('USER')")
+    @GetMapping(path = "category/{categoryId}")
+    public List<Jumble> getJumbleListByCategoryId(@PathVariable("categoryId") Long categoryId) {
+        if (true) {
+            return jumbleService.findJumblesByCategoryId(categoryId);
+        }
+        throw new ResourceNotFoundException("Jumbles for this Category not found...");
     }
 
     @PreAuthorize("hasRole('USER')")

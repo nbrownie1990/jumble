@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import {
   deleteReview,
   getJumbleById,
-  getReviewList
+  getReviewList, getReviewListByJumbleId
 } from "../../services/apiService";
 import {getCurrentUser} from "../../services/authService";
 import Navbar from '../../components/navbar'
@@ -19,7 +19,6 @@ export default function Jumble() {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState();
-  const [allReviews, setAllReviews] = useState([]);
   const [jumble, setJumble] = useState([]);
   const [jumbleReviewList, setJumbleReviewList] = useState([]);
   const [review, setReview] = useState([]);
@@ -32,8 +31,8 @@ export default function Jumble() {
         .then(jumble => setJumble(jumble))
         .catch(setError)
 
-    getReviewList()
-        .then(allReviews => setAllReviews(allReviews))
+    getReviewListByJumbleId(jumbleId)
+        .then(jumbleReviewList => setJumbleReviewList(jumbleReviewList))
         .catch(setError)
         .finally(() => setLoading(false))
   }, [jumbleId])
@@ -66,7 +65,7 @@ export default function Jumble() {
     // Some logic to update Rating Average reduce
   }
 
-
+console.log(jumbleReviewList)
 // const showAverageRating = (reviewList) => {
   //    if (reviewList && reviewList.reviewRating) {
   //        let reviewListArray = reviewList && reviewList.reviewRating;
@@ -103,22 +102,6 @@ export default function Jumble() {
 
 
 ///TODO: Bugfix "TypeError: Cannot read properties of undefined (reading 'some')"
-
-  useEffect(() => {
-    setLoading(true)
-    filterJumbleReviewList(jumble, allReviews)
-    if (error) setError(error)
-    setLoading(false)
-  }, [jumble, allReviews]);
-
-  const filterJumbleReviewList = useCallback((jumble, allReviews) => {
-    let jumbleReviews = jumble.reviewList
-    let totalList = allReviews
-    setJumbleReviewList(totalList
-        .filter(allRev => {return jumbleReviews
-        .some(jumRev => allRev.reviewId === jumRev.reviewId)
-        }))
-  }, [jumble, allReviews])
 
   return (
           <React.Fragment>
@@ -199,7 +182,6 @@ export default function Jumble() {
                       {jumbleReviewList?.length <=0? <JumbleTeamMessage />:
                       <Reviews
                       jumbleReviewList = {jumbleReviewList}
-                      jumble={jumble}
                       currentUser={currentUser}
                       handleDeleteReviewFromList = {handleDeleteReviewFromList}
                       /> }

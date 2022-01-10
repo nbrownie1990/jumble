@@ -29,6 +29,24 @@ public class ReviewController {
     }
 
     @PreAuthorize("hasRole('USER')")
+    @GetMapping(path = "user/{userId}")
+    public List<Review> getReviewListByUserId(@PathVariable("userId") Long userId) {
+        if (true) {
+            return reviewService.findReviewListByUserId(userId);
+        }
+        throw new ResourceNotFoundException("Reviews for this User not found...");
+    }
+
+    @PreAuthorize("hasRole('USER')")
+    @GetMapping(path = "jumble/{jumbleId}")
+    public List<Review> getReviewListByJumbleId(@PathVariable("jumbleId") Long jumbleId) {
+        if (true) {
+            return reviewService.findReviewListByJumbleId(jumbleId);
+        }
+        throw new ResourceNotFoundException("Reviews for this Jumble not found...");
+    }
+
+    @PreAuthorize("hasRole('USER')")
     @GetMapping(path = "{reviewId}")
     public ResponseEntity<Review> getReviewById(
             @PathVariable("reviewId") Long reviewId) {

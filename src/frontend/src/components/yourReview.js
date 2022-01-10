@@ -10,7 +10,6 @@ export default function YourReview({
     handleReviewInputChange,
     jumbleId,
     review,
-
 }){
     return (
             <form as="form" className="row">

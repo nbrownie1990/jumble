@@ -17,8 +17,8 @@ public interface ReviewRepository extends JpaRepository<Review, Long> {
     Optional<Review> getReviewByReviewId(Long reviewId);
 
     @Query("SELECT r FROM Review r WHERE r.user= ?1")
-    List<Review> findByUser(User user);
+    List<Review> findReviewListByUser(User user);
 
     @Query("SELECT r FROM Review r WHERE r.jumble= ?1")
-    List<Review> findByJumble(Jumble jumble);
+    List<Review> findReviewListByJumble(Jumble jumble);
 }

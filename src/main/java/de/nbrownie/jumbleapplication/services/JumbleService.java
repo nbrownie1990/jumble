@@ -1,7 +1,9 @@
 package de.nbrownie.jumbleapplication.services;
 
 import de.nbrownie.jumbleapplication.models.Address;
+import de.nbrownie.jumbleapplication.models.Category;
 import de.nbrownie.jumbleapplication.models.Jumble;
+import de.nbrownie.jumbleapplication.models.Review;
 import de.nbrownie.jumbleapplication.payload.request.CreateJumbleRequest;
 import de.nbrownie.jumbleapplication.payload.request.UpdateJumbleRequest;
 import de.nbrownie.jumbleapplication.repo.*;
@@ -40,6 +42,12 @@ public class JumbleService {
     public List<Jumble> getAllJumbles() {
         return jumbleRepository.findAll();
     }
+
+    public List<Jumble> findJumblesByCategoryId(Long categoryId) {
+        Category category = categoryRepository.getCategoryByCategoryId(categoryId).orElseThrow(() -> new EntityNotFoundException("Category not found"));
+        return jumbleRepository.findJumbleByCategory(category);
+    }
+
 
     public Jumble getJumbleById(Long jumbleId) {
         return jumbleRepository.getJumbleByJumbleId(jumbleId).orElseThrow(() -> new IllegalArgumentException("JumbleApplication not found"));

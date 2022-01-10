@@ -30,6 +30,14 @@ export const getAllJumbles = async () => {
         });
 }
 
+export const getJumblesByCategoryId = async (categoryId) => {
+    return await axios
+        .get(`${baseUrl}/jumbles/category/${categoryId}`)
+        .then(response => {
+            return response.data;
+        });
+}
+
 export const getJumbleById = (jumbleId) => {
     return axios
         .get(`${baseUrl}/jumbles/${jumbleId}`)
@@ -73,22 +81,14 @@ export const deleteJumble = async(jumbleId) => {
 }
 
 // --------------------------------- Address -------------------------------------------
-export const getAddressById = async (addressId) => {
-    return await axios
-        .get(`${baseUrl}/jumbles/addresses/${addressId}`)
-        .then(response => {
-            return response.data;
-        });
-}
+// export const getAddressById = async (addressId) => {
+//     return await axios
+//         .get(`${baseUrl}/jumbles/addresses/${addressId}`)
+//         .then(response => {
+//             return response.data;
+//         });
+// }
 
-
-export const updateJumbleAddress = async (jumbleId, addressId, address) => {
-    return await axios
-        .put(`${baseUrl}/jumbles/edit/${jumbleId}/${addressId}`, address)
-        .then(response => {
-            return response.data;
-        });
-}
 
 
 // --------------------------------- Reviews -------------------------------------------
@@ -101,27 +101,49 @@ export const getReviewById = async (reviewId) => {
         });
 }
 
-export const getReviewList = () =>
-  axios
-    .get(`/api/reviews/getall`)
-   // .then(checkStatus)
-    .then(response => response.data)
+export const getReviewList = async () =>{
+return await axios
+    .get(`${baseUrl}/reviews/getall`)
+    .then(response => {
+        return response.data;
+    });
+}
+
+export const getReviewListByUserId = async (userId) => {
+    return await axios
+        .get(`${baseUrl}/reviews/user/${userId}`)
+        .then(response => {
+            return response.data;
+        });
+}
+
+export const getReviewListByJumbleId = async (jumbleId) => {
+    return await axios
+        .get(`${baseUrl}/reviews/jumble/${jumbleId}`)
+        .then(response => {
+            return response.data;
+        });
+}
 
 
-export const addReview = (jumbleId, review) =>
-  axios
+
+export const addReview = async (jumbleId, review) =>{
+return await axios
     .post(
       `${baseUrl}/jumbles/edit/${jumbleId}/newreview`,
         review
     )
-    .then(response => response.data)
-
-
-export const deleteReview = (reviewId) =>
-  axios
-    .delete(`${baseUrl}/reviews/edit/delete/${reviewId}`)
-    .then(response => response.data)
-
+    .then(response => {
+        return response.data;
+    });
+}
+export const deleteReview = async (reviewId) => {
+    return await axios
+        .delete(`${baseUrl}/reviews/edit/delete/${reviewId}`)
+        .then(response => {
+            return response.data;
+        });
+}
 // --------------------------------- User -------------------------------------------
 
 export const getUserByUserName = async (username) => {

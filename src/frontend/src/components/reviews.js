@@ -4,7 +4,6 @@ import ReviewMessage from "./reviewMessage";
 import JumbleTeamMessage from "./jumbleTeamMessage";
 
 export default function Reviews({
-    jumble,
     currentUser,
     handleDeleteReviewFromList,
     jumbleReviewList
@@ -17,7 +16,6 @@ export default function Reviews({
                 jumbleReviewList={jumbleReviewList}
                 currentUser={currentUser}
                 handleDeleteReviewFromList = {handleDeleteReviewFromList}
-                jumble={jumble}
             />
           </div>}
             <JumbleTeamMessage />

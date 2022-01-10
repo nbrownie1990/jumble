@@ -3,7 +3,7 @@ import 'react-datepicker/dist/react-datepicker.css'
 import StarRating from "./starRating";
 import {Link} from "react-router-dom";
 
-const ReviewMessage = ({jumble, currentUser, jumbleReviewList, handleDeleteReviewFromList}) => {
+const ReviewMessage = ({currentUser, jumbleReviewList, handleDeleteReviewFromList}) => {
 
   return (
         <div className="chat w-100">
@@ -17,7 +17,7 @@ const ReviewMessage = ({jumble, currentUser, jumbleReviewList, handleDeleteRevie
                         className="btn"
                         data-toggle="tooltip"
                         title="Bewertung löschen"
-                        onClick={() => handleDeleteReviewFromList(reviewId, jumbleReviewList, jumble)}
+                        onClick={() => handleDeleteReviewFromList(reviewId)}
                     >
                       <i className="fas fa-times"></i>
                     </button>
