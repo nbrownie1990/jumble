@@ -41,6 +41,12 @@ Mit Jumble kannst du Informationen darüber erhalten, wo du dein Ausrangiertes i
 Auf der Startseite bekommst du den Überblick mithilfe einer Map, die die verschiedenen Orte ("Jumbles") in deiner Nähe anzeigt.
 Darunter z.B. Flohmärkte, Second-Hand-Shops, Kleider-Tausch-Partys, FoodSharing/Fairteiler, Kleiderspenden (DRK-Container & Online-Angebote).
 Du kannst dich bei Jumble einloggen, dein Profil einrichten, Jumbles nach Kategorien sortieren, erstellen und bewerten.
+
+Gif-Einfüge-Test 1	 
+![Demo](name-of-gif-file. gif) / ! [](name-of-gif-file. gif)
+
+Test 2
+![Demo JumbleApp](demo/demo.gif)	 
 	 
 ### Requirements to get the Project running on your machine
 - Java 16
@@ -144,14 +150,15 @@ docker-compose up -d --remove-orphans
 
 
 ### 📚 Was habe ich außerdem gelernt? 
-- ✔ Implementierung und Customizing von Bootstrap via Sass (auch kurz Styled Components ausprobiert)
-- ✔ Arbeiten mit Spring Boot und React, MapBox-Api, RESTful APIs, axios
-- ✔ Arbeiten mit relationalen Datenbanken, Cloud-Storage, Heroku
-- ✔ Git-Commits via tig (cli-tool)
-- ✔ Authorisierung & Authentifizierung
-- ✔ Nur einen Port nutzen, indem Frontend über den Static-Ordner von Spring Boot eingebunden wird
-- ✔ Ein Wireframe mit Figma erstellen und ein UML-Modell & ERM-Modell mit Miro
-
+- ✔ Die Implementierung und Customizing von Bootstrap via Sass (auch kurz Styled Components ausprobiert)
+- ✔ Das Arbeiten mit Spring Boot und React, MapBox-Api, RESTful APIs, Axios
+- ✔ Das Arbeiten mit relationalen Datenbanken, Cloud-Storage, Heroku
+- ✔ Wieviel Spaß Git-Commits via "tig (cli-tool)" machen
+- ✔ Was der Unterschied zwischen Authorisierung & Authentifizierung ist
+- ✔ Wie nur ein Port und ein jar-file für Frontend und Backend genutzt wird
+- ✔ Wie ein Wireframe mit Figma und ein UML-Modell & ERM-Modell mit Miro erstellt wird
+- ✔ Wie SourceMaps das Debuggen vereinfachen
+	 
 ### 📓  Reflexion 
 - Ein TDD-Projekt mit automatisierten Unit-Tests und Integration-Test wäre schöner
 - Es hätte eine strukturierte Versionierung über unterschiedliche Branches geben sollen, wie z.B.:
