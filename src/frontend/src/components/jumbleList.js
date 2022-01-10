@@ -27,7 +27,9 @@ const JumbleList = props => {
                     </p>
                 </div>
                 <div className="col-5 text-end">
-                 <StarRating />
+                 <StarRating
+                 className="m-auto"
+                 ratingValue="3"/>
                       <Link
                         to={`/jumbles/${item.jumbleId}`}
                         onClick={() => onItemSelected(item)}
