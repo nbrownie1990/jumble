@@ -1,4 +1,4 @@
-# Jumble - the right place for your stuff
+# 🌈 Capstone-Project: "Jumble - the right place for your stuff"
 
 ![MIT](https://img.shields.io/badge/license-MIT-blue.svg)
 
@@ -6,8 +6,7 @@
  <tr>
 <h2>Über das Projekt</h2>
 
-In vielen BootCamps-gibt es ein mehrwöchiges Abschlussprojekt, ein "digitales Gesellenstück", über das die erlangten Fähigkeiten in eigenen App erprobt und dargestellt werden können. Auch wenn ich autodidaktisch unterwegs bin, finde ich diese Herangehensweise klasse und habe mich daran orientiert.
-Über mein eigenes Capstone-Projekt möchte ich Erfahrungen in der Entwicklung einer Full-Stack-App sammeln. Speziell in den Bereichen Spring Boot, CI-CD-Pipelines, Container, CRUD-Operations und Arbeiten mit einer Datenbank. Gestartet habe ich im Oktober 2021 und die Idee von "Jumbles" entwickelt, ein Konzept erarbeitet, ein Wireframe mit dem Tool "Figma" erstellt und anschließend losgelegt und programmiert. Es kamen die Technologien zum Einsatz, die ich mir die letzten Monaten autodidaktisch angeigenet habe bzw. weiterhin aneigne.
+In vielen Coding-BootCamps gibt es ein mehrwöchiges Abschlussprojekt, ein "digitales Gesellenstück", über das die erlangten Fähigkeiten in eigenen App erprobt und dargestellt werden können. Auch wenn ich autodidaktisch unterwegs bin und kein Bootcamp besuche, finde ich diese Herangehensweise klasse und habe mich daran orientiert. Über mein eigenes Capstone-Projekt möchte ich Erfahrungen in der Entwicklung einer Full-Stack-App sammeln. Speziell in den Bereichen Spring Boot, CI-CD-Pipelines, Container, CRUD-Operations. Auch das Arbeiten mit einer SQL-Datenbank wollte ich vertiefen. Gestartet mit dem Projekt, habe ich im Oktober 2021 und die Idee von "Jumbles" entwickelt. Zuerst habe ich ein Konzept erarbeitet, ein Wireframe mit dem Tool "Figma" erstellt und anschließend direkt losgelegt und programmiert. Es kamen die Technologien zum Einsatz, die ich mir die letzten Monaten autodidaktisch angeigenet habe bzw. weiterhin aneigne.
 
 ### 👨🏽‍💻 Built with Tech Stack:
 
@@ -129,7 +128,7 @@ docker-compose up -d --remove-orphans
 - [x] User kann Jumbles, nach Kategorien sortiert, finden
 - [x] User kann eine Liste aller Jumbles einsehen
 
-### 🚀 To-Dos, offene Features & Ausblick
+### 📌 To-Dos, offene Features & Ausblick
 - Deployen, Docker Container, CI-CD-Pipeline (Github-Actions), Gif-Vorschau
 - [ ] Map-Component mit Datenbank verknüpfen, aktuell nur Mock-Daten
 - [ ] Testen, testen, testen
@@ -153,7 +152,7 @@ docker-compose up -d --remove-orphans
 - ✔ Nur einen Port nutzen, indem Frontend über den Static-Ordner von Spring Boot eingebunden wird
 - ✔ Ein Wireframe mit Figma erstellen und ein UML-Modell & ERM-Modell mit Miro
 
-### 📚 Reflexion 
+### 📓  Reflexion 
 - Ein TDD-Projekt mit automatisierten Unit-Tests und Integration-Test wäre schöner
 - Es hätte eine strukturierte Versionierung über unterschiedliche Branches geben sollen, wie z.B.:
 	 - main — Eine Darstellung der Codebasis, die derzeit in Produktion ist, deren Commits den gesamten Flow  durchlaufen und nach der Überprüfung nach der Veröffentlichung zusammengeführt werden.
