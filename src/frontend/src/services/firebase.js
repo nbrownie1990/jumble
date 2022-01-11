@@ -16,6 +16,17 @@ const firebaseConfig = {
     measurementId: "G-ZM5PM6L8RG"
 };
 
+// const firebaseConfig = {
+//     apiKey:`${process.env.FIREBASE_CONFIG_API}`,
+//     authDomain: `${process.env.FIREBASE_CONFIG_AUTH}`,
+//     databaseURL: `${process.env.FIREBASE_CONFIG_URL}`,
+//     projectId: `${process.env.FIREBASE_CONFIG_ID}`,
+//     storageBucket: `${process.env.FIREBASE_CONFIG_BUCKET}`,
+//     messagingSenderId: `${process.env.FIREBASE_CONFIG_SENDER_ID}`,
+//     appId: `${process.env.FIREBASE_CONFIG_APP_ID}`,
+//     measurementId: `${process.env.FIREBASE_CONFIG_MEASURE_ID}`
+// };
+
 
 // Initialize Firebase
 export const app = initializeApp(firebaseConfig);

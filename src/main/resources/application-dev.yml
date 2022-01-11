@@ -4,7 +4,6 @@
 #    application:
 #      name: jumbleapplication
 #    datasource:
-##      Heroku https://dashboard.heroku.com/apps/jumbles/deploy/heroku-git
 #      url: ${JDBC_DATABASE_URL}
 #      username: ${JDBC_DATABASE_USERNAME}tnvtqmfzoqlosy
 #      password: f6f0fc4e17a766691bb2401e9814b6f863187060b65f240c7f6274f33c118757
