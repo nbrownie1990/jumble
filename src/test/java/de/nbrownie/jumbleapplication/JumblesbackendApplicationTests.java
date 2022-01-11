@@ -9,7 +9,7 @@ class JumblesbackendApplicationTests {
 
 	@Test
 	void contextLoads() {
-		Assertions.fail("oops");
+		Assertions.fail("oops this doesnt work");
 	}
 
 }
