@@ -137,7 +137,7 @@ docker-compose up -d --remove-orphans
 ### 📌 To-Dos, offene Features & Ausblick
 - Deployen, Docker Container, CI-CD-Pipeline (Github-Actions), Gif-Vorschau
 - [ ] Map-Component mit Datenbank verknüpfen, aktuell nur Mock-Daten
-- [ ] Testen, testen, testen
+- [ ] Testen, testen, testen...
 - [ ] Datentypen verändern (z.B. Date, Datepicker etc.)
 - [ ] User kann Jumbles bewerten(Star-Rating) und kommentieren
 - [ ] User kann seine Bewertungen löschen
