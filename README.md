@@ -6,7 +6,7 @@
  <tr>
 <h2>Über das Projekt</h2>
 
-In vielen Coding-BootCamps gibt es ein mehrwöchiges Abschlussprojekt, ein "digitales Gesellenstück", über das die erlangten Fähigkeiten in eigenen App erprobt und dargestellt werden können. Auch wenn ich autodidaktisch unterwegs bin und kein Bootcamp besuche, finde ich diese Herangehensweise klasse und habe mich daran orientiert. Über mein eigenes Capstone-Projekt möchte ich Erfahrungen in der Entwicklung einer Full-Stack-App sammeln. Speziell in den Bereichen Spring Boot, CI-CD-Pipelines, Container, CRUD-Operations. Auch das Arbeiten mit einer SQL-Datenbank wollte ich vertiefen. Gestartet mit dem Projekt, habe ich im Oktober 2021 und die Idee von "Jumbles" entwickelt. Zuerst habe ich ein Konzept erarbeitet, ein Wireframe mit dem Tool "Figma" erstellt und anschließend direkt losgelegt und programmiert. Es kamen die Technologien zum Einsatz, die ich mir die letzten Monaten autodidaktisch angeigenet habe bzw. weiterhin aneigne.
+In vielen Coding-BootCamps gibt es ein mehrwöchiges Abschlussprojekt, ein "digitales Gesellenstück", über das die erlangten Fähigkeiten in eigenen App erprobt und dargestellt werden können. Auch wenn ich autodidaktisch unterwegs bin und kein Bootcamp besuche, finde ich diese Herangehensweise klasse und habe mich daran orientiert. Über mein eigenes Capstone-Projekt möchte ich Erfahrungen in der Entwicklung einer Full-Stack-App sammeln, speziell in den Bereichen Spring Boot, CI-CD-Pipelines, Container und CRUD-Operations. Auch das Arbeiten mit einer SQL-Datenbank möchte ich vertiefen. Gestartet mit dem Projekt, habe ich im Oktober 2021 und die Idee der "Jumbles"-Applikation entwickelt. Zuerst habe ich ein Konzept erarbeitet, ein Wireframe mit dem Tool "Figma" erstellt und anschließend direkt losgelegt und programmiert. Es kamen die Technologien zum Einsatz, die ich mir die letzten Monaten autodidaktisch angeigenet habe bzw. weiterhin aneigne.
 
 ### 👨🏽‍💻 Built with Tech Stack:
 
@@ -28,7 +28,7 @@ In vielen Coding-BootCamps gibt es ein mehrwöchiges Abschlussprojekt, ein "digi
 - [x] In diesem Projekt wurden ein Idee entwickelt, ein entsprechendes Wireframe, ERM-Modell und Use-Cases (s.u) erstellt.
 - [x] Das Projekt wird mit Git versioniert.
 - [x] Das Frontend und Backend laufen gemeinsam in einem jar-File (Spring Boot, UI via static-folder)
-- [x] Die lokale PostgreSQL-Datenbank läuft über ein Docker-Image, in Produktion über Heroku.
+- [x] Die PostgreSQL-Datenbank läuft lokal über ein Docker-Image, in Produktion über Heroku.
 - [x] Für User-Image-Uploads wird der Firebase-Storage verwendet
 - [x] Das Projekt beinhaltet Security-Features (Authentication via Local-Storage JWT)
 - [x] Das Projekt läuft über eine CI-CD-Pipeline via Github-Actions.
