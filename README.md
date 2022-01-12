@@ -156,11 +156,11 @@ docker-compose up -d --remove-orphans
 - [ ] User kann Jumbles auf der Cluster-Map finden
 - [ ] Validation(Jumbles, Login, Profile), Routing-Validation & Authorization(aktuell kann jeder alles bearbeiten)
 - [ ] Authorization: Admin kann Kategorien erstellen, User können nur selbst erstellte Jumbles bearbeiten...
-- [ ] UX/UI verbessern (Resize Image-Uploads,Responsivness, Sprache vereinheitlichen...)
+- [ ] UX/UI & Performance verbessern (Resize Image-Uploads,Responsivness, Sprache vereinheitlichen...)
 
 
 ### 📚 Was habe ich außerdem gelernt? 
-- ✔ Die Implementierung und Customizing von Bootstrap via Sass (auch kurz Styled Components ausprobiert)
+- ✔ Die Implementierung und Customizing von Bootstrap via Sass 
 - ✔ Das Arbeiten mit Spring Boot und React, MapBox-Api, RESTful APIs, Axios
 - ✔ Das Arbeiten mit relationalen Datenbanken, Cloud-Storage, Heroku
 - ✔ Wieviel Spaß Git-Commits via "tig (cli-tool)" machen
