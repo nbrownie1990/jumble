@@ -1,5 +1,4 @@
 import React, {useState} from 'react'
-import { Link } from 'react-router-dom'
 import DateField from './dateField'
 import TextField from './textField'
 import TextArea from './textArea'
@@ -102,7 +101,6 @@ export default function JumbleForm({
                   readOnly={false}
                 />
               </div>
-
 {/*TODO: implement Datepicker and configure Backend Date-Format: toLocalDateString()*/}
               <div className="col-11 m-2">
                 <label className="labels">Termin</label>
@@ -151,8 +149,6 @@ export default function JumbleForm({
                 className="btn btn-primary profile-button mb-5 mb-md-2 m-3"
                 type="button"
                 onClick={() => handleSaveNewJumble(jumble)}
-
-                  // onClick={() => handleSaveNewJumble(jumble, jumble.address)}
               >
                 <i className="fas fa-save"></i> Save Jumble
               </button>

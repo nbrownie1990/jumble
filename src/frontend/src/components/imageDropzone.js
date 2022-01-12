@@ -56,7 +56,7 @@ export default function ImageDropzone(
                             className="rounded-circle p-md-3 profile-img"
                             name="jumbleImage"
                             alt="2"
-                            src="https://images.unsplash.com/photo-1608479709386-98826dbb642b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80"
+                            src="https://firebasestorage.googleapis.com/v0/b/jumble-113b5.appspot.com/o/footer%2Fjumbleavatar.webp?alt=media&token=13f82459-302d-4850-b7ab-ff8a4a3ceec2"
                         />
                     ) :
                     !jumble.jumbleImage && url ?
@@ -90,7 +90,7 @@ export default function ImageDropzone(
                                 className="rounded-circle p-md-3 profile-img"
                                 name="userImage"
                                 alt="2"
-                                src="https://images.unsplash.com/photo-1585664811087-47f65abbad64?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80"
+                                src="https://firebasestorage.googleapis.com/v0/b/jumble-113b5.appspot.com/o/footer%2Fuseravatar.webp?alt=media&token=f9760d16-9cd6-46e9-9f20-38712da2f4ab"
                             />
                         ) :
                         !user.userImage && url ?
