@@ -19,7 +19,7 @@ In vielen Coding-BootCamps gibt es ein mehrwöchiges Abschlussprojekt, ein "digi
 - JUnit5, Mockito, H2-DB for Testing
 - Firebase-Storage for User-Images
 - MapBox-API
-- Ebenfalls verwendet: Postman, DBeaver, Mockaroo
+- Ebenfalls verwendet: Postman, DBeaver, Mockaroo, Docker Hub, GitHub Actions
 - <a href= "https://miro.com/app/board/uXjVOXKtP3w=/?invite_link_id=877146530729">ERM via Miro-Board </a>
 - <a href="https://www.figma.com/file/fFAz3ql0dams5Xqsq6an8L/Jumble-Mockup?node-id=33%3A444">Wireframe via Figma</a>
 
@@ -31,7 +31,10 @@ In vielen Coding-BootCamps gibt es ein mehrwöchiges Abschlussprojekt, ein "digi
 - [x] Die PostgreSQL-Datenbank läuft lokal über ein Docker-Image, in Produktion über Heroku.
 - [x] Für User-Image-Uploads wird der Firebase-Storage verwendet
 - [x] Das Projekt beinhaltet Security-Features (Authentication via Local-Storage JWT)
-- [x] Das Projekt läuft über eine CI-CD-Pipeline via Github-Actions.
+- [ ] Das Projekt läuft über eine CI-CD-Pipeline via Github-Actions.
+- [ ] Das Projekt verfügt über Unit- & Integration-Tests.
+- [ ] Das Projekt ist mit anderen Applikationen verknüpft (Mapbox, Slack).
+
 
 ## 🔥 Die App- "Jumble"
 
@@ -42,7 +45,7 @@ Auf der Startseite bekommst du den Überblick mithilfe einer Map, die die versch
 Darunter z.B. Flohmärkte, Second-Hand-Shops, Kleider-Tausch-Partys, FoodSharing/Fairteiler, Kleiderspenden (DRK-Container & Online-Angebote).
 Du kannst dich bei Jumble einloggen, dein Profil einrichten, Jumbles nach Kategorien sortieren, erstellen und bewerten.
 
-Gif-Einfüge-Test 1	 
+<!--Gif-Einfüge-Test 1	 
 ![Demo](name-of-gif-file. gif) / ! [](name-of-gif-file. gif)
 
 Test 2
@@ -62,7 +65,7 @@ git clone git@github.com:nbrownie1990/jumble.git
 2.start docker with postgreSQL database by:
 ```  
 docker-compose up -d --remove-orphans
-```  	 
+``` --> 	 
 
 .............
 	 
@@ -110,16 +113,23 @@ docker-compose up -d --remove-orphans
 
   | Endpoint                                                          | Secured | Roles                       |
   | ----------------------------------------------------------------- | ------- | --------------------------- |
-  | `GET /api/jumbles/getall`  (all)                                  | Yes     | `USER`.                     |
-  | `GET /api/jumbles/{jumbleId}` (one)                               | Yes     | `USER`                      |
+  | `GET /api/jumbles/getall`                                         | Yes     | `USER`.                     |
+  | `GET /api/jumbles/category/{categoryId}`                          | Yes     | `USER`.                     |
+  | `GET /api/jumbles/{jumbleId}`                                     | Yes     | `USER`                      |
   | `POST /api/jumbles/new`                                           | Yes     | `USER`                      |
   | `PUT /api/jumbles/edit/{jumbleId}`                                | Yes     | `OWNER`(todo)               |
   | `DELETE /api/jumbles/edit/{jumbleId}`                             | Yes     | `OWNER`(todo)               |
   | `POST /api/jumbles/{jumbleId}/{reviewId}`                         | Yes     | `USER`                      |
-  | `GET /api/categories`  (all Categories)                           | Yes     | `USER`                      |
-  | `GET /api/categories/{categoryId}` (one Category)                 | Yes     | `USER`                      |
+  | `GET /api/reviews/getall`.                                        | Yes     | `USER`                      |
+  | `GET /api/reviews/user/{userId}`.                                 | Yes     | `USER`                      |
+  | `GET /api/reviews/jumble/{jumbleId}`                              | Yes     | `USER`                      |
+  | `GET /api/reviews/{reviewId}`                                     | Yes     | `USER`                      |
+  | `POST /api/reviews/edit/new`.                                     | Yes     | `USER`                      |
+  | `DELETE /api/reviews/edit/delete/{reviewId}`                      | Yes     | `USER`                      |
+  | `GET /api/categories`                                             | Yes     | `USER`                      |
+  | `GET /api/categories/{categoryId}`                                | Yes     | `USER`                      |
   | `POST /api/user/signup`                                           | No      |                             |
-  | `POST /api/user/login `                                           | No      |                             |
+  | `POST /api/user/signin `                                          | No      |                             |
   | `GET /api/user/{userId}`                                          | Yes     | `OWNER`(todo)               |
   | `PUT /api/user/edit/{userId}`                                     | Yes     | `OWNER`(todo)               |
   | `DELETE /api/user/edit/{userId}`                                  | Yes     | `OWNER`(todo)               | 
@@ -135,12 +145,12 @@ docker-compose up -d --remove-orphans
 - [x] User kann eine Liste aller Jumbles einsehen
 
 ### 📌 To-Dos, offene Features & Ausblick
-- Deployen, Docker Container, CI-CD-Pipeline (Github-Actions), Gif-Vorschau
-- [ ] Map-Component mit Datenbank verknüpfen, aktuell nur Mock-Daten
+- Deployen, Gif-Vorschau
 - [ ] Testen, testen, testen...
+- [ ] CI-CD-Pipeline (Docker Hub, Github-Actions, Slack) zum laufen bekommen (build.yml, deploy.yml)
+- [ ] Map-Component mit Datenbank verknüpfen, aktuell nur Mock-Daten
 - [ ] Datentypen verändern (z.B. Date, Datepicker etc.)
-- [ ] User kann Jumbles bewerten(Star-Rating) und kommentieren
-- [ ] User kann seine Bewertungen löschen
+- [ ] User kann Jumbles bewerten(Star-Rating), kommentieren und seine Bewertungen wieder löschen
 - [ ] User kann Nutzernamen und Passwort ändern / Achtung Password-Hashing
 - [ ] User kann Jumbles über die Suchbar suchen
 - [ ] User kann Jumbles auf der Cluster-Map finden
@@ -161,6 +171,7 @@ docker-compose up -d --remove-orphans
 	 
 ### 📓  Reflexion 
 - Ein TDD-Projekt mit automatisierten Unit-Tests und Integration-Test wäre schöner
+- "development" und "production" klarer trennen
 - Es hätte eine strukturierte Versionierung über unterschiedliche Branches geben sollen, wie z.B.:
 	 - main — Eine Darstellung der Codebasis, die derzeit in Produktion ist, deren Commits den gesamten Flow  durchlaufen und nach der Überprüfung nach der Veröffentlichung zusammengeführt werden.
 	- develop — Alle Feature-Branches werden in dieser Branch zusammengeführt. Hier laufen automatisierte Tests und Releases für Entwicklungsressourcen über CI/CD-Pipelines.
