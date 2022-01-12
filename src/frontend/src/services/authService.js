@@ -19,7 +19,7 @@ setHeaders();
 ///////////////////
 export const signup = (username, email, password) => {
     return axios
-        .post(`/auth/signup` , {  //${baseUrl}?
+        .post(`${baseUrl}/auth/signup` , {
                 username,
                 email,
                 password
@@ -32,7 +32,7 @@ export const signup = (username, email, password) => {
 
 export const login = async (username, password) => {
     return await axios
-        .post(`/auth/signin`, { //${baseUrl}?
+        .post(`${baseUrl}/auth/signin`, {
             username,
             password
         }, {
