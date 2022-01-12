@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const baseUrlLocal = `http://localhost:8080/api`
+//const baseUrlLocal = `http://localhost:8080/api`  ${baseUrl}
 
 const baseUrl = `https://jumbles.herokuapp.com/api`
 
@@ -8,7 +8,7 @@ const baseUrl = `https://jumbles.herokuapp.com/api`
 
 export const getAllCategories = async () => {
     return await axios
-       .get(`${baseUrl}/categories/getall`)
+       .get(`/categories/getall`)
        .then(response => {
             return response.data;
         });
@@ -16,7 +16,7 @@ export const getAllCategories = async () => {
 
 export const getCategoryById = async (categoryId) => {
     return await axios
-        .get(`${baseUrl}/categories/${categoryId}`)
+        .get(`/categories/${categoryId}`)
         .then(response => {
             return response.data;
         });
@@ -26,7 +26,7 @@ export const getCategoryById = async (categoryId) => {
 
 export const getAllJumbles = async () => {
     return await axios
-        .get(`${baseUrl}/jumbles/getall`)
+        .get(`/jumbles/getall`)
         .then(response => {
             return response.data;
         });
@@ -34,7 +34,7 @@ export const getAllJumbles = async () => {
 
 export const getJumblesByCategoryId = async (categoryId) => {
     return await axios
-        .get(`${baseUrl}/jumbles/category/${categoryId}`)
+        .get(`/jumbles/category/${categoryId}`)
         .then(response => {
             return response.data;
         });
@@ -42,7 +42,7 @@ export const getJumblesByCategoryId = async (categoryId) => {
 
 export const getJumbleById = (jumbleId) => {
     return axios
-        .get(`${baseUrl}/jumbles/${jumbleId}`)
+        .get(`/jumbles/${jumbleId}`)
         .then(response => {
             return response.data;
         });
@@ -51,7 +51,7 @@ export const getJumbleById = (jumbleId) => {
 
 export const addNewJumble = async (jumble) => {
     return await axios
-        .post(`${baseUrl}/jumbles/new`, jumble,
+        .post(`/jumbles/new`, jumble,
             {
                 headers:{
                     'Access-Control-Allow-Origin': '*',
@@ -67,7 +67,7 @@ export const addNewJumble = async (jumble) => {
 
 export const updateJumble = async(jumbleId, jumble) => {
     return await axios
-        .put(`${baseUrl}/jumbles/edit/${jumbleId}`, jumble)
+        .put(`/jumbles/edit/${jumbleId}`, jumble)
         .then(response => {
             return response.data;
         });
@@ -76,7 +76,7 @@ export const updateJumble = async(jumbleId, jumble) => {
 
 export const deleteJumble = async(jumbleId) => {
     return await axios
-        .delete(`${baseUrl}/jumbles/edit/${jumbleId}/delete`)
+        .delete(`/jumbles/edit/${jumbleId}/delete`)
         .then(response => {
             return response.data;
         });
@@ -97,7 +97,7 @@ export const deleteJumble = async(jumbleId) => {
 
 export const getReviewById = async (reviewId) => {
     return await axios
-        .get(`${baseUrl}/reviews/${reviewId}`)
+        .get(`/reviews/${reviewId}`)
         .then(response => {
             return response.data;
         });
@@ -105,7 +105,7 @@ export const getReviewById = async (reviewId) => {
 
 export const getReviewList = async () =>{
 return await axios
-    .get(`${baseUrl}/reviews/getall`)
+    .get(`/reviews/getall`)
     .then(response => {
         return response.data;
     });
@@ -113,7 +113,7 @@ return await axios
 
 export const getReviewListByUserId = async (userId) => {
     return await axios
-        .get(`${baseUrl}/reviews/user/${userId}`)
+        .get(`/reviews/user/${userId}`)
         .then(response => {
             return response.data;
         });
@@ -121,7 +121,7 @@ export const getReviewListByUserId = async (userId) => {
 
 export const getReviewListByJumbleId = async (jumbleId) => {
     return await axios
-        .get(`${baseUrl}/reviews/jumble/${jumbleId}`)
+        .get(`/reviews/jumble/${jumbleId}`)
         .then(response => {
             return response.data;
         });
@@ -132,7 +132,7 @@ export const getReviewListByJumbleId = async (jumbleId) => {
 export const addReview = async (jumbleId, review) =>{
 return await axios
     .post(
-      `${baseUrl}/jumbles/edit/${jumbleId}/newreview`,
+      `/jumbles/edit/${jumbleId}/newreview`,
         review
     )
     .then(response => {
@@ -141,7 +141,7 @@ return await axios
 }
 export const deleteReview = async (reviewId) => {
     return await axios
-        .delete(`${baseUrl}/reviews/edit/delete/${reviewId}`)
+        .delete(`/reviews/edit/delete/${reviewId}`)
         .then(response => {
             return response.data;
         });
@@ -150,7 +150,7 @@ export const deleteReview = async (reviewId) => {
 
 export const getUserByUserName = async (username) => {
     return await axios
-        .get(`${baseUrl}/users/${username}`)
+        .get(`/users/${username}`)
         .then(response => {
             return response.data;
         });
@@ -158,7 +158,7 @@ export const getUserByUserName = async (username) => {
 
 export const getUserById = async (id) => {
     return await axios
-        .get(`${baseUrl}/users/${id}`)
+        .get(`/users/${id}`)
         .then(response => {
             return response.data;
         });
@@ -166,7 +166,7 @@ export const getUserById = async (id) => {
 
 export const updateUser = async (id, user) => {
     return await axios
-        .put(`${baseUrl}/users/edit/${id}`, user)
+        .put(`/users/edit/${id}`, user)
         .then(response => {
             return response.data;
         });
@@ -175,7 +175,7 @@ export const updateUser = async (id, user) => {
 
 export const deleteUser = async (id) => {
     return await axios
-        .delete(`${baseUrl}/users/edit/${id}/delete`)
+        .delete(`/users/edit/${id}/delete`)
         .then(response => {
             localStorage.removeItem("user");
             return response.data;
