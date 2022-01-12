@@ -32,11 +32,6 @@ public class CategoryController {
         return categoryService.getCategoryById(categoryId);
     }
 
-//   @GetMapping("/{id}")
-//   public ResponseEntity<Category> GetCategoryById(@PathVariable Long id) {
-//        CategoryEntity categoryEntity = CategoryService.GetCategoryById(id)
-//                .orElseThrow(() -> new ResourceNotFoundException("Category with this id:" + id + "not exist..."));
-//        return ResponseEntity.ok(categoryEntity);
-//    }
+
 }
     

@@ -65,23 +65,7 @@ public class JumbleController {
     public void addNewJumble(@RequestBody CreateJumbleRequest newJumble) {
         jumbleService.addNewJumble(newJumble);
     }
-    //   public void addNewJumble(@RequestBody CreateJumbleRequest newJumble, CreateAddressRequest newAddress)
-    //  {jumbleService.addNewJumble(newJumble, newAddress);}
 
-//oder: ///    @PreAuthorize("hasRole('USER')")
-//    @PostMapping(path = "new")
-//    public void addJumble(@RequestBody Jumble jumble){
-//        jumbleService.addNewJumble(jumble);
-//    }
-
-//oder: //  @PostMapping(value = "new", produces = APPLICATION_JSON_VALUE, consumes = APPLICATION_JSON_VALUE)
-//    public ResponseEntity<JumbleApi> addNewJumble(@RequestBody JumbleApi newJumble) {
-//            Jumble jumble = mapJumble(newJumble);
-//        Set<Review> reviewList = mapReviewListToEntity(newJumble.getReviewApiList());
-//        Jumble jumbleCreated = jumbleService.addNewJumbleWithReviewList(jumble, reviewList);
-//            return ok(mapJumble(jumbleCreated));
-//        }
-//
     @PreAuthorize("hasRole('USER')")
     @PutMapping(path = "edit/{jumbleId}")
     public void updateJumble(@PathVariable("jumbleId") Long jumbleId, @RequestBody UpdateJumbleRequest updateJumble){
@@ -94,11 +78,7 @@ public class JumbleController {
             @PathVariable Long jumbleId) {
         jumbleService.deleteJumble(jumbleId);
     }
-//    @DeleteMapping(value = "edit/delete/{jumbleId}", produces = APPLICATION_JSON_VALUE)
-//    public ResponseEntity<JumbleApi> deleteJumble(@PathVariable Long jumbleId) {
-//        Jumble deletedJumble = jumbleService.deleteJumble(jumbleId);
-//        return ok(mapJumble(deletedJumble));
-//    }
+
 
 /////////REVIEW SECTION////////
 

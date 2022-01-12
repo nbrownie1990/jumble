@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
-//@CrossOrigin(origins = "http://localhost:8080/", maxAge = 3600, allowedHeaders = "*")
 
 @CrossOrigin(origins = "*", maxAge = 3600, allowedHeaders = "*")
 @AllArgsConstructor
@@ -27,13 +26,6 @@ public class AddressController {
         return addressService.getAddressByAddressId(addressId);
     }
 
-//    @PreAuthorize("hasRole('USER')")
-//    @GetMapping(path = "{jumbleId}/{addressId}")
-//    public List<Address> getAddressByAddressIdAndJumbleId(
-//            @PathVariable Long jumbleId, @PathVariable Long addressId) {
-//        return addressService.getAddressByAddressIdAndJumbleId(jumbleId, addressId);
-//    }
-
     @PreAuthorize("hasRole('USER')")
     @PostMapping(path = "new/newaddress")
     public void addNewAddress(@RequestBody CreateAddressRequest newAddress){
@@ -41,27 +33,5 @@ public class AddressController {
     }
 }
 
-//    @GetMapping(value="address/find/{username}/{addressId}", produces = APPLICATION_JSON_VALUE)
-//    public ResponseEntity<AddressApi> getJumbleAddressById(@PathVariable Long jumbleId){
-//        Address address = addressService.findJumbleAddressById(addressId);
-//        if(!authUser.getUsername().equals(addressEntity.getUserEntity().getUsername())){
-//            throw new UnauthorizedUserException("User can only view own addresses");
-//        }
-//        return ok(mapAddress(addressEntity));
-//    }
 
-
-//    @DeleteMapping(path = "{addressId}")
-//    public void deleteAddress(
-//            @PathVariable("addressId") Long addressId) {
-//        addressService.deleteAddress(addressId);
-//    }
-
-//    @GetMapping("/{id}")
-//    public ResponseEntity<de.nbrownie.jumbleapplication.models.Jumble> GetJumbleById(@PathVariable Long id) {
-//        de.nbrownie.jumbleapplication.models.Jumble jumble = jumbleRepository.findById(id)
-//                .orElseThrow(() -> new ResourceNotFoundException("JumbleApplication with this id:" + id + "not exist..."));
-//        return ResponseEntity.ok(jumble);
-//    }
-//
 
