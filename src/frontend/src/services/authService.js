@@ -1,5 +1,6 @@
 import axios from "axios";
-const baseUrl = `http://localhost:8080/api`
+//const baseUrlLocal = `http://localhost:8080/api`
+const baseUrl = `https://jumbles.herokuapp.com/api`
 
 
 export default function setHeaders() {
@@ -18,7 +19,7 @@ setHeaders();
 ///////////////////
 export const signup = (username, email, password) => {
     return axios
-        .post(`${baseUrl}/auth/signup` , {
+        .post(`/auth/signup` , {  //${baseUrl}?
                 username,
                 email,
                 password
@@ -31,7 +32,7 @@ export const signup = (username, email, password) => {
 
 export const login = async (username, password) => {
     return await axios
-        .post(`${baseUrl}/auth/signin`, {
+        .post(`/auth/signin`, { //${baseUrl}?
             username,
             password
         }, {
