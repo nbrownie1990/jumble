@@ -382,8 +382,8 @@
 							</execution>
 						</executions>
 					</plugin>
-								<plugin>
-										<groupId>org.springframework.boot</groupId>
+					<plugin>
+							<groupId>org.springframework.boot</groupId>
 										<artifactId>spring-boot-maven-plugin</artifactId>
 									</plugin>
 									<plugin>
@@ -409,7 +409,7 @@
 									<source>1.8</source>
 									<target>1.8</target>
 								</configuration>
-							</plugin>
+					</plugin>
 				</plugins>
 			</build>
 		</profile>
