@@ -1,6 +1,8 @@
 import axios from 'axios';
 
-const baseUrl = `http://localhost:8080/api`
+const baseUrlLocal = `http://localhost:8080/api`
+
+const baseUrl = `https://jumbles.herokuapp.com/api`
 
 // --------------------------------- Category -------------------------------------------
 
