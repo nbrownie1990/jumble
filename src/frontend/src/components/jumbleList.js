@@ -26,10 +26,12 @@ const JumbleList = props => {
                          {item.address?.addressCity}{' '}
                     </p>
                 </div>
-                <div className="col-5 text-end">
+                <div className="col-5 text-end d-none d-sm-block">
                  <StarRating
-                 className="m-auto d-none d-sm-block"
+                 className="m-auto"
                  ratingValue="3"/>
+                </div>
+                     <div className="text-end">
                       <Link
                         to={`/jumbles/${item.jumbleId}`}
                         onClick={() => onItemSelected(item)}
@@ -37,7 +39,20 @@ const JumbleList = props => {
                       >
                         Details
                       </Link>
-              </div>
+                     </div>
+
+                     {/*<div className="col-5 text-end d-none d-sm-block">*/}
+                     {/*    <StarRating*/}
+                     {/*        className="m-auto"*/}
+                     {/*        ratingValue="3"/>*/}
+                     {/*    <Link*/}
+                     {/*        to={`/jumbles/${item.jumbleId}`}*/}
+                     {/*        onClick={() => onItemSelected(item)}*/}
+                     {/*        className="btn btn-primary mt-auto"*/}
+                     {/*    >*/}
+                     {/*        Details*/}
+                     {/*    </Link>*/}
+                     {/*</div>*/}
             </div>
           </div>
         </div>
