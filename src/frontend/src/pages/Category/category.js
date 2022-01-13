@@ -51,7 +51,7 @@ export default function Category() {
                                    </div>
                            </div>
                            </div>
-                         <div className="heading"><h1>Category: {category.categoryName} </h1>
+                         <div className="heading mt-4"><h1>Category: {category.categoryName} </h1>
                           { jumbles.length === 0 ? <p className="m-2">There are no jumbles for this category in the database. <br/><a href={'/jumbles/new'} className="text-white">Add a Jumble!</a></p>
                              : <p className="m-2"> Showing {jumbles.length} Jumbles in the database.</p> }
                          <Link

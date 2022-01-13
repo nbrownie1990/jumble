@@ -12,8 +12,8 @@ const JumbleList = props => {
                  <div className="card-body">
                      <div className="row g-0">
                          <div className="col-sm-6 col-md-8">
-                         <div className="align-items-center d-none d-sm-block">
-                         <img src={item.jumbleImage} className="img-fluid rounded-start" alt="This is a jumble image" />
+                         <div className="d-none d-sm-block">
+                         <img src={item.jumbleImage} className="img-fluid rounded-start w-50" alt="This is a jumble image" />
                          </div>
                          <h5 className="text-primary text-start align-self-start mb-0">
                             {item.jumbleName}
