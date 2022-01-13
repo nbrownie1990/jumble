@@ -12,9 +12,9 @@ const JumbleList = props => {
                  <div className="card-body">
                      <div className="row g-0">
                          <div className="col-sm-6 col-md-8">
-                         {/*<div className="col-3 d-flex align-items-center d-none d-sm-block">*/}
+                         <div className="align-items-center d-none d-sm-block">
                          <img src={item.jumbleImage} className="img-fluid rounded-start" alt="This is a jumble image" />
-                      <div className="col-4 p-0">
+                         </div>
                          <h5 className="text-primary text-start align-self-start mb-0">
                             {item.jumbleName}
                          </h5>
@@ -28,11 +28,11 @@ const JumbleList = props => {
                 </div>
 
                              <div className="col-6 col-md-4">
-                             <div className="col-5 text-end d-none d-sm-block">
-                             <StarRating
+                                 <div className="col-6 col-md-4 d-none d-sm-block">
+                                 <StarRating
                                  className="m-auto"
                                  ratingValue="3"/>
-                         </div>
+                                 </div>
                              <div className="text-end">
                                  <Link
                                      to={`/jumbles/${item.jumbleId}`}
@@ -44,19 +44,6 @@ const JumbleList = props => {
                              </div>
                              </div>
                      </div>
-                     {/*<div className="col-5 text-end d-none d-sm-block">*/}
-                     {/*    <StarRating*/}
-                     {/*        className="m-auto"*/}
-                     {/*        ratingValue="3"/>*/}
-                     {/*    <Link*/}
-                     {/*        to={`/jumbles/${item.jumbleId}`}*/}
-                     {/*        onClick={() => onItemSelected(item)}*/}
-                     {/*        className="btn btn-primary mt-auto"*/}
-                     {/*    >*/}
-                     {/*        Details*/}
-                     {/*    </Link>*/}
-                     {/*</div>*/}
-            </div>
            </div>
         </div>
       ))}
