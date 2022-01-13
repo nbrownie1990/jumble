@@ -8,19 +8,19 @@ const JumbleList = props => {
   return (
       <div className="container">
           {items.map(item => (
-              <div key={item.jumbleId} className="card mb-3" style="max-width: 540px;">
+              <div key={item.jumbleId} className="card mb-3">
           <div className="row no-gutters">
               <div className="col-md-4">
-                      <img src={item.jumbleImage} className="card-img" alt="This is a jumble image" />
+               <img src={item.jumbleImage} className="card-img" alt="This is a jumble image" />
               </div>
               <div className="col-md-8">
                   <div className="card-body">
+                      <h5 className="card-title">{item.jumbleName}</h5>
                       <div className="d-none d-sm-block">
                           <StarRating
                               className="m-auto"
                               ratingValue="3"/>
                       </div>
-                      <h5 className="card-title">{item.jumbleName}</h5>
                       <p className="card-text" key={item.address?.addressId}>
                           {item.address?.addressStreet} {' '}
                           {item.address?.addressNumber}
@@ -41,7 +41,12 @@ const JumbleList = props => {
               </div>
           </div>
       </div>
+          ))}
+      </div>
+  )
+}
 
+export default JumbleList
         //
         //      <div className="container">
         //          {items.map(item => (
@@ -82,12 +87,7 @@ const JumbleList = props => {
         //              </div>
         //    </div>
         // </div>
-      ))}
-    </div>
-  )
-}
 
-export default JumbleList
 
 // const JumbleList = props => {
 //   const { jumbles, onJumbleSelect } = props
