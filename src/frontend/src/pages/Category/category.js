@@ -56,7 +56,7 @@ export default function Category() {
                              : <p className="m-2"> Showing {jumbles.length} Jumbles in the database.</p> }
                          <Link
                              to={`/jumbles/getall`}
-                             className="btn btn-primary"
+                             className="btn btn-primary mb-2"
                              type="button"
                              data-toggle="tooltip"
                              title="Get All Jumbles"
