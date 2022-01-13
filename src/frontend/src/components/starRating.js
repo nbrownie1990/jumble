@@ -13,6 +13,7 @@ tooltipArray,
         <div>
             <Rating
                 initialValue="0"
+                size="2rem"
                 ratingValue={ratingValue}
                 onClick={onClick}
                 tooltipArray={tooltipArray}

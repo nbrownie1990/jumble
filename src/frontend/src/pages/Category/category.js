@@ -37,7 +37,7 @@ export default function Category() {
                      <div className="p-0 text-center">
                          { error && <p>There was an error loading your data!</p> }
                          <div key={category.categoryId} className="d-flex justify-content-center" >
-                               <div className="card w-50 mb-5">
+                               <div className="card m-2">
                                    <img
                                        className="card-img-top"
                                        src={category.categoryImage}

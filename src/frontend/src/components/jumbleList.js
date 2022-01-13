@@ -11,7 +11,7 @@ const JumbleList = props => {
                  <div key={item.jumbleId} className="card m-2">
                  <div className="card-body">
                  <div className="row">
-                     <div className="col-3 d-flex align-items-center">
+                     <div className="col-3 d-flex align-items-center d-none d-sm-block">
                          <img src={item.jumbleImage} className="img-fluid rounded-start" alt="This is a jumble image" />
                      </div>
                       <div className="col-4 p-0">
@@ -28,7 +28,7 @@ const JumbleList = props => {
                 </div>
                 <div className="col-5 text-end">
                  <StarRating
-                 className="m-auto"
+                 className="m-auto d-none d-sm-block"
                  ratingValue="3"/>
                       <Link
                         to={`/jumbles/${item.jumbleId}`}
