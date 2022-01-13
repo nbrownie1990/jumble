@@ -10,10 +10,10 @@ const JumbleList = props => {
                  {items.map(item => (
                  <div key={item.jumbleId} className="card m-2">
                  <div className="card-body">
-                 <div className="row">
-                     <div className="col-3 d-flex align-items-center d-none d-sm-block">
+                     <div className="row g-0">
+                         <div className="col-sm-6 col-md-8">
+                         {/*<div className="col-3 d-flex align-items-center d-none d-sm-block">*/}
                          <img src={item.jumbleImage} className="img-fluid rounded-start" alt="This is a jumble image" />
-                     </div>
                       <div className="col-4 p-0">
                          <h5 className="text-primary text-start align-self-start mb-0">
                             {item.jumbleName}
@@ -26,21 +26,24 @@ const JumbleList = props => {
                          {item.address?.addressCity}{' '}
                     </p>
                 </div>
-                <div className="col-5 text-end d-none d-sm-block">
-                 <StarRating
-                 className="m-auto"
-                 ratingValue="3"/>
-                </div>
-                     <div className="text-end">
-                      <Link
-                        to={`/jumbles/${item.jumbleId}`}
-                        onClick={() => onItemSelected(item)}
-                        className="btn btn-primary mt-auto"
-                      >
-                        Details
-                      </Link>
-                     </div>
 
+                             <div className="col-6 col-md-4">
+                             <div className="col-5 text-end d-none d-sm-block">
+                             <StarRating
+                                 className="m-auto"
+                                 ratingValue="3"/>
+                         </div>
+                             <div className="text-end">
+                                 <Link
+                                     to={`/jumbles/${item.jumbleId}`}
+                                     onClick={() => onItemSelected(item)}
+                                     className="btn btn-primary mt-auto"
+                                 >
+                                     Details
+                                 </Link>
+                             </div>
+                             </div>
+                     </div>
                      {/*<div className="col-5 text-end d-none d-sm-block">*/}
                      {/*    <StarRating*/}
                      {/*        className="m-auto"*/}
@@ -54,7 +57,7 @@ const JumbleList = props => {
                      {/*    </Link>*/}
                      {/*</div>*/}
             </div>
-          </div>
+           </div>
         </div>
       ))}
     </div>
