@@ -4,28 +4,29 @@ import {Route, Routes} from 'react-router-dom'
 
 // -- Custom Components
 import Start from './pages/Start/start'
-import Home from './pages/Home/home'
-import Jumble from './pages/Jumble/jumble'
-import EditJumble from './pages/Jumble/editJumble'
-import AddJumble from './pages/Jumble/addJumble'
-import EditProfile from './pages/Profile/editProfile'
-
-import Category from './pages/Category/category'
-import Categories from './pages/Categories/categories'
-import AllJumbles from "./pages/Jumble/allJumbles"
-import Forgot from './pages/Login/forgot'
-import Reset from './pages/Login/reset'
-import Profile from './pages/Profile/profile'
-import Logout from './pages/Logout/logout'
-import Signup from './pages/SignUp/signup'
-import Impressum from './pages/Impressum/impressum'
-import Footer from './components/footer'
-import MyProfile from "./pages/Profile/myProfile"
 import NotFound from './pages/Not/notFound'
 import NotAllowed from "./pages/Not/notAllowed"
 import Login from "./pages/Login/login"
 import {getCurrentUser} from "./services/authService"
 import ProtectedRoutes from "./auth/ProtectedRoutes";
+import Forgot from './pages/Login/forgot'
+import Reset from './pages/Login/reset'
+import Logout from './pages/Logout/logout'
+import Signup from './pages/SignUp/signup'
+import Impressum from './pages/Impressum/impressum'
+import Footer from './components/footer'
+
+import Home from './pages/Home/home'
+import Jumble from './pages/Jumble/jumble'
+import EditJumble from './pages/Jumble/editJumble'
+import AddJumble from './pages/Jumble/addJumble'
+import EditProfile from './pages/Profile/editProfile'
+import Category from './pages/Category/category'
+import Categories from './pages/Categories/categories'
+import AllJumbles from "./pages/Jumble/allJumbles"
+import Profile from './pages/Profile/profile'
+import MyProfile from "./pages/Profile/myProfile"
+
 
 // -- Component Styles
 import './assets/css/style.css'
