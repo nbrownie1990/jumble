@@ -7,6 +7,8 @@
 <h2>Über das Projekt</h2>
 
 In vielen Coding-BootCamps gibt es ein mehrwöchiges Abschlussprojekt, ein "digitales Gesellenstück", über das die erlangten Fähigkeiten in eigenen App erprobt und dargestellt werden können. Auch wenn ich autodidaktisch unterwegs bin und kein Bootcamp besuche, finde ich diese Herangehensweise klasse und habe mich daran orientiert. Über mein eigenes Capstone-Projekt möchte ich Erfahrungen in der Entwicklung einer Full-Stack-App sammeln, speziell in den Bereichen Spring Boot, CI-CD-Pipelines, Container und CRUD-Operations. Auch das Arbeiten mit einer SQL-Datenbank möchte ich vertiefen. Gestartet mit dem Projekt, habe ich im Oktober 2021 und die Idee der "Jumbles"-Applikation entwickelt. Zuerst habe ich ein Konzept erarbeitet, ein Wireframe mit dem Tool "Figma" erstellt und anschließend direkt losgelegt und programmiert. Es kamen die Technologien zum Einsatz, die ich mir die letzten Monaten autodidaktisch angeigenet habe bzw. weiterhin aneigne.
+	 
+Aktuell gibt es noch einiges zu tun (Test schreiben, Performance verbessern, Post-& Delete-Review, Map-Component, Search-Bar...), trotzdem geht es <a href="https://jumbles.herokuapp.com/">hier</a> zur App. 
 
 ### 👨🏽‍💻 Built with Tech Stack:
 
@@ -43,7 +45,7 @@ Mit Jumble kannst du Informationen darüber erhalten, wo du dein Ausrangiertes i
 
 Auf der Startseite bekommst du den Überblick mithilfe einer Map, die die verschiedenen Orte ("Jumbles") in deiner Nähe anzeigt.
 Darunter z.B. Flohmärkte, Second-Hand-Shops, Kleider-Tausch-Partys, FoodSharing/Fairteiler, Kleiderspenden (DRK-Container & Online-Angebote).
-Du kannst dich bei Jumble einloggen, dein Profil einrichten, Jumbles nach Kategorien sortieren, erstellen und bewerten.
+Du kannst dich bei Jumble einloggen, dein Profil einrichten, Jumbles nach Kategorien sortieren, erstellen und bewerten. 
 
 <!--Gif-Einfüge-Test 1	 
 ![Demo](name-of-gif-file. gif) / ! [](name-of-gif-file. gif)
@@ -145,7 +147,6 @@ docker-compose up -d --remove-orphans
 - [x] User kann eine Liste aller Jumbles einsehen
 
 ### 📌 To-Dos, offene Features & Ausblick
-- Deployen, Gif-Vorschau
 - [ ] Testen, testen, testen...
 - [ ] CI-CD-Pipeline (Docker Hub, Github-Actions, Slack) zum laufen bekommen (build.yml, deploy.yml)
 - [ ] Map-Component mit Datenbank verknüpfen, aktuell nur Mock-Daten
