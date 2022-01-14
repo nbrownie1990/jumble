@@ -45,6 +45,7 @@ readOnly,
                   <label className="labels">E-Mail:</label>
                   <TextField
                       title="Email"
+                      title="Email-Addresse"
                       disabled={readOnly}
                       name="email"
                       type="text"
@@ -60,6 +61,7 @@ readOnly,
                   <label className="labels text-warning">Hier entsteht noch die Möglichkeit ein Passwort zu ändern:</label>
                   <TextField
                       title="Passwort"
+                      placeholder="Passwort"
                       name="password"
                       type="password"
                       value={user.password}
@@ -78,6 +80,7 @@ readOnly,
                   <TextArea
                       rows="10"
                       disabled={readOnly}
+                      placeholder="Erzähl uns in ein paar Sätzen etwas von dir"
                       title="Erzähl uns etwas von dir"
                       name="userText"
                       type="text"

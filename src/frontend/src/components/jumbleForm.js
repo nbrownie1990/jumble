@@ -71,6 +71,7 @@ export default function JumbleForm({
                 <label className="labels">Jumble-Name</label>
                 <TextField
                   name="jumbleName"
+                  placeholder="Name des Jumbles"
                   title="Name"
                   type="text"
                   value={jumble.jumbleName}
@@ -106,6 +107,7 @@ export default function JumbleForm({
                 <label className="labels">Termin</label>
                 <DateField
                   name="jumbleDate"
+                  placeholder="z.B. jeden Sonntag oder 01.04.22"
                   title="Termin"
                   type="text"
                   value={jumble.jumbleDate}
@@ -120,7 +122,8 @@ export default function JumbleForm({
                 <label className="labels">Öffnungszeiten</label>
                 <TextField
                   name="jumbleTime"
-                  title=" z.B. 9-16 Uhr"
+                  placeholder="z.B. 9-16 Uhr"
+                  title="z.B. 9-16 Uhr"
                   type="text"
                   value={jumble.jumbleTime}
                   onChange={handleJumbleInputChange}
@@ -134,6 +137,7 @@ export default function JumbleForm({
                 <label className="labels"> Website</label>
                 <TextField
                   name="jumbleWebsite"
+                  placeholder="Jumble-Website"
                   title="Website"
                   type="text"
                   value={jumble.jumbleWebsite}
