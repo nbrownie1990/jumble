@@ -4,6 +4,10 @@ import {Route, Routes} from 'react-router-dom'
 // -- Component Styles
 import './assets/css/style.css'
 
+// -- Component Styles
+import './assets/css/style.css'
+
+
 // -- Custom Components
 import Start from './pages/Start/start'
 import NotFound from './pages/Not/notFound'
@@ -42,9 +46,6 @@ const EditProfile = React.lazy(() => import("./pages/Profile/editProfile"));
 const Category = React.lazy(() => import("./pages/Category/category"));
 const Categories = React.lazy(() => import("./pages/Categories/categories"));
 
-
-// -- Component Styles
-import './assets/css/style.css'
 
 function App() {
     const [currentUser, setCurrentUser] = useState(undefined);
