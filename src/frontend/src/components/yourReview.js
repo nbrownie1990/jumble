@@ -17,7 +17,7 @@ export default function YourReview({
       <h5>Bewerte diesen Jumble:</h5>
                    <StarRating
                        name="reviewRating"
-                       ratingValue={ratingValue}
+                       ratingValue={review.reviewRating}
                        readonly={ratingValue > 0}
                        onClick={() => handleNewRating(ratingValue)}
                    />
