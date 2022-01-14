@@ -89,12 +89,6 @@ public class JumbleController {
         reviewService.addReviewList(jumbleId, reviewList);
     }
 
-    // Add a jumble-review
-    @PreAuthorize("hasRole('USER')")
-    @PostMapping(path = "edit/{jumbleId}/newreview")
-    public void addReviewToList(@PathVariable("jumbleId") Long jumbleId, @RequestBody Review newReview){
-        reviewService.addReviewToList(jumbleId, newReview);
-    }
 
 //    @DeleteMapping(path = "edit/{jumbleId}/delete/{reviewId}")
 //    public void deleteReview(@PathVariable Long jumbleId, @PathVariable Long reviewId)  {

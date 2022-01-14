@@ -55,17 +55,16 @@ public class ReviewController {
     }
 
     @PreAuthorize("hasRole('USER')")
+    @PostMapping(path = "edit/{jumbleId}/newreview")
+    public void addReviewToList(@PathVariable("jumbleId") Long jumbleId, @RequestBody Review newReview){
+        reviewService.addReviewToList(jumbleId, newReview);
+    }
+
+    @PreAuthorize("hasRole('USER')")
     @DeleteMapping(path = "edit/delete/{reviewId}")
     public void deleteReview(@PathVariable Long reviewId) {
         reviewService.deleteReview(reviewId);
     }
 
-
-//   @GetMapping("/{id}")
-//   public ResponseEntity<Category> GetCategoryById(@PathVariable Long id) {
-//        CategoryEntity categoryEntity = CategoryService.GetCategoryById(id)
-//                .orElseThrow(() -> new ResourceNotFoundException("Category with this id:" + id + "not exist..."));
-//        return ResponseEntity.ok(categoryEntity);
-//    }
 }
     

@@ -17,15 +17,20 @@ export default function YourReview({
       <h5>Bewerte diesen Jumble:</h5>
                    <StarRating
                        name="reviewRating"
+                       value={review.reviewRating}
                        ratingValue={ratingValue}
                        readonly={ratingValue > 0}
                        onClick={() => handleNewRating(ratingValue)}
                    />
      <TextArea
       className="form-control rounded-3"
-       rows="5"
+      rows="5"
       title="Wie sind deine Erfahrungen mit diesem Jumble?"
-       name="reviewText"
+      placeholder="Wie sind deine Erfahrungen mit diesem Jumble?"
+      name="reviewText"
+      type="text"
+      disabled={readOnly}
+      value={review.reviewText}
       onChange={handleReviewInputChange}
        />
         </div>

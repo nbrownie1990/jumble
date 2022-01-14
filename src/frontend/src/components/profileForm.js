@@ -45,7 +45,7 @@ readOnly,
                   <label className="labels">E-Mail:</label>
                   <TextField
                       title="Email"
-                      title="Email-Addresse"
+                      placeholder="Email-Addresse"
                       disabled={readOnly}
                       name="email"
                       type="text"

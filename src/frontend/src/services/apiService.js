@@ -132,7 +132,7 @@ export const getReviewListByJumbleId = async (jumbleId) => {
 export const addReview = async (jumbleId, review) =>{
 return await axios
     .post(
-      `${baseUrl}/jumbles/edit/${jumbleId}/newreview`,
+      `${baseUrl}/reviews/edit/${jumbleId}/newreview`,
         review
     )
     .then(response => {
