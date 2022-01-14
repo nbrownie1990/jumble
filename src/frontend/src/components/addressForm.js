@@ -11,6 +11,7 @@ export default function AddressForm({
     <>
       <TextField
         name="addressStreet"
+        placeholder="Straße"
         type="text"
         value={jumble.address?.addressStreet}
         onChange={handleJumbleInputChange}
@@ -19,6 +20,7 @@ export default function AddressForm({
       />
       <TextField
         name="addressNumber"
+        placeholder="Hausnummer"
         type="text"
         value={jumble.address?.addressNumber}
         onChange={handleJumbleInputChange}
@@ -31,6 +33,7 @@ export default function AddressForm({
         value={jumble.address?.addressZip}
         onChange={handleJumbleInputChange}
         title="Postleitzahl"
+        placeholder="Postleitzahl"
         disabled={readOnly}
       />
       <TextField
@@ -39,6 +42,7 @@ export default function AddressForm({
         value={jumble.address?.addressCity}
         onChange={handleJumbleInputChange}
         title="Stadt"
+        placeholder="Stadt"
         disabled={readOnly}
       />
       <TextField
@@ -47,6 +51,7 @@ export default function AddressForm({
         value={jumble.address?.addressCountry}
         onChange={handleJumbleInputChange}
         title="Land"
+        placeholder="Land"
         disabled={readOnly}
       />
     </>

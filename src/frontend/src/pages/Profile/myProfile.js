@@ -40,7 +40,7 @@ const MyProfile = () => {
                       :
                       <img
                           className="rounded-circle user-img "
-                          src="https://images.unsplash.com/photo-1608155686393-8fdd966d784d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
+                          src="https://firebasestorage.googleapis.com/v0/b/jumble-113b5.appspot.com/o/footer%2Fuseravatar.webp?alt=media&token=f9760d16-9cd6-46e9-9f20-38712da2f4ab"
                           alt="This is my pretty Profile"
                       />
                   }
