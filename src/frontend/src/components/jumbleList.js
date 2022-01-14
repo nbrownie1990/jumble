@@ -11,7 +11,7 @@ const JumbleList = props => {
               <div key={item.jumbleId} className="card mb-3">
           <div className="row no-gutters">
               <div className="col-md-4 align-self-center">
-               <img src={item.jumbleImage} className="card-img" alt="This is a jumble image" />
+               <img src={item.jumbleImage} className="card-img" alt="This is a jumble-place" />
               </div>
               <div className="col-md-8">
                   <div className="card-body">

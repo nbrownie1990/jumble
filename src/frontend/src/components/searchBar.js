@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function SearchBar({}) {
+export default function SearchBar() {
   return (
     <form className="d-flex m-3">
       <input

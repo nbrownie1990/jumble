@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react'
-import {useNavigate, useParams} from "react-router";
+import {useParams} from "react-router";
 import { Link } from 'react-router-dom'
 import {
   deleteReview,
@@ -15,7 +15,6 @@ import YourReview from "../../components/yourReview";
 import Error from "../../components/error";
 
 export default function Jumble() {
-  const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState();
   const [jumble, setJumble] = useState([]);

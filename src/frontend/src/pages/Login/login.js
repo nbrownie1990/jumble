@@ -10,7 +10,6 @@ const Login = (props) => {
   }
   const navigate = useNavigate()
   const [message, setMessage] = useState("");
-  const [successful, setSuccessful] = useState(false);
   const [formValue, setFormValue] = useState(initialLoginState)
   const [formError, setFormError] = useState({})
   const [isSubmit, setIsSubmit] = useState(false)

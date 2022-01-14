@@ -2,9 +2,6 @@
 import React, {useEffect, useState} from 'react'
 import {Route, Routes} from 'react-router-dom'
 
-// -- Third Party Libs
-import 'aos/dist/aos.css'
-
 // -- Custom Components
 import Start from './pages/Start/start'
 import Home from './pages/Home/home'
