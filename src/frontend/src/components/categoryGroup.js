@@ -12,7 +12,7 @@ const CategoryGroup = props => {
             <img
               className="card-img-top"
               src={item.categoryImage}
-              alt="..."
+              alt="This is the category, uploaded by the admin"
             />
             <div className="card-body p-4">
               <div className="text-center">

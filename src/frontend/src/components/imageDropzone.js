@@ -46,7 +46,7 @@ export default function ImageDropzone(
                     ( <img
                             className="rounded-circle p-md-3 profile-img"
                             name="jumbleImage"
-                            alt="1"
+                            alt="This is the jumble, uploaded by the user"
                             src={url.toString()}
                         />
                     )
@@ -55,7 +55,7 @@ export default function ImageDropzone(
                     ( <img
                             className="rounded-circle p-md-3 profile-img"
                             name="jumbleImage"
-                            alt="2"
+                            alt="This is the jumble, uploaded by the user"
                             src="https://firebasestorage.googleapis.com/v0/b/jumble-113b5.appspot.com/o/footer%2Fjumbleavatar.webp?alt=media&token=13f82459-302d-4850-b7ab-ff8a4a3ceec2"
                         />
                     ) :
@@ -63,14 +63,14 @@ export default function ImageDropzone(
                         (<img
                                 className="rounded-circle p-md-3 profile-img"
                                 name="jumbleImage"
-                                alt="3"
+                                alt="This is the jumble, uploaded by the user"
                                 src={url.toString()}
                             />)
                         :
                         (<img
                             className="rounded-circle p-md-3 profile-img"
                             name="jumbleImage"
-                            alt="4"
+                            alt="This is the jumble, uploaded by the user"
                             src={jumble.jumbleImage}
                         />
                         ))}
@@ -80,7 +80,7 @@ export default function ImageDropzone(
                     ( <img
                             className="rounded-circle p-md-3 profile-img"
                             name="userImage"
-                            alt="1"
+                            alt="This is the user, uploaded by the user"
                             src={url.toString()}
                         />
                     )
@@ -89,7 +89,7 @@ export default function ImageDropzone(
                         ( <img
                                 className="rounded-circle p-md-3 profile-img"
                                 name="userImage"
-                                alt="2"
+                                alt="This is the user, uploaded by the user"
                                 src="https://firebasestorage.googleapis.com/v0/b/jumble-113b5.appspot.com/o/footer%2Fuseravatar.webp?alt=media&token=f9760d16-9cd6-46e9-9f20-38712da2f4ab"
                             />
                         ) :
@@ -97,14 +97,14 @@ export default function ImageDropzone(
                             (<img
                                 className="rounded-circle p-md-3 profile-img"
                                 name="userImage"
-                                alt="3"
+                                alt="This is the user, uploaded by the user"
                                 src={url.toString()}
                             />)
                             :
                             (<img
                                     className="rounded-circle p-md-3 profile-img"
                                     name="jumbleImage"
-                                    alt="4"
+                                    alt="This is the user, uploaded by the user"
                                     src={user.userImage}
                                 />
                             ))}

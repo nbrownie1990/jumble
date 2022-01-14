@@ -122,13 +122,13 @@ console.log(jumbleReviewList)
                               <img
                                   className="rounded-circle jumble-img"
                                   src="https://images.unsplash.com/photo-1616010652065-2c22e19c92f9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
-                                  alt="This is a jumble"
+                                  alt="This is a jumble-place"
                               /> && <p>Hier fehlt noch ein Bild der Location...</p>
                               :
                               <img
                                   className="rounded-circle jumble-img"
                                   src={jumble.jumbleImage}
-                                  alt="This is a jumble"
+                                  alt="This is a jumble place, very pretty"
                               />
                           }
                               <Link

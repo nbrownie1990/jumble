@@ -35,13 +35,13 @@ const MyProfile = () => {
                       <img
                           className="rounded-circle user-img "
                           src={user.userImage}
-                          alt="Profile"
+                          alt="This is my pretty Profile"
                       />
                       :
                       <img
                           className="rounded-circle user-img "
                           src="https://images.unsplash.com/photo-1608155686393-8fdd966d784d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
-                          alt="Profile"
+                          alt="This is my pretty Profile"
                       />
                   }
                 </div>
