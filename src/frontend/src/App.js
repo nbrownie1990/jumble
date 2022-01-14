@@ -1,6 +1,8 @@
 // -- React and related libs
 import React, {useEffect, useState, Suspense} from 'react'
 import {Route, Routes} from 'react-router-dom'
+// -- Component Styles
+import './assets/css/style.css'
 
 // -- Custom Components
 import Start from './pages/Start/start'
@@ -40,8 +42,6 @@ const Category = React.lazy(() => import("./pages/Category/category"));
 const Categories = React.lazy(() => import("./pages/Categories/categories"));
 
 
-// -- Component Styles
-import './assets/css/style.css'
 
 function App() {
 const [currentUser, setCurrentUser] = useState(undefined);
