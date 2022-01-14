@@ -148,6 +148,7 @@ export default function JumbleForm({
               <button
                 className="btn btn-primary profile-button mb-5 mb-md-2 m-3"
                 type="button"
+                aria-label="save button"
                 onClick={() => handleSaveNewJumble(jumble)}
               >
                 <i className="fas fa-save"></i> Save Jumble
@@ -158,12 +159,14 @@ export default function JumbleForm({
                 <button
                   className="btn btn-primary profile-button mb-5 mb-md-2 m-3"
                   type="button"
+                  aria-label="save changes button"
                   onClick={() => handleSaveJumbleChanges(jumble.jumbleId, jumble)}
                 >
                   <i className="fas fa-save"></i> Save Jumble
                 </button>
                 <button className="btn btn-warning mb-5 mb-md-2 m-3"
                         type="button"
+                        aria-label="delete button"
                         onClick={() => setVisible(true)}>
                   <i className="fas fa-trash"></i> Delete Jumble</button>
                 <Popup maskClosable visible={visible} position="center"
@@ -174,6 +177,7 @@ export default function JumbleForm({
                       <button
                           className="btn btn-warning mb-5 m-3 mb-md-2"
                           type="button"
+                          aria-label="really delete button"
                           onClick={() => handleDeleteJumble(jumble.jumbleId)}
                       >
                         <i className="fas fa-trash"></i>
@@ -186,6 +190,7 @@ export default function JumbleForm({
             )}
             <button
               type="button"
+              aria-label="cancel button"
               className="btn btn-outline-primary mb-5 mb-md-2 m-3"
               onClick={() => handleCancel()}
             >

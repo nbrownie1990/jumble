@@ -87,12 +87,14 @@ readOnly,
                           <button
                               className="btn btn-primary profile-button mb-5 m-3 mb-md-2"
                               type="button"
+                              aria-label="save button"
                               onClick={() => handleSaveProfileChanges(user.id, user)}
                           >
                             <i className="fas fa-save"></i> Save Profile
                           </button>
                             <button className="btn btn-warning mb-5 mb-md-2 m-3"
                                     type="button"
+                                    aria-label="delete button"
                                     onClick={() => setVisible(true)}>
                               <i className="fas fa-trash"></i> Delete Profile</button>
                             <Popup maskClosable visible={visible} position="center"
@@ -105,6 +107,7 @@ readOnly,
                                 <button
                                     className="btn btn-warning mb-5 m-3 mb-md-2"
                                     type="button"
+                                    aria-label="delete button"
                                     onClick={() => handleDeleteUser(user.id)}
                                 >
                                   <i className="fas fa-trash"></i>
@@ -115,6 +118,7 @@ readOnly,
                             </Popup>
                     <button
                         type="button"
+                        aria-label="cancel button"
                         className="btn btn-outline-primary mb-5 m-3 mb-md-2"
                         onClick={() => handleCancel()}
                     >

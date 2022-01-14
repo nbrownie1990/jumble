@@ -30,6 +30,7 @@ export default function ImageDropzone(
                 }
                {!isDragActive && (
                     <button className="btn edit-btn"
+                            aria-label="save button"
                             type="button"
                             data-toggle="tooltip"
                             title="Save"
