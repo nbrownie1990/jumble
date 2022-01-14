@@ -3,7 +3,6 @@ import React, {useEffect, useState} from 'react'
 import {Route, Routes} from 'react-router-dom'
 
 // -- Third Party Libs
-import AOS from 'aos'
 import 'aos/dist/aos.css'
 
 // -- Custom Components
@@ -38,7 +37,6 @@ function App() {
 const [currentUser, setCurrentUser] = useState(undefined);
 
   useEffect(() => {
-    //AOS.init()
       const user = getCurrentUser();
       if (user) {
         setCurrentUser(user);
@@ -74,18 +72,5 @@ const [currentUser, setCurrentUser] = useState(undefined);
     </div>
   )
 }
-
-//https://github.com/flatlogic/sofia-react-template/blob/master/src/components/Layout/Layout.js
-// App.propTypes = {
-//   navbarOpened: PropTypes.bool,
-//   dispatch: PropTypes.func.isRequired,
-// }
-// function mapStateToProps(store) {
-//   return {
-//     sidebarOpened: store.navigation.sidebarOpened,
-//   };
-// }
-
-// export default withRouter(connect(mapStateToProps)(Layout));
 
 export default App

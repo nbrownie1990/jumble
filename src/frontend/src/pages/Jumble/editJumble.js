@@ -1,4 +1,4 @@
-import React, {useCallback, useState} from 'react'
+import React, {useState} from 'react'
 import { useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router'
 import Navbar from '../../components/navbar'

@@ -16,7 +16,6 @@ export default function AddressForm({
         onChange={handleJumbleInputChange}
         title="Straße"
         disabled={readOnly}
-        //rules={[{required: true, message: 'Please enter a address'}]}
       />
       <TextField
         name="addressNumber"
@@ -25,7 +24,6 @@ export default function AddressForm({
         onChange={handleJumbleInputChange}
         title="Hausnummer"
         disabled={readOnly}
-        //rules={[{required: true, message: 'Please enter the street number'}]}
       />
       <TextField
         name="addressZip"
@@ -34,8 +32,6 @@ export default function AddressForm({
         onChange={handleJumbleInputChange}
         title="Postleitzahl"
         disabled={readOnly}
-        //rules={[{required: true, message: 'Please enter zip code'}]}
-
       />
       <TextField
         name="addressCity"

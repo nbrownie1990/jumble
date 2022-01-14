@@ -29,6 +29,10 @@ server:
   error:
     include-message: always
     include-binding-errors: always
+  compression:
+    enabled: true
+    min-response-size: 4096
+    mime-types: text/html, text/xml, text/plain, text/css, text/javascript, application/javascript, application/json
 
 nbrownie:
   jumbleapplication:

@@ -1,10 +1,9 @@
-import React, {useCallback, useEffect, useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import {useNavigate, useParams} from "react-router";
 import { Link } from 'react-router-dom'
 import {
   deleteReview,
-  getJumbleById,
-  getReviewList, getReviewListByJumbleId
+  getJumbleById, getReviewListByJumbleId
 } from "../../services/apiService";
 import {getCurrentUser} from "../../services/authService";
 import Navbar from '../../components/navbar'

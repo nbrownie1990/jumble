@@ -13,20 +13,3 @@ const ProtectedRoutes = () => {
 
 export default ProtectedRoutes;
 
-
-
-
-
-// import {Route} from 'react-router-dom';
-// import {getCurrentUser} from "../services/authService";
-// import {Navigate} from "react-router";
-// import {useAuth} from "./AuthProvider";
-//
-//  export default function ProtectedRoute({ ...props }) {
-//    const { user } = useAuth()
-//    if (!user) {
-//       return <Navigate replace="*" to="/notallowed" />
-//        // if(error.response.status == 401){
-//    }
-//    return <Route {...props} />
-//  }

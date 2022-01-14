@@ -6,7 +6,6 @@ import Loading from "../../components/loading";
 import Error from "../../components/error";
 
 function Categories() {
-  const [jumbles] = useState([]);
   const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState();

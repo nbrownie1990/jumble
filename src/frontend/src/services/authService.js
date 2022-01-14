@@ -23,10 +23,7 @@ export const signup = (username, email, password) => {
                 username,
                 email,
                 password
-            },
-            //{ headers: {
-            //  'Content-Type': 'application/json',
-            // }}
+            }
         )
 };
 
@@ -38,7 +35,6 @@ export const login = async (username, password) => {
         }, {
             headers:{
                 'Access-Control-Allow-Origin': '*',
-                // 'Content-Type': 'application/json',
             },
             withCredentials:true,
         })
@@ -57,21 +53,3 @@ export const logout = () => {
 export const getCurrentUser = () => {
     return JSON.parse(localStorage.getItem("user"));
 };
-
-
-
-
-// const user = JSON.parse(localStorage.getItem('user'));
-// axios.defaults.headers['Authorization'] = 'Bearer ' + localStorage.getItem(user.token);
-
-// export const getToken = credentials =>
-//   axios
-//     .post(`${baseUrl}/auth/access_token`, credentials)
-//     .then(response => response.data)
-//     .then(dto => dto.token)
-//
-// const headers = token => ({
-//   headers: {
-//     Authorization: `Bearer ${user.token}`,
-//   },
-// })

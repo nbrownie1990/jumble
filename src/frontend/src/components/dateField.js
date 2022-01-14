@@ -1,5 +1,5 @@
 import React from 'react'
-import 'react-datepicker/dist/react-datepicker.css'
+//import 'react-datepicker/dist/react-datepicker.css'
 
 export default function DateField({
   placeholder,
@@ -16,7 +16,6 @@ export default function DateField({
         placeholder={placeholder}
         value={value}
         onChange={onChange}
-        //dateformat="dd/MM/yyyy"
         name={name}
         disabled={readOnly}
       />

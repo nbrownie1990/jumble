@@ -4,7 +4,7 @@ import TextField from '../../components/textField'
 import {useNavigate} from "react-router";
 import {signup} from "../../services/authService";
 
-const Signup = (props) => {
+const Signup = () => {
   const initialSignUpState = {
     username: '',
     email: '',

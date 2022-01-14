@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import Navbar from '../../components/navbar'
-import {useNavigate, useParams} from "react-router";
+import {useParams} from "react-router";
 import {getUserById} from "../../services/apiService";
 import {Link} from "react-router-dom";
 import {getCurrentUser} from "../../services/authService";

@@ -23,7 +23,6 @@ export default function TextField({
         name={name}
         readOnly={readOnly}
         disabled={disabled}
-        //autoComplete={autoComplete}
       />
     </React.Fragment>
   )
