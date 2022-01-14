@@ -1,9 +1,10 @@
 import React, {useEffect, useState} from 'react'
-import {useParams} from "react-router";
+import {useNavigate, useParams} from "react-router";
 import { Link } from 'react-router-dom'
 import {
-  deleteReview,
-  getJumbleById, getReviewListByJumbleId
+    addReview,
+    deleteReview,
+    getJumbleById, getReviewListByJumbleId
 } from "../../services/apiService";
 import {getCurrentUser} from "../../services/authService";
 import Navbar from '../../components/navbar'
@@ -15,6 +16,7 @@ import YourReview from "../../components/yourReview";
 import Error from "../../components/error";
 
 export default function Jumble() {
+  const navigate = useNavigate()
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState();
   const [jumble, setJumble] = useState([]);
@@ -41,6 +43,15 @@ export default function Jumble() {
 //----------------Review Section-----------
 
 //TODO: --Add Review--Funktioniert aktuell nicht
+    const handleAddReview = (jumbleId, review) => {
+        setError();
+        addReview(jumbleId, review)
+            .catch(error => setError(error))
+            .finally(() => {
+                setLoading(false)
+                navigate('/jumble/${jumbleId}')
+            })
+    }
   //const handleAddReview = (jumbleId, review) => {
   // setError();
   // getJumbleById(jumbleId)
@@ -186,7 +197,7 @@ console.log(jumbleReviewList)
                       <YourReview
                           handleReviewInputChange={handleReviewInputChange}
                           handleNewRating={handleNewRating}
-                       //   handleAddReview={handleAddReview}
+                          handleAddReview={handleAddReview}
                           jumbleId={jumbleId}
                       />
                     </div>
