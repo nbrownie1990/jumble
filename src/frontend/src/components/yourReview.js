@@ -8,7 +8,6 @@ export default function YourReview({
     handleAddReview,
     ratingValue,
     handleReviewInputChange,
-    jumbleId,
     review,
 }){
     return (
@@ -28,13 +27,12 @@ export default function YourReview({
       placeholder="Wie sind deine Erfahrungen mit diesem Jumble?"
       name="reviewText"
       type="text"
-      value={review.reviewText}
       onChange={handleReviewInputChange}
        />
         </div>
         <div className="mt-5 text-center">
         <button
-              onClick={() =>handleAddReview(jumbleId, review)}
+              onClick={() =>handleAddReview(review)}
               className="btn btn-primary profile-button"
               type="button"
              >

@@ -43,13 +43,13 @@ export default function Jumble() {
 //----------------Review Section-----------
 
 //TODO: --Add Review--Funktioniert aktuell nicht
-    const handleAddReview = (jumbleId, review) => {
+    const handleAddReview = (review) => {
         setError();
-        addReview(jumbleId, review)
+        addReview(review, jumbleId)
             .catch(error => setError(error))
             .finally(() => {
                 setLoading(false)
-                navigate('/jumble/${jumbleId}')
+                //navigate('/jumble/${jumbleId}')
             })
     }
   //const handleAddReview = (jumbleId, review) => {
