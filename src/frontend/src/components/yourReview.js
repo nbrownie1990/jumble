@@ -29,7 +29,6 @@ export default function YourReview({
       placeholder="Wie sind deine Erfahrungen mit diesem Jumble?"
       name="reviewText"
       type="text"
-      disabled={readOnly}
       value={review.reviewText}
       onChange={handleReviewInputChange}
        />
