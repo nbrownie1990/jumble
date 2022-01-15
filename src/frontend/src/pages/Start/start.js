@@ -9,8 +9,8 @@ const Start = () => {
         <div className="px-3 ">
           <h1>Jumble - the right place for your stuff</h1>
           <p className="lead">
-            Endlich wieder Platz in den Regalen - Finde einen besseren Platz für
-            dein Ausrangiertes und tue dabei etwas Gutes! Food-Sharing, Flea
+            Endlich wieder Platz in den Regalen - finde ein neues Zuhause für
+            dein Ausrangiertes und tue dabei auch noch etwas Gutes! Food-Sharing, Flea
             Markets, Clothing Donations & Second-Hand in deiner Nähe!
           </p>
           <p className="lead">

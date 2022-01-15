@@ -128,7 +128,6 @@ export const getReviewListByJumbleId = async (jumbleId) => {
 }
 
 
-
 export const addReview = async (jumbleId, review) =>{
 return await axios
     .post(
