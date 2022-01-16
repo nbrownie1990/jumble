@@ -42,7 +42,7 @@ export default function Jumble() {
 
 //----------------Review Section-----------
 
-//TODO: --Add Review--Funktioniert aktuell nicht
+//TODO: - Review-Section und Star Rating
     const handleAddReview = (review) => {
         setError();
         addReview(review, jumbleId)
@@ -90,7 +90,6 @@ console.log(jumbleReviewList)
   //   return array.reduce((a, b) => (a + b)) / array.length;
   // }
 
-  //TODO: --Delete Review--Funktioniert aktuell nicht
   const handleDeleteReviewFromList = (reviewId, jumbleReviewList, jumble) => {
     setLoading(true)
     // let newList = jumbleReviewList
@@ -107,10 +106,6 @@ console.log(jumbleReviewList)
         setJumbleReviewList([...newList])
         })
   }
-
-
-
-///TODO: Bugfix "TypeError: Cannot read properties of undefined (reading 'some')"
 
   return (
           <React.Fragment>
@@ -210,8 +205,3 @@ console.log(jumbleReviewList)
               )}
           </React.Fragment>
   )}
-
-//console.log(jumble.address?.addressStreet)
-//console.log(jumble.reviewList?.[0].reviewId)
-// console.log(currentUser)
-// console.log(jumble.user?.id)

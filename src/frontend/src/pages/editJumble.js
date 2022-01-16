@@ -76,7 +76,6 @@ export default function EditJumble() {
          .finally(setLoading(false))
   }
 
-//TODO: Funktioniert aktuell nicht
   const handleDeleteJumble = (jumbleId) => {
         setLoading(true)
         deleteJumble(jumbleId)
