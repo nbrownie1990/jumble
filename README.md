@@ -168,6 +168,7 @@ docker-compose up -d --remove-orphans
 - ✔ Das Arbeiten mit Spring Boot und React, MapBox-Api, RESTful APIs, Axios
 - ✔ Das Arbeiten mit relationalen Datenbanken, Cloud-Storage, Heroku
 - ✔ Wieviel Spaß Git-Commits via "tig (cli-tool)" machen
+- ✔ Den Code durch die Anwendung von "web.dev/measure/" und "Lighthouse" zu optimieren
 - ✔ Was der Unterschied zwischen Authorisierung & Authentifizierung ist
 - ✔ Wie nur ein Port und ein jar-file für Frontend und Backend genutzt wird
 - ✔ Wie ein Wireframe mit Figma und ein UML-Modell & ERM-Modell mit Miro erstellt wird
