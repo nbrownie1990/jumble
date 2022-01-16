@@ -37,14 +37,7 @@ public class UserService {
         return userRepository.getUserByUserName(username).orElseThrow(() -> new IllegalArgumentException("User not found"));
     }
 
-/////noch überarbeiten:
-//    public User addNewProfile(String username, User profile) {
-//        User profileToSave = getUserByUserName(username);
-//        User savedProfile = userRepository.save(profileToSave);
-//        return savedProfile;
-//    }
-//    //
-//
+
 //    public User updatePassword(String username, String password) {
 //        User user = getUserByUserName(username);
 //        String hashedPassword = passwordEncoder.encode(password);
@@ -81,5 +74,5 @@ public class UserService {
         return userToDelete;
     }
 }
-//
-//}
+
+

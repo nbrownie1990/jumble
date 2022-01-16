@@ -16,15 +16,6 @@ public class User {
     @Column(name = "user_id", nullable = false)
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-//    @SequenceGenerator(
-//            name = "user_sequence",
-//            sequenceName = "user_sequence",
-//            allocationSize = 1
-//    )
-//    @GeneratedValue(
-//            generator = "user_sequence",
-//            strategy = GenerationType.SEQUENCE
-//    )
     private Long id;
 
     @Column(name = "user_name", nullable = false, unique = true)
@@ -48,14 +39,12 @@ public class User {
             inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles = new HashSet<>();
 
-    //One User can add many jumbles
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy="user", fetch = FetchType.EAGER)
-    @JsonBackReference(value="jumbles-user")////ggf ändern
+    @JsonBackReference(value="jumbles-user")
     private Set<Jumble> jumbleList;
 
-    //One User can make many reviews
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy="user", fetch = FetchType.EAGER)
-    @JsonBackReference(value="user-reviews")////ggf ändern
+    @JsonBackReference(value="user-reviews")
     private Set<Review> reviewList;
 
     public User() {
@@ -140,13 +129,6 @@ public class User {
         this.reviewList = reviewList;
     }
 
-//    ///versuch
-//    public void setReviewList(Set<Review> reviewList) {
-//        reviewList.forEach(review -> review.setUser(this));
-//        this.reviewList = reviewList;
-//    }
-
-
     public Set<Jumble> getJumbleList() {
         return jumbleList;
     }
@@ -155,11 +137,6 @@ public class User {
         this.jumbleList = jumbleList;
     }
 
-    ///versuch
-//    public void setJumbleList(Set<Jumble> jumbleList) {
-//        jumbleList.forEach(jumble -> jumble.setUser(this));
-//        this.jumbleList = jumbleList;
-//    }
     @Override
     public int hashCode() {
         return getId() == null ? getUsername().hashCode() : getId().hashCode();
@@ -178,20 +155,3 @@ public class User {
         return username + " " + userText;
     }
 }
-
-
-//@ManyToMany(
-//        cascade={CascadeType.PERSIST, CascadeType.REMOVE}
-//)
-//@JoinTable(
-//        name= "reviewing",
-//        joinColumns = @JoinColumn(
-//                name= "user_id",
-//        foreignKey = @ForeignKey(name= "reviewing_user_id_fk")
-//        ),
-//        inverseJoinColumns = @JoinColumn(
-//                name= "jumble_id",
-//                foreignKey = @ForeignKey(name= "reviewing_jumble_id_fk")
-//        ),
-//)
-//)

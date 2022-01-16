@@ -18,7 +18,7 @@ public interface JumbleRepository extends JpaRepository<Jumble, Long> {
     Optional<Jumble> getJumbleByJumbleId(Long jumbleId);
 
     @Query("SELECT j FROM Jumble j WHERE j.jumbleName= ?1")
-    Optional<Jumble> getJumbleByJumbleName(Long jumbleId);
+    Optional<Jumble> getJumbleByJumbleName(String jumbleName);
 
     @Transactional
     @Modifying

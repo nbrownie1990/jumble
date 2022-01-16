@@ -7,7 +7,6 @@ import javax.persistence.*;
 
 @Entity(name = "Address")
 @Table(name = "addresses")
-//@Builder
 @Setter
 @Getter
 @AllArgsConstructor
@@ -17,15 +16,6 @@ public class Address {
     @Column(name = "address_id", nullable = false)
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-//    @SequenceGenerator(
-//            name = "address_sequence",
-//            sequenceName = "address_sequence",
-//            allocationSize = 1
-//    )
-//    @GeneratedValue(
-//            strategy = GenerationType.SEQUENCE,
-//            generator = "address_sequence"
-//    )
     private Long addressId;
 
     @Column(name = "address_street", nullable = false )
@@ -49,7 +39,6 @@ public class Address {
     @Column(name = "latitude")
     private double latitude;
 
-    //One Jumble has its own address
     @OneToOne(mappedBy= "address", orphanRemoval = true)
     @JsonBackReference(value="address-jumble")
     private Jumble jumble;

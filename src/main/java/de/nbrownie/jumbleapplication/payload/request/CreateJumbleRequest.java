@@ -14,15 +14,12 @@ import javax.validation.constraints.*;
 public class CreateJumbleRequest {
 
 
-    // @NotBlank
     private Long jumbleId;
 
-    //@NotBlank
     private String jumbleName;
 
     private String jumbleImage;
 
-    //@NotBlank
     private String jumbleText;
 
     private String jumbleDate;
@@ -31,9 +28,7 @@ public class CreateJumbleRequest {
 
     private String jumbleWebsite;
 
-    //@NotBlank
     private Category category;
-
 
     private Address address;
 
@@ -47,8 +42,6 @@ public class CreateJumbleRequest {
 
 
     private Long userId;
-
-    //private Set<Review> reviewList;
 
 
     public Long getJumbleId() {
@@ -154,12 +147,6 @@ public class CreateJumbleRequest {
     public void setUserId(Long userId) {
         this.userId = userId;
     }
-
-   // public Set<Review> getReviewList() {return this.reviewList;}
-
-    //public void setReviewList(Set<Review> reviewList) {
-    //    this.reviewList = reviewList;
-    //}
 
 }
 

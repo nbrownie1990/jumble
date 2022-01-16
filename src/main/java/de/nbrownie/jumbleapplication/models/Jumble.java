@@ -1,13 +1,10 @@
 package de.nbrownie.jumbleapplication.models;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
-import java.util.Date;
 import java.util.Set;
 
 
@@ -62,20 +59,12 @@ public class Jumble {
     @JoinColumn(name="user_id",
             foreignKey = @ForeignKey(name= "user_id_fk"))
     @JsonManagedReference(value="jumbles-user") ////ggf ändern
-    @JsonIgnore ///ggf löschen
+    @JsonIgnore
     private User user;
 
-    //One Jumble can have many reviews
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy="jumble", fetch = FetchType.EAGER)
     @JsonManagedReference(value="jumble-reviews")
     private Set<Review> reviewList;
-
-    ///versuch
-//    public void setReviewList(Set<Review> reviewList) {
-//        reviewList.forEach(review -> review.setJumble(this));
-//        this.reviewList = reviewList;
-//    }
-
 
     public void addReview(Review review){
         reviewList.add(review);

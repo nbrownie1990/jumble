@@ -15,7 +15,6 @@ public class CreateAddressRequest {
     @NotBlank
     private Long addressId;
 
-   // @NotBlank
     private String addressStreet;
 
     @NotBlank
@@ -96,7 +95,5 @@ public class CreateAddressRequest {
     }
 
     public void setJumble(Jumble jumble) {this.jumble = jumble;}
-
-
 }
 

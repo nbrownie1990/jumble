@@ -1,12 +1,13 @@
 //package de.nbrownie.jumbleapplication.services;
 //
+//import de.nbrownie.jumbleapplication.models.Address;
+//import de.nbrownie.jumbleapplication.repo.AddressRepository;
+
 //import com.mapbox.api.geocoding.v5.MapboxGeocoding;
 //import com.mapbox.api.geocoding.v5.models.CarmenFeature;
 //import com.mapbox.api.geocoding.v5.models.GeocodingResponse;
 //import de.nbrownie.jumbleapplication.config.MapboxConfigProperties;
-//
-//import de.nbrownie.jumbleapplication.models.Address;
-//import de.nbrownie.jumbleapplication.repo.AddressRepository;
+
 //import lombok.Getter;
 //import lombok.Setter;
 //import lombok.extern.slf4j.Slf4j;

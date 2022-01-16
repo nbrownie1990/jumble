@@ -2,8 +2,6 @@ package de.nbrownie.jumbleapplication.services;
 
 import de.nbrownie.jumbleapplication.exceptions.UnauthorizedUserException;
 import de.nbrownie.jumbleapplication.models.Address;
-import de.nbrownie.jumbleapplication.models.Jumble;
-import de.nbrownie.jumbleapplication.models.Review;
 import de.nbrownie.jumbleapplication.payload.request.CreateAddressRequest;
 import de.nbrownie.jumbleapplication.repo.AddressRepository;
 import de.nbrownie.jumbleapplication.repo.JumbleRepository;
@@ -11,12 +9,7 @@ import lombok.Getter;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import javax.persistence.EntityNotFoundException;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Optional;
-import java.util.Set;
 
 @Getter
 @Setter

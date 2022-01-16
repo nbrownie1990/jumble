@@ -1,9 +1,6 @@
 package de.nbrownie.jumbleapplication.payload.request;
-import de.nbrownie.jumbleapplication.models.Jumble;
-import de.nbrownie.jumbleapplication.models.Review;
 
 import java.util.Set;
-
 import javax.validation.constraints.*;
 
 public class SignupRequest {

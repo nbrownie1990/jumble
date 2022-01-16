@@ -1,13 +1,9 @@
 package de.nbrownie.jumbleapplication.models;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Set;
 
 
@@ -37,12 +33,6 @@ public class Category {
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy="category", fetch = FetchType.EAGER)
     @JsonBackReference(value="category-jumbles") //ggf ändern
     private Set<Jumble> jumbleList;
-
-//    ///versuch
-//    public void setJumbleList(Set<Jumble> jumbleList) {
-//        jumbleList.forEach(jumble -> jumble.setCategory(this));
-//        this.jumbleList = jumbleList;
-//    }
 
     public void addJumble(Jumble jumble){
         jumbleList.add(jumble);

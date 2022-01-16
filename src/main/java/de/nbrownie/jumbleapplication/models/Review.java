@@ -6,7 +6,6 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 
 import javax.persistence.*;
-import java.util.Set;
 
 @Entity(name = "Review")
 @Table(name = "reviews")
@@ -27,19 +26,17 @@ public class Review {
     @Column(name = "review_rating",  nullable = false)
     private Short reviewRating;
 
-    //Many reviews can be added to one Jumble Entity
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="jumble_id",
             foreignKey = @ForeignKey(name= "jumble_id_fk"))
     @JsonBackReference(value="jumble-reviews")
     private Jumble jumble;
 
-    //Many reviews can be added by one User Entity
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="user_id",
             foreignKey = @ForeignKey(name= "user_id_fk"))
-    @JsonManagedReference(value="user-reviews")//////ggf ändern
-    @JsonIgnore ///ggf löschen
+    @JsonManagedReference(value="user-reviews")
+    @JsonIgnore
     private User user;
 
 

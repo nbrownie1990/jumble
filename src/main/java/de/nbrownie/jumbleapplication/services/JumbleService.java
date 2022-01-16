@@ -3,7 +3,6 @@ package de.nbrownie.jumbleapplication.services;
 import de.nbrownie.jumbleapplication.models.Address;
 import de.nbrownie.jumbleapplication.models.Category;
 import de.nbrownie.jumbleapplication.models.Jumble;
-import de.nbrownie.jumbleapplication.models.Review;
 import de.nbrownie.jumbleapplication.payload.request.CreateJumbleRequest;
 import de.nbrownie.jumbleapplication.payload.request.UpdateJumbleRequest;
 import de.nbrownie.jumbleapplication.repo.*;
@@ -14,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityNotFoundException;
 import java.util.List;
+import java.util.Optional;
 
 @Getter
 @Setter
@@ -119,24 +119,6 @@ public class JumbleService {
         return jumbleRepository.save(existingJumble);
     }
 
-////    public Jumble deleteJumble(Long jumbleId) {
-////        //User user = userRepository.getUserByUserId(userId).orElseThrow(() -> new UnauthorizedUserException("User not found"));
-////        Jumble deleteJumble = jumbleRepository.getJumbleByJumbleId(jumbleId).orElseThrow(() -> new EntityNotFoundException("Jumble not found"));
-////        if (!jumbleRepository.existsById(jumbleId)) {
-////            throw new ResourceNotFoundException(
-////                    "Jumble with id " + jumbleId + " does not exists");
-////        }
-////        if (!addressRepository.existsById(jumbleId)) {
-////            throw new ResourceNotFoundException(
-////                    "Address with id " + jumbleId + " does not exists");
-////        }
-////        jumbleRepository.deleteById(jumbleId);
-////        //userRepository.save(user.deleteJumble(deleteJumble));
-////        deleteJumble.setJumbleId(null);
-////        return deleteJumble;
-////    }
-//
-
     public Jumble deleteJumble(Long jumbleId) {
         Jumble jumbleToDelete = getJumbleById(jumbleId);
         jumbleRepository.deleteJumbleByJumbleId(jumbleId);
@@ -146,15 +128,8 @@ public class JumbleService {
 
 
 ///////SEARCHBAR SECTION////////
-
-    //Searchbar findByJumbleByName
-    //public Jumble getJumbleByName(String jumbleName) {
-    //    return jumbleRepository.getJumbleByName(jumbleName);
-    //}
-
-    //Searchbar findByJumbleByAddress
-    //public Jumble getJumbleByAddress(String addressStreet) {
-    //    return jumbleRepository.getJumbleByAddress(addressStreet);
-    //}
+    public Optional<Jumble> getJumbleByName(String jumbleName) {
+       return jumbleRepository.getJumbleByJumbleName(jumbleName);
+    }
 
 }
