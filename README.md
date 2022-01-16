@@ -149,15 +149,18 @@ docker-compose up -d --remove-orphans
 ### 📌 To-Dos, offene Features & Ausblick
 - [ ] Testen, testen, testen...
 - [ ] CI-CD-Pipeline (Docker Hub, Github-Actions, Slack) zum laufen bekommen (build.yml, deploy.yml)
+- [ ] User kann Jumbles bewerten(Star-Rating), kommentieren und seine Bewertungen wieder löschen 
 - [ ] Map-Component mit Datenbank verknüpfen, aktuell nur Mock-Daten
-- [ ] Datentypen verändern (z.B. Date, Datepicker etc.)
-- [ ] User kann Jumbles bewerten(Star-Rating), kommentieren und seine Bewertungen wieder löschen
-- [ ] User kann Nutzernamen und Passwort ändern / Achtung Password-Hashing
 - [ ] User kann Jumbles über die Suchbar suchen
 - [ ] User kann Jumbles auf der Cluster-Map finden
-- [ ] Validation(Jumbles, Login, Profile), Routing-Validation & Authorization(aktuell kann jeder alles bearbeiten)
+- [ ] Image-Upload für Mobile ermöglichen	  
+- [ ] Datentypen verändern (z.B. Date, Datepicker etc.)
+- [ ] User kann Nutzernamen und Passwort ändern / Achtung Password-Hashing
+- [ ] Passwort vergessen/ Reset einfügen
+- [ ] Frontend und Backend Validation verbessern/ einfügen (Jumbles, Login, Profile)
+- [ ] Routing-Validation & Authorization(aktuell kann jeder alles bearbeiten)
 - [ ] Authorization: Admin kann Kategorien erstellen, User können nur selbst erstellte Jumbles bearbeiten...
-- [ ] UX/UI & Performance verbessern (Resize Image-Uploads,Responsivness, Sprache vereinheitlichen...)
+- [ ] UX/UI & Performance verbessern (Resize Image-Uploads, Responsivness, Sprache vereinheitlichen...)
 
 
 ### 📚 Was habe ich außerdem gelernt? 
