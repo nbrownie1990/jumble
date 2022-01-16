@@ -1,0 +1,43 @@
+spring:
+  profiles:
+    active: dev
+  application:
+    name: jumbleapplication
+  datasource:
+    url: jdbc:postgresql://localhost:5432/jumbledb
+    username: postgres
+    password: mysecretpassword
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    generate-ddl: true
+    open-in-view: false
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        jdbc:
+          time_zone: UTC
+    hibernate:
+      ddl-auto: update
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
+
+server:
+  error:
+    include-message: always
+    include-binding-errors: always
+  compression:
+    enabled: true
+    min-response-size: 4096
+    mime-types: text/html, text/xml, text/plain, text/css, text/javascript, application/javascript, application/json
+
+nbrownie:
+  jumbleapplication:
+    jwtSecret: ${JWT_SECRET}
+    jwtExpirationMs: 86400000
+
+mapbox-client:
+  access-token: ${REACT_APP_MAPBOX}
