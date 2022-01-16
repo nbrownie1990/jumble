@@ -1,10 +1,10 @@
 import React, {useEffect, useState} from 'react'
 import {useParams} from "react-router";
-import JumbleList from "../../components/jumbleList";
+import JumbleList from "../components/jumbleList";
 import {Link} from "react-router-dom";
-import {getCategoryById, getJumblesByCategoryId} from "../../services/apiService";
-import Loading from "../../components/loading";
-import Navbar from "../../components/navbar";
+import {getCategoryById, getJumblesByCategoryId} from "../services/apiService";
+import Loading from "../components/loading";
+import Navbar from "../components/navbar";
 
 
 export default function Category() {

@@ -1,9 +1,9 @@
 import React, {useEffect, useState} from 'react'
-import Navbar from '../../components/navbar'
+import Navbar from '../components/navbar'
 import { Link } from 'react-router-dom'
-import {getCurrentUser} from "../../services/authService";
-import {getUserById} from "../../services/apiService";
-import Loading from "../../components/loading";
+import {getCurrentUser} from "../services/authService";
+import {getUserById} from "../services/apiService";
+import Loading from "../components/loading";
 
 const MyProfile = () => {
   const [loading, setLoading] = useState(true);

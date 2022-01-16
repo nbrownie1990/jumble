@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
-import {getAllJumbles} from "../../services/apiService";
-import JumbleList from "../../components/jumbleList";
-import Navbar from '../../components/navbar'
-import Loading from "../../components/loading";
+import {getAllJumbles} from "../services/apiService";
+import JumbleList from "../components/jumbleList";
+import Navbar from '../components/navbar'
+import Loading from "../components/loading";
 
 
 function AllJumbles() {

@@ -1,7 +1,7 @@
 import React from 'react'
-import Navbar from '../../components/navbar'
-import MapComponent from '../../components/mapComponent'
-import SearchBar from '../../components/searchBar'
+import Navbar from '../components/navbar'
+import MapComponent from '../components/mapComponent'
+import SearchBar from '../components/searchBar'
 
 const Home = () => {
   return (

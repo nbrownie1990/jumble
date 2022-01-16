@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react'
 import { Link } from 'react-router-dom'
-import {getCurrentUser, logout} from "../../services/authService";
+import {getCurrentUser, logout} from "../services/authService";
 
 const Logout = () => {
 

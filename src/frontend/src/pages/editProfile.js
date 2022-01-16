@@ -1,11 +1,11 @@
 import React, {useCallback, useEffect, useState} from 'react'
-import Navbar from '../../components/navbar'
-import ProfileForm from '../../components/profileForm'
+import Navbar from '../components/navbar'
+import ProfileForm from '../components/profileForm'
 import {useNavigate, useParams} from "react-router";
-import {deleteUser, getUserById, updateUser } from "../../services/apiService";
-import Loading from "../../components/loading";
+import {deleteUser, getUserById, updateUser } from "../services/apiService";
+import Loading from "../components/loading";
 import {getDownloadURL, ref, uploadBytes} from "firebase/storage";
-import {storage} from "../../services/firebase";
+import {storage} from "../services/firebase";
 
 export default function EditProfile() {
   const [loading, setLoading] = useState(true)

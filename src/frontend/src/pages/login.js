@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react'
-import TextField from '../../components/textField'
+import TextField from '../components/textField'
 import {useNavigate} from "react-router";
-import {login} from "../../services/authService";
+import {login} from "../services/authService";
 
 const Login = (props) => {
   const initialLoginState = {

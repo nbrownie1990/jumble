@@ -1,9 +1,9 @@
 import React, {useEffect, useState} from 'react'
-import Navbar from '../../components/navbar'
-import CategoryGroup from '../../components/categoryGroup'
-import { getAllCategories} from "../../services/apiService";
-import Loading from "../../components/loading";
-import Error from "../../components/error";
+import Navbar from '../components/navbar'
+import CategoryGroup from '../components/categoryGroup'
+import { getAllCategories} from "../services/apiService";
+import Loading from "../components/loading";
+import Error from "../components/error";
 
 function Categories() {
   const [categories, setCategories] = useState([]);

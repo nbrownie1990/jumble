@@ -1,17 +1,17 @@
 import React, {useState} from 'react'
 import { useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router'
-import Navbar from '../../components/navbar'
-import JumbleForm from '../../components/jumbleForm'
+import Navbar from '../components/navbar'
+import JumbleForm from '../components/jumbleForm'
 import {
     deleteJumble,
     getAllCategories,
     getJumbleById,
     updateJumble,
-} from "../../services/apiService";
-import Loading from "../../components/loading";
+} from "../services/apiService";
+import Loading from "../components/loading";
 import {getDownloadURL, uploadBytes, ref} from 'firebase/storage';
-import {storage} from '../../services/firebase';
+import {storage} from '../services/firebase';
 
 export default function EditJumble() {
     let {jumbleId} = useParams();

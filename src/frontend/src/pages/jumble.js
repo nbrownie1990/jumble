@@ -5,15 +5,15 @@ import {
     addReview,
     deleteReview,
     getJumbleById, getReviewListByJumbleId
-} from "../../services/apiService";
-import {getCurrentUser} from "../../services/authService";
-import Navbar from '../../components/navbar'
-import Reviews from "../../components/reviews";
-import StarRating from "../../components/starRating";
-import Loading from "../../components/loading";
-import JumbleTeamMessage from "../../components/jumbleTeamMessage";
-import YourReview from "../../components/yourReview";
-import Error from "../../components/error";
+} from "../services/apiService";
+import {getCurrentUser} from "../services/authService";
+import Navbar from '../components/navbar'
+import Reviews from "../components/reviews";
+import StarRating from "../components/starRating";
+import Loading from "../components/loading";
+import JumbleTeamMessage from "../components/jumbleTeamMessage";
+import YourReview from "../components/yourReview";
+import Error from "../components/error";
 
 export default function Jumble() {
   const navigate = useNavigate()

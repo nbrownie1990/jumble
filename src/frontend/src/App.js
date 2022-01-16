@@ -9,17 +9,17 @@ import './assets/css/style.css'
 
 
 // -- Custom Components
-import Start from './pages/Start/start'
-import NotFound from './pages/Not/notFound'
-import NotAllowed from "./pages/Not/notAllowed"
-import Login from "./pages/Login/login"
+import Start from './pages/start'
+import NotFound from './pages/notFound'
+import NotAllowed from "./pages/notAllowed"
+import Login from "./pages/login"
 import {getCurrentUser} from "./services/authService"
 import ProtectedRoutes from "./auth/ProtectedRoutes";
-import Forgot from './pages/Login/forgot'
-import Reset from './pages/Login/reset'
-import Logout from './pages/Logout/logout'
-import Signup from './pages/SignUp/signup'
-import Impressum from './pages/Impressum/impressum'
+import Forgot from './pages/forgot'
+import Reset from './pages/reset'
+import Logout from './pages/logout'
+import Signup from './pages/signup'
+import Impressum from './pages/impressum'
 import Footer from './components/footer'
 
 
@@ -35,16 +35,16 @@ import Footer from './components/footer'
 //import EditProfile from './pages/Profile/editProfile'
 
 
-const Home = React.lazy(() => import("./pages/Home/home"));
-const Jumble = React.lazy(() => import("./pages/Jumble/jumble"));
-const EditJumble = React.lazy(() => import("./pages/Jumble/editJumble"));
-const AddJumble = React.lazy(() => import("./pages/Jumble/addJumble"));
-const AllJumbles = React.lazy(() => import("./pages/Jumble/allJumbles"));
-const Profile = React.lazy(() => import("./pages/Profile/profile"));
-const MyProfile = React.lazy(() => import("./pages/Profile/myProfile"));
-const EditProfile = React.lazy(() => import("./pages/Profile/editProfile"));
-const Category = React.lazy(() => import("./pages/Category/category"));
-const Categories = React.lazy(() => import("./pages/Categories/categories"));
+const Home = React.lazy(() => import("./pages/home"));
+const Jumble = React.lazy(() => import("./pages/jumble"));
+const EditJumble = React.lazy(() => import("./pages/editJumble"));
+const AddJumble = React.lazy(() => import("./pages/addJumble"));
+const AllJumbles = React.lazy(() => import("./pages/allJumbles"));
+const Profile = React.lazy(() => import("./pages/profile"));
+const MyProfile = React.lazy(() => import("./pages/myProfile"));
+const EditProfile = React.lazy(() => import("./pages/editProfile"));
+const Category = React.lazy(() => import("./pages/category"));
+const Categories = React.lazy(() => import("./pages/categories"));
 
 
 function App() {

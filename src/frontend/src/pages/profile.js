@@ -1,10 +1,10 @@
 import React, {useEffect, useState} from 'react'
-import Navbar from '../../components/navbar'
+import Navbar from '../components/navbar'
 import {useParams} from "react-router";
-import {getUserById} from "../../services/apiService";
+import {getUserById} from "../services/apiService";
 import {Link} from "react-router-dom";
-import {getCurrentUser} from "../../services/authService";
-import Loading from "../../components/loading";
+import {getCurrentUser} from "../services/authService";
+import Loading from "../components/loading";
 
 const Profile = () => {
   const [user, setUser] = useState([]);

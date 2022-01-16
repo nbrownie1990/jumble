@@ -1,8 +1,8 @@
 import React, {useEffect, useRef, useState} from 'react'
 import {Link } from 'react-router-dom'
-import TextField from '../../components/textField'
+import TextField from '../components/textField'
 import {useNavigate} from "react-router";
-import {signup} from "../../services/authService";
+import {signup} from "../services/authService";
 
 const Signup = () => {
   const initialSignUpState = {

@@ -1,12 +1,12 @@
 import React, {useEffect, useState} from 'react'
 import {useNavigate} from 'react-router'
-import Navbar from '../../components/navbar'
-import JumbleForm from '../../components/jumbleForm'
-import {addNewJumble, getAllCategories} from "../../services/apiService";
-import Loading from "../../components/loading";
+import Navbar from '../components/navbar'
+import JumbleForm from '../components/jumbleForm'
+import {addNewJumble, getAllCategories} from "../services/apiService";
+import Loading from "../components/loading";
 import {getDownloadURL, ref, uploadBytes} from "firebase/storage";
-import {storage} from "../../services/firebase";
-import {getCurrentUser} from "../../services/authService";
+import {storage} from "../services/firebase";
+import {getCurrentUser} from "../services/authService";
 
 
 export default function AddJumble() {
