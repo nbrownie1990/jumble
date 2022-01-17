@@ -16,20 +16,11 @@ body,
   position: relative;
   overflow-x: hidden;
   background-size: cover;
-  background: url('https://firebasestorage.googleapis.com/v0/b/jumble-113b5.appspot.com/o/footer%2Fjumbleabstract-tiny.webp?alt=media&token=cb586ae2-1833-415b-ad03-895136cf4fa8') no-repeat fixed;
+  background: url('https://firebasestorage.googleapis.com/v0/b/jumble-113b5.appspot.com/o/footer%2Fjumbleabstract-tiny.webp?alt=media&token=5936054a-b8a7-4834-8e0e-a392eed2754d') no-repeat fixed;
   font-family: $main-font;
   width:auto;
   display: flex;
   flex-direction: column !important;
 }
 
-.error {
-  color: #be4362;
 
-  ::before {
-    content: '💢';
-  }
-  ::after {
-    content: '💢';
-  }
-}
