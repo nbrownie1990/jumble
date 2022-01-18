@@ -1,11 +1,4 @@
-# https://www.robotstxt.org/robotstxt.html
-user-agent: *
-disallow: /login/
-disallow: /user/
-disallow: /*.pdf
-allow: /jumbles/
-allow: /categories/
-
-
+User-agent: *
+Disallow: /
 
 
