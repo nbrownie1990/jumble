@@ -37,7 +37,7 @@ jobs:
           - 5432:5432
         options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
     steps:
-# Slack Notification
+    # Slack Notification
       - uses: 8398a7/action-slack@v3
         with:
           status: ${{ job.status }}
@@ -53,7 +53,7 @@ jobs:
       - name: Build Number
         id: build-number
         run: echo "::set-output name=BUILD_NUMBER::$(date '+%-d.%-m.%Y.%-H.%-M.%-S')"
- # Login, Package and Push to DockerHub and Slack Notification
+        # Login, Package and Push to DockerHub and Slack Notification
       - name: Docker Login
         uses: docker/login-action@f3364599c6aa293cdc2b8391b1b56d0c30e45c8a
         with:
@@ -73,7 +73,7 @@ jobs:
           text: ':white_check_mark: pushed nbrownie/jumbleapplication:${{steps.build-number.outputs.BUILD_NUMBER}} to docker hub... https://hub.docker.com/repository/docker/nbrownie/jumbleapp'
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-# Update docker-compose-file and Slack-Notification
+      # Update docker-compose-file and Slack-Notification
       - name: Update and commit app version in docker-compose.yaml
         run: |
           BUILD_NUMBER=${{steps.build-number.outputs.BUILD_NUMBER}}
@@ -92,12 +92,12 @@ jobs:
           text: ':heroku: Deployment started... :grimacing: :crossed_fingers:'
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-# deploy remote heroku and Slack Notification https://github.com/marketplace/actions/deploy-to-heroku
-       - name: Add remote origin
+        # deploy remote heroku and Slack Notification https://github.com/marketplace/actions/deploy-to-heroku
+      - name: Add remote origin
          if: github.ref == 'refs/heads/main' && job.status == 'success'
          run: |
            git remote add heroku https://heroku:${{ secrets.HEROKU_API_KEY }}@git.heroku.com/${{ secrets.HEROKU_APP_NAME}}
-       - name: Deploy to Heroku
+      - name: Deploy to Heroku
          run: |
            git push heroku HEAD:main -f
       - uses: actions/checkout@v2
