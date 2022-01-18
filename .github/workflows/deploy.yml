@@ -94,7 +94,7 @@ jobs:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
         # deploy remote heroku and Slack Notification https://github.com/marketplace/actions/deploy-to-heroku
       - name: Add remote origin
-         if: ${{ github.ref == 'refs/heads/main' }}
+         if: ${{github.ref == 'refs/heads/main' && job.status == 'success'}}
          run: |
            git remote add heroku https://heroku:${{ secrets.HEROKU_API_KEY }}@git.heroku.com/${{ secrets.HEROKU_APP_NAME}}
       - name: Deploy to Heroku
