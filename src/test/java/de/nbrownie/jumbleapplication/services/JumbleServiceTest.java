@@ -7,6 +7,7 @@
 //class JumbleServiceTest {
 //
 //    @Test
+//    @DisplayName("Check by email if user exists should return boolean:false")
 //    void itShouldGetAllJumbles() {
 //        //GIVEN
 //        //WHEN
@@ -14,6 +15,7 @@
 //    }
 //
 //    @Test
+//    @DisplayName("Check by email if user exists should return boolean:false")
 //    void itShouldGetJumbleById() {
 //        //GIVEN
 //        //WHEN
@@ -21,6 +23,7 @@
 //    }
 //
 //    @Test
+//    @DisplayName("Check by email if user exists should return boolean:false")
 //    void itShouldAddNewJumble() {
 //        //GIVEN
 //        //WHEN
@@ -28,6 +31,7 @@
 //    }
 //
 //    @Test
+//    @DisplayName("Check by email if user exists should return boolean:false")
 //    void itShouldUpdateJumble() {
 //        //GIVEN
 //        //WHEN
@@ -35,6 +39,7 @@
 //    }
 //
 //    @Test
+//    @DisplayName("Check by email if user exists should return boolean:false")
 //    void itShouldDeleteJumble() {
 //        //GIVEN
 //        //WHEN

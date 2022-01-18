@@ -28,7 +28,7 @@ class UserRepositoryTest {
     @Test
     @DisplayName("Check by email if user exists should return boolean: true")
     void itShouldCheckByEmailIfUserExists() {
-        // given
+        // GIVEN
         String email = "trabbitina@gmail.com";
         String password = "12345";
         String userText = "UserBeschreibung";
@@ -42,28 +42,28 @@ class UserRepositoryTest {
         );
         userRepository.save(user);
 
-        // when
+        // WHEN
         boolean expected = userRepository.existsByEmail(email);
 
-        // then
+        // THEN
         assertThat(expected).isTrue();
     }
 
     @Test
     @DisplayName("Check by email if user exists should return boolean:false")
     void itShouldCheckByEmailIfUserNotExists() {
-        // given
+        // GIVEN
         String email = "trabbitina@gmail.com";
-        // when
+        // WHEN
         boolean expected = userRepository.existsByEmail(email);
-        // then
+        // THEN
         assertThat(expected).isFalse();
     }
 
     @Test
     @DisplayName("Find user by username should return found user")
     public void getUserByUsername(){
-        // given
+        // GIVEN
         User newUser = new User();
         newUser.setId(999L);
         newUser.setUsername("ninab");
@@ -73,10 +73,10 @@ class UserRepositoryTest {
         newUser.setUserImage("Image");
         User expectedUser = userRepository.save(newUser);
 
-        // when
+        // WHEN
         Optional<User> actualUserOptional = userRepository.getUserByUserName("ninab");
 
-        // then
+        // THEN
         assertTrue(actualUserOptional.isPresent());
         assertThat(actualUserOptional.get().getUsername(), is(expectedUser.getUsername()));
     }
@@ -84,9 +84,9 @@ class UserRepositoryTest {
     @Test
     @DisplayName("Find user by username should return empty optional, if user is not found")
     public void findUserNotInDatabase(){
-        // given
+        // GIVEN
         User newUser = new User();
-        newUser.setId(1L);
+        newUser.setId(999L);
         newUser.setUsername("ninab");
         newUser.setPassword("12345");
         newUser.setEmail("ninab@email.com");
@@ -94,10 +94,10 @@ class UserRepositoryTest {
         newUser.setUserImage("Image");
         userRepository.save(newUser);
 
-        // when
+        // WHEN
         Optional<User> actualUserOptional = userRepository.findByUsername("Ninab");
 
-        // then
+        // THEN
         assertTrue(actualUserOptional.isEmpty());
     }
 }

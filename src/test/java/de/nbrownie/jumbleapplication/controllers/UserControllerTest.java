@@ -7,6 +7,7 @@
 //class UserControllerTest {
 //
 //    @Test
+//    @DisplayName("Check by email if user exists should return boolean:false")
 //    void itShouldGetAllUsers() {
 //        //GIVEN
 //        //WHEN
@@ -14,6 +15,7 @@
 //    }
 //
 //    @Test
+//    @DisplayName("Check by email if user exists should return boolean:false")
 //    void idShouldGetUserByUserId() {
 //        //GIVEN
 //        //WHEN
@@ -21,6 +23,7 @@
 //    }
 //
 //    @Test
+//    @DisplayName("Check by email if user exists should return boolean:false")
 //    void itShouldUpdateUser() {
 //        //GIVEN
 //        //WHEN
@@ -28,6 +31,7 @@
 //    }
 //
 //    @Test
+//    @DisplayName("Check by email if user exists should return boolean:false")
 //    void itShouldDeleteUser() {
 //        //GIVEN
 //        //WHEN

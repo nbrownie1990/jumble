@@ -3,6 +3,7 @@ package de.nbrownie.jumbleapplication.repo;
 import de.nbrownie.jumbleapplication.models.ERole;
 import de.nbrownie.jumbleapplication.models.Role;
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
@@ -23,6 +24,7 @@ class RoleRepositoryTest {
     }
 
     @Test
+    @DisplayName("Create role and check if it is found")
     void createRoleTest() {
         //GIVEN
         Role role = new Role();

@@ -7,6 +7,7 @@
 //class UserServiceTest {
 //
 //    @Test
+//    @DisplayName("Check by email if user exists should return boolean:false")
 //    void itShouldGetAllUsers() {
 //        //GIVEN
 //        //WHEN
@@ -14,6 +15,7 @@
 //    }
 //
 //    @Test
+//    @DisplayName("Check by email if user exists should return boolean:false")
 //    void itShouldGetUserByUserId() {
 //        //GIVEN
 //        //WHEN
@@ -21,6 +23,7 @@
 //    }
 //
 //    @Test
+//    @DisplayName("Check by email if user exists should return boolean:false")
 //    void itShouldGetUserByUserName() {
 //        //GIVEN
 //        //WHEN
@@ -28,6 +31,7 @@
 //    }
 //
 //    @Test
+//    @DisplayName("Check by email if user exists should return boolean:false")
 //    void itShouldUpdateUser() {
 //        //GIVEN
 //        //WHEN
@@ -35,6 +39,7 @@
 //    }
 //
 //    @Test
+//    @DisplayName("Check by email if user exists should return boolean:false")
 //    void itShouldDeleteUser() {
 //        //GIVEN
 //        //WHEN
@@ -42,6 +47,7 @@
 //    }
 //
 //    @Test
+//    @DisplayName("Check by email if user exists should return boolean:false")
 //    void itShouldGetUserRepository() {
 //        //GIVEN
 //        //WHEN
@@ -49,6 +55,7 @@
 //    }
 //
 //    @Test
+//    @DisplayName("Check by email if user exists should return boolean:false")
 //    void itShouldSetUserRepository() {
 //        //GIVEN
 //        //WHEN
