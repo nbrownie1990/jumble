@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     services:
       postgres:
-        image: postgres:13.1
+        image: postgres
         env:
           POSTGRES_DB: ${{ secrets.JDBC_DATABASE_URL}}
           POSTGRES_USER: ${{ secrets.JDBC_DATABASE_USERNAME}}
