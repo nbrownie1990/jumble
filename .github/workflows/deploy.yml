@@ -21,8 +21,6 @@ env:
   HEROKU_API_KEY:  ${{ secrets.HEROKU_API_KEY }}
   HEROKU_APP_NAME: ${{ secrets.HEROKU_APP_NAME }}
   HEROKU_EMAIL:  ${{ secrets.HEROKU_EMAIL }}
-  # Push-Packages
-  PUSH_PACKAGES: ${{ github.ref == 'refs/heads/main' }} && ${{ job.status == 'success' }}
 
 jobs:
   # Create Postgres-image
@@ -96,7 +94,7 @@ jobs:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
         # deploy remote heroku and Slack Notification https://github.com/marketplace/actions/deploy-to-heroku
       - name: Add remote origin
-         if: ${{ env.PUSH_PACKAGES }}
+         if: github.ref == 'refs/heads/main' && ${{ job.status == 'success' }}
          run: |
            git remote add heroku https://heroku:${{ secrets.HEROKU_API_KEY }}@git.heroku.com/${{ secrets.HEROKU_APP_NAME}}
       - name: Deploy to Heroku
