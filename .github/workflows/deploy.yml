@@ -22,7 +22,7 @@ env:
   HEROKU_APP_NAME: ${{ secrets.HEROKU_APP_NAME }}
   HEROKU_EMAIL:  ${{ secrets.HEROKU_EMAIL }}
   # Push-Packages
-  PUSH_PACKAGES: ${{ github.ref == 'refs/heads/main' && job.status == 'success' }}
+  PUSH_PACKAGES: ${{ github.ref == 'refs/heads/main' }} && ${{ job.status == 'success' }}
 
 jobs:
   # Create Postgres-image
