@@ -1,7 +1,10 @@
-User-agent: *
-Disallow: /login
-Disallow: /user
-Disallow: /reviews
+# https://www.robotstxt.org/robotstxt.html
+user-agent: *
+disallow: /login/
+disallow: /user/
+disallow: /*.pdf
+allow: /jumbles/
+allow: /categories/
 
 
 
