@@ -26,7 +26,7 @@ class UserRepositoryTest {
     }
 
     @Test
-    @DisplayName("Check by email if user exists should return boolean: true")
+    @DisplayName("Return true, if user is found by email")
     void itShouldCheckByEmailIfUserExists() {
         // GIVEN
         String email = "trabbitina@gmail.com";
@@ -50,7 +50,7 @@ class UserRepositoryTest {
     }
 
     @Test
-    @DisplayName("Check by email if user exists should return boolean:false")
+    @DisplayName("Return false, if user is not found by email")
     void itShouldCheckByEmailIfUserNotExists() {
         // GIVEN
         String email = "trabbitina@gmail.com";
@@ -61,7 +61,7 @@ class UserRepositoryTest {
     }
 
     @Test
-    @DisplayName("Find user by username should return found user")
+    @DisplayName("Return user, found by username")
     public void getUserByUsername(){
         // GIVEN
         User newUser = new User();

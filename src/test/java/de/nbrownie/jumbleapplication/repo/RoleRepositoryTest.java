@@ -24,7 +24,7 @@ class RoleRepositoryTest {
     }
 
     @Test
-    @DisplayName("Create role and check if it is found")
+    @DisplayName("Create role and return true if it is found")
     void createRoleTest() {
         //GIVEN
         Role role = new Role();
