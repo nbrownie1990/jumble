@@ -102,11 +102,11 @@ jobs:
            git push heroku HEAD:main -f
       - uses: actions/checkout@v2
       - uses: akhileshns/heroku-deploy@v3.12.12
-              with:
-                heroku_api_key:  ${{ env.HEROKU_API_KEY }}
-                heroku_app_name: ${{ env.HEROKU_APP_NAME }}
-                heroku_email: ${{ env.HEROKU_EMAIL }}
-                usedocker: true
+        with:
+          heroku_api_key:  ${{ env.HEROKU_API_KEY }}
+          heroku_app_name: ${{ env.HEROKU_APP_NAME }}
+          heroku_email: ${{ env.HEROKU_EMAIL }}
+          usedocker: true
       - uses: 8398a7/action-slack@v3
         with:
           status: ${{ job.status }}
