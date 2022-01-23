@@ -38,3 +38,18 @@
 //        assertFalse(result.isEmpty());
 //    }
 //}
+
+//
+//public void registerNewCustomer(CustomerRegistrationRequest request){
+//        //1. PhoneNumber is taken
+//         String phoneNumber = request.getCustomer.getPhoneNumber()
+//         Optional<Customer> optionalCustomer = customerRepository.findCustomerByNumber(phoneNumber)
+//        //2. if yes belongs it to the customer
+//              if(optionalCustomer.isPresent()){
+//              Customer customer = customerOptional.get();
+//              if(customer.getName().equals.customerOptional.getName()){
+//              return;}
+//              throw new IllegalStateException(String.format("phonenumber ist taken by" + customer)
+//        //3. save customer
+//             customerRepository.save(request.getCustomer)
+//}

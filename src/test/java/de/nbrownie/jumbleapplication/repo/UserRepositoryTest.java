@@ -9,6 +9,7 @@
 //
 //
 //import java.util.Optional;
+//
 //import static org.hamcrest.MatcherAssert.assertThat;
 //import static org.hamcrest.Matchers.is;
 //import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
@@ -62,7 +63,7 @@
 //
 //    @Test
 //    @DisplayName("Return user, found by username")
-//    public void getUserByUsername(){
+//    public void shouldFindUserByUsername(){
 //        // GIVEN
 //        User newUser = new User();
 //        newUser.setId(999L);
@@ -83,10 +84,10 @@
 //
 //    @Test
 //    @DisplayName("Find user by username should return empty optional, if user is not found")
-//    public void findUserNotInDatabase(){
+//    public void shouldNotFindUserByUserName(){
 //        // GIVEN
 //        User newUser = new User();
-//        newUser.setId(999L);
+//        newUser.setId(99L);
 //        newUser.setUsername("ninab");
 //        newUser.setPassword("12345");
 //        newUser.setEmail("ninab@email.com");
@@ -100,4 +101,23 @@
 //        // THEN
 //        assertTrue(actualUserOptional.isEmpty());
 //    }
+//
+//    @Test
+//    void shouldGetUserById() {
+//        //Given
+//        Long id = 2L;
+//        User user = new User("Pia", "Pia@gmx.com", "12345" );
+//        user.setId(id);
+//        userRepository.save(user);
+//        //When
+//         Optional<User> optionalUser = userRepository.getUserByUserId(id);
+//
+//        //Then
+//        assertThat(optionalUser).isPresent()
+//                .hasValueSatisfying(u ->
+//                    assertThat(u.getUsername()).isEqualTo(user.getUsername())
+//                );
+//    }
 //}
+//
+//
